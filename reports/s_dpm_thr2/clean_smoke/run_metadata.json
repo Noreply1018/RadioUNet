@@ -17,7 +17,7 @@
       "batch_size": 15,
       "num_workers": 1,
       "smoke_num_tx": 2,
-      "fix_samples": 0,
+      "fix_samples": 200,
       "num_samples_low": 10,
       "num_samples_high": 300,
       "target_scale": 256
@@ -50,9 +50,18 @@
     }
   },
   "git": {
-    "commit": "656efd8848c75966d1f00be65e1d5226efcec5ef",
+    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
     "dirty": true,
-    "status_short": "M scripts/evaluate.py\n M scripts/make_figures.py\n M scripts/train.py\n M src/radiounet/factory.py\n?? configs/s_dpm_thr2.yaml\n?? reports/s_dpm_thr2/\n?? reports/stage2_smoke/\n?? scripts/audit_nmse_denominator.py\n?? scripts/audit_s_loader.py"
+    "status_short": "M reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png\n M reports/stage2_s_dpm_thr2/smoke_audit.json\n M reports/stage2_s_dpm_thr2/smoke_audit.md\n?? reports/s_dpm_thr2/clean_smoke/",
+    "exclude_paths": []
   },
   "device": "cuda",
   "smoke": true

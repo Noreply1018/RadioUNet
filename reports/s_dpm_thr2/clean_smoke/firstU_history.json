@@ -1,17 +1,17 @@
 {
   "phase": "firstU",
-  "best_val_loss": 6404.330078125,
+  "best_val_loss": 6402.39501953125,
   "history": [
     {
       "epoch": 0,
       "split": "train",
-      "loss": 6405.73583984375,
+      "loss": 6404.4189453125,
       "samples": 2
     },
     {
       "epoch": 0,
       "split": "val",
-      "loss": 6404.330078125,
+      "loss": 6402.39501953125,
       "samples": 2
     }
   ]

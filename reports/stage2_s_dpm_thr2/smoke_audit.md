@@ -1,5 +1,17 @@
 # Stage 2 smoke 审计：RadioUNet_S + DPM + threshold=0.2
 
+## 追溯性
+
+- source git commit：`4426ad74f6a4f59a7ceb08b4482f73f15fa8de95`。
+- source dirty：`False`（检查时排除 `reports/` 产物目录）。
+- source status：`clean`。
+
+## 权威产物
+
+- 审计报告目录：`reports/stage2_s_dpm_thr2`。
+- smoke run 目录：`reports/s_dpm_thr2/clean_smoke`。
+- 旧版 `reports/stage2_smoke/` 和时间戳 smoke run 不再作为 Stage 2 权威证据。
+
 ## 结论
 
 - 当前 test split 直接统计的 `MSE(target, 0)` 为 `0.0543188366`；全局像素口径为 `0.0543188365`，两者一致到可忽略量级。
@@ -28,8 +40,8 @@ Stage 1 secondU 当前 batch-mean NMSE 有效分母：`0.0435110417`。
 - 输入 shape：`[2, 3, 256, 256]`。
 - target shape：`[2, 1, 256, 256]`。
 - 三个输入通道：`buildings, Tx, sparse samples`。
-- sparse samples 非零数量范围：`16..115`。
-- sparse samples 值域：`0.000000..158.500000`，target 值域：`0.000000..254.750000`。
+- sparse samples 非零数量范围：`178..182`。
+- sparse samples 值域：`0.000000..164.750000`，target 值域：`0.000000..254.750000`。
 - sparse samples 与 target 对齐检查最大绝对误差：`0.0000000000`。
 - sparse sample 可视化：`reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png`。
 
@@ -42,11 +54,11 @@ Stage 1 secondU 当前 batch-mean NMSE 有效分母：`0.0435110417`。
 ## Smoke training
 
 - 命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --smoke`。
-- firstU smoke loss：`6405.73583984375` train / `6404.330078125` val，best val `6404.330078125`。
+- firstU smoke loss：`6404.4189453125` train / `6402.39501953125` val，best val `6402.39501953125`。
 
 ## Smoke evaluation / figure
 
-- firstU smoke MSE：`0.09765367209911346`。
-- firstU smoke NMSE：`0.9962713122367859`。
-- firstU smoke RMSE：`0.3124958753313609`。
-- prediction/error 图：`reports/s_dpm_thr2/20260507_004420/figures/s_dpm_thr2_test_0000.png`。
+- firstU smoke MSE：`0.09770692139863968`。
+- firstU smoke NMSE：`0.9968146085739136`。
+- firstU smoke RMSE：`0.3125810637236998`。
+- prediction/error 图：`reports/s_dpm_thr2/clean_smoke/figures/s_dpm_thr2_test_0000.png`。

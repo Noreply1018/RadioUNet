@@ -1,4 +1,18 @@
 {
+  "source_git": {
+    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+    "dirty": true,
+    "status_short": "M reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png\n M reports/stage2_s_dpm_thr2/smoke_audit.json\n M reports/stage2_s_dpm_thr2/smoke_audit.md\n?? reports/s_dpm_thr2/clean_smoke/",
+    "exclude_paths": []
+  },
   "config": {
     "experiment": {
       "name": "s_dpm_thr2",
@@ -17,7 +31,7 @@
       "batch_size": 15,
       "num_workers": 1,
       "smoke_num_tx": 2,
-      "fix_samples": 0,
+      "fix_samples": 200,
       "num_samples_low": 10,
       "num_samples_high": 300,
       "target_scale": 256
@@ -112,52 +126,61 @@
     ],
     "target_scale": 256.0,
     "sparse_nonzero_counts": [
-      115,
-      16
+      182,
+      178
     ],
-    "sparse_nonzero_min": 16,
-    "sparse_nonzero_max": 115,
+    "sparse_nonzero_min": 178,
+    "sparse_nonzero_max": 182,
     "sparse_value_min": 0.0,
-    "sparse_value_max": 158.5,
+    "sparse_value_max": 164.75,
     "target_value_min": 0.0,
     "target_value_max": 254.75,
     "sparse_target_alignment_abs_max": 0.0,
     "figure": "reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png"
   },
   "smoke_training": {
-    "best_val_loss": 6404.330078125,
-    "last_train_loss": 6405.73583984375,
-    "last_val_loss": 6404.330078125,
-    "history": "reports/s_dpm_thr2/20260507_004420/firstU_history.json"
+    "best_val_loss": 6402.39501953125,
+    "last_train_loss": 6404.4189453125,
+    "last_val_loss": 6402.39501953125,
+    "history": "reports/s_dpm_thr2/clean_smoke/firstU_history.json"
   },
   "smoke_metrics": {
     "samples": 2,
-    "seconds": 0.5245699882507324,
-    "checkpoint": "reports/s_dpm_thr2/20260507_004420/checkpoints/firstU.pt",
+    "seconds": 0.566516637802124,
+    "checkpoint": "reports/s_dpm_thr2/clean_smoke/checkpoints/firstU.pt",
     "checkpoint_phase": "firstU",
     "git": {
-      "commit": "656efd8848c75966d1f00be65e1d5226efcec5ef",
+      "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "artifact_git": {
+      "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
       "dirty": true,
-      "status_short": "M scripts/evaluate.py\n M scripts/make_figures.py\n M scripts/train.py\n M src/radiounet/factory.py\n?? configs/s_dpm_thr2.yaml\n?? reports/s_dpm_thr2/\n?? reports/stage2_s_dpm_thr2/\n?? reports/stage2_smoke/\n?? scripts/audit_nmse_denominator.py\n?? scripts/audit_s_loader.py\n?? scripts/audit_stage2.py"
+      "status_short": "M reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png\n M reports/stage2_s_dpm_thr2/smoke_audit.json\n M reports/stage2_s_dpm_thr2/smoke_audit.md\n?? reports/s_dpm_thr2/clean_smoke/",
+      "exclude_paths": []
     },
     "firstU": {
-      "mse": 0.09765367209911346,
-      "raw_mse": 6399.8310546875,
+      "mse": 0.09770692139863968,
+      "raw_mse": 6403.32080078125,
       "target_scale": 256.0,
-      "nmse": 0.9962713122367859,
-      "global_nmse": 0.9962713330011125,
-      "rmse": 0.3124958753313609,
-      "rmse_db_80": 24.999670026508873
+      "nmse": 0.9968146085739136,
+      "global_nmse": 0.9968145870281245,
+      "rmse": 0.3125810637236998,
+      "rmse_db_80": 25.006485097895986
     },
     "secondU": {
-      "mse": 0.09771095216274261,
-      "raw_mse": 6403.5849609375,
+      "mse": 0.09776691347360611,
+      "raw_mse": 6407.25244140625,
       "target_scale": 256.0,
-      "nmse": 0.9968557357788086,
-      "global_nmse": 0.9968557092372492,
-      "rmse": 0.31258751120725,
-      "rmse_db_80": 25.00700089658
+      "nmse": 0.9974266290664673,
+      "global_nmse": 0.9974266314419347,
+      "rmse": 0.3126770114248985,
+      "rmse_db_80": 25.01416091399188
     }
   },
-  "prediction_figure": "reports/s_dpm_thr2/20260507_004420/figures/s_dpm_thr2_test_0000.png"
+  "prediction_figure": "reports/s_dpm_thr2/clean_smoke/figures/s_dpm_thr2_test_0000.png"
 }
