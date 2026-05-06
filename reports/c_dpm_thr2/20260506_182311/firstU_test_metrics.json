@@ -1,0 +1,23 @@
+{
+  "samples": 7920,
+  "seconds": 34.29249453544617,
+  "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
+  "checkpoint_phase": "firstU",
+  "git": {
+    "commit": "c2e282ce28a5ba6fd5f54a3a6b1176fd04ed4c7f",
+    "dirty": false,
+    "status_short": ""
+  },
+  "firstU": {
+    "mse": 0.00047267809781480923,
+    "nmse": 0.010797844952486974,
+    "rmse": 0.021741161372263656,
+    "rmse_db_80": 1.7392929097810925
+  },
+  "secondU": {
+    "mse": 0.05536042074813987,
+    "nmse": 1.028069850170251,
+    "rmse": 0.23528795283256615,
+    "rmse_db_80": 18.823036226605293
+  }
+}

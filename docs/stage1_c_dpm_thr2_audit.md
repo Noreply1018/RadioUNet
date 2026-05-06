@@ -43,6 +43,8 @@ secondU 相比 firstU 的 test MSE 改善约 11.19%，RMSE 改善约 5.76%，复
 | `gain/IRT2` | 56080 | OK |
 | `gain/IRT4` | 1402 | OK |
 
+说明：`png/buildings_complete` 中包含 701 个 PNG，其中官方 loader 实际使用 map id `1..700`。文件 `0.png` 不进入当前 split 逻辑，不影响本次 train/val/test 样本数。
+
 样本 `map=1, tx=0` 的 buildings、antenna、DPM、IRT2、IRT4 均通过尺寸和值域校验。
 
 ## 命令记录
@@ -96,7 +98,7 @@ checkpoint manifest：
 | firstU | `reports/c_dpm_thr2/20260506_182311/firstU_checkpoint_manifest.json` | `cfec8caf23f20231e95a6c63f221e3e5f5515a05cf92a1522ad73081aad6ae25` |
 | secondU | `reports/c_dpm_thr2/20260506_182311/secondU_checkpoint_manifest.json` | `cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06` |
 
-checkpoint 文件按 `.gitignore` 不纳入 Git，manifest、metrics 和本报告记录其可追踪路径与哈希。
+checkpoint 文件按 `.gitignore` 不纳入 Git；轻量报告产物，包括 manifest、metrics、Markdown 和 PNG 图像，会纳入 Git，便于 clone 后直接审计。
 
 ## 官方 notebook / 论文对照
 
@@ -138,7 +140,7 @@ notebook 中 DPM test 输出：
 ## 偏差说明
 
 - firstU 与 secondU 的 MSE/RMSE 均略高于官方 notebook，但差异在约 2% 到 3% 范围内。
-- NMSE 比官方 notebook 和论文表格高约 24% 到 29%，比 RMSE 差异更明显，原因可能是 target 能量分母差异、数据集版本差异、图像读取/阈值变换细节或依赖版本差异。
+- NMSE 比官方 notebook 和论文表格高约 24% 到 29%，比 RMSE 差异更明显，原因可能是 target 能量分母差异、数据集版本差异、图像读取/阈值变换细节或依赖版本差异。该问题已登记为 Stage 2 前的审计项：在推进 RadioUNet_S 之前，需要复算官方 notebook 的 NMSE 分母、当前 loader 阈值后 target energy，以及当前数据集是否与官方 notebook 使用的数据包一致。
 - 本实现沿用官方训练超参：Adam、学习率 `1e-4`、StepLR `step_size=30`、`gamma=0.1`、batch size `15`、每个 U-Net 50 epoch、按验证集最小 loss 保存 best checkpoint。
 - 当前训练脚本在 epoch 开头调用 `scheduler.step()`，因此学习率在日志中的 epoch 29 开始变为 `1e-5`；官方 notebook 代码也采用相同调用顺序。
 

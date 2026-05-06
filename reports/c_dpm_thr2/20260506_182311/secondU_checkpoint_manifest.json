@@ -1,0 +1,7 @@
+{
+  "phase": "secondU",
+  "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+  "sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}

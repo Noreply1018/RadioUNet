@@ -10,7 +10,15 @@ checkpoints/
 outputs/
 runs/
 reports/**
+!reports/
+!reports/**/
 !reports/.gitkeep
+!reports/**/*.json
+!reports/**/*.md
+!reports/**/*.png
+!reports/**/*.yaml
+reports/**/checkpoints/
+reports/**/checkpoints/**
 wandb/
 *.pt
 *.pth
