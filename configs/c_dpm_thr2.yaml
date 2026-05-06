@@ -1,6 +1,7 @@
 experiment:
   name: c_dpm_thr2
   description: RadioUNet_C clean-map DPM baseline with threshold 0.2.
+  seed: 42
 
 data:
   dataset_dir: RadioMapSeer/
@@ -13,6 +14,7 @@ data:
   threshold: 0.2
   batch_size: 15
   num_workers: 1
+  smoke_num_tx: 2
 
 model:
   class_name: RadioWNet
@@ -37,4 +39,3 @@ evaluation:
     - rmse
   save_prediction_panels: true
   measure_runtime: true
-

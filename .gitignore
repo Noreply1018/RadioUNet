@@ -3,6 +3,7 @@ RadioMapSeer/
 reference/RadioMapSeer/
 data/
 datasets/
+downloads/
 
 # Training outputs
 checkpoints/
