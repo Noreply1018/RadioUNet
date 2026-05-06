@@ -25,7 +25,8 @@ from radiounet.utils import (
     copy_config,
     ensure_dir,
     get_device,
-    git_commit,
+    git_metadata,
+    file_sha256,
     load_yaml,
     require_dataset_dir,
     save_json,
@@ -121,11 +122,19 @@ def train_one_phase(
             "best_val_loss": best_loss,
             "config": config,
             "config_path": str(config_path),
-            "git_commit": git_commit(),
+            "git": git_metadata(),
             "smoke": smoke,
         },
         checkpoint_path,
     )
+    checkpoint_manifest = {
+        "phase": phase_name,
+        "checkpoint": str(checkpoint_path),
+        "sha256": file_sha256(checkpoint_path),
+        "tracked_in_git": False,
+        "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+    }
+    save_json(checkpoint_manifest, run_dir / f"{phase_name}_checkpoint_manifest.json")
     save_json({"phase": phase_name, "best_val_loss": best_loss, "history": history}, run_dir / f"{phase_name}_history.json")
     print(f"saved checkpoint: {checkpoint_path}")
     return checkpoint_path
@@ -159,7 +168,7 @@ def main() -> int:
     run_dir = Path(args.run_dir) if args.run_dir else Path("reports") / experiment_name / timestamp()
     ensure_dir(run_dir)
     copy_config(config_path, run_dir)
-    save_json({"config": config, "git_commit": git_commit(), "device": str(device), "smoke": args.smoke}, run_dir / "run_metadata.json")
+    save_json({"config": config, "git": git_metadata(), "device": str(device), "smoke": args.smoke}, run_dir / "run_metadata.json")
 
     print(f"device: {device}")
     print(f"run_dir: {run_dir}")

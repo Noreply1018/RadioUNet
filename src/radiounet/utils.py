@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import random
 import shutil
+import subprocess
 import time
 from pathlib import Path
 from typing import Any
@@ -62,12 +63,36 @@ def copy_config(config_path: str | Path, output_dir: str | Path) -> Path:
 
 
 def git_commit() -> str:
-    import subprocess
-
     try:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     except Exception:
         return "unknown"
+
+
+def git_status_short() -> str:
+    try:
+        return subprocess.check_output(["git", "status", "--short"], text=True).strip()
+    except Exception:
+        return "unknown"
+
+
+def git_metadata() -> dict[str, Any]:
+    status = git_status_short()
+    return {
+        "commit": git_commit(),
+        "dirty": bool(status),
+        "status_short": status,
+    }
+
+
+def file_sha256(path: str | Path) -> str:
+    import hashlib
+
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def require_dataset_dir(config: dict[str, Any]) -> Path:

@@ -46,6 +46,11 @@
     }
   },
   "git_commit": "ae8fb0b0a8ab7bc191a05fa401168c1e7bb3b15b",
+  "audit_correction": {
+    "dirty_worktree_at_original_run": true,
+    "followup_commit_containing_run_code": "01b67e32b10301c053dd0b763828e846808b348f",
+    "note": "The original git_commit was the HEAD at run start. The working tree contained uncommitted fixes later committed as the followup commit."
+  },
   "device": "cuda",
   "smoke": true
 }

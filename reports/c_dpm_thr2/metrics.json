@@ -4,6 +4,11 @@
   "checkpoint": "reports/c_dpm_thr2/20260506_180913/checkpoints/firstU.pt",
   "checkpoint_phase": "firstU",
   "git_commit": "ae8fb0b0a8ab7bc191a05fa401168c1e7bb3b15b",
+  "audit_correction": {
+    "dirty_worktree_at_original_run": true,
+    "followup_commit_containing_run_code": "01b67e32b10301c053dd0b763828e846808b348f",
+    "note": "The original git_commit was the HEAD at run start. The working tree contained uncommitted fixes later committed as the followup commit."
+  },
   "firstU": {
     "mse": 0.09922465682029724,
     "nmse": 0.9990440011024475,

@@ -19,7 +19,7 @@ if str(SRC) not in sys.path:
 
 from radiounet.factory import build_dataloader, build_model
 from radiounet.metrics import mse, nmse
-from radiounet.utils import ensure_dir, get_device, git_commit, load_yaml, require_dataset_dir, save_json
+from radiounet.utils import ensure_dir, get_device, git_metadata, load_yaml, require_dataset_dir, save_json
 
 
 def main() -> int:
@@ -69,7 +69,7 @@ def main() -> int:
         "seconds": time.time() - since,
         "checkpoint": args.checkpoint,
         "checkpoint_phase": phase,
-        "git_commit": git_commit(),
+        "git": git_metadata(),
     }
     for name in ["firstU", "secondU"]:
         mse_value = sums[f"{name}_mse"] / max(samples, 1)
