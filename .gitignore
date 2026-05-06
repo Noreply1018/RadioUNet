@@ -1,0 +1,45 @@
+# Local datasets
+RadioMapSeer/
+reference/RadioMapSeer/
+data/
+datasets/
+
+# Training outputs
+checkpoints/
+outputs/
+runs/
+reports/**
+!reports/.gitkeep
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npz
+*.npy
+
+# Python/Jupyter cache
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# LaTeX generated files
+*.synctex
+*.synctex.gz
+
+# Virtual environments
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Local configuration
+.codex/
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store

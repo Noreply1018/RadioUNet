@@ -1,0 +1,40 @@
+experiment:
+  name: c_dpm_thr2
+  description: RadioUNet_C clean-map DPM baseline with threshold 0.2.
+
+data:
+  dataset_dir: RadioMapSeer/
+  loader: RadioUNet_c
+  simulation: DPM
+  city_map: complete
+  cars_simulation: no
+  cars_input: no
+  num_tx: 80
+  threshold: 0.2
+  batch_size: 15
+  num_workers: 1
+
+model:
+  class_name: RadioWNet
+  inputs: 2
+  phases:
+    - firstU
+    - secondU
+
+training:
+  epochs: 50
+  optimizer: Adam
+  learning_rate: 0.0001
+  scheduler: StepLR
+  step_size: 30
+  gamma: 0.1
+  loss: MSELoss
+
+evaluation:
+  metrics:
+    - mse
+    - nmse
+    - rmse
+  save_prediction_panels: true
+  measure_runtime: true
+

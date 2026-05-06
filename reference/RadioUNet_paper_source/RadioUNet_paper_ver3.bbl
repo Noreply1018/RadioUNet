@@ -1,0 +1,334 @@
+\begin{thebibliography}{10}
+
+\bibitem{TINJafar}
+C.~{Geng}, N.~{Naderializadeh}, A.~S. {Avestimehr}, and S.~A. {Jafar}, ``On the
+  optimality of treating interference as noise,'' {\em IEEE Trans. Inf.
+  Theory}, vol.~61, pp.~1753--1767, April 2015.
+
+\bibitem{bianchi2000performance}
+G.~{Bianchi}, ``Performance analysis of the ieee 802.11 distributed
+  coordination function,'' {\em IEEE Journal on Selected Areas in
+  Communications}, vol.~18, no.~3, pp.~535--547, 2000.
+
+\bibitem{wu2013flashlinq}
+X.~Wu, S.~Tavildar, S.~Shakkottai, T.~Richardson, J.~Li, R.~Laroia, and
+  A.~Jovicic, ``Flash{L}in{Q}: A synchronous distributed scheduler for
+  peer-to-peer ad hoc networks,'' {\em IEEE/ACM Trans. Networking}, vol.~21,
+  no.~4, pp.~1215--1228, 2013.
+
+\bibitem{naderializadeh2014itlinq}
+N.~Naderializadeh and A.~S. Avestimehr, ``{ITL}in{Q}: A new approach for
+  spectrum sharing in device-to-device communication systems,'' {\em IEEE
+  Journal on Selected Areas in Communications}, vol.~32, no.~6, pp.~1139--1151,
+  2014.
+
+\bibitem{TINCaire}
+X.~{Yi} and G.~{Caire}, ``Optimality of treating interference as noise: A
+  combinatorial perspective,'' {\em IEEE Trans. Inf. Theory}, vol.~62,
+  pp.~4654--4673, Aug 2016.
+
+\bibitem{shen2017fplinq}
+K.~{Shen} and W.~{Yu}, ``{FPL}in{Q}: A cooperative spectrum sharing strategy
+  for device-to-device communications,'' in {\em Proc. IEEE Int. Symp. Inf.
+  Theory (ISIT)}, (Aachen, Germany), pp.~2323--2327, 2017.
+
+\bibitem{SchYu}
+W.~{Cui}, K.~{Shen}, and W.~{Yu}, ``Spatial deep learning for wireless
+  scheduling,'' {\em IEEE Jour. Sel. Areas in Comm.}, vol.~37, pp.~1248--1261,
+  June 2019.
+
+\bibitem{userCellAssoc}
+D.~{Bethanabhotla}, O.~Y. {Bursalioglu}, H.~C. {Papadopoulos}, and G.~{Caire},
+  ``Optimal user-cell association for massive {MIMO} wireless networks,'' {\em
+  IEEE Trans. Wireless Comm.}, vol.~15, pp.~1835--1850, March 2016.
+
+\bibitem{FingerLoc}
+S.~{Nikitaki}, G.~{Tsagkatakis}, and P.~{Tsakalides}, ``Efficient training for
+  fingerprint based positioning using matrix completion,'' in {\em Proc.
+  European Sig. Proc. Conf. (EUSIPCO)}, (Bucharest, Romania), pp.~195--199, Aug
+  2012.
+
+\bibitem{PLS}
+Z.~{Utkovski}, P.~{Agostini}, M.~{Frey}, I.~{Bjelakovic}, and S.~{Stanczak},
+  ``Learning radio maps for physical-layer security in the radio access,'' in
+  {\em Proc. IEEE Int. Workshop Sig. Proc. Advances Wireless Comm. (SPAWC)},
+  (Cannes, France), pp.~1--5, July 2019.
+
+\bibitem{PowerCellular}
+T.~V. Chien, T.~N. Canh, E.~Bj{\"{o}}rnson, and E.~G. Larsson, ``Power control
+  in cellular massive {MIMO} with varying user activity: {A} deep learning
+  solution,'' {\em CoRR}, vol.~abs/1901.03620, 2019.
+
+\bibitem{PowerNOMA}
+S.~{Park}, A.~Q. {Truong}, and T.~H. {Nguyen}, ``Power control for sum spectral
+  efficiency optimization in {MIMO-NOMA} systems with linear beamforming,''
+  {\em IEEE Access}, vol.~7, pp.~10593--10605, 2019.
+
+\bibitem{LSAS}
+A.~{Ashikhmin} and T.~{Marzetta}, ``Pilot contamination precoding in multi-cell
+  large scale antenna systems,'' in {\em Proc. IEEE Int. Symp. Inf. Theory},
+  (Cambridge, MA, USA), pp.~1137--1141, July 2012.
+
+\bibitem{pathUAV}
+S.~{Zhang} and R.~{Zhang}, ``Radio map based path planning for
+  cellular-connected {UAV},'' in {\em Proc. IEEE Global Comm. Conf.
+  (GLOBECOM)}, (Waikoloa, HI, USA), pp.~1--6, 2019.
+
+\bibitem{activDet}
+Z.~{Chen}, F.~{Sohrabi}, and W.~{Yu}, ``Sparse activity detection for massive
+  connectivity,'' {\em IEEE Trans. Sig. Proc.}, vol.~66, pp.~1890--1904, April
+  2018.
+
+\bibitem{stein2012interpolation}
+M.~L. Stein, {\em Interpolation of spatial data: some theory for kriging}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{BishopNNPR}
+C.~M. Bishop, {\em Neural Networks for Pattern Recognition}.
+\newblock New York, NY, USA: Oxford University Press, Inc., 1995.
+
+\bibitem{TensorCompletion}
+D.~{Sch{\"a}ufele}, R.~L.~G. {Cavalcante}, and S.~{Stanczak}, ``Tensor
+  completion for radio map reconstruction using low rank and smoothness,'' in
+  {\em Proc. IEEE Int. Workshop Sig. Proc. Advances Wireless Comm. (SPAWC)},
+  (Cannes, France), pp.~1--5, July 2019.
+
+\bibitem{SVR}
+R.~Timoteo, D.~Cunha, and G.~Cavalcanti, ``A proposal for path loss prediction
+  in urban environments using support vector regression,'' in {\em Proc. Adv.
+  Int. Conf. Telecomm., (AICT)}, vol.~2014, (Paris, France), pp.~119--124, Jul
+  2014.
+
+\bibitem{MatComp}
+S.~{Chouvardas}, S.~{Valentin}, M.~{Draief}, and M.~{Leconte}, ``A method to
+  reconstruct coverage loss maps based on matrix completion and adaptive
+  sampling,'' in {\em Proc. IEEE Int. Conf. Acoustics, Speech and Sig. Proc.
+  (ICASSP)}, (Shanghai, China), pp.~6390--6394, March 2016.
+
+\bibitem{LowRankOutliers}
+D.~{Lee}, S.~{Kim}, and G.~B. {Giannakis}, ``Channel gain cartography for
+  cognitive radios leveraging low rank and sparsity,'' {\em IEEE Trans.
+  Wireless Comm.}, vol.~16, pp.~5953--5966, Sep. 2017.
+
+\bibitem{BlindTomo}
+D.~{Romero}, D.~{Lee}, and G.~B. {Giannakis}, ``Blind radio tomography,'' {\em
+  IEEE Trans. Sig. Proc.}, vol.~66, pp.~2055--2069, April 2018.
+
+\bibitem{AdaptiveBayesian}
+D.~{Lee}, D.~{Berberidis}, and G.~B. {Giannakis}, ``Adaptive {Bayesian} radio
+  tomography,'' {\em IEEE Trans. Sig. Proc.}, vol.~67, pp.~1964--1977, April
+  2019.
+
+\bibitem{VariationalBayes}
+D.~{Lee} and G.~B. {Giannakis}, ``A variational {Bayes} approach to adaptive
+  channel-gain cartography,'' in {\em Proc. IEEE Int. Conf. Acoustics, Speech
+  and Sig. Proc. (ICASSP)}, (Brighton, United Kingdom), pp.~8434--8438, May
+  2019.
+
+\bibitem{RayTracing}
+K.~{Rizk}, J.~F. {Wagen}, and F.~{Gardiol}, ``Two-dimensional ray-tracing
+  modeling for propagation prediction in microcellular environments,'' {\em
+  IEEE Trans. Vehic. Tech.}, vol.~46, pp.~508--518, May 1997.
+
+\bibitem{dominantPathUrban}
+R.~Wahl, G.~W{\"o}lfle, P.~Wildbolz, and F.~Landstorfer, ``Dominant path
+  prediction model for urban scenarios,'' in {\em Proc. IST Mobile and Wireless
+  Communications}, 2005.
+
+\bibitem{empV2V}
+T.~Zugno, M.~Drago, M.~Giordani, M.~Polese, and M.~Zorzi, ``Towards
+  standardization of millimeter wave vehicle-to-vehicle networks: Open
+  challenges and performance evaluation,'' {\em arXiv preprint
+  arXiv:1910.00300}, 2019.
+
+\bibitem{DocomoCNN}
+T.~{Imai}, K.~{Kitao}, and M.~{Inomata}, ``Radio propagation prediction model
+  using convolutional neural networks by deep learning,'' in {\em Proc.
+  European Conf. Antennas and Propagation (EuCAP)}, (Krakow, Poland), pp.~1--5,
+  March 2019.
+
+\bibitem{DocomoTwoStep}
+K.~Saito, Y.~Jin, C.~Kang, J.~Takada, and J.-S. Leu, ``Two-step path loss
+  prediction by artificial neural network for wireless service area planning,''
+  {\em IEICE Communications Express}, 2019.
+
+\bibitem{PopoolaSurvey}
+S.~I. {Popoola}, A.~{Jefia}, A.~A. {Atayero}, O.~{Kingsley}, N.~{Faruk}, O.~F.
+  {Oseni}, and R.~O. {Abolade}, ``Determination of neural network parameters
+  for path loss prediction in very high frequency wireless channel,'' {\em IEEE
+  Access}, vol.~7, pp.~150462--150483, 2019.
+
+\bibitem{SOTIROUDISOptimal}
+S.~P. {Sotiroudis} and K.~{Siakavara}, ``Mobile radio propagation path loss
+  prediction using artificial neural networks with optimal input information
+  for urban environments,'' {\em AEU - International Journal of Electronics and
+  Communications}, vol.~69, no.~10, pp.~1453 -- 1463, 2015.
+
+\bibitem{SOTIROUDISDiff}
+S.~P. {Sotiroudis}, S.~K. {Goudos}, K.~A. {Gotsis}, K.~{Siakavara}, and J.~N.
+  {Sahalos}, ``Application of a composite differential evolution algorithm in
+  optimal neural network design for propagation path-loss prediction in mobile
+  communication systems,'' {\em IEEE Antennas and Wireless Propagation
+  Letters}, vol.~12, pp.~364--367, 2013.
+
+\bibitem{PopescuUrban}
+I.~{Popescu}, I.~{Nafomita}, P.~{Constantinou}, A.~{Kanatas}, and
+  N.~{Moraitis}, ``Neural networks applications for the prediction of
+  propagation path loss in urban environments,'' in {\em IEEE VTS 53rd
+  Vehicular Technology Conference, Spring 2001. Proceedings (Cat.
+  No.01CH37202)}, vol.~1, pp.~387--391 vol.1, 2001.
+
+\bibitem{TLTilting}
+C.~{Parera}, Q.~{Liao}, I.~{Malanchini}, C.~{Tatino}, A.~E.~C. {Redondi}, and
+  M.~{Cesana}, ``Transfer learning for tilt-dependent radio map prediction,''
+  {\em IEEE Trans. Cognitive Communications and Networking}, pp.~1--1, 2020.
+
+\bibitem{RomeroICC}
+Y.~{Teganya} and D.~{Romero}, ``Data-driven spectrum cartography via deep
+  completion autoencoders,'' in {\em ICC 2020 - 2020 IEEE International
+  Conference on Communications (ICC)}, (Dublin, Ireland, Ireland), pp.~1--7,
+  2020.
+
+\bibitem{RadioUNetConf}
+R.~{Levie}, C.~{Yapar}, G.~{Kutyniok}, and G.~{Caire}, ``Pathloss prediction
+  using deep learning with applications to cellular optimization and efficient
+  d2d link scheduling,'' in {\em ICASSP 2020 - 2020 IEEE International
+  Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pp.~8678--8682, 2020.
+
+\bibitem{UNet}
+O.~Ronneberger, O.~Fischer, and T.~Brox, ``U-{N}et: Convolutional networks for
+  biomedical image segmentation,'' in {\em Medical Image Computing and
+  Computer-Assisted Intervention -- MICCAI 2015} (N.~Navab, J.~Hornegger, W.~M.
+  Wells, and A.~F. Frangi, eds.), (Cham), pp.~234--241, Springer International
+  Publishing, 2015.
+
+\bibitem{WinPropFEKO}
+R.~{Hoppe}, G.~{W{\"o}lfle}, and U.~{Jakobus}, ``Wave propagation and radio
+  network planning software {W}in{P}rop added to the electromagnetic solver
+  package {FEKO},'' in {\em Proc. Int. Appl. Computational Electromagnetics
+  Society Symp. - Italy (ACES)}, (Florence, Italy), pp.~1--2, March 2017.
+
+\bibitem{CNN_Nature}
+Y.~LeCun, Y.~Bengio, and G.~Hinton, ``Deep learning,'' {\em Nature}, vol.~512,
+  pp.~436--444, 2015.
+
+\bibitem{CNNLeCun}
+Y.~{Le{C}un}, L.~{Bottou}, Y.~{Bengio}, and P.~{Haffner}, ``Gradient-based
+  learning applied to document recognition,'' {\em Proc. of the IEEE}, vol.~86,
+  pp.~2278--2324, Nov 1998.
+
+\bibitem{FullyConv}
+E.~{Shelhamer}, J.~{Long}, and T.~{Darrell}, ``Fully convolutional networks for
+  semantic segmentation,'' {\em IEEE Trans. Pattern Analysis and Machine
+  Intel.}, vol.~39, pp.~640--651, April 2017.
+
+\bibitem{Segnet}
+V.~{Badrinarayanan}, A.~{Kendall}, and R.~{Cipolla}, ``Segnet: A deep
+  convolutional encoder-decoder architecture for image segmentation,'' {\em
+  IEEE Transactions on Pattern Analysis and Machine Intelligence}, vol.~39,
+  pp.~2481--2495, Dec 2017.
+
+\bibitem{VNET}
+F.~{Milletari}, N.~{Navab}, and S.~{Ahmadi}, ``V-{N}et: Fully convolutional
+  neural networks for volumetric medical image segmentation,'' in {\em Proc.
+  Int. Conf. 3D Vision (3DV)}, (Stanford, CA, USA), pp.~565--571, Oct 2016.
+
+\bibitem{3DUnet}
+{\"O}.~{\c{C}}i{\c{c}}ek, A.~Abdulkadir, S.~S. Lienkamp, T.~Brox, and
+  O.~Ronneberger, ``3{D} {U}-{N}et: Learning dense volumetric segmentation from
+  sparse annotation,'' in {\em Medical Image Computing and Computer-Assisted
+  Intervention -- MICCAI 2016}, pp.~424--432, Springer International
+  Publishing, 2016.
+
+\bibitem{UNetVideo}
+M.~Mathieu, C.~Couprie, and Y.~LeCun, ``Deep multi-scale video prediction
+  beyond mean square error,'' in {\em Int. Conf. Learning Representations,
+  {ICLR} 2016, San Juan, Puerto Rico, May 2-4, 2016, Conference Track
+  Proceedings}, 2016.
+
+\bibitem{UNetSupRes}
+B.~{Lim}, S.~{Son}, H.~{Kim}, S.~{Nah}, and K.~M. {Lee}, ``Enhanced deep
+  residual networks for single image super-resolution,'' in {\em Proc. Conf.
+  Computer Vision and Pattern Recognition Workshops (CVPRW)}, (Honolulu, HI,
+  USA), pp.~1132--1140, July 2017.
+
+\bibitem{InverseUNet}
+K.~H. {Jin}, M.~T. {McCann}, E.~{Froustey}, and M.~{Unser}, ``Deep
+  convolutional neural network for inverse problems in imaging,'' {\em IEEE
+  Trans. Image Proc.}, vol.~26, pp.~4509--4522, Sep. 2017.
+
+\bibitem{DualGAN}
+Z.~{Yi}, H.~{Zhang}, P.~{Tan}, and M.~{Gong}, ``Dual{GAN}: Unsupervised dual
+  learning for image-to-image translation,'' in {\em Proc.IEEE Int. Conf. Comp.
+  Vision (ICCV)}, pp.~2868--2876, Oct 2017.
+
+\bibitem{SurveyMedical}
+G.~Litjens, T.~Kooi, B.~E. Bejnordi, A.~A.~A. Setio, F.~Ciompi, M.~Ghafoorian,
+  J.~A. W.~M. van~der Laak, B.~van Ginneken, and C.~I. Sanchez, ``A survey on
+  deep learning in medical image analysis,'' {\em Medical image analysis},
+  vol.~42, pp.~60 -- 88, December 2017.
+
+\bibitem{Bengio_cur}
+Y.~Bengio, J.~Louradour, R.~Collobert, and J.~Weston, ``Curriculum learning,''
+  in {\em Proc. 26th Annual Int. Conf. Machine Learning}, ICML ’09,
+  p.~41–48, Association for Computing Machinery, 2009.
+
+\bibitem{transfer1}
+S.~J. {Pan}, I.~W. {Tsang}, J.~T. {Kwok}, and Q.~{Yang}, ``Domain adaptation
+  via transfer component analysis,'' {\em IEEE Transactions on Neural
+  Networks}, vol.~22, no.~2, pp.~199--210, 2011.
+
+\bibitem{transfer2}
+K.~Weiss, T.~Khoshgoftaar, and D.~Wang, ``A survey of transfer learning,'' {\em
+  Journal of Big Data}, vol.~3, no.~9, 2016.
+
+\bibitem{IRT}
+T.~{Rautiainen}, G.~{W{\"o}lfle}, and R.~{Hoppe}, ``Verifying path loss and
+  delay spread predictions of a 3d ray tracing propagation model in urban
+  environment,'' in {\em Proceedings IEEE 56th Vehicular Technology
+  Conference}, vol.~4, (Vancouver, BC, Canada), pp.~2470--2474 vol.4, 2002.
+
+\bibitem{OpenStreetMap}
+{OpenStreetMap contributors}, ``{Planet dump retrieved from
+  https://planet.osm.org }.'' \url{ https://www.openstreetmap.org }, 2017.
+
+\bibitem{cover1999elements}
+T.~M. Cover, {\em Elements of information theory}.
+\newblock John Wiley \& Sons, 1999.
+
+\bibitem{biglieri1998fading}
+E.~Biglieri, J.~Proakis, and S.~Shamai, ``Fading channels:
+  Information-theoretic and communications aspects,'' {\em IEEE transactions on
+  information theory}, vol.~44, no.~6, pp.~2619--2692, 1998.
+
+\bibitem{UNetBase}
+A.~{Hauptmann} and J.~{Adler}, ``On the unreasonable effectiveness of cnns,''
+  {\em arXiv preprint arXiv:2007.14745}, 2020.
+
+\bibitem{Adam}
+D.~P. {Kingma} and J.~{Ba}, ``Adam: a method for stochastic optimization,'' in
+  {\em Proc. Int. Conf. Learn. Represent. (ICLR)}, (San Diego, CA, USA), May
+  2015.
+
+\bibitem{ElasticNets}
+M.~A. {Gutierrez-Estevez}, R.~L.~G. {Cavalcante}, and S.~{Stanczak},
+  ``Nonparametric radio maps reconstruction via elastic net regularization with
+  multi-kernels,'' in {\em Proc. IEEE Int. Workshop Sig. Proc. Advances
+  Wireless Comm. (SPAWC)}, (Kalamata, Greece), pp.~1--5, June 2018.
+
+\bibitem{Wolfle_fieldstrength}
+G.~{W{\"o}lfle}, G.~{Wol}, and F.~M. {Landstorfer}, ``Field strength prediction
+  with dominant paths and neural networks for indoor mobile communication.''
+
+\bibitem{Gandy_2011}
+S.~{Gandy}, B.~{Recht}, and I.~{Yamada}, ``Tensor completion and low-n-rank
+  tensor recovery via convex optimization,'' {\em Inverse Problems}, vol.~27,
+  p.~025010, Jan. 2011.
+
+\bibitem{etsi_302663}
+{ETSI}, ``{Intelligent Transport Systems (ITS); Access layer specification for
+  Intelligent Transport Systems operating in the 5 GHz frequency band},'' EN
+  302 663 V1.2.1, ETSI, 7 2013.
+
+\end{thebibliography}
