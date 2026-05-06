@@ -33,6 +33,15 @@ def build_dataset(config: dict[str, Any], phase: str, smoke: bool = False):
     }
     if "missing" in data_cfg:
         kwargs["missing"] = int(data_cfg["missing"])
+    for config_key, loader_key, caster in [
+        ("fix_samples", "fix_samples", float),
+        ("num_samples_low", "num_samples_low", int),
+        ("num_samples_high", "num_samples_high", int),
+        ("num_samples", "num_samples", int),
+        ("data_samples", "data_samples", int),
+    ]:
+        if config_key in data_cfg:
+            kwargs[loader_key] = caster(data_cfg[config_key])
 
     if smoke:
         kwargs.update({"phase": "custom", "ind1": 0, "ind2": 0, "numTx": int(data_cfg.get("smoke_num_tx", 2))})

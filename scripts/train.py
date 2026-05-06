@@ -35,6 +35,17 @@ from radiounet.utils import (
 )
 
 
+def unpack_batch(batch):
+    if len(batch) == 2:
+        inputs, targets = batch
+        samples = None
+    elif len(batch) == 3:
+        inputs, targets, samples = batch
+    else:
+        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+    return inputs, targets, samples
+
+
 def train_one_phase(
     config: dict,
     config_path: Path,
@@ -83,9 +94,12 @@ def train_one_phase(
             metrics = defaultdict(float)
             epoch_samples = 0
 
-            for batch_idx, (inputs, targets) in enumerate(dataloaders[split]):
+            for batch_idx, batch in enumerate(dataloaders[split]):
+                inputs, targets, samples = unpack_batch(batch)
                 inputs = inputs.to(device)
                 targets = targets.to(device)
+                if samples is not None:
+                    samples = samples.to(device)
                 optimizer.zero_grad()
 
                 with torch.set_grad_enabled(split == "train"):

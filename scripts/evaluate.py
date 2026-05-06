@@ -22,6 +22,17 @@ from radiounet.metrics import mse, nmse
 from radiounet.utils import ensure_dir, get_device, git_metadata, load_yaml, require_dataset_dir, save_json
 
 
+def unpack_batch(batch):
+    if len(batch) == 2:
+        inputs, targets = batch
+        samples = None
+    elif len(batch) == 3:
+        inputs, targets, samples = batch
+    else:
+        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+    return inputs, targets, samples
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True, help="Experiment YAML config.")
@@ -47,12 +58,14 @@ def main() -> int:
     model.eval()
 
     loader = build_dataloader(config, args.split, smoke=args.smoke, shuffle=False)
+    target_scale = float(config.get("data", {}).get("target_scale", 1.0))
     sums = defaultdict(float)
     samples = 0
     since = time.time()
 
     with torch.no_grad():
-        for batch_idx, (inputs, targets) in enumerate(loader):
+        for batch_idx, batch in enumerate(loader):
+            inputs, targets, _samples = unpack_batch(batch)
             inputs = inputs.to(device)
             targets = targets.to(device)
             outputs1, outputs2 = model(inputs)
@@ -61,6 +74,8 @@ def main() -> int:
             for name, pred in [("firstU", outputs1), ("secondU", outputs2)]:
                 sums[f"{name}_mse"] += float(mse(pred, targets).cpu()) * batch_size
                 sums[f"{name}_nmse"] += float(nmse(pred, targets).cpu()) * batch_size
+                sums[f"{name}_sse"] += float(torch.sum((pred - targets) ** 2).cpu())
+            sums["target_energy_sse"] += float(torch.sum(targets**2).cpu())
             if args.limit_batches is not None and batch_idx + 1 >= args.limit_batches:
                 break
 
@@ -72,12 +87,16 @@ def main() -> int:
         "git": git_metadata(),
     }
     for name in ["firstU", "secondU"]:
-        mse_value = sums[f"{name}_mse"] / max(samples, 1)
+        raw_mse_value = sums[f"{name}_mse"] / max(samples, 1)
+        mse_value = raw_mse_value / (target_scale**2)
         nmse_value = sums[f"{name}_nmse"] / max(samples, 1)
         rmse_value = math.sqrt(mse_value)
         metrics[name] = {
             "mse": mse_value,
+            "raw_mse": raw_mse_value,
+            "target_scale": target_scale,
             "nmse": nmse_value,
+            "global_nmse": sums[f"{name}_sse"] / sums["target_energy_sse"],
             "rmse": rmse_value,
             "rmse_db_80": rmse_value * 80,
         }

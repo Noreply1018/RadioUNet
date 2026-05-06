@@ -1,0 +1,29 @@
+{
+  "samples": 2,
+  "seconds": 0.8705129623413086,
+  "checkpoint": "reports/s_dpm_thr2/20260507_004021/checkpoints/firstU.pt",
+  "checkpoint_phase": "firstU",
+  "git": {
+    "commit": "656efd8848c75966d1f00be65e1d5226efcec5ef",
+    "dirty": true,
+    "status_short": "M scripts/evaluate.py\n M scripts/make_figures.py\n M scripts/train.py\n M src/radiounet/factory.py\n?? configs/s_dpm_thr2.yaml\n?? reports/s_dpm_thr2/\n?? reports/stage2_s_dpm_thr2/\n?? reports/stage2_smoke/\n?? scripts/audit_nmse_denominator.py\n?? scripts/audit_s_loader.py\n?? scripts/audit_stage2.py"
+  },
+  "firstU": {
+    "mse": 0.09784100949764252,
+    "raw_mse": 6412.1083984375,
+    "target_scale": 256.0,
+    "nmse": 0.9981825947761536,
+    "global_nmse": 0.9981825655819423,
+    "rmse": 0.31279547550698766,
+    "rmse_db_80": 25.023638040559014
+  },
+  "secondU": {
+    "mse": 0.09790583699941635,
+    "raw_mse": 6416.35693359375,
+    "target_scale": 256.0,
+    "nmse": 0.9988439679145813,
+    "global_nmse": 0.9988439414444066,
+    "rmse": 0.3128990843697315,
+    "rmse_db_80": 25.03192674957852
+  }
+}
