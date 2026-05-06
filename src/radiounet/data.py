@@ -11,6 +11,27 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+def _to_chw_float_tensor(image):
+    array = np.asarray(image)
+    if array.ndim == 2:
+        array = np.expand_dims(array, axis=2)
+    if array.ndim != 3:
+        raise ValueError(f"Expected HWC or HW image array, got shape {array.shape}")
+
+    tensor = torch.from_numpy(np.ascontiguousarray(array.transpose((2, 0, 1)))).type(torch.float32)
+    if np.issubdtype(array.dtype, np.integer):
+        tensor = tensor / 255.0
+    return tensor
+
+
+def _apply_image_transform(image, transform):
+    if transform is None:
+        return image
+    if isinstance(transform, transforms.ToTensor):
+        return _to_chw_float_tensor(image)
+    return transform(image).type(torch.float32)
+
+
                  #dir_gainDPM="gain/DPM/", 
                  #dir_gainDPMcars="gain/carsDPM/", 
                  #dir_gainIRT2="gain/IRT2/", 
@@ -195,8 +216,8 @@ class RadioUNet_c(Dataset):
 
         
         if self.transform:
-            inputs = self.transform(inputs).type(torch.float32)
-            image_gain = self.transform(image_gain).type(torch.float32)
+            inputs = _apply_image_transform(inputs, self.transform)
+            image_gain = _apply_image_transform(image_gain, self.transform)
             #note that ToTensor moves the channel from the last asix to the first!
 
 
@@ -387,9 +408,9 @@ class RadioUNet_c_sprseIRT4(Dataset):
 
         
         if self.transform:
-            inputs = self.transform(inputs).type(torch.float32)
-            image_gain = self.transform(image_gain).type(torch.float32)
-            image_samples = self.transform(image_samples).type(torch.float32)
+            inputs = _apply_image_transform(inputs, self.transform)
+            image_gain = _apply_image_transform(image_gain, self.transform)
+            image_samples = _apply_image_transform(image_samples, self.transform)
 
 
         return [inputs, image_gain, image_samples]
@@ -598,8 +619,8 @@ class RadioUNet_s(Dataset):
         
         
         if self.transform:
-            inputs = self.transform(inputs).type(torch.float32)
-            image_gain = self.transform(image_gain).type(torch.float32)
+            inputs = _apply_image_transform(inputs, self.transform)
+            image_gain = _apply_image_transform(image_gain, self.transform)
             #note that ToTensor moves the channel from the last asix to the first!
 
 
@@ -818,9 +839,9 @@ class RadioUNet_s_sprseIRT4(Dataset):
 
         
         if self.transform:
-            inputs = self.transform(inputs).type(torch.float32)
-            image_gain = self.transform(image_gain).type(torch.float32)
-            sparse_samples = self.transform(sparse_samples).type(torch.float32)
+            inputs = _apply_image_transform(inputs, self.transform)
+            image_gain = _apply_image_transform(image_gain, self.transform)
+            sparse_samples = _apply_image_transform(sparse_samples, self.transform)
             
 
 

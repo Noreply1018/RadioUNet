@@ -1,0 +1,127 @@
+{
+  "dataset_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/RadioMapSeer",
+  "required_paths": [
+    {
+      "path": "png/buildings_complete",
+      "status": "OK",
+      "png_count": 701
+    },
+    {
+      "path": "png/antennas",
+      "status": "OK",
+      "png_count": 56080
+    },
+    {
+      "path": "gain/DPM",
+      "status": "OK",
+      "png_count": 56080
+    },
+    {
+      "path": "gain/IRT2",
+      "status": "OK",
+      "png_count": 56080
+    },
+    {
+      "path": "gain/IRT4",
+      "status": "OK",
+      "png_count": 1402
+    }
+  ],
+  "optional_paths": [
+    {
+      "path": "png/cars",
+      "status": "OK"
+    },
+    {
+      "path": "gain/carsDPM",
+      "status": "OK"
+    },
+    {
+      "path": "gain/carsIRT2",
+      "status": "OK"
+    },
+    {
+      "path": "gain/carsIRT4",
+      "status": "OK"
+    },
+    {
+      "path": "png/buildings_missing1",
+      "status": "OK"
+    },
+    {
+      "path": "png/buildings_missing2",
+      "status": "OK"
+    },
+    {
+      "path": "png/buildings_missing3",
+      "status": "OK"
+    },
+    {
+      "path": "png/buildings_missing4",
+      "status": "OK"
+    }
+  ],
+  "sample": {
+    "map_id": 1,
+    "tx_id": 0,
+    "files": {
+      "buildings": {
+        "path": "RadioMapSeer/png/buildings_complete/1.png",
+        "shape": [
+          256,
+          256
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      },
+      "antenna": {
+        "path": "RadioMapSeer/png/antennas/1_0.png",
+        "shape": [
+          256,
+          256
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      },
+      "dpm": {
+        "path": "RadioMapSeer/gain/DPM/1_0.png",
+        "shape": [
+          256,
+          256
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 215
+      },
+      "irt2": {
+        "path": "RadioMapSeer/gain/IRT2/1_0.png",
+        "shape": [
+          256,
+          256
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 249.0,
+        "unique_count": 187
+      },
+      "irt4": {
+        "path": "RadioMapSeer/gain/IRT4/1_0.png",
+        "shape": [
+          256,
+          256
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 249.0,
+        "unique_count": 220
+      }
+    }
+  },
+  "errors": [],
+  "passed": true
+}

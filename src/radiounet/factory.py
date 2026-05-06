@@ -8,6 +8,14 @@ from . import data as data_module
 from . import models
 
 
+def _yes_no(value: object, default: str = "no") -> str:
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return "yes" if value else "no"
+    return str(value)
+
+
 def build_dataset(config: dict[str, Any], phase: str, smoke: bool = False):
     data_cfg = config["data"]
     loader_name = data_cfg.get("loader", "RadioUNet_c")
@@ -19,8 +27,8 @@ def build_dataset(config: dict[str, Any], phase: str, smoke: bool = False):
         "numTx": int(data_cfg.get("num_tx", 80)),
         "thresh": float(data_cfg.get("threshold", 0.2)),
         "simulation": data_cfg.get("simulation", "DPM"),
-        "carsSimul": data_cfg.get("cars_simulation", "no"),
-        "carsInput": data_cfg.get("cars_input", "no"),
+        "carsSimul": _yes_no(data_cfg.get("cars_simulation"), "no"),
+        "carsInput": _yes_no(data_cfg.get("cars_input"), "no"),
         "cityMap": data_cfg.get("city_map", "complete"),
     }
     if "missing" in data_cfg:
@@ -51,4 +59,3 @@ def build_model(config: dict[str, Any], phase: str | None = None):
     model_cls = getattr(models, class_name)
     model_phase = phase or model_cfg.get("phase", "firstU")
     return model_cls(inputs=int(model_cfg.get("inputs", 2)), phase=model_phase)
-
