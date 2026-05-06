@@ -21,7 +21,7 @@ if str(SRC) not in sys.path:
 
 from radiounet.factory import build_dataloader
 from radiounet.metrics import mse
-from radiounet.utils import ensure_dir, load_yaml, require_dataset_dir, save_json, set_seed
+from radiounet.utils import ensure_dir, git_metadata, load_yaml, require_dataset_dir, save_json, set_seed
 
 
 OFFICIAL_NOTEBOOK = {
@@ -199,6 +199,12 @@ def write_report(output_dir: Path, audit: dict) -> Path:
     lines = [
         "# Stage 2 smoke 审计：RadioUNet_S + DPM + threshold=0.2",
         "",
+        "## 追溯性",
+        "",
+        f"- source git commit：`{audit['source_git']['commit']}`。",
+        f"- source dirty：`{audit['source_git']['dirty']}`（检查时排除 `reports/` 产物目录）。",
+        f"- source status：`{audit['source_git']['status_short'] or 'clean'}`。",
+        "",
         "## 结论",
         "",
         f"- 当前 test split 直接统计的 `MSE(target, 0)` 为 `{current_den:.10f}`；全局像素口径为 `{current['global_mse_target_zero']:.10f}`，两者一致到可忽略量级。",
@@ -298,6 +304,8 @@ def main() -> int:
         stage1_denominators = None
 
     audit = {
+        "source_git": git_metadata(exclude_paths=["reports"]),
+        "artifact_git": git_metadata(),
         "config": s_config,
         "nmse": {
             "current_test_target_energy": current_energy,

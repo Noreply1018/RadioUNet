@@ -69,19 +69,25 @@ def git_commit() -> str:
         return "unknown"
 
 
-def git_status_short() -> str:
+def git_status_short(exclude_paths: list[str] | None = None) -> str:
     try:
-        return subprocess.check_output(["git", "status", "--short"], text=True).strip()
+        cmd = ["git", "status", "--short"]
+        if exclude_paths:
+            cmd.append("--")
+            cmd.append(".")
+            cmd.extend(f":!{path}" for path in exclude_paths)
+        return subprocess.check_output(cmd, text=True).strip()
     except Exception:
         return "unknown"
 
 
-def git_metadata() -> dict[str, Any]:
-    status = git_status_short()
+def git_metadata(exclude_paths: list[str] | None = None) -> dict[str, Any]:
+    status = git_status_short(exclude_paths=exclude_paths)
     return {
         "commit": git_commit(),
         "dirty": bool(status),
         "status_short": status,
+        "exclude_paths": exclude_paths or [],
     }
 
 

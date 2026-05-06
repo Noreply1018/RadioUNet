@@ -54,6 +54,7 @@ def train_one_phase(
     run_dir: Path,
     smoke: bool,
     epochs: int,
+    source_git: dict,
     init_checkpoint: Path | None = None,
 ) -> Path:
     model = build_model(config, phase=phase_name).to(device)
@@ -136,7 +137,8 @@ def train_one_phase(
             "best_val_loss": best_loss,
             "config": config,
             "config_path": str(config_path),
-            "git": git_metadata(),
+            "git": source_git,
+            "artifact_git": git_metadata(),
             "smoke": smoke,
         },
         checkpoint_path,
@@ -174,6 +176,7 @@ def main() -> int:
         return 1
     set_seed(int(config.get("experiment", {}).get("seed", 42)))
     device = get_device(args.device)
+    source_git = git_metadata(exclude_paths=["reports"])
     epochs = args.epochs if args.epochs is not None else int(config["training"].get("epochs", 50))
     if args.smoke:
         epochs = min(epochs, 1)
@@ -182,20 +185,39 @@ def main() -> int:
     run_dir = Path(args.run_dir) if args.run_dir else Path("reports") / experiment_name / timestamp()
     ensure_dir(run_dir)
     copy_config(config_path, run_dir)
-    save_json({"config": config, "git": git_metadata(), "device": str(device), "smoke": args.smoke}, run_dir / "run_metadata.json")
+    save_json(
+        {
+            "config": config,
+            "git": source_git,
+            "artifact_git": git_metadata(),
+            "device": str(device),
+            "smoke": args.smoke,
+        },
+        run_dir / "run_metadata.json",
+    )
 
     print(f"device: {device}")
     print(f"run_dir: {run_dir}")
 
     if args.phase in {"firstU", "both"}:
-        first_checkpoint = train_one_phase(config, config_path, "firstU", device, run_dir, args.smoke, epochs)
+        first_checkpoint = train_one_phase(config, config_path, "firstU", device, run_dir, args.smoke, epochs, source_git)
     else:
         first_checkpoint = Path(args.init_checkpoint) if args.init_checkpoint else None
 
     if args.phase in {"secondU", "both"}:
         if first_checkpoint is None:
             raise ValueError("--init-checkpoint is required when training secondU directly.")
-        train_one_phase(config, config_path, "secondU", device, run_dir, args.smoke, epochs, init_checkpoint=first_checkpoint)
+        train_one_phase(
+            config,
+            config_path,
+            "secondU",
+            device,
+            run_dir,
+            args.smoke,
+            epochs,
+            source_git,
+            init_checkpoint=first_checkpoint,
+        )
 
     return 0
 

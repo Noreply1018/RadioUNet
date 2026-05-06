@@ -51,6 +51,7 @@ def main() -> int:
         print(exc, file=sys.stderr)
         return 1
     device = get_device(args.device)
+    source_git = git_metadata(exclude_paths=["reports"])
     checkpoint = torch.load(args.checkpoint, map_location=device)
     phase = checkpoint.get("phase", config.get("model", {}).get("phase", "secondU"))
     model = build_model(config, phase=phase).to(device)
@@ -84,7 +85,8 @@ def main() -> int:
         "seconds": time.time() - since,
         "checkpoint": args.checkpoint,
         "checkpoint_phase": phase,
-        "git": git_metadata(),
+        "git": source_git,
+        "artifact_git": git_metadata(),
     }
     for name in ["firstU", "secondU"]:
         raw_mse_value = sums[f"{name}_mse"] / max(samples, 1)
