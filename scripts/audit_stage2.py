@@ -187,6 +187,10 @@ def write_report(output_dir: Path, audit: dict) -> Path:
     s_loader = audit["radio_unet_s_loader"]
     smoke = audit.get("smoke_training") or {}
     metrics = audit.get("smoke_metrics") or {}
+    smoke_run_dir = Path(smoke["history"]).parent if smoke.get("history") else None
+    train_command = "python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --smoke"
+    if smoke_run_dir:
+        train_command += f" --run-dir {smoke_run_dir}"
 
     current_den = current["mean_batch_weighted_mse_target_zero"]
     notebook_den = denominators["official_notebook"]["mean_inferred_denominator"]
@@ -204,11 +208,13 @@ def write_report(output_dir: Path, audit: dict) -> Path:
         f"- source git commit：`{audit['source_git']['commit']}`。",
         f"- source dirty：`{audit['source_git']['dirty']}`（检查时排除 `reports/` 产物目录）。",
         f"- source status：`{audit['source_git']['status_short'] or 'clean'}`。",
+        "- artifact dirty 说明：JSON 中 `artifact_git.dirty=true` 只表示报告和 smoke 产物生成后位于 `reports/` 待提交，不表示源码/配置 dirty。",
+        "- artifact commit 查询：`git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke`。",
         "",
         "## 权威产物",
         "",
         f"- 审计报告目录：`{output_dir}`。",
-        f"- smoke run 目录：`{Path(smoke.get('history', '')).parent if smoke.get('history') else '未提供'}`。",
+        f"- smoke run 目录：`{smoke_run_dir if smoke_run_dir else '未提供'}`。",
         "- 旧版 `reports/stage2_smoke/` 和时间戳 smoke run 不再作为 Stage 2 权威证据。",
         "",
         "## 结论",
@@ -252,7 +258,7 @@ def write_report(output_dir: Path, audit: dict) -> Path:
         "",
         "## Smoke training",
         "",
-        "- 命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --smoke`。",
+        f"- 命令：`{train_command}`。",
         f"- firstU smoke loss：`{smoke.get('last_train_loss')}` train / `{smoke.get('last_val_loss')}` val，best val `{smoke.get('best_val_loss')}`。",
         "",
         "## Smoke evaluation / figure",
@@ -312,6 +318,12 @@ def main() -> int:
     audit = {
         "source_git": git_metadata(exclude_paths=["reports"]),
         "artifact_git": git_metadata(),
+        "artifact_git_note": (
+            "artifact_git may be dirty while reports are being generated. "
+            "Use `git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke` "
+            "to identify the commit that tracks the final artifacts."
+        ),
+        "artifact_commit_lookup": "git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke",
         "config": s_config,
         "nmse": {
             "current_test_target_energy": current_energy,

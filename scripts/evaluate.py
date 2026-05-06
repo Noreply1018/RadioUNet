@@ -19,7 +19,7 @@ if str(SRC) not in sys.path:
 
 from radiounet.factory import build_dataloader, build_model
 from radiounet.metrics import mse, nmse
-from radiounet.utils import ensure_dir, get_device, git_metadata, load_yaml, require_dataset_dir, save_json
+from radiounet.utils import ensure_dir, get_device, git_metadata, load_yaml, require_dataset_dir, save_json, set_seed
 
 
 def unpack_batch(batch):
@@ -50,6 +50,7 @@ def main() -> int:
     except FileNotFoundError as exc:
         print(exc, file=sys.stderr)
         return 1
+    set_seed(int(config.get("experiment", {}).get("seed", 42)))
     device = get_device(args.device)
     source_git = git_metadata(exclude_paths=["reports"])
     checkpoint = torch.load(args.checkpoint, map_location=device)
