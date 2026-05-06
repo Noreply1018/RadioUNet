@@ -15,7 +15,7 @@ data:
   batch_size: 15
   num_workers: 1
   smoke_num_tx: 2
-  fix_samples: 0
+  fix_samples: 200
   num_samples_low: 10
   num_samples_high: 300
   target_scale: 256

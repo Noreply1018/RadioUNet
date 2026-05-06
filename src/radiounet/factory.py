@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import random
 from typing import Any
 
+import numpy as np
+import torch
 from torch.utils.data import DataLoader
 
 from . import data as data_module
@@ -54,11 +57,25 @@ def build_dataloader(config: dict[str, Any], phase: str, smoke: bool = False, sh
     data_cfg = config["data"]
     if shuffle is None:
         shuffle = phase == "train"
+    seed = int(config.get("experiment", {}).get("seed", 42))
+    phase_offsets = {"train": 0, "val": 10_000, "test": 20_000}
+    loader_seed = seed + phase_offsets.get(phase, 30_000) + (1_000_000 if smoke else 0)
+    generator = torch.Generator()
+    generator.manual_seed(loader_seed)
+
+    def seed_worker(worker_id: int) -> None:
+        worker_seed = (loader_seed + worker_id) % (2**32)
+        random.seed(worker_seed)
+        np.random.seed(worker_seed)
+        torch.manual_seed(worker_seed)
+
     return DataLoader(
         dataset,
         batch_size=int(data_cfg.get("batch_size", 15)),
         shuffle=shuffle,
         num_workers=int(data_cfg.get("num_workers", 1)),
+        worker_init_fn=seed_worker,
+        generator=generator,
     )
 
 
