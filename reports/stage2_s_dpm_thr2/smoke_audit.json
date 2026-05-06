@@ -1,0 +1,163 @@
+{
+  "config": {
+    "experiment": {
+      "name": "s_dpm_thr2",
+      "description": "RadioUNet_S sample-assisted DPM smoke entrypoint with threshold 0.2.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_s",
+      "simulation": "DPM",
+      "city_map": "complete",
+      "cars_simulation": false,
+      "cars_input": false,
+      "num_tx": 80,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2,
+      "fix_samples": 0,
+      "num_samples_low": 10,
+      "num_samples_high": 300,
+      "target_scale": 256
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 3,
+      "phases": [
+        "firstU",
+        "secondU"
+      ]
+    },
+    "training": {
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss"
+    },
+    "evaluation": {
+      "metrics": [
+        "mse",
+        "nmse",
+        "rmse"
+      ],
+      "save_prediction_panels": true,
+      "measure_runtime": true
+    }
+  },
+  "nmse": {
+    "current_test_target_energy": {
+      "split": "test",
+      "smoke": false,
+      "limit_batches": null,
+      "samples": 7920,
+      "target_pixels": 519045120,
+      "mean_batch_weighted_mse_target_zero": 0.05431883656913697,
+      "global_mse_target_zero": 0.0543188365270393,
+      "per_batch_min": 0.014759177342057228,
+      "per_batch_max": 0.13590551912784576
+    },
+    "current_evaluation_denominators": {
+      "firstU_denominator": 0.04377522550978484,
+      "secondU_denominator": 0.04351104173599872,
+      "firstU_mse": 0.00047267809781480923,
+      "secondU_mse": 0.000419767048463131,
+      "firstU_reported_nmse": 0.010797844952486974,
+      "secondU_reported_nmse": 0.009647368385478992
+    },
+    "stage1_metrics": {
+      "firstU_denominator": 0.04377522550978484,
+      "secondU_denominator": 0.04351104173599872,
+      "firstU_mse": 0.00047267809781480923,
+      "secondU_mse": 0.000419767048463131,
+      "firstU_reported_nmse": 0.010797844952486974,
+      "secondU_reported_nmse": 0.009647368385478992
+    },
+    "inferred_external_denominators": {
+      "official_notebook": {
+        "firstU_inferred_denominator": 0.05299301819846629,
+        "secondU_inferred_denominator": 0.05292443064182195,
+        "mean_inferred_denominator": 0.05295872442014412,
+        "method": "MSE / NMSE, inferred from saved notebook output."
+      },
+      "paper_table": {
+        "setting": "accurate map, deterministic simulation with no cars / RadioUNet_C coarse simulations",
+        "inferred_denominator": 0.05333333333333334,
+        "method": "RMSE^2 / NMSE, inferred from paper source table."
+      }
+    }
+  },
+  "radio_unet_s_loader": {
+    "batch_input_shape": [
+      2,
+      3,
+      256,
+      256
+    ],
+    "batch_target_shape": [
+      2,
+      1,
+      256,
+      256
+    ],
+    "batch_samples_shape": null,
+    "channels": [
+      "buildings",
+      "Tx",
+      "sparse samples"
+    ],
+    "target_scale": 256.0,
+    "sparse_nonzero_counts": [
+      115,
+      16
+    ],
+    "sparse_nonzero_min": 16,
+    "sparse_nonzero_max": 115,
+    "sparse_value_min": 0.0,
+    "sparse_value_max": 158.5,
+    "target_value_min": 0.0,
+    "target_value_max": 254.75,
+    "sparse_target_alignment_abs_max": 0.0,
+    "figure": "reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png"
+  },
+  "smoke_training": {
+    "best_val_loss": 6404.330078125,
+    "last_train_loss": 6405.73583984375,
+    "last_val_loss": 6404.330078125,
+    "history": "reports/s_dpm_thr2/20260507_004420/firstU_history.json"
+  },
+  "smoke_metrics": {
+    "samples": 2,
+    "seconds": 0.5245699882507324,
+    "checkpoint": "reports/s_dpm_thr2/20260507_004420/checkpoints/firstU.pt",
+    "checkpoint_phase": "firstU",
+    "git": {
+      "commit": "656efd8848c75966d1f00be65e1d5226efcec5ef",
+      "dirty": true,
+      "status_short": "M scripts/evaluate.py\n M scripts/make_figures.py\n M scripts/train.py\n M src/radiounet/factory.py\n?? configs/s_dpm_thr2.yaml\n?? reports/s_dpm_thr2/\n?? reports/stage2_s_dpm_thr2/\n?? reports/stage2_smoke/\n?? scripts/audit_nmse_denominator.py\n?? scripts/audit_s_loader.py\n?? scripts/audit_stage2.py"
+    },
+    "firstU": {
+      "mse": 0.09765367209911346,
+      "raw_mse": 6399.8310546875,
+      "target_scale": 256.0,
+      "nmse": 0.9962713122367859,
+      "global_nmse": 0.9962713330011125,
+      "rmse": 0.3124958753313609,
+      "rmse_db_80": 24.999670026508873
+    },
+    "secondU": {
+      "mse": 0.09771095216274261,
+      "raw_mse": 6403.5849609375,
+      "target_scale": 256.0,
+      "nmse": 0.9968557357788086,
+      "global_nmse": 0.9968557092372492,
+      "rmse": 0.31258751120725,
+      "rmse_db_80": 25.00700089658
+    }
+  },
+  "prediction_figure": "reports/s_dpm_thr2/20260507_004420/figures/s_dpm_thr2_test_0000.png"
+}
