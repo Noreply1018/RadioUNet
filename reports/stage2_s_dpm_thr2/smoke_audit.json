@@ -13,8 +13,10 @@
     "status_short": "M reports/s_dpm_thr2/clean_smoke/firstU_checkpoint_manifest.json\n M reports/s_dpm_thr2/clean_smoke/firstU_smoke_test_metrics.json\n M reports/s_dpm_thr2/clean_smoke/run_metadata.json",
     "exclude_paths": []
   },
-  "artifact_git_note": "artifact_git may be dirty while reports are being generated. Use `git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke` to identify the commit that tracks the final artifacts.",
-  "artifact_commit_lookup": "git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke",
+  "artifact_git_note": "artifact_git may be dirty while reports are being generated. Use artifact_commit for the committed smoke report and clean_smoke artifacts.",
+  "artifact_commit": "d32dc2505a086c4a4b6226c4d8fdd4e8dae64be0",
+  "artifact_commit_subject": "Refresh Stage 2 smoke provenance report",
+  "artifact_commit_lookup": "git log -1 --format='%H %s' -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/stage2_s_dpm_thr2/smoke_audit.json reports/s_dpm_thr2/clean_smoke",
   "config": {
     "experiment": {
       "name": "s_dpm_thr2",
@@ -141,6 +143,11 @@
     "figure": "reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png"
   },
   "smoke_training": {
+    "full_train_run_dir": "reports/s_dpm_thr2/full_50ep",
+    "planned_full_train_commands": [
+      "python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --run-dir reports/s_dpm_thr2/full_50ep",
+      "python scripts/train.py --config configs/s_dpm_thr2.yaml --phase secondU --init-checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt --run-dir reports/s_dpm_thr2/full_50ep"
+    ],
     "best_val_loss": 6402.39501953125,
     "last_train_loss": 6404.4189453125,
     "last_val_loss": 6402.39501953125,

@@ -6,7 +6,8 @@
 - source dirty：`False`（检查时排除 `reports/` 产物目录）。
 - source status：`clean`。
 - artifact dirty 说明：JSON 中 `artifact_git.dirty=true` 只表示报告和 smoke 产物生成后位于 `reports/` 待提交，不表示源码/配置 dirty。
-- artifact commit 查询：`git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke`。
+- artifact commit：`d32dc2505a086c4a4b6226c4d8fdd4e8dae64be0`（`Refresh Stage 2 smoke provenance report`）。
+- artifact commit 查询命令：`git log -1 --format='%H %s' -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/stage2_s_dpm_thr2/smoke_audit.json reports/s_dpm_thr2/clean_smoke`。
 
 ## 权威产物
 
@@ -52,6 +53,9 @@ Stage 1 secondU 当前 batch-mean NMSE 有效分母：`0.0435110417`。
 - 配置文件：`configs/s_dpm_thr2.yaml`。
 - 关键设置：`loader=RadioUNet_s`，`simulation=DPM`，`city_map=complete`，`inputs=3`，`threshold=0.2`。
 - 当前配置只作为 smoke 入口，不声明 full train 结果。
+- 后续正式训练固定权威 run 目录：`reports/s_dpm_thr2/full_50ep`。
+- firstU 正式训练命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --run-dir reports/s_dpm_thr2/full_50ep`。
+- secondU 正式训练命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase secondU --init-checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt --run-dir reports/s_dpm_thr2/full_50ep`。
 
 ## Smoke training
 
