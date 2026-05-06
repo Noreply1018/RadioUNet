@@ -50,7 +50,7 @@
     }
   },
   "git": {
-    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+    "commit": "16bef7e691ee2f4ea717bac7089c1437e1578df9",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -58,9 +58,9 @@
     ]
   },
   "artifact_git": {
-    "commit": "4426ad74f6a4f59a7ceb08b4482f73f15fa8de95",
+    "commit": "16bef7e691ee2f4ea717bac7089c1437e1578df9",
     "dirty": true,
-    "status_short": "M reports/stage2_s_dpm_thr2/figures/s_dpm_thr2_sparse_samples.png\n M reports/stage2_s_dpm_thr2/smoke_audit.json\n M reports/stage2_s_dpm_thr2/smoke_audit.md\n?? reports/s_dpm_thr2/clean_smoke/",
+    "status_short": "D reports/s_dpm_thr2/clean_smoke/figures/s_dpm_thr2_test_0000.png\n D reports/s_dpm_thr2/clean_smoke/firstU_checkpoint_manifest.json\n D reports/s_dpm_thr2/clean_smoke/firstU_history.json\n D reports/s_dpm_thr2/clean_smoke/firstU_smoke_test_metrics.json\n D reports/s_dpm_thr2/clean_smoke/run_metadata.json",
     "exclude_paths": []
   },
   "device": "cuda",

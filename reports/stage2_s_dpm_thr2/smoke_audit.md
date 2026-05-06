@@ -2,9 +2,11 @@
 
 ## 追溯性
 
-- source git commit：`4426ad74f6a4f59a7ceb08b4482f73f15fa8de95`。
+- source git commit：`16bef7e691ee2f4ea717bac7089c1437e1578df9`。
 - source dirty：`False`（检查时排除 `reports/` 产物目录）。
 - source status：`clean`。
+- artifact dirty 说明：JSON 中 `artifact_git.dirty=true` 只表示报告和 smoke 产物生成后位于 `reports/` 待提交，不表示源码/配置 dirty。
+- artifact commit 查询：`git log -1 -- reports/stage2_s_dpm_thr2/smoke_audit.md reports/s_dpm_thr2/clean_smoke`。
 
 ## 权威产物
 
@@ -53,7 +55,7 @@ Stage 1 secondU 当前 batch-mean NMSE 有效分母：`0.0435110417`。
 
 ## Smoke training
 
-- 命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --smoke`。
+- 命令：`python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --smoke --run-dir reports/s_dpm_thr2/clean_smoke`。
 - firstU smoke loss：`6404.4189453125` train / `6402.39501953125` val，best val `6402.39501953125`。
 
 ## Smoke evaluation / figure
