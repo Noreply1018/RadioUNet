@@ -1,6 +1,6 @@
 {
   "source_commit": "5b27461bfb3059c5d128926cc434f4ca5bbe0e7e",
-  "artifact_commit": "0c7f31bc9505be65d7c9283ec5917527d59f3c99",
+  "artifact_commit": "0c7f31bda7dcd0b16f9d90e2c5bcb15e79e6221a",
   "artifact_commit_subject": "Add Stage 2 full RadioUNet S artifacts",
   "run_dir": "reports/s_dpm_thr2/full_50ep",
   "config": {
