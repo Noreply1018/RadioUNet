@@ -5,7 +5,7 @@
 - Stage 2 full train 已完成：RadioUNet_S + DPM + threshold=0.2，`firstU` 和 `secondU` 各 50 epoch。
 - 权威 run 目录：`reports/s_dpm_thr2/full_50ep`，没有使用时间戳目录作为权威结果。
 - source commit：`5b27461bfb3059c5d128926cc434f4ca5bbe0e7e`。
-- artifact commit：`PENDING_AFTER_COMMIT`。
+- artifact commit：`0c7f31bc9505be65d7c9283ec5917527d59f3c99`（`Add Stage 2 full RadioUNet S artifacts`）。
 - source clean gate：正式训练启动前 `git status --short` 为空；训练后 `git status --short -- ':!reports'` 为空。
 - checkpoint 只保留本地，不进 git；checkpoint manifest 记录 sha256。
 
