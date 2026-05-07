@@ -431,14 +431,25 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", default="reports/s_dpm_thr2")
     parser.add_argument("--max-sparse-batches", type=int, default=8)
+    parser.add_argument(
+        "--only",
+        type=int,
+        choices=sorted(SWEEP_RUNS),
+        help="Only audit one completed run and skip the cross-sample summary.",
+    )
     args = parser.parse_args()
 
     output_dir = ROOT / args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
     stage1 = load_stage1()
-    runs = [collect_run(sample_count, SWEEP_RUNS[sample_count], args.max_sparse_batches) for sample_count in sorted(SWEEP_RUNS)]
+    sample_counts = [args.only] if args.only is not None else sorted(SWEEP_RUNS)
+    runs = [collect_run(sample_count, SWEEP_RUNS[sample_count], args.max_sparse_batches) for sample_count in sample_counts]
     for run in runs:
         write_run_report(run)
+    if args.only is not None:
+        print(f"saved run audit: {ROOT / runs[0]['run_dir'] / 'sample_count_audit.json'}")
+        print(f"saved run report: {ROOT / runs[0]['run_dir'] / 'sample_count_audit.md'}")
+        return 0
     figure_path = output_dir / "sample_count_metric_curves.png"
     plot_curves(runs, stage1, figure_path)
     summary = {
