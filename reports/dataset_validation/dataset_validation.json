@@ -1,5 +1,5 @@
 {
-  "dataset_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/RadioMapSeer",
+  "dataset_dir": "RadioMapSeer",
   "required_paths": [
     {
       "path": "png/buildings_complete",

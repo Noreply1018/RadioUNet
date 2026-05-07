@@ -1,6 +1,6 @@
 # RadioMapSeer 数据集校验报告
 
-- dataset_dir: `/root/lanyun-tmp/projects/RadioUNet_hkf/RadioMapSeer`
+- dataset_dir: `RadioMapSeer`
 - passed: `True`
 
 ## 必要目录

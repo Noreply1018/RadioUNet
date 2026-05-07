@@ -47,6 +47,7 @@ env/
 
 # Local configuration
 .codex/
+AGENTS.md
 .env
 .env.*
 
