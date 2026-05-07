@@ -50,7 +50,7 @@
     }
   },
   "git": {
-    "commit": "0618f4b70ed7771700e72767064f9d9cc3f33c2e",
+    "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -58,11 +58,11 @@
     ]
   },
   "artifact_git": {
-    "commit": "0618f4b70ed7771700e72767064f9d9cc3f33c2e",
-    "dirty": true,
-    "status_short": "?? reports/s_dpm_thr2/fix100_50ep/",
+    "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": []
   },
-  "device": "cuda",
+  "device": "cuda:0",
   "smoke": false
 }

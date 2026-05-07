@@ -1,0 +1,38 @@
+{
+  "samples": 7920,
+  "seconds": 44.36333441734314,
+  "checkpoint": "reports/s_dpm_thr2/fix100_50ep/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
+    "dirty": true,
+    "status_short": "M reports/s_dpm_thr2/fix100_50ep/run_metadata.json\n?? reports/s_dpm_thr2/fix100_50ep/firstU_test_metrics.json\n?? reports/s_dpm_thr2/fix100_50ep/firstU_test_metrics_rerun.json\n?? reports/s_dpm_thr2/fix100_50ep/secondU_checkpoint_manifest.json\n?? reports/s_dpm_thr2/fix100_50ep/secondU_history.json\n?? reports/s_dpm_thr2/fix100_50ep/secondU_test_metrics.json",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.00039166060910109525,
+    "raw_mse": 25.667869678049378,
+    "target_scale": 256.0,
+    "nmse": 0.009256870892083194,
+    "global_nmse": 0.007307936672215361,
+    "rmse": 0.01979041710275696,
+    "rmse_db_80": 1.5832333682205568
+  },
+  "secondU": {
+    "mse": 0.00031375166667423787,
+    "raw_mse": 20.562029227162853,
+    "target_scale": 256.0,
+    "nmse": 0.0074780237189384716,
+    "global_nmse": 0.005854245391073985,
+    "rmse": 0.01771303663052267,
+    "rmse_db_80": 1.4170429304418137
+  }
+}
