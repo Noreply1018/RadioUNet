@@ -1,0 +1,117 @@
+{
+  "sample_count": 50,
+  "run_dir": "reports/s_dpm_thr2/fix50_50ep",
+  "config_path": "configs/s_dpm_thr2_fix50.yaml",
+  "config": {
+    "loader": "RadioUNet_s",
+    "simulation": "DPM",
+    "threshold": 0.2,
+    "fix_samples": 50,
+    "firstU_epochs": 50,
+    "secondU_epochs": 50,
+    "inputs": 3
+  },
+  "run_metadata_git": {
+    "commit": "f0e6de12222ea18df2da9c6d4560bf30165c37eb",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "metrics_git": {
+    "commit": "f0e6de12222ea18df2da9c6d4560bf30165c37eb",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "metrics": {
+    "firstU": {
+      "mse": 0.00047850945125129795,
+      "raw_mse": 31.359595397205062,
+      "target_scale": 256.0,
+      "nmse": 0.011273472601412019,
+      "global_nmse": 0.008928436224670133,
+      "rmse": 0.02187485888528879,
+      "rmse_db_80": 1.7499887108231031
+    },
+    "secondU": {
+      "mse": 0.00040458987713822296,
+      "raw_mse": 26.51520218813058,
+      "target_scale": 256.0,
+      "nmse": 0.00957949993927755,
+      "global_nmse": 0.007549181955169834,
+      "rmse": 0.02011441963215004,
+      "rmse_db_80": 1.609153570572003
+    }
+  },
+  "rerun_consistency": {
+    "firstU_metrics_max_abs_diff": 0.0,
+    "secondU_metrics_max_abs_diff": 0.0
+  },
+  "checkpoints": {
+    "firstU": {
+      "phase": "firstU",
+      "checkpoint": "reports/s_dpm_thr2/fix50_50ep/checkpoints/firstU.pt",
+      "sha256": "648c442cb250f6009b915ba8624ec048c81241bb27e21679ecd538a30edc97e0",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_matches": true,
+      "tracked_by_git": false
+    },
+    "secondU": {
+      "phase": "secondU",
+      "checkpoint": "reports/s_dpm_thr2/fix50_50ep/checkpoints/secondU.pt",
+      "sha256": "78609eeffc47dc20d825f59a9b9965042a8f6f49f674e065c0f6deecc87719e7",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_matches": true,
+      "tracked_by_git": false
+    }
+  },
+  "figures": [
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0000.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0001.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0002.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0003.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0004.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0005.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0006.png",
+    "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0007.png"
+  ],
+  "sparse_samples": {
+    "configured_fix_samples": 50,
+    "checked_test_items": 120,
+    "target_scale": 256.0,
+    "observed_sparse_channel_nonzero_min": 34,
+    "observed_sparse_channel_nonzero_max": 49,
+    "observed_sparse_channel_nonzero_mean": 42.78333333333333,
+    "first_8_observed_nonzero_counts": [
+      41,
+      45,
+      46,
+      46,
+      46,
+      47,
+      48,
+      43
+    ],
+    "sparse_target_alignment_abs_max": 0.0,
+    "note": "RadioUNet_s samples fixed coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+  },
+  "gate": {
+    "fixed_run_dir": true,
+    "metrics_git_dirty_false": true,
+    "metrics_git_excludes_reports": true,
+    "checkpoints_exist": true,
+    "checkpoint_sha256_matches": true,
+    "checkpoint_files_tracked_by_git": false,
+    "eight_prediction_figures": true,
+    "rerun_exact": true,
+    "passed": true
+  }
+}
