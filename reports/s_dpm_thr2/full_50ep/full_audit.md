@@ -1,11 +1,13 @@
-# Stage 2 正式审计：RadioUNet_S + DPM + threshold=0.2
+# Stage 2 fixed-200 正式审计：RadioUNet_S + DPM + threshold=0.2
 
 ## 结论
 
-- Stage 2 full train 已完成：RadioUNet_S + DPM + threshold=0.2，`firstU` 和 `secondU` 各 50 epoch。
+- Stage 2 fixed-200 full train 已完成：RadioUNet_S + DPM + threshold=0.2，`firstU` 和 `secondU` 各 50 epoch。
+- 本报告覆盖固定 `fix_samples=200` 的单点强基线，不覆盖 sparse sample 数量曲线；Stage 2 完整闭环仍需补样本数量扫描。
 - 权威 run 目录：`reports/s_dpm_thr2/full_50ep`，没有使用时间戳目录作为权威结果。
 - source commit：`5b27461bfb3059c5d128926cc434f4ca5bbe0e7e`。
-- artifact commit：`0c7f31bda7dcd0b16f9d90e2c5bcb15e79e6221a`（`Add Stage 2 full RadioUNet S artifacts`）。
+- artifact add commit：`0c7f31bda7dcd0b16f9d90e2c5bcb15e79e6221a`（`Add Stage 2 full RadioUNet S artifacts`）。
+- audit correction commits：`f9b1aa3`、`874df1e`；后续审计文字修正不改变训练 source commit、checkpoint sha256 或指标值。
 - source clean gate：正式训练启动前 `git status --short` 为空；训练后 `git status --short -- ':!reports'` 为空。
 - checkpoint 只保留本地，不进 git；checkpoint manifest 记录 sha256。
 

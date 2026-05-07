@@ -1,7 +1,13 @@
 {
   "source_commit": "5b27461bfb3059c5d128926cc434f4ca5bbe0e7e",
-  "artifact_commit": "0c7f31bda7dcd0b16f9d90e2c5bcb15e79e6221a",
-  "artifact_commit_subject": "Add Stage 2 full RadioUNet S artifacts",
+  "stage_scope": "fixed-200 full baseline; sparse sample count sweep is not included in this artifact.",
+  "artifact_add_commit": "0c7f31bda7dcd0b16f9d90e2c5bcb15e79e6221a",
+  "artifact_add_commit_subject": "Add Stage 2 full RadioUNet S artifacts",
+  "audit_correction_commits": [
+    "f9b1aa3",
+    "874df1e"
+  ],
+  "provenance_note": "Audit text corrections after the initial artifact add commit do not change the training source commit, checkpoint sha256 values, or metric values.",
   "run_dir": "reports/s_dpm_thr2/full_50ep",
   "config": {
     "path": "configs/s_dpm_thr2.yaml",
