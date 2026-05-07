@@ -1,0 +1,110 @@
+{
+  "source_commit": "5b27461bfb3059c5d128926cc434f4ca5bbe0e7e",
+  "artifact_commit": "PENDING_AFTER_COMMIT",
+  "run_dir": "reports/s_dpm_thr2/full_50ep",
+  "config": {
+    "path": "configs/s_dpm_thr2.yaml",
+    "run_copy": "reports/s_dpm_thr2/full_50ep/s_dpm_thr2.yaml",
+    "seed": 42,
+    "loader": "RadioUNet_s",
+    "simulation": "DPM",
+    "city_map": "complete",
+    "threshold": 0.2,
+    "inputs": 3,
+    "epochs": 50,
+    "batch_size": 15,
+    "fix_samples": 200
+  },
+  "sparse_samples": {
+    "test_split_samples": 7920,
+    "configured_fix_samples": 200,
+    "observed_sparse_channel_nonzero_min": 24,
+    "observed_sparse_channel_nonzero_max": 199,
+    "observed_sparse_channel_nonzero_mean": 128.73661616161615,
+    "first_8_observed_nonzero_counts": [173, 166, 176, 170, 169, 170, 174, 174],
+    "note": "RadioUNet_s samples 200 coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+  },
+  "commands": [
+    "git status --short",
+    "git status --short -- ':!reports'",
+    "git rev-parse HEAD",
+    "git check-ignore -v reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt",
+    "python scripts/train.py --config configs/s_dpm_thr2.yaml --phase firstU --run-dir reports/s_dpm_thr2/full_50ep",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2.yaml --checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt --split test --output reports/s_dpm_thr2/full_50ep/firstU_test_metrics.json",
+    "python scripts/train.py --config configs/s_dpm_thr2.yaml --phase secondU --init-checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt --run-dir reports/s_dpm_thr2/full_50ep",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2.yaml --checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt --split test --output reports/s_dpm_thr2/full_50ep/secondU_test_metrics.json",
+    "python scripts/make_figures.py --config configs/s_dpm_thr2.yaml --checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt --split test --limit 8 --output-dir reports/s_dpm_thr2/full_50ep/figures",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2.yaml --checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt --split test --output reports/s_dpm_thr2/full_50ep/firstU_test_metrics_rerun.json",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2.yaml --checkpoint reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt --split test --output reports/s_dpm_thr2/full_50ep/secondU_test_metrics_rerun.json"
+  ],
+  "checkpoints": {
+    "firstU": {
+      "path": "reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt",
+      "sha256": "5d36a1ddcfcd96a3e11f3e9d32b9ac9b7704f3aef029238ee0b3e26778c5ff88",
+      "tracked_in_git": false,
+      "best_val_loss": 20.16671122930944
+    },
+    "secondU": {
+      "path": "reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt",
+      "sha256": "b42869fa94873327b70e97b815f15c160498003bc14d549186f00bde9ce811ed",
+      "tracked_in_git": false,
+      "best_val_loss": 15.752223132848739
+    }
+  },
+  "stage2_metrics": {
+    "firstU": {
+      "mse": 0.00032684131911358264,
+      "nmse": 0.007740965432965437,
+      "global_nmse": 0.006098483258523693,
+      "rmse": 0.018078753251084066,
+      "rmse_db_80": 1.4463002600867254
+    },
+    "secondU": {
+      "mse": 0.00025534415712944326,
+      "nmse": 0.006098790043049094,
+      "global_nmse": 0.004764428413299941,
+      "rmse": 0.015979491766931864,
+      "rmse_db_80": 1.278359341354549
+    }
+  },
+  "stage1_metrics": {
+    "firstU": {
+      "mse": 0.00047267809781480923,
+      "nmse": 0.010797844952486974,
+      "global_nmse": 0.008701918665234756,
+      "rmse": 0.021741161372263656,
+      "rmse_db_80": 1.7392929097810925
+    },
+    "secondU": {
+      "mse": 0.000419767048463131,
+      "nmse": 0.009647368385478992,
+      "global_nmse": 0.007727835774406763,
+      "rmse": 0.02048821730808054,
+      "rmse_db_80": 1.6390573846464431
+    }
+  },
+  "rerun_consistency": {
+    "firstU_metrics_max_abs_diff": 0.0,
+    "secondU_metrics_max_abs_diff": 0.0,
+    "samples": 7920,
+    "metrics_git_dirty": false,
+    "metrics_git_exclude_paths": ["reports"]
+  },
+  "figures": [
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0000.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0001.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0002.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0003.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0004.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0005.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0006.png",
+    "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0007.png"
+  ],
+  "gate": {
+    "source_clean_excluding_reports": true,
+    "fixed_run_dir": true,
+    "timestamp_run_dir_used_as_authority": false,
+    "checkpoints_git_ignored": true,
+    "checkpoint_files_tracked_by_git": false
+  }
+}
