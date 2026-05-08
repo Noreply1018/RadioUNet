@@ -44,7 +44,7 @@
 
 ## 相比 Stage 1 C baseline
 
-| phase | metric | Stage 1 C | random 10..300 | Stage 1 - random | improvement |
+| phase | metric | Stage 1 C | implementation-default random 10..299 | Stage 1 - random | improvement |
 | --- | --- | ---: | ---: | ---: | ---: |
 | firstU | mse | 0.0004726781 | 0.0003582760 | 0.0001144021 | 24.20% |
 | firstU | nmse | 0.0107978450 | 0.0084449454 | 0.0023528995 | 21.79% |
@@ -57,6 +57,6 @@
 
 ## 结论
 
-- random 10..300 的 secondU 表现按 MSE/NMSE/global NMSE/dB RMSE 距离看，整体更接近 fixed `200` 点；逐指标最近点：`[{'metric': 'mse', 'closest_fix_samples': 200, 'abs_distance': 2.9089797532254693e-05}, {'metric': 'nmse', 'closest_fix_samples': 200, 'abs_distance': 0.0006736282161772106}, {'metric': 'global_nmse', 'closest_fix_samples': 200, 'abs_distance': 0.0005427821701719012}, {'metric': 'rmse_db_80', 'closest_fix_samples': 100, 'abs_distance': 0.06782934103690885}]`。
-- random 10..300 是否优于 Stage 1 C baseline：`True`。secondU MSE 从 `0.0004197670` 降到 `0.0002844340`，NMSE 从 `0.0096473684` 降到 `0.0067724183`。
+- implementation-default random 10..299 的 secondU 表现按 MSE/NMSE/global NMSE/dB RMSE 距离看，整体更接近 fixed `200` 点；逐指标最近点：`[{'metric': 'mse', 'closest_fix_samples': 200, 'abs_distance': 2.9089797532254693e-05}, {'metric': 'nmse', 'closest_fix_samples': 200, 'abs_distance': 0.0006736282161772106}, {'metric': 'global_nmse', 'closest_fix_samples': 200, 'abs_distance': 0.0005427821701719012}, {'metric': 'rmse_db_80', 'closest_fix_samples': 100, 'abs_distance': 0.06782934103690885}]`。
+- implementation-default random 10..299 是否优于 Stage 1 C baseline：`True`。secondU MSE 从 `0.0004197670` 降到 `0.0002844340`，NMSE 从 `0.0096473684` 降到 `0.0067724183`。
 - 对照曲线图：`reports/s_dpm_thr2/rand10_300_50ep/rand10_300_vs_fixed_metrics.png`。
