@@ -1,5 +1,7 @@
 {
-  "scope": "official_style_random_sample_count_run",
+  "scope": "implementation_default_random_10_299_run",
+  "paper_faithful_1_300": false,
+  "scope_note": "Archived comparison variant. It uses fix_samples=0 with num_samples_low=10 and num_samples_high=300, so numpy randint draws 10..299. It is not the paper-faithful random 1..300 run.",
   "not_fixed_sample_count_ablation": true,
   "run_dir": "reports/s_dpm_thr2/rand10_300_50ep",
   "config_path": "configs/s_dpm_thr2_rand10_300.yaml",
@@ -31,7 +33,8 @@
     ]
   },
   "artifact_git": {
-    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "commit": "535b7b3156811d8068c7906102efed1259d645d2",
+    "short_commit": "535b7b3",
     "dirty": true,
     "status_short": "?? reports/s_dpm_thr2/rand10_300_50ep/",
     "exclude_paths": []
@@ -283,7 +286,7 @@
       "rmse_db_80": 1.2715103014673912
     },
     {
-      "setting": "random 10..300 official-style",
+      "setting": "implementation-default random 10..299",
       "mse": 0.00028443395466169795,
       "raw_mse": 18.640663652709037,
       "target_scale": 256.0,
@@ -383,7 +386,7 @@
     }
   },
   "gate": {
-    "official_style_random_not_fixed_ablation": true,
+    "implementation_default_random_not_fixed_ablation": true,
     "fixed_run_dir": true,
     "config_path_expected": true,
     "history_entries_100_each": true,

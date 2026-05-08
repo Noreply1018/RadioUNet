@@ -1,12 +1,15 @@
-# Stage 2 official-style random sample count audit
+# Stage 2 implementation-default random 10..299 audit
 
 ## 范围
 
-- 本 run 是 `official-style random sample count run`：`data.fix_samples=0`，每个样本重新随机抽 sparse sample count。
+- 本 run 是 `implementation-default random 10..299 run`：`data.fix_samples=0`，每个样本重新随机抽 sparse sample count。
+- 本 run 不是 paper-faithful `1..300`；原因是配置为 `num_samples_low=10`，`num_samples_high=300`，而 `np.random.randint(low, high)` 的 high 为排他上界，实际 drawn count 为 `10..299`。
+- 本 run 保留为对照变体，不删除、不覆盖 paper-faithful random `1..300` run。
 - 本 run 不是 fixed sample count controlled ablation；fixed 50/100/200/300 只作为对照曲线/表格。
 - 固定权威目录：`reports/s_dpm_thr2/rand10_300_50ep`；未使用时间戳目录作为权威结果。
 - 配置：`configs/s_dpm_thr2_rand10_300.yaml`，run copy 已保存为 `reports/s_dpm_thr2/rand10_300_50ep/s_dpm_thr2_rand10_300.yaml`。
 - loader/simulation/threshold：`RadioUNet_s` / `DPM` / `0.2`。
+- artifact add commit：`535b7b3`。
 - firstU/secondU epoch：`50` / `50`；history 条数：`100` / `100`。
 - metrics git dirty：firstU `False`，secondU `False`；exclude_paths 均包含 `reports`。
 - checkpoint sha256 匹配：`True`；checkpoint 进 git：`False`。
@@ -30,7 +33,7 @@
 | fixed 100 | 0.0003137517 | 0.0074780237 | 0.0058542454 | 0.0177130366 | 1.4170429304 |
 | fixed 200 | 0.0002553442 | 0.0060987900 | 0.0047644284 | 0.0159794918 | 1.2783593414 |
 | fixed 300 | 0.0002526154 | 0.0060052292 | 0.0047135126 | 0.0158938788 | 1.2715103015 |
-| random 10..300 official-style | 0.0002844340 | 0.0067724183 | 0.0053072106 | 0.0168651699 | 1.3492135894 |
+| implementation-default random 10..299 | 0.0002844340 | 0.0067724183 | 0.0053072106 | 0.0168651699 | 1.3492135894 |
 
 ## firstU / secondU random metrics
 
