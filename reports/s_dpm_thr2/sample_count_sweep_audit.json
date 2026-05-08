@@ -13,6 +13,35 @@
     "status_short": "?? reports/s_dpm_thr2/full_50ep/sample_count_audit.json\n?? reports/s_dpm_thr2/full_50ep/sample_count_audit.md\n?? reports/s_dpm_thr2/sample_count_metric_curves.png",
     "exclude_paths": []
   },
+  "provenance": {
+    "scope": "controlled_fixed_sample_count_ablation",
+    "official_style_random_sample_run_included": false,
+    "official_style_random_sample_note": "This sweep fixes data.fix_samples to 50, 100, 200, and 300 to isolate sparse sample count effects. It is not the official-style random sample-count training regime with fix_samples=0 and num_samples_low=10, num_samples_high=300.",
+    "summary_generated_from_clean_source_commit": "37b88bc8f58355589951c3704f0f827d6214f2a6",
+    "summary_artifact_initial_commit": "1786328d019b6f911b13a3b9581e7a0c685087ed",
+    "summary_artifact_initial_commit_note": "Commit 1786328 added sample_count_sweep_audit.json, sample_count_sweep_audit.md, sample_count_metric_curves.png, and the fixed-200 sample_count_audit artifacts. Later provenance-only commits may update this report without changing run metrics.",
+    "tracked_artifact_paths": [
+      "reports/s_dpm_thr2/sample_count_sweep_audit.json",
+      "reports/s_dpm_thr2/sample_count_sweep_audit.md",
+      "reports/s_dpm_thr2/sample_count_metric_curves.png",
+      "reports/s_dpm_thr2/fix50_50ep",
+      "reports/s_dpm_thr2/fix100_50ep",
+      "reports/s_dpm_thr2/full_50ep",
+      "reports/s_dpm_thr2/fix300_50ep"
+    ],
+    "local_untracked_or_ignored_paths": [
+      "reports/s_dpm_thr2/*/checkpoints",
+      "reports/s_dpm_thr2/*/logs",
+      "reports/s_dpm_thr2/sample_count_sweep_audit.log"
+    ],
+    "gpu": "NVIDIA GeForce RTX 4090, driver 570.172.08, 24564 MiB",
+    "training_time_from_epoch_logs_hours": {
+      "fix50_full": 7.54,
+      "fix100_recorded_logs_including_interrupted_secondU": 8.54,
+      "fix200_reused_existing": 7.26,
+      "fix300_full": 7.12
+    }
+  },
   "stage1_metrics": {
     "firstU": {
       "mse": 0.00047267809781480923,

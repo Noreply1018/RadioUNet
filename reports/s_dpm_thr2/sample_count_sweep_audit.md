@@ -5,6 +5,24 @@
 - 配置：RadioUNet_S / DPM / threshold=0.2 / firstU 50 epoch / secondU 50 epoch。
 - 样本数：50、100、200、300；其中 200 复用已完成的 `reports/s_dpm_thr2/full_50ep`，未重复训练。
 - 每个点包含 test eval、rerun eval、8 张预测图、checkpoint manifest 和单独 audit。
+- 本节是 fixed sample count controlled ablation：每个配置显式固定 `data.fix_samples`。它不是 official-style 随机样本数训练；若要复现随机样本数设定，需要额外运行 `fix_samples=0, num_samples_low=10, num_samples_high=300`。
+
+## provenance
+
+- 汇总生成时的干净源码提交：`37b88bc8f58355589951c3704f0f827d6214f2a6`，`git.dirty=false`，`exclude_paths=["reports"]`。
+- 汇总轻量产物首次入库提交：`1786328d019b6f911b13a3b9581e7a0c685087ed`。该提交加入了 `sample_count_sweep_audit.json`、`sample_count_sweep_audit.md`、`sample_count_metric_curves.png` 和 fixed-200 的 `sample_count_audit.*`。
+- 本报告后续若只有 provenance/归档文字更新，不改变四个 run 的 metrics、checkpoint manifest 或预测图。
+- checkpoint 与日志只保留在本地忽略路径：`reports/s_dpm_thr2/*/checkpoints/`、`reports/s_dpm_thr2/*/logs/`。提交内容仍限定为 JSON、MD、PNG、YAML、manifest。
+- GPU：NVIDIA GeForce RTX 4090，driver `570.172.08`，显存 `24564 MiB`。
+
+## 运行归档
+
+| fix_samples | run dir | source commit | train command | 训练日志耗时 |
+| ---: | --- | --- | --- | ---: |
+| 50 | `reports/s_dpm_thr2/fix50_50ep` | `f0e6de12222ea18df2da9c6d4560bf30165c37eb` | `python scripts/train.py --config configs/s_dpm_thr2_fix50.yaml --phase both --device cuda --epochs 50 --run-dir reports/s_dpm_thr2/fix50_50ep` | 7.54 h |
+| 100 | `reports/s_dpm_thr2/fix100_50ep` | `395f3eae755421a3350bb7469b55774b0dd21dfa` | `python scripts/train.py --config configs/s_dpm_thr2_fix100.yaml --phase secondU --init-checkpoint reports/s_dpm_thr2/fix100_50ep/checkpoints/firstU.pt --device cuda:0 --epochs 50 --run-dir reports/s_dpm_thr2/fix100_50ep` | 8.54 h logged, including the earlier interrupted secondU log |
+| 200 | `reports/s_dpm_thr2/full_50ep` | `5b27461bfb3059c5d128926cc434f4ca5bbe0e7e` | reused existing fixed-200 full run; no duplicate training in this sweep | 7.26 h |
+| 300 | `reports/s_dpm_thr2/fix300_50ep` | `301ac2d95c108609b5e5984ee00aa829eb438956` | `python scripts/train.py --config configs/s_dpm_thr2_fix300.yaml --phase both --device cuda:0 --epochs 50 --run-dir reports/s_dpm_thr2/fix300_50ep` | 7.12 h |
 
 ## secondU 指标曲线表
 
