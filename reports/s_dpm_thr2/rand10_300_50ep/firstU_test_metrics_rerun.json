@@ -1,0 +1,38 @@
+{
+  "samples": 7920,
+  "seconds": 40.12196922302246,
+  "checkpoint": "reports/s_dpm_thr2/rand10_300_50ep/checkpoints/firstU.pt",
+  "checkpoint_phase": "firstU",
+  "git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": true,
+    "status_short": "?? reports/s_dpm_thr2/rand10_300_50ep/",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.0003582760100609007,
+    "raw_mse": 23.47997659535119,
+    "target_scale": 256.0,
+    "nmse": 0.008444945435974549,
+    "global_nmse": 0.006685018451593383,
+    "rmse": 0.018928180315627298,
+    "rmse_db_80": 1.5142544252501837
+  },
+  "secondU": {
+    "mse": 0.03327644809332648,
+    "raw_mse": 2180.805302244244,
+    "target_scale": 256.0,
+    "nmse": 0.6236900793332042,
+    "global_nmse": 0.6209002628825817,
+    "rmse": 0.18241833266787216,
+    "rmse_db_80": 14.593466613429772
+  }
+}

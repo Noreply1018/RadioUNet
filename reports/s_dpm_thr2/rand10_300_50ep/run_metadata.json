@@ -1,0 +1,68 @@
+{
+  "config": {
+    "experiment": {
+      "name": "s_dpm_thr2",
+      "description": "RadioUNet_S sample-assisted DPM full run with threshold 0.2 and random samples in 10..300.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_s",
+      "simulation": "DPM",
+      "city_map": "complete",
+      "cars_simulation": false,
+      "cars_input": false,
+      "num_tx": 80,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2,
+      "fix_samples": 0,
+      "num_samples_low": 10,
+      "num_samples_high": 300,
+      "target_scale": 256
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 3,
+      "phases": [
+        "firstU",
+        "secondU"
+      ]
+    },
+    "training": {
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss"
+    },
+    "evaluation": {
+      "metrics": [
+        "mse",
+        "nmse",
+        "rmse"
+      ],
+      "save_prediction_panels": true,
+      "measure_runtime": true
+    }
+  },
+  "git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": true,
+    "status_short": "?? reports/s_dpm_thr2/rand10_300_50ep/",
+    "exclude_paths": []
+  },
+  "device": "cuda:0",
+  "smoke": false
+}

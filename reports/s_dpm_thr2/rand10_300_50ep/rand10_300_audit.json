@@ -1,0 +1,401 @@
+{
+  "scope": "official_style_random_sample_count_run",
+  "not_fixed_sample_count_ablation": true,
+  "run_dir": "reports/s_dpm_thr2/rand10_300_50ep",
+  "config_path": "configs/s_dpm_thr2_rand10_300.yaml",
+  "config": {
+    "loader": "RadioUNet_s",
+    "simulation": "DPM",
+    "threshold": 0.2,
+    "fix_samples": 0,
+    "num_samples_low": 10,
+    "num_samples_high": 300,
+    "firstU_epochs": 50,
+    "secondU_epochs": 50,
+    "inputs": 3
+  },
+  "commands": [
+    "git status --short",
+    "python scripts/train.py --config configs/s_dpm_thr2_rand10_300.yaml --phase both --device cuda:0 --epochs 50 --run-dir reports/s_dpm_thr2/rand10_300_50ep",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/firstU.pt --split test --output reports/s_dpm_thr2/rand10_300_50ep/firstU_test_metrics.json",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt --split test --output reports/s_dpm_thr2/rand10_300_50ep/secondU_test_metrics.json",
+    "rerun both eval commands to *_rerun.json",
+    "python scripts/make_figures.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --limit 8 --output-dir reports/s_dpm_thr2/rand10_300_50ep/figures"
+  ],
+  "source_git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": true,
+    "status_short": "?? reports/s_dpm_thr2/rand10_300_50ep/",
+    "exclude_paths": []
+  },
+  "run_metadata_git": {
+    "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "metrics_git": {
+    "firstU": {
+      "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "secondU": {
+      "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    }
+  },
+  "history": {
+    "firstU": {
+      "entries": 100,
+      "train_entries": 50,
+      "val_entries": 50,
+      "best_val_loss": 22.196212411522865,
+      "first_entry": {
+        "epoch": 0,
+        "split": "train",
+        "loss": 401.8769978620335,
+        "samples": 40080
+      },
+      "last_entry": {
+        "epoch": 49,
+        "split": "val",
+        "loss": 23.880420616567136,
+        "samples": 8000
+      }
+    },
+    "secondU": {
+      "entries": 100,
+      "train_entries": 50,
+      "val_entries": 50,
+      "best_val_loss": 17.68556395791471,
+      "first_entry": {
+        "epoch": 0,
+        "split": "train",
+        "loss": 32.139250639313,
+        "samples": 40080
+      },
+      "last_entry": {
+        "epoch": 49,
+        "split": "val",
+        "loss": 17.694138002097606,
+        "samples": 8000
+      }
+    }
+  },
+  "metrics": {
+    "firstU": {
+      "mse": 0.0003582760100609007,
+      "raw_mse": 23.47997659535119,
+      "target_scale": 256.0,
+      "nmse": 0.008444945435974549,
+      "global_nmse": 0.006685018451593383,
+      "rmse": 0.018928180315627298,
+      "rmse_db_80": 1.5142544252501837
+    },
+    "secondU": {
+      "mse": 0.00028443395466169795,
+      "raw_mse": 18.640663652709037,
+      "target_scale": 256.0,
+      "nmse": 0.006772418259226304,
+      "global_nmse": 0.005307210583471843,
+      "rmse": 0.01686516986756131,
+      "rmse_db_80": 1.3492135894049049
+    }
+  },
+  "test_samples": {
+    "firstU": 7920,
+    "secondU": 7920
+  },
+  "rerun_consistency": {
+    "firstU_metrics_max_abs_diff": 0.0,
+    "secondU_metrics_max_abs_diff": 0.0
+  },
+  "checkpoints": {
+    "firstU": {
+      "phase": "firstU",
+      "checkpoint": "reports/s_dpm_thr2/rand10_300_50ep/checkpoints/firstU.pt",
+      "sha256": "aa1fae5e20c973a1ad9a91bfad27d9ea9d60b24354ed043d14b3871f12f81287",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_actual": "aa1fae5e20c973a1ad9a91bfad27d9ea9d60b24354ed043d14b3871f12f81287",
+      "sha256_matches": true,
+      "tracked_by_git": false
+    },
+    "secondU": {
+      "phase": "secondU",
+      "checkpoint": "reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt",
+      "sha256": "7cf58e65f8fa81b6d86cdafe52b3609d7e80f7f232d1e983c1566db01337722d",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_actual": "7cf58e65f8fa81b6d86cdafe52b3609d7e80f7f232d1e983c1566db01337722d",
+      "sha256_matches": true,
+      "tracked_by_git": false
+    }
+  },
+  "figures": [
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0000.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0001.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0002.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0003.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0004.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0005.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0006.png",
+    "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0007.png"
+  ],
+  "sparse_samples": {
+    "drawn_distribution_method": "RNG replay for test split with seed=experiment.seed+20000, matching DataLoader test worker 0; replay includes the per-item num_samples draw and subsequent x/y coordinate randint calls without reading PNG files.",
+    "alignment_method": "real RadioUNet_s DataLoader audit over first 8 test batches (120 items) with num_workers=0.",
+    "test_split_samples": 7920,
+    "configured_fix_samples": 0,
+    "configured_num_samples_low": 10,
+    "configured_num_samples_high": 300,
+    "numpy_randint_high_is_exclusive": true,
+    "drawn_count_items": 7920,
+    "drawn_min": 10,
+    "drawn_max": 299,
+    "drawn_mean": 155.1459595959596,
+    "drawn_first_16": [
+      222,
+      108,
+      256,
+      74,
+      41,
+      88,
+      283,
+      82,
+      241,
+      117,
+      22,
+      141,
+      281,
+      287,
+      171,
+      108
+    ],
+    "drawn_histogram": {
+      "10..49": 1047,
+      "50..99": 1379,
+      "100..149": 1394,
+      "150..199": 1351,
+      "200..249": 1381,
+      "250..299": 1368
+    },
+    "checked_sparse_items": 120,
+    "observed_sparse_channel_nonzero_min": 8,
+    "observed_sparse_channel_nonzero_max": 263,
+    "observed_sparse_channel_nonzero_mean": 127.21666666666667,
+    "observed_first_16_nonzero_counts": [
+      233,
+      130,
+      19,
+      192,
+      65,
+      239,
+      121,
+      89,
+      183,
+      25,
+      116,
+      88,
+      49,
+      34,
+      260,
+      168
+    ],
+    "sparse_target_alignment_abs_max": 0.0,
+    "note": "drawn sample count is random under fix_samples=0; observed nonzero sparse-channel count can be lower because duplicate coordinates and zero target values collapse entries."
+  },
+  "stage1_metrics": {
+    "firstU": {
+      "mse": 0.00047267809781480923,
+      "nmse": 0.010797844952486974,
+      "global_nmse": 0.008701918665234756,
+      "rmse": 0.021741161372263656,
+      "rmse_db_80": 1.7392929097810925
+    },
+    "secondU": {
+      "mse": 0.000419767048463131,
+      "nmse": 0.009647368385478992,
+      "global_nmse": 0.007727835774406763,
+      "rmse": 0.02048821730808054,
+      "rmse_db_80": 1.6390573846464431
+    }
+  },
+  "fixed_sweep_secondU_comparison": [
+    {
+      "setting": "fixed 50",
+      "mse": 0.00040458987713822296,
+      "raw_mse": 26.51520218813058,
+      "target_scale": 256.0,
+      "nmse": 0.00957949993927755,
+      "global_nmse": 0.007549181955169834,
+      "rmse": 0.02011441963215004,
+      "rmse_db_80": 1.609153570572003
+    },
+    {
+      "setting": "fixed 100",
+      "mse": 0.00031375166667423787,
+      "raw_mse": 20.562029227162853,
+      "target_scale": 256.0,
+      "nmse": 0.0074780237189384716,
+      "global_nmse": 0.005854245391073985,
+      "rmse": 0.01771303663052267,
+      "rmse_db_80": 1.4170429304418137
+    },
+    {
+      "setting": "fixed 200",
+      "mse": 0.00025534415712944326,
+      "raw_mse": 16.734234681635193,
+      "target_scale": 256.0,
+      "nmse": 0.006098790043049094,
+      "global_nmse": 0.004764428413299941,
+      "rmse": 0.015979491766931864,
+      "rmse_db_80": 1.278359341354549
+    },
+    {
+      "setting": "fixed 300",
+      "mse": 0.000252615382302765,
+      "raw_mse": 16.555401694594007,
+      "target_scale": 256.0,
+      "nmse": 0.006005229240668776,
+      "global_nmse": 0.004713512599957162,
+      "rmse": 0.01589387876834239,
+      "rmse_db_80": 1.2715103014673912
+    },
+    {
+      "setting": "random 10..300 official-style",
+      "mse": 0.00028443395466169795,
+      "raw_mse": 18.640663652709037,
+      "target_scale": 256.0,
+      "nmse": 0.006772418259226304,
+      "global_nmse": 0.005307210583471843,
+      "rmse": 0.01686516986756131,
+      "rmse_db_80": 1.3492135894049049
+    }
+  ],
+  "closest_fixed_point_by_secondU_metric": [
+    {
+      "metric": "mse",
+      "closest_fix_samples": 200,
+      "abs_distance": 2.9089797532254693e-05
+    },
+    {
+      "metric": "nmse",
+      "closest_fix_samples": 200,
+      "abs_distance": 0.0006736282161772106
+    },
+    {
+      "metric": "global_nmse",
+      "closest_fix_samples": 200,
+      "abs_distance": 0.0005427821701719012
+    },
+    {
+      "metric": "rmse_db_80",
+      "closest_fix_samples": 100,
+      "abs_distance": 0.06782934103690885
+    }
+  ],
+  "closest_fixed_point_overall": 200,
+  "stage1_comparison": {
+    "firstU": {
+      "mse": {
+        "stage1": 0.00047267809781480923,
+        "random": 0.0003582760100609007,
+        "delta_stage1_minus_random": 0.00011440208775390852,
+        "relative_improvement_percent": 24.202959325339876
+      },
+      "nmse": {
+        "stage1": 0.010797844952486974,
+        "random": 0.008444945435974549,
+        "delta_stage1_minus_random": 0.002352899516512425,
+        "relative_improvement_percent": 21.79045473301135
+      },
+      "global_nmse": {
+        "stage1": 0.008701918665234756,
+        "random": 0.006685018451593383,
+        "delta_stage1_minus_random": 0.0020169002136413722,
+        "relative_improvement_percent": 23.177649564792404
+      },
+      "rmse": {
+        "stage1": 0.021741161372263656,
+        "random": 0.018928180315627298,
+        "delta_stage1_minus_random": 0.002812981056636358,
+        "relative_improvement_percent": 12.938504105052207
+      },
+      "rmse_db_80": {
+        "stage1": 1.7392929097810925,
+        "random": 1.5142544252501837,
+        "delta_stage1_minus_random": 0.2250384845309088,
+        "relative_improvement_percent": 12.938504105052218
+      }
+    },
+    "secondU": {
+      "mse": {
+        "stage1": 0.000419767048463131,
+        "random": 0.00028443395466169795,
+        "delta_stage1_minus_random": 0.00013533309380143305,
+        "relative_improvement_percent": 32.24004702058447
+      },
+      "nmse": {
+        "stage1": 0.009647368385478992,
+        "random": 0.006772418259226304,
+        "delta_stage1_minus_random": 0.0028749501262526882,
+        "relative_improvement_percent": 29.800356028489595
+      },
+      "global_nmse": {
+        "stage1": 0.007727835774406763,
+        "random": 0.005307210583471843,
+        "delta_stage1_minus_random": 0.0024206251909349207,
+        "relative_improvement_percent": 31.323455383868364
+      },
+      "rmse": {
+        "stage1": 0.02048821730808054,
+        "random": 0.01686516986756131,
+        "delta_stage1_minus_random": 0.0036230474405192295,
+        "relative_improvement_percent": 17.683566051841424
+      },
+      "rmse_db_80": {
+        "stage1": 1.6390573846464431,
+        "random": 1.3492135894049049,
+        "delta_stage1_minus_random": 0.28984379524153825,
+        "relative_improvement_percent": 17.68356605184142
+      }
+    }
+  },
+  "gate": {
+    "official_style_random_not_fixed_ablation": true,
+    "fixed_run_dir": true,
+    "config_path_expected": true,
+    "history_entries_100_each": true,
+    "test_samples_7920": true,
+    "metrics_git_dirty_false": true,
+    "metrics_git_excludes_reports": true,
+    "checkpoint_sha256_matches": true,
+    "checkpoint_files_tracked_by_git": false,
+    "eight_prediction_figures": true,
+    "rerun_exact": true,
+    "random_sample_distribution_recorded": true,
+    "passed": true
+  },
+  "comparison_figure": "reports/s_dpm_thr2/rand10_300_50ep/rand10_300_vs_fixed_metrics.png"
+}
