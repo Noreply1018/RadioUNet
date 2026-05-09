@@ -1,0 +1,274 @@
+{
+  "scope": "Stage 3C final IRT4 transfer audit",
+  "git": {
+    "commit": "a99f95c00c9ccb40b4c84445ee1523160d6cae4a",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "runs": {
+    "paper_faithful_mainline": {
+      "name": "paper_faithful_mainline",
+      "label": "S sparse-loss pool600 mainline",
+      "category": "paper-faithful",
+      "metrics_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.000760973893303537,
+      "dense_nmse": 0.015740806377972618,
+      "dense_global_nmse": 0.014716411407934737,
+      "sparse_mse": 0.0006030456648916432,
+      "sparse_global_nmse": 0.011647136020180521,
+      "sparse_points": 118242,
+      "sparse_points_per_sample": 597.1818181818181,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "manifest_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/stage3c_run_manifest.json",
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_recorded": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_tracked_by_git": false,
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 41.42060451507568,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "mask_points_mean_min": 597.2135728542914,
+        "mask_points_mean_max": 597.45
+      },
+      "semantic_audit_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/stage3c_sparse_audit/s_irt4_adapt_rand1_300_pool600_sparse_loss_audit.json",
+      "semantic_gate": {
+        "sparse_loss_configured": true,
+        "pool_matches_loss_denominator": true,
+        "s_input_range_configured_1_to_300": true,
+        "loss_matches_manual_sparse": true,
+        "loss_not_dense_mse": true,
+        "all_inputs_subset_of_loss_mask": true,
+        "target_alignment_exact": true,
+        "rng_replay_first_batch": true,
+        "pass": true
+      },
+      "semantic_data_samples": 600,
+      "semantic_input_low": 1,
+      "semantic_input_high": 301
+    },
+    "dense_loss_pilot": {
+      "name": "dense_loss_pilot",
+      "label": "S dense-loss pool300 pilot",
+      "category": "dense-loss pilot",
+      "metrics_path": "reports/irt4_transfer/baseline_reruns/s_irt4_dense_loss_pilot_pool300_metrics.json",
+      "rerun_path": "reports/irt4_transfer/baseline_reruns/s_irt4_dense_loss_pilot_pool300_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.0007365961258377259,
+      "dense_nmse": 0.015191156530019009,
+      "dense_global_nmse": 0.014244971835326838,
+      "sparse_mse": 0.0006065388632691999,
+      "sparse_global_nmse": 0.011560782866701595,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "original_metrics_path": "reports/irt4_adapt/rand1_300_50ep/secondU_test_metrics.json"
+    },
+    "pool300_sparse_ablation": {
+      "name": "pool300_sparse_ablation",
+      "label": "S sparse-loss pool300 ablation",
+      "category": "ablation",
+      "metrics_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation_50ep/secondU_test_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.0008379127724434842,
+      "dense_nmse": 0.017213330321917027,
+      "dense_global_nmse": 0.01620432621994312,
+      "sparse_mse": 0.0005823451866754485,
+      "sparse_global_nmse": 0.01109964532253829,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "manifest_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation_50ep/stage3c_run_manifest.json",
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_recorded": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_tracked_by_git": false,
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 31.899065351486207,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.3612774451098,
+        "mask_points_mean_max": 299.58
+      },
+      "semantic_audit_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation_50ep/stage3c_sparse_audit/s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation_audit.json",
+      "semantic_gate": {
+        "sparse_loss_configured": true,
+        "pool_matches_loss_denominator": true,
+        "s_input_range_configured_1_to_300": true,
+        "loss_matches_manual_sparse": true,
+        "loss_not_dense_mse": true,
+        "all_inputs_subset_of_loss_mask": true,
+        "target_alignment_exact": true,
+        "rng_replay_first_batch": true,
+        "pass": true
+      },
+      "semantic_data_samples": 300,
+      "semantic_input_low": 1,
+      "semantic_input_high": 301
+    },
+    "c_sparse_baseline": {
+      "name": "c_sparse_baseline",
+      "label": "C sparse-loss pool300 baseline",
+      "category": "C baseline",
+      "metrics_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.0010485410598586454,
+      "dense_nmse": 0.021637180495555654,
+      "dense_global_nmse": 0.020277649343694183,
+      "sparse_mse": 0.001008037033975386,
+      "sparse_global_nmse": 0.019213438704604617,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "manifest_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/stage3c_run_manifest.json",
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_recorded": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_tracked_by_git": false,
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 0.0008717975826584734,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.3612774451098,
+        "mask_points_mean_max": 299.58
+      },
+      "semantic_audit_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/stage3c_sparse_audit/c_irt4_adapt_sparse_loss_audit.json",
+      "semantic_gate": {
+        "sparse_loss_configured": true,
+        "pool_matches_loss_denominator": true,
+        "s_input_range_configured_1_to_300": true,
+        "loss_matches_manual_sparse": true,
+        "loss_not_dense_mse": true,
+        "all_inputs_subset_of_loss_mask": true,
+        "target_alignment_exact": true,
+        "rng_replay_first_batch": true,
+        "pass": true
+      },
+      "semantic_data_samples": 300,
+      "semantic_input_low": null,
+      "semantic_input_high": null
+    },
+    "s_zero_shot": {
+      "name": "s_zero_shot",
+      "label": "S zero-shot",
+      "category": "zero-shot baseline",
+      "metrics_path": "reports/irt4_transfer/baseline_reruns/s_irt4_zeroshot_rand1_300_metrics.json",
+      "rerun_path": "reports/irt4_transfer/baseline_reruns/s_irt4_zeroshot_rand1_300_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.0009654228263322941,
+      "dense_nmse": 0.019676945828409356,
+      "dense_global_nmse": 0.018670232619581523,
+      "sparse_mse": 0.0008533434575165767,
+      "sparse_global_nmse": 0.016264940336875033,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false
+    },
+    "c_zero_shot": {
+      "name": "c_zero_shot",
+      "label": "C zero-shot",
+      "category": "zero-shot baseline",
+      "metrics_path": "reports/irt4_transfer/baseline_reruns/c_irt4_zeroshot_metrics.json",
+      "rerun_path": "reports/irt4_transfer/baseline_reruns/c_irt4_zeroshot_metrics_rerun.json",
+      "samples": 198,
+      "dense_mse": 0.0014888852972283282,
+      "dense_nmse": 0.030432741750370373,
+      "dense_global_nmse": 0.028793430241020535,
+      "sparse_mse": 0.0015274379345829561,
+      "sparse_global_nmse": 0.029113350146929326,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false
+    }
+  },
+  "paper_alignment": {
+    "irt4_first_two_tx": true,
+    "s_random_1_to_300_input": true,
+    "s_pool600_sparse_loss": true,
+    "second_unet_adaptation": true
+  },
+  "answers": {
+    "sparse_irt4_training": true,
+    "s_pool600_input_sparse_loss": true,
+    "dense_pilot_demoted": true,
+    "paper_faithful_beats_s_zero_shot": true,
+    "s_beats_c_sparse_baseline": true,
+    "reproducible_auditable": true
+  },
+  "gate": {
+    "runs_present": true,
+    "paper_alignment": true,
+    "answers_true": true,
+    "pass": true
+  }
+}

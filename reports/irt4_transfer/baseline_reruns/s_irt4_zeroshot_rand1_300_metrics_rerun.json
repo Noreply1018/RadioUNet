@@ -1,0 +1,58 @@
+{
+  "samples": 198,
+  "seconds": 1.712815761566162,
+  "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "24b5a6216b1d820ed18f32c706c30f8d291b1a52",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "24b5a6216b1d820ed18f32c706c30f8d291b1a52",
+    "dirty": true,
+    "status_short": "?? reports/irt4_transfer/baseline_reruns/",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.0009700314977001681,
+    "raw_mse": 63.571984233278215,
+    "target_scale": 256.0,
+    "nmse": 0.019764564451620434,
+    "global_nmse": 0.018759359172315967,
+    "rmse": 0.031145328665791408,
+    "rmse_db_80": 2.4916262932633124,
+    "sparse_points": {
+      "points": 59268,
+      "mean_points_per_sample": 299.3333333333333,
+      "mse": 0.0007879015164126862,
+      "raw_mse": 51.6359137796218,
+      "target_scale": 256.0,
+      "global_nmse": 0.015017600525210287,
+      "rmse": 0.028069583474157327,
+      "rmse_db_80": 2.2455666779325862
+    }
+  },
+  "secondU": {
+    "mse": 0.0009654228263322941,
+    "raw_mse": 63.26995034651323,
+    "target_scale": 256.0,
+    "nmse": 0.019676945828409356,
+    "global_nmse": 0.018670232619581523,
+    "rmse": 0.031071254019306882,
+    "rmse_db_80": 2.4857003215445506,
+    "sparse_points": {
+      "points": 59268,
+      "mean_points_per_sample": 299.3333333333333,
+      "mse": 0.0008533434575165767,
+      "raw_mse": 55.92471683180637,
+      "target_scale": 256.0,
+      "global_nmse": 0.016264940336875033,
+      "rmse": 0.029212043021955462,
+      "rmse_db_80": 2.336963441756437
+    }
+  }
+}
