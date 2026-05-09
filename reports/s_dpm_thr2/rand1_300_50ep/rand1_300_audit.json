@@ -1,0 +1,375 @@
+{
+  "scope": "paper_faithful_random_1_300_run",
+  "paper_faithful_random_sample_count_run": true,
+  "scope_note": "This is the paper-faithful random sample count run: fix_samples=0, num_samples_low=1, num_samples_high=301, and numpy randint therefore draws 1..300.",
+  "run_dir": "reports/s_dpm_thr2/rand1_300_50ep",
+  "config_path": "configs/s_dpm_thr2_rand1_300.yaml",
+  "config": {
+    "loader": "RadioUNet_s",
+    "simulation": "DPM",
+    "threshold": 0.2,
+    "batch_size": 15,
+    "seed": 42,
+    "fix_samples": 0,
+    "num_samples_low": 1,
+    "num_samples_high": 301,
+    "firstU_epochs": 50,
+    "secondU_epochs": 50,
+    "inputs": 3
+  },
+  "commands": [
+    "python scripts/train.py --config configs/s_dpm_thr2_rand1_300.yaml --phase both --device cuda:0 --run-dir reports/s_dpm_thr2/rand1_300_50ep",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt --split test --device cuda:0 --output reports/s_dpm_thr2/rand1_300_50ep/firstU_test_metrics.json",
+    "python scripts/evaluate.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --output reports/s_dpm_thr2/rand1_300_50ep/secondU_test_metrics.json",
+    "rerun both eval commands to *_rerun.json",
+    "python scripts/make_figures.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --limit 8 --output-dir reports/s_dpm_thr2/rand1_300_50ep/figures"
+  ],
+  "source_git": {
+    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "dirty": true,
+    "status_short": "?? reports/s_dpm_thr2/rand1_300_50ep/\n?? reports/s_dpm_thr2/stage2_final_audit.json\n?? reports/s_dpm_thr2/stage2_final_audit.md\n?? reports/s_dpm_thr2/stage2_final_metric_curves.png",
+    "exclude_paths": []
+  },
+  "run_metadata_git": {
+    "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "metrics_git": {
+    "firstU": {
+      "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "secondU": {
+      "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    }
+  },
+  "history": {
+    "firstU": {
+      "entries": 100,
+      "train_entries": 50,
+      "val_entries": 50,
+      "best_val_loss": 22.50000582024455,
+      "first_entry": {
+        "epoch": 0,
+        "split": "train",
+        "loss": 448.03516254596366,
+        "samples": 40080
+      },
+      "last_entry": {
+        "epoch": 49,
+        "split": "val",
+        "loss": 23.741322637721897,
+        "samples": 8000
+      }
+    },
+    "secondU": {
+      "entries": 100,
+      "train_entries": 50,
+      "val_entries": 50,
+      "best_val_loss": 17.590189978033305,
+      "first_entry": {
+        "epoch": 0,
+        "split": "train",
+        "loss": 33.249433403243565,
+        "samples": 40080
+      },
+      "last_entry": {
+        "epoch": 49,
+        "split": "val",
+        "loss": 17.590189978033305,
+        "samples": 8000
+      }
+    }
+  },
+  "metrics": {
+    "firstU": {
+      "mse": 0.00036321246246491984,
+      "raw_mse": 23.803491940100987,
+      "target_scale": 256.0,
+      "nmse": 0.008562235212042597,
+      "global_nmse": 0.0067771269695524215,
+      "rmse": 0.019058133761334552,
+      "rmse_db_80": 1.5246507009067642
+    },
+    "secondU": {
+      "mse": 0.0002833112683867622,
+      "raw_mse": 18.567087284994848,
+      "target_scale": 256.0,
+      "nmse": 0.006728377919926336,
+      "global_nmse": 0.005286262543704091,
+      "rmse": 0.01683185279126342,
+      "rmse_db_80": 1.3465482233010737
+    }
+  },
+  "test_samples": {
+    "firstU": 7920,
+    "secondU": 7920
+  },
+  "rerun_consistency": {
+    "firstU_metrics_max_abs_diff": 0.0,
+    "secondU_metrics_max_abs_diff": 0.0
+  },
+  "checkpoints": {
+    "firstU": {
+      "phase": "firstU",
+      "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_actual": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+      "sha256_matches": true,
+      "tracked_by_git": false
+    },
+    "secondU": {
+      "phase": "secondU",
+      "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+      "sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc",
+      "tracked_in_git": false,
+      "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+      "exists": true,
+      "sha256_actual": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc",
+      "sha256_matches": true,
+      "tracked_by_git": false
+    }
+  },
+  "figures": [
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0000.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0001.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0002.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0003.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0004.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0005.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0006.png",
+    "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0007.png"
+  ],
+  "sparse_samples": {
+    "drawn_distribution_method": "Real RadioUNet_s DataLoader replay with num_workers=0 and a temporary np.random.randint recorder; records exactly the per-item num_samples draw where low/high/size match the config.",
+    "split": "test",
+    "configured_fix_samples": 0,
+    "configured_num_samples_low": 1,
+    "configured_num_samples_high": 301,
+    "numpy_randint_high_is_exclusive": true,
+    "paper_faithful_expected_drawn_range": "1..300",
+    "drawn_count_items": 7920,
+    "drawn_min": 1,
+    "drawn_max": 300,
+    "drawn_mean": 150.65378787878788,
+    "drawn_first_16": [
+      251,
+      86,
+      211,
+      65,
+      90,
+      92,
+      3,
+      12,
+      150,
+      89,
+      108,
+      276,
+      198,
+      279,
+      162,
+      241
+    ],
+    "drawn_histogram": {
+      "1..49": 1349,
+      "50..99": 1252,
+      "100..149": 1327,
+      "150..199": 1259,
+      "200..249": 1379,
+      "250..300": 1354
+    },
+    "checked_sparse_items": 7920,
+    "observed_sparse_channel_nonzero_min": 0,
+    "observed_sparse_channel_nonzero_max": 287,
+    "observed_sparse_channel_nonzero_mean": 96.82323232323232,
+    "observed_first_16_nonzero_counts": [
+      227,
+      72,
+      190,
+      57,
+      83,
+      84,
+      3,
+      10,
+      125,
+      79,
+      94,
+      251,
+      173,
+      241,
+      145,
+      214
+    ],
+    "sparse_target_alignment_abs_max": 0.0,
+    "note": "drawn sample count is the requested random count; observed nonzero sparse-channel count can be lower because duplicate coordinates and zero target values collapse entries."
+  },
+  "gate": {
+    "paper_faithful_random_1_300": true,
+    "fixed_run_dir": true,
+    "config_path_expected": true,
+    "history_entries_100_each": true,
+    "test_samples_7920": true,
+    "run_metadata_git_dirty_false": true,
+    "metrics_git_dirty_false": true,
+    "metrics_git_excludes_reports": true,
+    "checkpoint_sha256_matches": true,
+    "checkpoint_files_tracked_by_git": false,
+    "eight_prediction_figures": true,
+    "rerun_exact": true,
+    "random_sample_distribution_recorded": true,
+    "passed": true
+  },
+  "fixed_sweep_and_random_secondU_comparison": [
+    {
+      "setting": "fixed 50",
+      "mse": 0.00040458987713822296,
+      "raw_mse": 26.51520218813058,
+      "target_scale": 256.0,
+      "nmse": 0.00957949993927755,
+      "global_nmse": 0.007549181955169834,
+      "rmse": 0.02011441963215004,
+      "rmse_db_80": 1.609153570572003
+    },
+    {
+      "setting": "fixed 100",
+      "mse": 0.00031375166667423787,
+      "raw_mse": 20.562029227162853,
+      "target_scale": 256.0,
+      "nmse": 0.0074780237189384716,
+      "global_nmse": 0.005854245391073985,
+      "rmse": 0.01771303663052267,
+      "rmse_db_80": 1.4170429304418137
+    },
+    {
+      "setting": "fixed 200",
+      "mse": 0.00025534415712944326,
+      "raw_mse": 16.734234681635193,
+      "target_scale": 256.0,
+      "nmse": 0.006098790043049094,
+      "global_nmse": 0.004764428413299941,
+      "rmse": 0.015979491766931864,
+      "rmse_db_80": 1.278359341354549
+    },
+    {
+      "setting": "fixed 300",
+      "mse": 0.000252615382302765,
+      "raw_mse": 16.555401694594007,
+      "target_scale": 256.0,
+      "nmse": 0.006005229240668776,
+      "global_nmse": 0.004713512599957162,
+      "rmse": 0.01589387876834239,
+      "rmse_db_80": 1.2715103014673912
+    },
+    {
+      "setting": "implementation-default random 10..299",
+      "mse": 0.00028443395466169795,
+      "raw_mse": 18.640663652709037,
+      "target_scale": 256.0,
+      "nmse": 0.006772418259226304,
+      "global_nmse": 0.005307210583471843,
+      "rmse": 0.01686516986756131,
+      "rmse_db_80": 1.3492135894049049
+    },
+    {
+      "setting": "paper-faithful random 1..300",
+      "mse": 0.0002833112683867622,
+      "raw_mse": 18.567087284994848,
+      "target_scale": 256.0,
+      "nmse": 0.006728377919926336,
+      "global_nmse": 0.005286262543704091,
+      "rmse": 0.01683185279126342,
+      "rmse_db_80": 1.3465482233010737
+    }
+  ],
+  "stage1_comparison": {
+    "firstU": {
+      "mse": {
+        "stage1": 0.00047267809781480923,
+        "paper_faithful_random_1_300": 0.00036321246246491984,
+        "delta_stage1_minus_current": 0.0001094656353498894,
+        "relative_improvement_percent": 23.1586011401732
+      },
+      "nmse": {
+        "stage1": 0.010797844952486974,
+        "paper_faithful_random_1_300": 0.008562235212042597,
+        "delta_stage1_minus_current": 0.002235609740444377,
+        "relative_improvement_percent": 20.704221539405125
+      },
+      "global_nmse": {
+        "stage1": 0.008701918665234756,
+        "paper_faithful_random_1_300": 0.0067771269695524215,
+        "delta_stage1_minus_current": 0.0019247916956823341,
+        "relative_improvement_percent": 22.119164401893524
+      },
+      "rmse": {
+        "stage1": 0.021741161372263656,
+        "paper_faithful_random_1_300": 0.019058133761334552,
+        "delta_stage1_minus_current": 0.0026830276109291035,
+        "relative_improvement_percent": 12.340774096603612
+      },
+      "rmse_db_80": {
+        "stage1": 1.7392929097810925,
+        "paper_faithful_random_1_300": 1.5246507009067642,
+        "delta_stage1_minus_current": 0.21464220887432828,
+        "relative_improvement_percent": 12.340774096603612
+      }
+    },
+    "secondU": {
+      "mse": {
+        "stage1": 0.000419767048463131,
+        "paper_faithful_random_1_300": 0.0002833112683867622,
+        "delta_stage1_minus_current": 0.0001364557800763688,
+        "relative_improvement_percent": 32.507501619283005
+      },
+      "nmse": {
+        "stage1": 0.009647368385478992,
+        "paper_faithful_random_1_300": 0.006728377919926336,
+        "delta_stage1_minus_current": 0.002918990465552656,
+        "relative_improvement_percent": 30.256857092202022
+      },
+      "global_nmse": {
+        "stage1": 0.007727835774406763,
+        "paper_faithful_random_1_300": 0.005286262543704091,
+        "delta_stage1_minus_current": 0.002441573230702672,
+        "relative_improvement_percent": 31.59452791153682
+      },
+      "rmse": {
+        "stage1": 0.02048821730808054,
+        "paper_faithful_random_1_300": 0.01683185279126342,
+        "delta_stage1_minus_current": 0.003656364516817119,
+        "relative_improvement_percent": 17.846181841184645
+      },
+      "rmse_db_80": {
+        "stage1": 1.6390573846464431,
+        "paper_faithful_random_1_300": 1.3465482233010737,
+        "delta_stage1_minus_current": 0.2925091613453694,
+        "relative_improvement_percent": 17.84618184118464
+      }
+    }
+  },
+  "comparison_figure": "reports/s_dpm_thr2/rand1_300_50ep/rand1_300_vs_fixed_rand10_metrics.png"
+}

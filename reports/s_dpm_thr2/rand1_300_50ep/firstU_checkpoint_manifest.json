@@ -1,0 +1,7 @@
+{
+  "phase": "firstU",
+  "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+  "sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}
