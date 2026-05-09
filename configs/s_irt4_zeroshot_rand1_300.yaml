@@ -1,0 +1,52 @@
+experiment:
+  name: s_irt4_zeroshot_rand1_300
+  description: "Stage 3A zero-shot transfer: Stage 2 paper-faithful RadioUNet_S random 1..300 secondU checkpoint evaluated on IRT4 sparse test targets with only the first 2 Tx per map."
+  seed: 42
+
+data:
+  dataset_dir: RadioMapSeer/
+  loader: RadioUNet_s_sprseIRT4
+  simulation: IRT4
+  city_map: complete
+  cars_simulation: no
+  cars_input: no
+  num_tx: 2
+  threshold: 0.2
+  batch_size: 15
+  num_workers: 1
+  smoke_num_tx: 2
+  data_samples: 300
+  fix_samples: 0
+  num_samples_low: 1
+  num_samples_high: 301
+  target_scale: 256
+
+model:
+  class_name: RadioWNet
+  inputs: 3
+  phases:
+    - firstU
+    - secondU
+
+training:
+  epochs: 50
+  optimizer: Adam
+  learning_rate: 0.0001
+  scheduler: StepLR
+  step_size: 30
+  gamma: 0.1
+  loss: MSELoss
+
+evaluation:
+  transfer_mode: zero-shot
+  source_checkpoint: reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt
+  source_training_target: DPM
+  target: IRT4
+  tx_note: IRT4 files are available only for Tx indices 0 and 1, so num_tx is fixed to 2.
+  sparse_note: Input samples are drawn only from the deterministic 300-point sparse IRT4 sample set for each map.
+  metrics:
+    - mse
+    - nmse
+    - rmse
+  save_prediction_panels: true
+  measure_runtime: true
