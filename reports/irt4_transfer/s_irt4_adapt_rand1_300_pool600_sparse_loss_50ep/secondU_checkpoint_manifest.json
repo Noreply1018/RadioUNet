@@ -1,0 +1,7 @@
+{
+  "phase": "secondU",
+  "checkpoint": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/checkpoints/secondU.pt",
+  "sha256": "a085e2e126bc49a03e9ef7b92c25dcd841005d8857c4f34b92d461f75effb94e",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}
