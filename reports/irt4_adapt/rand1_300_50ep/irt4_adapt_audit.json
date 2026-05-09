@@ -1,0 +1,209 @@
+{
+  "scope": "Stage 3B IRT4 sparse adaptation audit",
+  "git": {
+    "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+    "dirty": true,
+    "status_short": "?? reports/irt4_adapt/rand1_300_50ep/figures/\n?? reports/irt4_adapt/rand1_300_50ep/run_metadata.json\n?? reports/irt4_adapt/rand1_300_50ep/s_irt4_adapt_rand1_300.yaml\n?? reports/irt4_adapt/rand1_300_50ep/secondU_checkpoint_manifest.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_history.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_test_metrics.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_test_metrics_rerun.json",
+    "exclude_paths": []
+  },
+  "run_dir": "reports/irt4_adapt/rand1_300_50ep",
+  "config_path": "configs/s_irt4_adapt_rand1_300.yaml",
+  "adaptation_mode": "secondU-only adaptation",
+  "init_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+  "run_metadata_git": {
+    "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "loader_audit": {
+    "config_path": "configs/s_irt4_adapt_rand1_300.yaml",
+    "loader": "RadioUNet_s_sprseIRT4",
+    "simulation": "IRT4",
+    "num_tx": 2,
+    "split_samples": {
+      "train": 1002,
+      "val": 200,
+      "test": 198
+    },
+    "input_channels": 3,
+    "target_scale": 256.0,
+    "data_samples": 300,
+    "fix_samples": 0,
+    "num_samples_low": 1,
+    "num_samples_high": 301,
+    "checked_test_batches": 4,
+    "input_sparse_nonzero_min": 18,
+    "input_sparse_nonzero_max": 189,
+    "input_sparse_nonzero_mean": 90.55,
+    "sample_mask_nonzero_min": 297,
+    "sample_mask_nonzero_max": 300,
+    "sparse_target_alignment_abs_max": 0.0,
+    "official_loader_audit": {
+      "local_reference": "reference/RadioUNet/lib/loaders.py",
+      "repo_loader": "src/radiounet/data.py",
+      "finding": "The IRT4 sparse path is implemented by RadioUNet_c_sprseIRT4 and RadioUNet_s_sprseIRT4. Both default to numTx=2, read gain/IRT4, and the S loader builds inputs from deterministic sparse IRT4 sample coordinates."
+    }
+  },
+  "history": {
+    "entries": 100,
+    "train_entries": 50,
+    "val_entries": 50,
+    "best_val_loss": 43.63565683364868,
+    "first_entry": {
+      "epoch": 0,
+      "split": "train",
+      "loss": 584.1942288518666,
+      "samples": 1002
+    },
+    "last_entry": {
+      "epoch": 49,
+      "split": "val",
+      "loss": 43.681775379180905,
+      "samples": 200
+    }
+  },
+  "checkpoint": {
+    "checkpoint": "reports/irt4_adapt/rand1_300_50ep/checkpoints/secondU.pt",
+    "exists": true,
+    "tracked_by_git": false,
+    "sha256_actual": "2cebba224982a762de9e22e6d56e0d909306d44b95d6b03ebf21b36f7bb7ebc7",
+    "phase": "secondU",
+    "sha256": "2cebba224982a762de9e22e6d56e0d909306d44b95d6b03ebf21b36f7bb7ebc7",
+    "tracked_in_git": false,
+    "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+    "sha256_matches": true
+  },
+  "metrics": {
+    "samples": 198,
+    "seconds": 1.700669765472412,
+    "checkpoint": "reports/irt4_adapt/rand1_300_50ep/checkpoints/secondU.pt",
+    "checkpoint_phase": "secondU",
+    "git": {
+      "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "artifact_git": {
+      "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+      "dirty": true,
+      "status_short": "?? reports/irt4_adapt/rand1_300_50ep/run_metadata.json\n?? reports/irt4_adapt/rand1_300_50ep/s_irt4_adapt_rand1_300.yaml\n?? reports/irt4_adapt/rand1_300_50ep/secondU_checkpoint_manifest.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_history.json",
+      "exclude_paths": []
+    },
+    "firstU": {
+      "mse": 0.0009700314977001681,
+      "raw_mse": 63.571984233278215,
+      "target_scale": 256.0,
+      "nmse": 0.019764564451620434,
+      "global_nmse": 0.018759359172315967,
+      "rmse": 0.031145328665791408,
+      "rmse_db_80": 2.4916262932633124
+    },
+    "secondU": {
+      "mse": 0.0007365961258377259,
+      "raw_mse": 48.27356370290121,
+      "target_scale": 256.0,
+      "nmse": 0.015191156530019009,
+      "global_nmse": 0.014244971835326838,
+      "rmse": 0.0271403044536668,
+      "rmse_db_80": 2.1712243562933438
+    }
+  },
+  "rerun_metrics": {
+    "samples": 198,
+    "seconds": 1.7980632781982422,
+    "checkpoint": "reports/irt4_adapt/rand1_300_50ep/checkpoints/secondU.pt",
+    "checkpoint_phase": "secondU",
+    "git": {
+      "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "artifact_git": {
+      "commit": "8b7c1237896dacef35c88c30d6d46f3bba5c0524",
+      "dirty": true,
+      "status_short": "?? reports/irt4_adapt/rand1_300_50ep/run_metadata.json\n?? reports/irt4_adapt/rand1_300_50ep/s_irt4_adapt_rand1_300.yaml\n?? reports/irt4_adapt/rand1_300_50ep/secondU_checkpoint_manifest.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_history.json\n?? reports/irt4_adapt/rand1_300_50ep/secondU_test_metrics.json",
+      "exclude_paths": []
+    },
+    "firstU": {
+      "mse": 0.0009700314977001681,
+      "raw_mse": 63.571984233278215,
+      "target_scale": 256.0,
+      "nmse": 0.019764564451620434,
+      "global_nmse": 0.018759359172315967,
+      "rmse": 0.031145328665791408,
+      "rmse_db_80": 2.4916262932633124
+    },
+    "secondU": {
+      "mse": 0.0007365961258377259,
+      "raw_mse": 48.27356370290121,
+      "target_scale": 256.0,
+      "nmse": 0.015191156530019009,
+      "global_nmse": 0.014244971835326838,
+      "rmse": 0.0271403044536668,
+      "rmse_db_80": 2.1712243562933438
+    }
+  },
+  "rerun_max_abs_diff": 0.0,
+  "figures": [
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0000.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0001.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0002.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0003.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0004.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0005.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0006.png",
+    "reports/irt4_adapt/rand1_300_50ep/figures/s_irt4_adapt_rand1_300_test_0007.png"
+  ],
+  "figure_count": 8,
+  "metrics_git_dirty": false,
+  "irt4_only_comparison": {
+    "stage1_c_zero_shot": {
+      "mse": 0.0014888852972283282,
+      "raw_mse": 0.0014888852972283282,
+      "target_scale": 1.0,
+      "nmse": 0.030432741750370373,
+      "global_nmse": 0.028793430241020535,
+      "rmse": 0.03858607646844038,
+      "rmse_db_80": 3.0868861174752302
+    },
+    "stage2_s_zero_shot": {
+      "mse": 0.0009654228263322941,
+      "raw_mse": 63.26995034651323,
+      "target_scale": 256.0,
+      "nmse": 0.019676945828409356,
+      "global_nmse": 0.018670232619581523,
+      "rmse": 0.031071254019306882,
+      "rmse_db_80": 2.4857003215445506
+    },
+    "stage3_s_adaptation": {
+      "mse": 0.0007365961258377259,
+      "raw_mse": 48.27356370290121,
+      "target_scale": 256.0,
+      "nmse": 0.015191156530019009,
+      "global_nmse": 0.014244971835326838,
+      "rmse": 0.0271403044536668,
+      "rmse_db_80": 2.1712243562933438
+    },
+    "note": "本对比只使用 IRT4 test split；DPM 指标不参与结论。"
+  },
+  "gate": {
+    "mode_secondU_only_adaptation": true,
+    "train_val_test_samples": true,
+    "history_50_train_and_val_entries": true,
+    "test_samples_198": true,
+    "metrics_git_dirty_false": true,
+    "rerun_diff_zero": true,
+    "checkpoint_not_tracked": true,
+    "figures_8": true,
+    "pass": true
+  }
+}
