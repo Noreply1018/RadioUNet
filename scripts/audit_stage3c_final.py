@@ -139,6 +139,7 @@ def collect_run(name: str, spec: dict[str, Any]) -> dict[str, Any]:
         out["semantic_data_samples"] = semantic.get("data_samples")
         out["semantic_input_low"] = semantic.get("num_samples_low")
         out["semantic_input_high"] = semantic.get("num_samples_high")
+        out["semantic_splits"] = semantic.get("splits", {})
     if "original_metrics" in spec:
         out["original_metrics_path"] = str(spec["original_metrics"].relative_to(ROOT))
     return out
@@ -177,13 +178,19 @@ def write_markdown(audit: dict[str, Any]) -> None:
     lines.extend(
         [
             "",
-            "## 论文语义对齐",
-            f"- IRT4 only first two Tx：`{audit['paper_alignment']['irt4_first_two_tx']}`。",
-            f"- RadioUNet_S random 1..300 input measurements：`{audit['paper_alignment']['s_random_1_to_300_input']}`。",
-            f"- S 使用 600 sparse receivers，loss on all 600：`{audit['paper_alignment']['s_pool600_sparse_loss']}`。",
-            f"- adaptation second UNet：`{audit['paper_alignment']['second_unet_adaptation']}`。",
-            "",
-            "## 判定",
+        "## 论文语义对齐",
+        f"- IRT4 only first two Tx：`{audit['paper_alignment']['irt4_first_two_tx']}`。",
+        f"- RadioUNet_S random 1..300 input measurements：`{audit['paper_alignment']['s_random_1_to_300_input']}`。",
+        f"- S 使用 600 sparse receivers，loss on all 600：`{audit['paper_alignment']['s_pool600_sparse_loss']}`。",
+        f"- adaptation second UNet：`{audit['paper_alignment']['second_unet_adaptation']}`。",
+        "",
+        "## 关键限制说明",
+        f"- 600 receivers 在当前 loader 语义下表示“随机采样 600 个坐标”，不是严格 600 个唯一像素；重复坐标会折叠，所以主线 loss mask 唯一非零像素为 `{audit['caveats']['mainline_loss_mask_unique_range']}`，test 平均 `{audit['caveats']['mainline_test_loss_mask_unique_mean']:.2f}`。",
+        f"- S 输入随机点数配置为 `np.random.randint(1, 301)`，语义是 1..300 个采样坐标；由于坐标重复，唯一输入像素审计为 `{audit['caveats']['mainline_input_unique_ranges']}`，不保证每个样本唯一像素数也覆盖 1..300。",
+        f"- dense-loss pilot 的 dense MSE `{audit['caveats']['dense_pilot_dense_mse']:.10f}` 略低于 paper-faithful 主线 `{audit['caveats']['mainline_dense_mse']:.10f}`，但它使用 dense full-map IRT4 target 监督，不能作为论文对齐结论。",
+        "- `configs/s_irt4_adapt_rand1_300.yaml` 是 archived dense-loss pilot 配置；当前 `scripts/train.py` 会拒绝 IRT4 sparse adaptation 使用 `loss_mode: dense_mse`，因此它不是当前可复跑主线。",
+        "",
+        "## 判定",
             f"- 当前代码真正按 sparse IRT4 measurements 训练：`{audit['answers']['sparse_irt4_training']}`。",
             f"- S 600 pool / input 1..300 / sparse loss 成立：`{audit['answers']['s_pool600_input_sparse_loss']}`。",
             f"- 旧 dense-loss pilot 已降级：`{audit['answers']['dense_pilot_demoted']}`。",
@@ -203,6 +210,25 @@ def main() -> int:
     s_zero = runs["s_zero_shot"]
     c_sparse = runs["c_sparse_baseline"]
     dense_pilot = runs["dense_loss_pilot"]
+    main_splits = main["semantic_splits"]
+    caveats = {
+        "mainline_loss_mask_unique_range": f"{main['history']['mask_points_min']}..{main['history']['mask_points_max']}",
+        "mainline_test_loss_mask_unique_mean": main_splits["test"]["loss_mask_points_mean"],
+        "mainline_input_unique_ranges": {
+            split: f"{data['input_points_min']}..{data['input_points_max']}" for split, data in main_splits.items()
+        },
+        "mainline_input_unique_means": {split: data["input_points_mean"] for split, data in main_splits.items()},
+        "dense_pilot_dense_mse": dense_pilot["dense_mse"],
+        "mainline_dense_mse": main["dense_mse"],
+        "dense_pilot_numeric_note": (
+            "dense-loss pilot is numerically slightly better on dense MSE, but it used dense full-map IRT4 target "
+            "supervision and is therefore not paper-faithful sparse adaptation."
+        ),
+        "archived_pilot_config_note": (
+            "configs/s_irt4_adapt_rand1_300.yaml records the historical dense-loss pilot. Current train.py rejects "
+            "IRT4 sparse adaptation with loss_mode=dense_mse, so this config is not a current rerunnable mainline."
+        ),
+    }
     paper_alignment = {
         "irt4_first_two_tx": all(run["samples"] == 198 for run in runs.values()),
         "s_random_1_to_300_input": main["semantic_input_low"] == 1 and main["semantic_input_high"] == 301,
@@ -241,6 +267,7 @@ def main() -> int:
         "scope": "Stage 3C final IRT4 transfer audit",
         "git": git_metadata(exclude_paths=["reports"]),
         "runs": runs,
+        "caveats": caveats,
         "paper_alignment": paper_alignment,
         "answers": answers,
         "gate": gate,
