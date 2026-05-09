@@ -1,0 +1,2024 @@
+{
+  "scope": "stage2_final_synthesis",
+  "source_git": {
+    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "dirty": true,
+    "status_short": "?? reports/s_dpm_thr2/rand1_300_50ep/\n?? reports/s_dpm_thr2/stage2_final_audit.json\n?? reports/s_dpm_thr2/stage2_final_audit.md\n?? reports/s_dpm_thr2/stage2_final_metric_curves.png",
+    "exclude_paths": []
+  },
+  "stage1_metrics": {
+    "firstU": {
+      "mse": 0.00047267809781480923,
+      "nmse": 0.010797844952486974,
+      "global_nmse": 0.008701918665234756,
+      "rmse": 0.021741161372263656,
+      "rmse_db_80": 1.7392929097810925
+    },
+    "secondU": {
+      "mse": 0.000419767048463131,
+      "nmse": 0.009647368385478992,
+      "global_nmse": 0.007727835774406763,
+      "rmse": 0.02048821730808054,
+      "rmse_db_80": 1.6390573846464431
+    }
+  },
+  "runs": [
+    {
+      "setting": "Stage 1 C baseline",
+      "category": "baseline",
+      "metrics": {
+        "firstU": {
+          "mse": 0.00047267809781480923,
+          "nmse": 0.010797844952486974,
+          "global_nmse": 0.008701918665234756,
+          "rmse": 0.021741161372263656,
+          "rmse_db_80": 1.7392929097810925
+        },
+        "secondU": {
+          "mse": 0.000419767048463131,
+          "nmse": 0.009647368385478992,
+          "global_nmse": 0.007727835774406763,
+          "rmse": 0.02048821730808054,
+          "rmse_db_80": 1.6390573846464431
+        }
+      }
+    },
+    {
+      "setting": "fixed 50",
+      "category": "controlled ablation",
+      "sample_count": 50,
+      "metrics": {
+        "firstU": {
+          "mse": 0.00047850945125129795,
+          "raw_mse": 31.359595397205062,
+          "target_scale": 256.0,
+          "nmse": 0.011273472601412019,
+          "global_nmse": 0.008928436224670133,
+          "rmse": 0.02187485888528879,
+          "rmse_db_80": 1.7499887108231031
+        },
+        "secondU": {
+          "mse": 0.00040458987713822296,
+          "raw_mse": 26.51520218813058,
+          "target_scale": 256.0,
+          "nmse": 0.00957949993927755,
+          "global_nmse": 0.007549181955169834,
+          "rmse": 0.02011441963215004,
+          "rmse_db_80": 1.609153570572003
+        }
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "setting": "fixed 100",
+      "category": "controlled ablation",
+      "sample_count": 100,
+      "metrics": {
+        "firstU": {
+          "mse": 0.00039166060910109525,
+          "raw_mse": 25.667869678049378,
+          "target_scale": 256.0,
+          "nmse": 0.009256870892083194,
+          "global_nmse": 0.007307936672215361,
+          "rmse": 0.01979041710275696,
+          "rmse_db_80": 1.5832333682205568
+        },
+        "secondU": {
+          "mse": 0.00031375166667423787,
+          "raw_mse": 20.562029227162853,
+          "target_scale": 256.0,
+          "nmse": 0.0074780237189384716,
+          "global_nmse": 0.005854245391073985,
+          "rmse": 0.01771303663052267,
+          "rmse_db_80": 1.4170429304418137
+        }
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "setting": "fixed 200",
+      "category": "controlled ablation",
+      "sample_count": 200,
+      "metrics": {
+        "firstU": {
+          "mse": 0.00032684131911358264,
+          "raw_mse": 21.419872689427752,
+          "target_scale": 256.0,
+          "nmse": 0.007740965432965437,
+          "global_nmse": 0.006098483258523693,
+          "rmse": 0.018078753251084066,
+          "rmse_db_80": 1.4463002600867254
+        },
+        "secondU": {
+          "mse": 0.00025534415712944326,
+          "raw_mse": 16.734234681635193,
+          "target_scale": 256.0,
+          "nmse": 0.006098790043049094,
+          "global_nmse": 0.004764428413299941,
+          "rmse": 0.015979491766931864,
+          "rmse_db_80": 1.278359341354549
+        }
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "setting": "fixed 300",
+      "category": "controlled ablation",
+      "sample_count": 300,
+      "metrics": {
+        "firstU": {
+          "mse": 0.00030509180253306334,
+          "raw_mse": 19.99449637080684,
+          "target_scale": 256.0,
+          "nmse": 0.0072132220366532265,
+          "global_nmse": 0.005692662279411837,
+          "rmse": 0.017466877297704457,
+          "rmse_db_80": 1.3973501838163567
+        },
+        "secondU": {
+          "mse": 0.000252615382302765,
+          "raw_mse": 16.555401694594007,
+          "target_scale": 256.0,
+          "nmse": 0.006005229240668776,
+          "global_nmse": 0.004713512599957162,
+          "rmse": 0.01589387876834239,
+          "rmse_db_80": 1.2715103014673912
+        }
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "setting": "implementation-default random 10..299",
+      "category": "comparison variant",
+      "metrics": {
+        "firstU": {
+          "mse": 0.0003582760100609007,
+          "raw_mse": 23.47997659535119,
+          "target_scale": 256.0,
+          "nmse": 0.008444945435974549,
+          "global_nmse": 0.006685018451593383,
+          "rmse": 0.018928180315627298,
+          "rmse_db_80": 1.5142544252501837
+        },
+        "secondU": {
+          "mse": 0.00028443395466169795,
+          "raw_mse": 18.640663652709037,
+          "target_scale": 256.0,
+          "nmse": 0.006772418259226304,
+          "global_nmse": 0.005307210583471843,
+          "rmse": 0.01686516986756131,
+          "rmse_db_80": 1.3492135894049049
+        }
+      },
+      "gate": {
+        "implementation_default_random_not_fixed_ablation": true,
+        "fixed_run_dir": true,
+        "config_path_expected": true,
+        "history_entries_100_each": true,
+        "test_samples_7920": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "random_sample_distribution_recorded": true,
+        "passed": true
+      }
+    },
+    {
+      "setting": "paper-faithful random 1..300",
+      "category": "paper-faithful random sample count",
+      "metrics": {
+        "firstU": {
+          "mse": 0.00036321246246491984,
+          "raw_mse": 23.803491940100987,
+          "target_scale": 256.0,
+          "nmse": 0.008562235212042597,
+          "global_nmse": 0.0067771269695524215,
+          "rmse": 0.019058133761334552,
+          "rmse_db_80": 1.5246507009067642
+        },
+        "secondU": {
+          "mse": 0.0002833112683867622,
+          "raw_mse": 18.567087284994848,
+          "target_scale": 256.0,
+          "nmse": 0.006728377919926336,
+          "global_nmse": 0.005286262543704091,
+          "rmse": 0.01683185279126342,
+          "rmse_db_80": 1.3465482233010737
+        }
+      },
+      "gate": {
+        "paper_faithful_random_1_300": true,
+        "fixed_run_dir": true,
+        "config_path_expected": true,
+        "history_entries_100_each": true,
+        "test_samples_7920": true,
+        "run_metadata_git_dirty_false": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "random_sample_distribution_recorded": true,
+        "passed": true
+      }
+    }
+  ],
+  "fixed_sweep": [
+    {
+      "sample_count": 50,
+      "run_dir": "reports/s_dpm_thr2/fix50_50ep",
+      "config_path": "configs/s_dpm_thr2_fix50.yaml",
+      "config": {
+        "loader": "RadioUNet_s",
+        "simulation": "DPM",
+        "threshold": 0.2,
+        "fix_samples": 50,
+        "firstU_epochs": 50,
+        "secondU_epochs": 50,
+        "inputs": 3
+      },
+      "run_metadata_git": {
+        "commit": "f0e6de12222ea18df2da9c6d4560bf30165c37eb",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics_git": {
+        "commit": "f0e6de12222ea18df2da9c6d4560bf30165c37eb",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics": {
+        "firstU": {
+          "mse": 0.00047850945125129795,
+          "raw_mse": 31.359595397205062,
+          "target_scale": 256.0,
+          "nmse": 0.011273472601412019,
+          "global_nmse": 0.008928436224670133,
+          "rmse": 0.02187485888528879,
+          "rmse_db_80": 1.7499887108231031
+        },
+        "secondU": {
+          "mse": 0.00040458987713822296,
+          "raw_mse": 26.51520218813058,
+          "target_scale": 256.0,
+          "nmse": 0.00957949993927755,
+          "global_nmse": 0.007549181955169834,
+          "rmse": 0.02011441963215004,
+          "rmse_db_80": 1.609153570572003
+        }
+      },
+      "rerun_consistency": {
+        "firstU_metrics_max_abs_diff": 0.0,
+        "secondU_metrics_max_abs_diff": 0.0
+      },
+      "checkpoints": {
+        "firstU": {
+          "phase": "firstU",
+          "checkpoint": "reports/s_dpm_thr2/fix50_50ep/checkpoints/firstU.pt",
+          "sha256": "648c442cb250f6009b915ba8624ec048c81241bb27e21679ecd538a30edc97e0",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        },
+        "secondU": {
+          "phase": "secondU",
+          "checkpoint": "reports/s_dpm_thr2/fix50_50ep/checkpoints/secondU.pt",
+          "sha256": "78609eeffc47dc20d825f59a9b9965042a8f6f49f674e065c0f6deecc87719e7",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        }
+      },
+      "figures": [
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0000.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0001.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0002.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0003.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0004.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0005.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0006.png",
+        "reports/s_dpm_thr2/fix50_50ep/figures/s_dpm_thr2_test_0007.png"
+      ],
+      "sparse_samples": {
+        "configured_fix_samples": 50,
+        "checked_test_items": 120,
+        "target_scale": 256.0,
+        "observed_sparse_channel_nonzero_min": 34,
+        "observed_sparse_channel_nonzero_max": 49,
+        "observed_sparse_channel_nonzero_mean": 42.78333333333333,
+        "first_8_observed_nonzero_counts": [
+          41,
+          45,
+          46,
+          46,
+          46,
+          47,
+          48,
+          43
+        ],
+        "sparse_target_alignment_abs_max": 0.0,
+        "note": "RadioUNet_s samples fixed coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "sample_count": 100,
+      "run_dir": "reports/s_dpm_thr2/fix100_50ep",
+      "config_path": "configs/s_dpm_thr2_fix100.yaml",
+      "config": {
+        "loader": "RadioUNet_s",
+        "simulation": "DPM",
+        "threshold": 0.2,
+        "fix_samples": 100,
+        "firstU_epochs": 50,
+        "secondU_epochs": 50,
+        "inputs": 3
+      },
+      "run_metadata_git": {
+        "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics_git": {
+        "commit": "395f3eae755421a3350bb7469b55774b0dd21dfa",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics": {
+        "firstU": {
+          "mse": 0.00039166060910109525,
+          "raw_mse": 25.667869678049378,
+          "target_scale": 256.0,
+          "nmse": 0.009256870892083194,
+          "global_nmse": 0.007307936672215361,
+          "rmse": 0.01979041710275696,
+          "rmse_db_80": 1.5832333682205568
+        },
+        "secondU": {
+          "mse": 0.00031375166667423787,
+          "raw_mse": 20.562029227162853,
+          "target_scale": 256.0,
+          "nmse": 0.0074780237189384716,
+          "global_nmse": 0.005854245391073985,
+          "rmse": 0.01771303663052267,
+          "rmse_db_80": 1.4170429304418137
+        }
+      },
+      "rerun_consistency": {
+        "firstU_metrics_max_abs_diff": 0.0,
+        "secondU_metrics_max_abs_diff": 0.0
+      },
+      "checkpoints": {
+        "firstU": {
+          "phase": "firstU",
+          "checkpoint": "reports/s_dpm_thr2/fix100_50ep/checkpoints/firstU.pt",
+          "sha256": "7a05a02be80611c85764f8fe39a87747d2fe24c6d5cbf870c43c24f0f4c4a9f2",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        },
+        "secondU": {
+          "phase": "secondU",
+          "checkpoint": "reports/s_dpm_thr2/fix100_50ep/checkpoints/secondU.pt",
+          "sha256": "7db14f330da5efc2475f663ecf56ffc35dac8a7b67de20350b50ff7f30594f50",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        }
+      },
+      "figures": [
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0000.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0001.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0002.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0003.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0004.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0005.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0006.png",
+        "reports/s_dpm_thr2/fix100_50ep/figures/s_dpm_thr2_test_0007.png"
+      ],
+      "sparse_samples": {
+        "configured_fix_samples": 100,
+        "checked_test_items": 120,
+        "target_scale": 256.0,
+        "observed_sparse_channel_nonzero_min": 70,
+        "observed_sparse_channel_nonzero_max": 97,
+        "observed_sparse_channel_nonzero_mean": 85.79166666666667,
+        "first_8_observed_nonzero_counts": [
+          84,
+          84,
+          87,
+          88,
+          86,
+          90,
+          93,
+          88
+        ],
+        "sparse_target_alignment_abs_max": 0.0,
+        "note": "RadioUNet_s samples fixed coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "sample_count": 200,
+      "run_dir": "reports/s_dpm_thr2/full_50ep",
+      "config_path": "configs/s_dpm_thr2.yaml",
+      "config": {
+        "loader": "RadioUNet_s",
+        "simulation": "DPM",
+        "threshold": 0.2,
+        "fix_samples": 200,
+        "firstU_epochs": 50,
+        "secondU_epochs": 50,
+        "inputs": 3
+      },
+      "run_metadata_git": {
+        "commit": "5b27461bfb3059c5d128926cc434f4ca5bbe0e7e",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics_git": {
+        "commit": "5b27461bfb3059c5d128926cc434f4ca5bbe0e7e",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics": {
+        "firstU": {
+          "mse": 0.00032684131911358264,
+          "raw_mse": 21.419872689427752,
+          "target_scale": 256.0,
+          "nmse": 0.007740965432965437,
+          "global_nmse": 0.006098483258523693,
+          "rmse": 0.018078753251084066,
+          "rmse_db_80": 1.4463002600867254
+        },
+        "secondU": {
+          "mse": 0.00025534415712944326,
+          "raw_mse": 16.734234681635193,
+          "target_scale": 256.0,
+          "nmse": 0.006098790043049094,
+          "global_nmse": 0.004764428413299941,
+          "rmse": 0.015979491766931864,
+          "rmse_db_80": 1.278359341354549
+        }
+      },
+      "rerun_consistency": {
+        "firstU_metrics_max_abs_diff": 0.0,
+        "secondU_metrics_max_abs_diff": 0.0
+      },
+      "checkpoints": {
+        "firstU": {
+          "phase": "firstU",
+          "checkpoint": "reports/s_dpm_thr2/full_50ep/checkpoints/firstU.pt",
+          "sha256": "5d36a1ddcfcd96a3e11f3e9d32b9ac9b7704f3aef029238ee0b3e26778c5ff88",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        },
+        "secondU": {
+          "phase": "secondU",
+          "checkpoint": "reports/s_dpm_thr2/full_50ep/checkpoints/secondU.pt",
+          "sha256": "b42869fa94873327b70e97b815f15c160498003bc14d549186f00bde9ce811ed",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        }
+      },
+      "figures": [
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0000.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0001.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0002.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0003.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0004.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0005.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0006.png",
+        "reports/s_dpm_thr2/full_50ep/figures/s_dpm_thr2_test_0007.png"
+      ],
+      "sparse_samples": {
+        "configured_fix_samples": 200,
+        "checked_test_items": 120,
+        "target_scale": 256.0,
+        "observed_sparse_channel_nonzero_min": 147,
+        "observed_sparse_channel_nonzero_max": 187,
+        "observed_sparse_channel_nonzero_mean": 171.025,
+        "first_8_observed_nonzero_counts": [
+          173,
+          166,
+          176,
+          170,
+          169,
+          170,
+          174,
+          174
+        ],
+        "sparse_target_alignment_abs_max": 0.0,
+        "note": "RadioUNet_s samples fixed coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    },
+    {
+      "sample_count": 300,
+      "run_dir": "reports/s_dpm_thr2/fix300_50ep",
+      "config_path": "configs/s_dpm_thr2_fix300.yaml",
+      "config": {
+        "loader": "RadioUNet_s",
+        "simulation": "DPM",
+        "threshold": 0.2,
+        "fix_samples": 300,
+        "firstU_epochs": 50,
+        "secondU_epochs": 50,
+        "inputs": 3
+      },
+      "run_metadata_git": {
+        "commit": "301ac2d95c108609b5e5984ee00aa829eb438956",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics_git": {
+        "commit": "301ac2d95c108609b5e5984ee00aa829eb438956",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "metrics": {
+        "firstU": {
+          "mse": 0.00030509180253306334,
+          "raw_mse": 19.99449637080684,
+          "target_scale": 256.0,
+          "nmse": 0.0072132220366532265,
+          "global_nmse": 0.005692662279411837,
+          "rmse": 0.017466877297704457,
+          "rmse_db_80": 1.3973501838163567
+        },
+        "secondU": {
+          "mse": 0.000252615382302765,
+          "raw_mse": 16.555401694594007,
+          "target_scale": 256.0,
+          "nmse": 0.006005229240668776,
+          "global_nmse": 0.004713512599957162,
+          "rmse": 0.01589387876834239,
+          "rmse_db_80": 1.2715103014673912
+        }
+      },
+      "rerun_consistency": {
+        "firstU_metrics_max_abs_diff": 0.0,
+        "secondU_metrics_max_abs_diff": 0.0
+      },
+      "checkpoints": {
+        "firstU": {
+          "phase": "firstU",
+          "checkpoint": "reports/s_dpm_thr2/fix300_50ep/checkpoints/firstU.pt",
+          "sha256": "c2e756e90ff415f026ad76ccd076948346faecc35a41e62d9264bc64f85baade",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        },
+        "secondU": {
+          "phase": "secondU",
+          "checkpoint": "reports/s_dpm_thr2/fix300_50ep/checkpoints/secondU.pt",
+          "sha256": "34bb08b8e2b0d01bd3a67177ed1e5f0b662532e01d63ea0d858cd3e99aa4ef36",
+          "tracked_in_git": false,
+          "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+          "exists": true,
+          "sha256_matches": true,
+          "tracked_by_git": false
+        }
+      },
+      "figures": [
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0000.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0001.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0002.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0003.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0004.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0005.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0006.png",
+        "reports/s_dpm_thr2/fix300_50ep/figures/s_dpm_thr2_test_0007.png"
+      ],
+      "sparse_samples": {
+        "configured_fix_samples": 300,
+        "checked_test_items": 120,
+        "target_scale": 256.0,
+        "observed_sparse_channel_nonzero_min": 215,
+        "observed_sparse_channel_nonzero_max": 278,
+        "observed_sparse_channel_nonzero_mean": 255.99166666666667,
+        "first_8_observed_nonzero_counts": [
+          258,
+          244,
+          254,
+          273,
+          263,
+          268,
+          273,
+          261
+        ],
+        "sparse_target_alignment_abs_max": 0.0,
+        "note": "RadioUNet_s samples fixed coordinates per item; duplicate coordinates and zero target values can reduce the observed nonzero sparse-channel count."
+      },
+      "gate": {
+        "fixed_run_dir": true,
+        "metrics_git_dirty_false": true,
+        "metrics_git_excludes_reports": true,
+        "checkpoints_exist": true,
+        "checkpoint_sha256_matches": true,
+        "checkpoint_files_tracked_by_git": false,
+        "eight_prediction_figures": true,
+        "rerun_exact": true,
+        "passed": true
+      }
+    }
+  ],
+  "random_10_299": {
+    "scope": "implementation_default_random_10_299_run",
+    "paper_faithful_1_300": false,
+    "scope_note": "Archived comparison variant. It uses fix_samples=0 with num_samples_low=10 and num_samples_high=300, so numpy randint draws 10..299. It is not the paper-faithful random 1..300 run.",
+    "paper_faithful_random_1_300_included": false,
+    "artifact_add_commit": "535b7b3",
+    "provenance_note": "Commit 535b7b3 added the tracked lightweight artifacts for this run. This report is an archived implementation-default random 10..299 comparison variant; metrics and checkpoint hashes are unchanged by wording-only audit corrections.",
+    "not_fixed_sample_count_ablation": true,
+    "run_dir": "reports/s_dpm_thr2/rand10_300_50ep",
+    "config_path": "configs/s_dpm_thr2_rand10_300.yaml",
+    "config": {
+      "loader": "RadioUNet_s",
+      "simulation": "DPM",
+      "threshold": 0.2,
+      "fix_samples": 0,
+      "num_samples_low": 10,
+      "num_samples_high": 300,
+      "firstU_epochs": 50,
+      "secondU_epochs": 50,
+      "inputs": 3
+    },
+    "commands": [
+      "git status --short",
+      "python scripts/train.py --config configs/s_dpm_thr2_rand10_300.yaml --phase both --device cuda:0 --epochs 50 --run-dir reports/s_dpm_thr2/rand10_300_50ep",
+      "python scripts/evaluate.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/firstU.pt --split test --output reports/s_dpm_thr2/rand10_300_50ep/firstU_test_metrics.json",
+      "python scripts/evaluate.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt --split test --output reports/s_dpm_thr2/rand10_300_50ep/secondU_test_metrics.json",
+      "rerun both eval commands to *_rerun.json",
+      "python scripts/make_figures.py --config configs/s_dpm_thr2_rand10_300.yaml --checkpoint reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --limit 8 --output-dir reports/s_dpm_thr2/rand10_300_50ep/figures"
+    ],
+    "source_git": {
+      "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "artifact_git": {
+      "commit": "535b7b3156811d8068c7906102efed1259d645d2",
+      "short_commit": "535b7b3",
+      "dirty": true,
+      "status_short": "?? reports/s_dpm_thr2/rand10_300_50ep/",
+      "exclude_paths": []
+    },
+    "run_metadata_git": {
+      "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "metrics_git": {
+      "firstU": {
+        "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "secondU": {
+        "commit": "1baf8cf8e3210453ffbcb618c330a8791426a5e7",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      }
+    },
+    "history": {
+      "firstU": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 22.196212411522865,
+        "first_entry": {
+          "epoch": 0,
+          "split": "train",
+          "loss": 401.8769978620335,
+          "samples": 40080
+        },
+        "last_entry": {
+          "epoch": 49,
+          "split": "val",
+          "loss": 23.880420616567136,
+          "samples": 8000
+        }
+      },
+      "secondU": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 17.68556395791471,
+        "first_entry": {
+          "epoch": 0,
+          "split": "train",
+          "loss": 32.139250639313,
+          "samples": 40080
+        },
+        "last_entry": {
+          "epoch": 49,
+          "split": "val",
+          "loss": 17.694138002097606,
+          "samples": 8000
+        }
+      }
+    },
+    "metrics": {
+      "firstU": {
+        "mse": 0.0003582760100609007,
+        "raw_mse": 23.47997659535119,
+        "target_scale": 256.0,
+        "nmse": 0.008444945435974549,
+        "global_nmse": 0.006685018451593383,
+        "rmse": 0.018928180315627298,
+        "rmse_db_80": 1.5142544252501837
+      },
+      "secondU": {
+        "mse": 0.00028443395466169795,
+        "raw_mse": 18.640663652709037,
+        "target_scale": 256.0,
+        "nmse": 0.006772418259226304,
+        "global_nmse": 0.005307210583471843,
+        "rmse": 0.01686516986756131,
+        "rmse_db_80": 1.3492135894049049
+      }
+    },
+    "test_samples": {
+      "firstU": 7920,
+      "secondU": 7920
+    },
+    "rerun_consistency": {
+      "firstU_metrics_max_abs_diff": 0.0,
+      "secondU_metrics_max_abs_diff": 0.0
+    },
+    "checkpoints": {
+      "firstU": {
+        "phase": "firstU",
+        "checkpoint": "reports/s_dpm_thr2/rand10_300_50ep/checkpoints/firstU.pt",
+        "sha256": "aa1fae5e20c973a1ad9a91bfad27d9ea9d60b24354ed043d14b3871f12f81287",
+        "tracked_in_git": false,
+        "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+        "exists": true,
+        "sha256_actual": "aa1fae5e20c973a1ad9a91bfad27d9ea9d60b24354ed043d14b3871f12f81287",
+        "sha256_matches": true,
+        "tracked_by_git": false
+      },
+      "secondU": {
+        "phase": "secondU",
+        "checkpoint": "reports/s_dpm_thr2/rand10_300_50ep/checkpoints/secondU.pt",
+        "sha256": "7cf58e65f8fa81b6d86cdafe52b3609d7e80f7f232d1e983c1566db01337722d",
+        "tracked_in_git": false,
+        "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+        "exists": true,
+        "sha256_actual": "7cf58e65f8fa81b6d86cdafe52b3609d7e80f7f232d1e983c1566db01337722d",
+        "sha256_matches": true,
+        "tracked_by_git": false
+      }
+    },
+    "figures": [
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0000.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0001.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0002.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0003.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0004.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0005.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0006.png",
+      "reports/s_dpm_thr2/rand10_300_50ep/figures/s_dpm_thr2_test_0007.png"
+    ],
+    "sparse_samples": {
+      "drawn_distribution_method": "RNG replay for test split with seed=experiment.seed+20000, matching DataLoader test worker 0; replay includes the per-item num_samples draw and subsequent x/y coordinate randint calls without reading PNG files.",
+      "alignment_method": "real RadioUNet_s DataLoader audit over first 8 test batches (120 items) with num_workers=0.",
+      "test_split_samples": 7920,
+      "configured_fix_samples": 0,
+      "configured_num_samples_low": 10,
+      "configured_num_samples_high": 300,
+      "numpy_randint_high_is_exclusive": true,
+      "drawn_count_items": 7920,
+      "drawn_min": 10,
+      "drawn_max": 299,
+      "drawn_mean": 155.1459595959596,
+      "drawn_first_16": [
+        222,
+        108,
+        256,
+        74,
+        41,
+        88,
+        283,
+        82,
+        241,
+        117,
+        22,
+        141,
+        281,
+        287,
+        171,
+        108
+      ],
+      "drawn_histogram": {
+        "10..49": 1047,
+        "50..99": 1379,
+        "100..149": 1394,
+        "150..199": 1351,
+        "200..249": 1381,
+        "250..299": 1368
+      },
+      "checked_sparse_items": 120,
+      "observed_sparse_channel_nonzero_min": 8,
+      "observed_sparse_channel_nonzero_max": 263,
+      "observed_sparse_channel_nonzero_mean": 127.21666666666667,
+      "observed_first_16_nonzero_counts": [
+        233,
+        130,
+        19,
+        192,
+        65,
+        239,
+        121,
+        89,
+        183,
+        25,
+        116,
+        88,
+        49,
+        34,
+        260,
+        168
+      ],
+      "sparse_target_alignment_abs_max": 0.0,
+      "note": "drawn sample count is random under fix_samples=0; observed nonzero sparse-channel count can be lower because duplicate coordinates and zero target values collapse entries."
+    },
+    "stage1_metrics": {
+      "firstU": {
+        "mse": 0.00047267809781480923,
+        "nmse": 0.010797844952486974,
+        "global_nmse": 0.008701918665234756,
+        "rmse": 0.021741161372263656,
+        "rmse_db_80": 1.7392929097810925
+      },
+      "secondU": {
+        "mse": 0.000419767048463131,
+        "nmse": 0.009647368385478992,
+        "global_nmse": 0.007727835774406763,
+        "rmse": 0.02048821730808054,
+        "rmse_db_80": 1.6390573846464431
+      }
+    },
+    "fixed_sweep_secondU_comparison": [
+      {
+        "setting": "fixed 50",
+        "mse": 0.00040458987713822296,
+        "raw_mse": 26.51520218813058,
+        "target_scale": 256.0,
+        "nmse": 0.00957949993927755,
+        "global_nmse": 0.007549181955169834,
+        "rmse": 0.02011441963215004,
+        "rmse_db_80": 1.609153570572003
+      },
+      {
+        "setting": "fixed 100",
+        "mse": 0.00031375166667423787,
+        "raw_mse": 20.562029227162853,
+        "target_scale": 256.0,
+        "nmse": 0.0074780237189384716,
+        "global_nmse": 0.005854245391073985,
+        "rmse": 0.01771303663052267,
+        "rmse_db_80": 1.4170429304418137
+      },
+      {
+        "setting": "fixed 200",
+        "mse": 0.00025534415712944326,
+        "raw_mse": 16.734234681635193,
+        "target_scale": 256.0,
+        "nmse": 0.006098790043049094,
+        "global_nmse": 0.004764428413299941,
+        "rmse": 0.015979491766931864,
+        "rmse_db_80": 1.278359341354549
+      },
+      {
+        "setting": "fixed 300",
+        "mse": 0.000252615382302765,
+        "raw_mse": 16.555401694594007,
+        "target_scale": 256.0,
+        "nmse": 0.006005229240668776,
+        "global_nmse": 0.004713512599957162,
+        "rmse": 0.01589387876834239,
+        "rmse_db_80": 1.2715103014673912
+      },
+      {
+        "setting": "implementation-default random 10..299",
+        "mse": 0.00028443395466169795,
+        "raw_mse": 18.640663652709037,
+        "target_scale": 256.0,
+        "nmse": 0.006772418259226304,
+        "global_nmse": 0.005307210583471843,
+        "rmse": 0.01686516986756131,
+        "rmse_db_80": 1.3492135894049049
+      }
+    ],
+    "closest_fixed_point_by_secondU_metric": [
+      {
+        "metric": "mse",
+        "closest_fix_samples": 200,
+        "abs_distance": 2.9089797532254693e-05
+      },
+      {
+        "metric": "nmse",
+        "closest_fix_samples": 200,
+        "abs_distance": 0.0006736282161772106
+      },
+      {
+        "metric": "global_nmse",
+        "closest_fix_samples": 200,
+        "abs_distance": 0.0005427821701719012
+      },
+      {
+        "metric": "rmse_db_80",
+        "closest_fix_samples": 100,
+        "abs_distance": 0.06782934103690885
+      }
+    ],
+    "closest_fixed_point_overall": 200,
+    "stage1_comparison": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "random": 0.0003582760100609007,
+          "delta_stage1_minus_random": 0.00011440208775390852,
+          "relative_improvement_percent": 24.202959325339876
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "random": 0.008444945435974549,
+          "delta_stage1_minus_random": 0.002352899516512425,
+          "relative_improvement_percent": 21.79045473301135
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "random": 0.006685018451593383,
+          "delta_stage1_minus_random": 0.0020169002136413722,
+          "relative_improvement_percent": 23.177649564792404
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "random": 0.018928180315627298,
+          "delta_stage1_minus_random": 0.002812981056636358,
+          "relative_improvement_percent": 12.938504105052207
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "random": 1.5142544252501837,
+          "delta_stage1_minus_random": 0.2250384845309088,
+          "relative_improvement_percent": 12.938504105052218
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "random": 0.00028443395466169795,
+          "delta_stage1_minus_random": 0.00013533309380143305,
+          "relative_improvement_percent": 32.24004702058447
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "random": 0.006772418259226304,
+          "delta_stage1_minus_random": 0.0028749501262526882,
+          "relative_improvement_percent": 29.800356028489595
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "random": 0.005307210583471843,
+          "delta_stage1_minus_random": 0.0024206251909349207,
+          "relative_improvement_percent": 31.323455383868364
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "random": 0.01686516986756131,
+          "delta_stage1_minus_random": 0.0036230474405192295,
+          "relative_improvement_percent": 17.683566051841424
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "random": 1.3492135894049049,
+          "delta_stage1_minus_random": 0.28984379524153825,
+          "relative_improvement_percent": 17.68356605184142
+        }
+      }
+    },
+    "gate": {
+      "implementation_default_random_not_fixed_ablation": true,
+      "fixed_run_dir": true,
+      "config_path_expected": true,
+      "history_entries_100_each": true,
+      "test_samples_7920": true,
+      "metrics_git_dirty_false": true,
+      "metrics_git_excludes_reports": true,
+      "checkpoint_sha256_matches": true,
+      "checkpoint_files_tracked_by_git": false,
+      "eight_prediction_figures": true,
+      "rerun_exact": true,
+      "random_sample_distribution_recorded": true,
+      "passed": true
+    },
+    "comparison_figure": "reports/s_dpm_thr2/rand10_300_50ep/rand10_300_vs_fixed_metrics.png"
+  },
+  "random_1_300": {
+    "scope": "paper_faithful_random_1_300_run",
+    "paper_faithful_random_sample_count_run": true,
+    "scope_note": "This is the paper-faithful random sample count run: fix_samples=0, num_samples_low=1, num_samples_high=301, and numpy randint therefore draws 1..300.",
+    "run_dir": "reports/s_dpm_thr2/rand1_300_50ep",
+    "config_path": "configs/s_dpm_thr2_rand1_300.yaml",
+    "config": {
+      "loader": "RadioUNet_s",
+      "simulation": "DPM",
+      "threshold": 0.2,
+      "batch_size": 15,
+      "seed": 42,
+      "fix_samples": 0,
+      "num_samples_low": 1,
+      "num_samples_high": 301,
+      "firstU_epochs": 50,
+      "secondU_epochs": 50,
+      "inputs": 3
+    },
+    "commands": [
+      "python scripts/train.py --config configs/s_dpm_thr2_rand1_300.yaml --phase both --device cuda:0 --run-dir reports/s_dpm_thr2/rand1_300_50ep",
+      "python scripts/evaluate.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt --split test --device cuda:0 --output reports/s_dpm_thr2/rand1_300_50ep/firstU_test_metrics.json",
+      "python scripts/evaluate.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --output reports/s_dpm_thr2/rand1_300_50ep/secondU_test_metrics.json",
+      "rerun both eval commands to *_rerun.json",
+      "python scripts/make_figures.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --limit 8 --output-dir reports/s_dpm_thr2/rand1_300_50ep/figures"
+    ],
+    "source_git": {
+      "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "artifact_git": {
+      "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+      "dirty": true,
+      "status_short": "?? reports/s_dpm_thr2/rand1_300_50ep/\n?? reports/s_dpm_thr2/stage2_final_audit.json\n?? reports/s_dpm_thr2/stage2_final_audit.md\n?? reports/s_dpm_thr2/stage2_final_metric_curves.png",
+      "exclude_paths": []
+    },
+    "run_metadata_git": {
+      "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+      "dirty": false,
+      "status_short": "",
+      "exclude_paths": [
+        "reports"
+      ]
+    },
+    "metrics_git": {
+      "firstU": {
+        "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      },
+      "secondU": {
+        "commit": "79da91e6c4105d229e56eaf3e5bdf280083c7a4b",
+        "dirty": false,
+        "status_short": "",
+        "exclude_paths": [
+          "reports"
+        ]
+      }
+    },
+    "history": {
+      "firstU": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 22.50000582024455,
+        "first_entry": {
+          "epoch": 0,
+          "split": "train",
+          "loss": 448.03516254596366,
+          "samples": 40080
+        },
+        "last_entry": {
+          "epoch": 49,
+          "split": "val",
+          "loss": 23.741322637721897,
+          "samples": 8000
+        }
+      },
+      "secondU": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 17.590189978033305,
+        "first_entry": {
+          "epoch": 0,
+          "split": "train",
+          "loss": 33.249433403243565,
+          "samples": 40080
+        },
+        "last_entry": {
+          "epoch": 49,
+          "split": "val",
+          "loss": 17.590189978033305,
+          "samples": 8000
+        }
+      }
+    },
+    "metrics": {
+      "firstU": {
+        "mse": 0.00036321246246491984,
+        "raw_mse": 23.803491940100987,
+        "target_scale": 256.0,
+        "nmse": 0.008562235212042597,
+        "global_nmse": 0.0067771269695524215,
+        "rmse": 0.019058133761334552,
+        "rmse_db_80": 1.5246507009067642
+      },
+      "secondU": {
+        "mse": 0.0002833112683867622,
+        "raw_mse": 18.567087284994848,
+        "target_scale": 256.0,
+        "nmse": 0.006728377919926336,
+        "global_nmse": 0.005286262543704091,
+        "rmse": 0.01683185279126342,
+        "rmse_db_80": 1.3465482233010737
+      }
+    },
+    "test_samples": {
+      "firstU": 7920,
+      "secondU": 7920
+    },
+    "rerun_consistency": {
+      "firstU_metrics_max_abs_diff": 0.0,
+      "secondU_metrics_max_abs_diff": 0.0
+    },
+    "checkpoints": {
+      "firstU": {
+        "phase": "firstU",
+        "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+        "sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+        "tracked_in_git": false,
+        "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+        "exists": true,
+        "sha256_actual": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+        "sha256_matches": true,
+        "tracked_by_git": false
+      },
+      "secondU": {
+        "phase": "secondU",
+        "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+        "sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc",
+        "tracked_in_git": false,
+        "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+        "exists": true,
+        "sha256_actual": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc",
+        "sha256_matches": true,
+        "tracked_by_git": false
+      }
+    },
+    "figures": [
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0000.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0001.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0002.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0003.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0004.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0005.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0006.png",
+      "reports/s_dpm_thr2/rand1_300_50ep/figures/s_dpm_thr2_test_0007.png"
+    ],
+    "sparse_samples": {
+      "drawn_distribution_method": "Real RadioUNet_s DataLoader replay with num_workers=0 and a temporary np.random.randint recorder; records exactly the per-item num_samples draw where low/high/size match the config.",
+      "split": "test",
+      "configured_fix_samples": 0,
+      "configured_num_samples_low": 1,
+      "configured_num_samples_high": 301,
+      "numpy_randint_high_is_exclusive": true,
+      "paper_faithful_expected_drawn_range": "1..300",
+      "drawn_count_items": 7920,
+      "drawn_min": 1,
+      "drawn_max": 300,
+      "drawn_mean": 150.65378787878788,
+      "drawn_first_16": [
+        251,
+        86,
+        211,
+        65,
+        90,
+        92,
+        3,
+        12,
+        150,
+        89,
+        108,
+        276,
+        198,
+        279,
+        162,
+        241
+      ],
+      "drawn_histogram": {
+        "1..49": 1349,
+        "50..99": 1252,
+        "100..149": 1327,
+        "150..199": 1259,
+        "200..249": 1379,
+        "250..300": 1354
+      },
+      "checked_sparse_items": 7920,
+      "observed_sparse_channel_nonzero_min": 0,
+      "observed_sparse_channel_nonzero_max": 287,
+      "observed_sparse_channel_nonzero_mean": 96.82323232323232,
+      "observed_first_16_nonzero_counts": [
+        227,
+        72,
+        190,
+        57,
+        83,
+        84,
+        3,
+        10,
+        125,
+        79,
+        94,
+        251,
+        173,
+        241,
+        145,
+        214
+      ],
+      "sparse_target_alignment_abs_max": 0.0,
+      "note": "drawn sample count is the requested random count; observed nonzero sparse-channel count can be lower because duplicate coordinates and zero target values collapse entries."
+    },
+    "gate": {
+      "paper_faithful_random_1_300": true,
+      "fixed_run_dir": true,
+      "config_path_expected": true,
+      "history_entries_100_each": true,
+      "test_samples_7920": true,
+      "run_metadata_git_dirty_false": true,
+      "metrics_git_dirty_false": true,
+      "metrics_git_excludes_reports": true,
+      "checkpoint_sha256_matches": true,
+      "checkpoint_files_tracked_by_git": false,
+      "eight_prediction_figures": true,
+      "rerun_exact": true,
+      "random_sample_distribution_recorded": true,
+      "passed": true
+    },
+    "fixed_sweep_and_random_secondU_comparison": [
+      {
+        "setting": "fixed 50",
+        "mse": 0.00040458987713822296,
+        "raw_mse": 26.51520218813058,
+        "target_scale": 256.0,
+        "nmse": 0.00957949993927755,
+        "global_nmse": 0.007549181955169834,
+        "rmse": 0.02011441963215004,
+        "rmse_db_80": 1.609153570572003
+      },
+      {
+        "setting": "fixed 100",
+        "mse": 0.00031375166667423787,
+        "raw_mse": 20.562029227162853,
+        "target_scale": 256.0,
+        "nmse": 0.0074780237189384716,
+        "global_nmse": 0.005854245391073985,
+        "rmse": 0.01771303663052267,
+        "rmse_db_80": 1.4170429304418137
+      },
+      {
+        "setting": "fixed 200",
+        "mse": 0.00025534415712944326,
+        "raw_mse": 16.734234681635193,
+        "target_scale": 256.0,
+        "nmse": 0.006098790043049094,
+        "global_nmse": 0.004764428413299941,
+        "rmse": 0.015979491766931864,
+        "rmse_db_80": 1.278359341354549
+      },
+      {
+        "setting": "fixed 300",
+        "mse": 0.000252615382302765,
+        "raw_mse": 16.555401694594007,
+        "target_scale": 256.0,
+        "nmse": 0.006005229240668776,
+        "global_nmse": 0.004713512599957162,
+        "rmse": 0.01589387876834239,
+        "rmse_db_80": 1.2715103014673912
+      },
+      {
+        "setting": "implementation-default random 10..299",
+        "mse": 0.00028443395466169795,
+        "raw_mse": 18.640663652709037,
+        "target_scale": 256.0,
+        "nmse": 0.006772418259226304,
+        "global_nmse": 0.005307210583471843,
+        "rmse": 0.01686516986756131,
+        "rmse_db_80": 1.3492135894049049
+      },
+      {
+        "setting": "paper-faithful random 1..300",
+        "mse": 0.0002833112683867622,
+        "raw_mse": 18.567087284994848,
+        "target_scale": 256.0,
+        "nmse": 0.006728377919926336,
+        "global_nmse": 0.005286262543704091,
+        "rmse": 0.01683185279126342,
+        "rmse_db_80": 1.3465482233010737
+      }
+    ],
+    "stage1_comparison": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "paper_faithful_random_1_300": 0.00036321246246491984,
+          "delta_stage1_minus_current": 0.0001094656353498894,
+          "relative_improvement_percent": 23.1586011401732
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "paper_faithful_random_1_300": 0.008562235212042597,
+          "delta_stage1_minus_current": 0.002235609740444377,
+          "relative_improvement_percent": 20.704221539405125
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "paper_faithful_random_1_300": 0.0067771269695524215,
+          "delta_stage1_minus_current": 0.0019247916956823341,
+          "relative_improvement_percent": 22.119164401893524
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "paper_faithful_random_1_300": 0.019058133761334552,
+          "delta_stage1_minus_current": 0.0026830276109291035,
+          "relative_improvement_percent": 12.340774096603612
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "paper_faithful_random_1_300": 1.5246507009067642,
+          "delta_stage1_minus_current": 0.21464220887432828,
+          "relative_improvement_percent": 12.340774096603612
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "paper_faithful_random_1_300": 0.0002833112683867622,
+          "delta_stage1_minus_current": 0.0001364557800763688,
+          "relative_improvement_percent": 32.507501619283005
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "paper_faithful_random_1_300": 0.006728377919926336,
+          "delta_stage1_minus_current": 0.002918990465552656,
+          "relative_improvement_percent": 30.256857092202022
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "paper_faithful_random_1_300": 0.005286262543704091,
+          "delta_stage1_minus_current": 0.002441573230702672,
+          "relative_improvement_percent": 31.59452791153682
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "paper_faithful_random_1_300": 0.01683185279126342,
+          "delta_stage1_minus_current": 0.003656364516817119,
+          "relative_improvement_percent": 17.846181841184645
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "paper_faithful_random_1_300": 1.3465482233010737,
+          "delta_stage1_minus_current": 0.2925091613453694,
+          "relative_improvement_percent": 17.84618184118464
+        }
+      }
+    },
+    "comparison_figure": "reports/s_dpm_thr2/rand1_300_50ep/rand1_300_vs_fixed_rand10_metrics.png"
+  },
+  "stage1_improvements": {
+    "fixed_50": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.00047850945125129795,
+          "delta_stage1_minus_current": -5.831353436488713e-06,
+          "relative_improvement_percent": -1.2336838671914478
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.011273472601412019,
+          "delta_stage1_minus_current": -0.00047562764892504494,
+          "relative_improvement_percent": -4.404838660102244
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.008928436224670133,
+          "delta_stage1_minus_current": -0.00022651755943537723,
+          "relative_improvement_percent": -2.6030760358671587
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.02187485888528879,
+          "delta_stage1_minus_current": -0.00013369751302513486,
+          "relative_improvement_percent": -0.6149511092618071
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.7499887108231031,
+          "delta_stage1_minus_current": -0.010695801042010622,
+          "relative_improvement_percent": -0.6149511092617974
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.00040458987713822296,
+          "delta_stage1_minus_current": 1.5177171324908044e-05,
+          "relative_improvement_percent": 3.6156176099280186
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.00957949993927755,
+          "delta_stage1_minus_current": 6.786844620144256e-05,
+          "relative_improvement_percent": 0.703491807191655
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.007549181955169834,
+          "delta_stage1_minus_current": 0.00017865381923692913,
+          "relative_improvement_percent": 2.3118221511461106
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.02011441963215004,
+          "delta_stage1_minus_current": 0.00037379767593050117,
+          "relative_improvement_percent": 1.824451929173338
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.609153570572003,
+          "delta_stage1_minus_current": 0.029903814074440094,
+          "relative_improvement_percent": 1.824451929173338
+        }
+      }
+    },
+    "fixed_100": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.00039166060910109525,
+          "delta_stage1_minus_current": 8.101748871371399e-05,
+          "relative_improvement_percent": 17.140097899237944
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.009256870892083194,
+          "delta_stage1_minus_current": 0.0015409740604037797,
+          "relative_improvement_percent": 14.271126018056599
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.007307936672215361,
+          "delta_stage1_minus_current": 0.0013939819930193949,
+          "relative_improvement_percent": 16.019248704179756
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.01979041710275696,
+          "delta_stage1_minus_current": 0.0019507442695066955,
+          "relative_improvement_percent": 8.972585392771899
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.5832333682205568,
+          "delta_stage1_minus_current": 0.1560595415605357,
+          "relative_improvement_percent": 8.972585392771904
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.00031375166667423787,
+          "delta_stage1_minus_current": 0.00010601538178889314,
+          "relative_improvement_percent": 25.255765591187107
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.0074780237189384716,
+          "delta_stage1_minus_current": 0.002169344666540521,
+          "relative_improvement_percent": 22.486387788464373
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.005854245391073985,
+          "delta_stage1_minus_current": 0.0018735903833327783,
+          "relative_improvement_percent": 24.244697196306646
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.01771303663052267,
+          "delta_stage1_minus_current": 0.0027751806775578695,
+          "relative_improvement_percent": 13.545252062820223
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.4170429304418137,
+          "delta_stage1_minus_current": 0.2220144542046294,
+          "relative_improvement_percent": 13.545252062820214
+        }
+      }
+    },
+    "fixed_200": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.00032684131911358264,
+          "delta_stage1_minus_current": 0.0001458367787012266,
+          "relative_improvement_percent": 30.853297281052367
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.007740965432965437,
+          "delta_stage1_minus_current": 0.003056879519521537,
+          "relative_improvement_percent": 28.310089031399478
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.006098483258523693,
+          "delta_stage1_minus_current": 0.0026034354067110627,
+          "relative_improvement_percent": 29.917946913387162
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.018078753251084066,
+          "delta_stage1_minus_current": 0.0036624081211795896,
+          "relative_improvement_percent": 16.84550359785249
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.4463002600867254,
+          "delta_stage1_minus_current": 0.2929926496943671,
+          "relative_improvement_percent": 16.845503597852485
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.00025534415712944326,
+          "delta_stage1_minus_current": 0.00016442289133368774,
+          "relative_improvement_percent": 39.17003298274122
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.006098790043049094,
+          "delta_stage1_minus_current": 0.003548578342429899,
+          "relative_improvement_percent": 36.78286347778676
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.004764428413299941,
+          "delta_stage1_minus_current": 0.002963407361106822,
+          "relative_improvement_percent": 38.34718344974549
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.015979491766931864,
+          "delta_stage1_minus_current": 0.004508725541148676,
+          "relative_improvement_percent": 22.006431664361727
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.278359341354549,
+          "delta_stage1_minus_current": 0.36069804329189403,
+          "relative_improvement_percent": 22.006431664361724
+        }
+      }
+    },
+    "fixed_300": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.00030509180253306334,
+          "delta_stage1_minus_current": 0.0001675862952817459,
+          "relative_improvement_percent": 35.45463520660198
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.0072132220366532265,
+          "delta_stage1_minus_current": 0.0035846229158337474,
+          "relative_improvement_percent": 33.197577216629064
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.005692662279411837,
+          "delta_stage1_minus_current": 0.003009256385822919,
+          "relative_improvement_percent": 34.5815273802233
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.017466877297704457,
+          "delta_stage1_minus_current": 0.004274284074559199,
+          "relative_improvement_percent": 19.659870056491684
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.3973501838163567,
+          "delta_stage1_minus_current": 0.34194272596473585,
+          "relative_improvement_percent": 19.65987005649168
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.000252615382302765,
+          "delta_stage1_minus_current": 0.000167151666160366,
+          "relative_improvement_percent": 39.82010183323079
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.006005229240668776,
+          "delta_stage1_minus_current": 0.0036421391448102167,
+          "relative_improvement_percent": 37.752669943570154
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.004713512599957162,
+          "delta_stage1_minus_current": 0.0030143231744496016,
+          "relative_improvement_percent": 39.006045967391174
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.01589387876834239,
+          "delta_stage1_minus_current": 0.00459433853973815,
+          "relative_improvement_percent": 22.424296221839395
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.2715103014673912,
+          "delta_stage1_minus_current": 0.36754708317905194,
+          "relative_improvement_percent": 22.424296221839395
+        }
+      }
+    },
+    "implementation_default_random_10_299": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.0003582760100609007,
+          "delta_stage1_minus_current": 0.00011440208775390852,
+          "relative_improvement_percent": 24.202959325339876
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.008444945435974549,
+          "delta_stage1_minus_current": 0.002352899516512425,
+          "relative_improvement_percent": 21.79045473301135
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.006685018451593383,
+          "delta_stage1_minus_current": 0.0020169002136413722,
+          "relative_improvement_percent": 23.177649564792404
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.018928180315627298,
+          "delta_stage1_minus_current": 0.002812981056636358,
+          "relative_improvement_percent": 12.938504105052207
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.5142544252501837,
+          "delta_stage1_minus_current": 0.2250384845309088,
+          "relative_improvement_percent": 12.938504105052218
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.00028443395466169795,
+          "delta_stage1_minus_current": 0.00013533309380143305,
+          "relative_improvement_percent": 32.24004702058447
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.006772418259226304,
+          "delta_stage1_minus_current": 0.0028749501262526882,
+          "relative_improvement_percent": 29.800356028489595
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.005307210583471843,
+          "delta_stage1_minus_current": 0.0024206251909349207,
+          "relative_improvement_percent": 31.323455383868364
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.01686516986756131,
+          "delta_stage1_minus_current": 0.0036230474405192295,
+          "relative_improvement_percent": 17.683566051841424
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.3492135894049049,
+          "delta_stage1_minus_current": 0.28984379524153825,
+          "relative_improvement_percent": 17.68356605184142
+        }
+      }
+    },
+    "paper_faithful_random_1_300": {
+      "firstU": {
+        "mse": {
+          "stage1": 0.00047267809781480923,
+          "current": 0.00036321246246491984,
+          "delta_stage1_minus_current": 0.0001094656353498894,
+          "relative_improvement_percent": 23.1586011401732
+        },
+        "nmse": {
+          "stage1": 0.010797844952486974,
+          "current": 0.008562235212042597,
+          "delta_stage1_minus_current": 0.002235609740444377,
+          "relative_improvement_percent": 20.704221539405125
+        },
+        "global_nmse": {
+          "stage1": 0.008701918665234756,
+          "current": 0.0067771269695524215,
+          "delta_stage1_minus_current": 0.0019247916956823341,
+          "relative_improvement_percent": 22.119164401893524
+        },
+        "rmse": {
+          "stage1": 0.021741161372263656,
+          "current": 0.019058133761334552,
+          "delta_stage1_minus_current": 0.0026830276109291035,
+          "relative_improvement_percent": 12.340774096603612
+        },
+        "rmse_db_80": {
+          "stage1": 1.7392929097810925,
+          "current": 1.5246507009067642,
+          "delta_stage1_minus_current": 0.21464220887432828,
+          "relative_improvement_percent": 12.340774096603612
+        }
+      },
+      "secondU": {
+        "mse": {
+          "stage1": 0.000419767048463131,
+          "current": 0.0002833112683867622,
+          "delta_stage1_minus_current": 0.0001364557800763688,
+          "relative_improvement_percent": 32.507501619283005
+        },
+        "nmse": {
+          "stage1": 0.009647368385478992,
+          "current": 0.006728377919926336,
+          "delta_stage1_minus_current": 0.002918990465552656,
+          "relative_improvement_percent": 30.256857092202022
+        },
+        "global_nmse": {
+          "stage1": 0.007727835774406763,
+          "current": 0.005286262543704091,
+          "delta_stage1_minus_current": 0.002441573230702672,
+          "relative_improvement_percent": 31.59452791153682
+        },
+        "rmse": {
+          "stage1": 0.02048821730808054,
+          "current": 0.01683185279126342,
+          "delta_stage1_minus_current": 0.003656364516817119,
+          "relative_improvement_percent": 17.846181841184645
+        },
+        "rmse_db_80": {
+          "stage1": 1.6390573846464431,
+          "current": 1.3465482233010737,
+          "delta_stage1_minus_current": 0.2925091613453694,
+          "relative_improvement_percent": 17.84618184118464
+        }
+      }
+    }
+  },
+  "random_delta": {
+    "firstU": {
+      "mse": {
+        "random_10_299": 0.0003582760100609007,
+        "random_1_300": 0.00036321246246491984,
+        "delta_1_300_minus_10_299": 4.9364524040191216e-06,
+        "relative_delta_percent": 1.3778350392983358
+      },
+      "nmse": {
+        "random_10_299": 0.008444945435974549,
+        "random_1_300": 0.008562235212042597,
+        "delta_1_300_minus_10_299": 0.00011728977606804795,
+        "relative_delta_percent": 1.388875475363124
+      },
+      "global_nmse": {
+        "random_10_299": 0.006685018451593383,
+        "random_1_300": 0.0067771269695524215,
+        "delta_1_300_minus_10_299": 9.21085179590381e-05,
+        "relative_delta_percent": 1.3778349098959317
+      },
+      "rmse": {
+        "random_10_299": 0.018928180315627298,
+        "random_1_300": 0.019058133761334552,
+        "delta_1_300_minus_10_299": 0.00012995344570725445,
+        "relative_delta_percent": 0.6865606917320181
+      },
+      "rmse_db_80": {
+        "random_10_299": 1.5142544252501837,
+        "random_1_300": 1.5246507009067642,
+        "delta_1_300_minus_10_299": 0.010396275656580523,
+        "relative_delta_percent": 0.686560691732029
+      }
+    },
+    "secondU": {
+      "mse": {
+        "random_10_299": 0.00028443395466169795,
+        "random_1_300": 0.0002833112683867622,
+        "delta_1_300_minus_10_299": -1.1226862749357447e-06,
+        "relative_delta_percent": -0.3947089496649769
+      },
+      "nmse": {
+        "random_10_299": 0.006772418259226304,
+        "random_1_300": 0.006728377919926336,
+        "delta_1_300_minus_10_299": -4.404033929996786e-05,
+        "relative_delta_percent": -0.650289713574175
+      },
+      "global_nmse": {
+        "random_10_299": 0.005307210583471843,
+        "random_1_300": 0.005286262543704091,
+        "delta_1_300_minus_10_299": -2.0948039767751392e-05,
+        "relative_delta_percent": -0.39470903666399676
+      },
+      "rmse": {
+        "random_10_299": 0.01686516986756131,
+        "random_1_300": 0.01683185279126342,
+        "delta_1_300_minus_10_299": -3.33170762978896e-05,
+        "relative_delta_percent": -0.19754960406282124
+      },
+      "rmse_db_80": {
+        "random_10_299": 1.3492135894049049,
+        "random_1_300": 1.3465482233010737,
+        "delta_1_300_minus_10_299": -0.0026653661038311682,
+        "relative_delta_percent": -0.19754960406282124
+      }
+    }
+  },
+  "paper_faithful_alignment": {
+    "loader_RadioUNet_s": true,
+    "simulation_DPM": true,
+    "threshold_0_2": true,
+    "fix_samples_0": true,
+    "drawn_count_1_300": true,
+    "firstU_50_epochs": true,
+    "secondU_50_epochs": true,
+    "batch_size_15": true,
+    "seed_42": true,
+    "passed": true
+  },
+  "reproduction_judgement": {
+    "paper_faithful_reproduced": [
+      "RadioUNet_s / DPM / threshold=0.2 / seed=42 / batch_size=15 的 Stage 2 random 1..300 训练、评估和 rerun 已完成。",
+      "random 1..300 的 test split RNG replay 证明 drawn count 为 1..300。",
+      "firstU/secondU 50 epoch、checkpoint manifest、8 张图和 metrics 归档完整。"
+    ],
+    "controlled_ablation": [
+      "fixed 50/100/200/300 是 controlled ablation，用来隔离 sparse sample count 对性能的影响。",
+      "implementation-default random 10..299 是历史实现默认口径对照，不是论文 1..300。"
+    ],
+    "not_full_paper_reproduction": [
+      "Stage 2 仍只覆盖当前 DPM/complete-city-map/test split 口径，不覆盖论文所有仿真/缺楼/transfer 设置。",
+      "IRT4 transfer、missing buildings 和 robustness 尚未在本阶段训练或评估。"
+    ],
+    "stage2_can_close": true,
+    "next_stage": "Stage 3 应进入 IRT4 zero-shot transfer / missing buildings / robustness，因为 Stage 2 已完成 S 输入与随机样本数口径收口，剩余差距属于跨仿真与鲁棒性问题。"
+  },
+  "figure": "reports/s_dpm_thr2/stage2_final_metric_curves.png"
+}
