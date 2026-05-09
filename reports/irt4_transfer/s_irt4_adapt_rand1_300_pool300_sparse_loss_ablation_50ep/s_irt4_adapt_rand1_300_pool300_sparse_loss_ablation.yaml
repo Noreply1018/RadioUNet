@@ -1,0 +1,59 @@
+experiment:
+  name: s_irt4_adapt_rand1_300_pool300_sparse_loss_ablation
+  description: "Stage 3C ablation: RadioUNet_S IRT4 secondU-only adaptation with the corrected sparse loss but the older 300 receiver pool."
+  seed: 42
+
+data:
+  dataset_dir: RadioMapSeer/
+  loader: RadioUNet_s_sprseIRT4
+  simulation: IRT4
+  city_map: complete
+  cars_simulation: no
+  cars_input: no
+  num_tx: 2
+  threshold: 0.2
+  batch_size: 15
+  num_workers: 1
+  smoke_num_tx: 2
+  data_samples: 300
+  fix_samples: 0
+  num_samples_low: 1
+  num_samples_high: 301
+  target_scale: 256
+
+model:
+  class_name: RadioWNet
+  inputs: 3
+  phases:
+    - secondU
+
+training:
+  adaptation_mode: secondU-only
+  init_checkpoint: reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt
+  epochs: 50
+  optimizer: Adam
+  learning_rate: 0.0001
+  scheduler: StepLR
+  step_size: 30
+  gamma: 0.1
+  loss: MSELoss
+  loss_mode: sparse_mse
+  num_samples_for_loss: 300
+
+evaluation:
+  transfer_mode: 300-pool sparse-loss ablation
+  source_checkpoint: reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt
+  source_training_target: DPM
+  target: IRT4
+  tx_note: IRT4 files are available only for Tx indices 0 and 1, so num_tx is fixed to 2 for train, val, and test.
+  sparse_note: This ablation isolates the loss semantic fix from the 600-pool paper alignment; it must not be reported as the main paper-faithful Stage 3C result.
+  compare_against:
+    - reports/irt4_adapt/rand1_300_50ep/secondU_test_metrics.json
+    - reports/irt4_adapt/s_irt4_adapt_rand1_300_pool600_sparse_loss/secondU_test_metrics.json
+  metrics:
+    - dense_mse
+    - dense_nmse
+    - sparse_point_mse
+    - sparse_point_nmse
+  save_prediction_panels: true
+  measure_runtime: true
