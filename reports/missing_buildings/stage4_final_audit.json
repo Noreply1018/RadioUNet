@@ -1,0 +1,644 @@
+{
+  "scope": "Stage 4 missing-buildings final audit",
+  "git": {
+    "commit": "fa44f20c56c70dfaa133313a777c54bb584b42e4",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "rows": [
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "S",
+      "missing_buildings": 0,
+      "metrics_path": "reports/missing_buildings/zeroshot_s_missing0/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_s_missing0/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_s_missing0/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0009213352106709146,
+      "dense_nmse": 0.01894118928943168,
+      "dense_global_nmse": 0.017817625803248388,
+      "sparse_mse": 0.0008077989486204215,
+      "sparse_global_nmse": 0.015601711079759469,
+      "sparse_points": 118242,
+      "sparse_points_per_sample": 597.1818181818181,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "C",
+      "missing_buildings": 0,
+      "metrics_path": "reports/missing_buildings/zeroshot_c_missing0/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_c_missing0/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_c_missing0/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0014888852972283282,
+      "dense_nmse": 0.030432741750370373,
+      "dense_global_nmse": 0.028793430241020535,
+      "sparse_mse": 0.0015274379345829561,
+      "sparse_global_nmse": 0.029113350146929326,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "S",
+      "missing_buildings": 1,
+      "metrics_path": "reports/missing_buildings/zeroshot_s_missing1/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_s_missing1/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_s_missing1/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0018950003167529676,
+      "dense_nmse": 0.03880157499489459,
+      "dense_global_nmse": 0.03664725495554406,
+      "sparse_mse": 0.0018555564405497455,
+      "sparse_global_nmse": 0.035417186377020994,
+      "sparse_points": 118267,
+      "sparse_points_per_sample": 597.3080808080808,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "C",
+      "missing_buildings": 1,
+      "metrics_path": "reports/missing_buildings/zeroshot_c_missing1/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_c_missing1/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_c_missing1/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0022372527746483684,
+      "dense_nmse": 0.044788497471899696,
+      "dense_global_nmse": 0.04326604764176375,
+      "sparse_mse": 0.0022040660208454414,
+      "sparse_global_nmse": 0.04239776137393746,
+      "sparse_points": 59252,
+      "sparse_points_per_sample": 299.25252525252523,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "S",
+      "missing_buildings": 2,
+      "metrics_path": "reports/missing_buildings/zeroshot_s_missing2/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_s_missing2/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_s_missing2/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0028734734955695317,
+      "dense_nmse": 0.05823141644059709,
+      "dense_global_nmse": 0.05556986847913215,
+      "sparse_mse": 0.002708446319764129,
+      "sparse_global_nmse": 0.05223351836677393,
+      "sparse_points": 118223,
+      "sparse_points_per_sample": 597.0858585858585,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "C",
+      "missing_buildings": 2,
+      "metrics_path": "reports/missing_buildings/zeroshot_c_missing2/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_c_missing2/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_c_missing2/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.004001190540183223,
+      "dense_nmse": 0.08095252790460081,
+      "dense_global_nmse": 0.07737869430322107,
+      "sparse_mse": 0.004070350586991925,
+      "sparse_global_nmse": 0.07852381676975202,
+      "sparse_points": 59274,
+      "sparse_points_per_sample": 299.3636363636364,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "S",
+      "missing_buildings": 4,
+      "metrics_path": "reports/missing_buildings/zeroshot_s_missing4/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_s_missing4/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_s_missing4/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.004763934920033948,
+      "dense_nmse": 0.09794271477695668,
+      "dense_global_nmse": 0.09212934457430189,
+      "sparse_mse": 0.004736417137398649,
+      "sparse_global_nmse": 0.09182613754907547,
+      "sparse_points": 118252,
+      "sparse_points_per_sample": 597.2323232323232,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc"
+    },
+    {
+      "kind": "zero-shot missing-building degradation",
+      "model": "C",
+      "missing_buildings": 4,
+      "metrics_path": "reports/missing_buildings/zeroshot_c_missing4/zeroshot_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/zeroshot_c_missing4/zeroshot_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/zeroshot_c_missing4/stage4_zeroshot_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.005690372111558011,
+      "dense_nmse": 0.11581084092683865,
+      "dense_global_nmse": 0.11004563744287063,
+      "sparse_mse": 0.005675559942473642,
+      "sparse_global_nmse": 0.10917755024028163,
+      "sparse_points": 59279,
+      "sparse_points_per_sample": 299.3888888888889,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "source_checkpoint_exists": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "source_checkpoint_sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06"
+    },
+    {
+      "kind": "complete-map upper reference",
+      "model": "S",
+      "missing_buildings": 0,
+      "metrics_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/stage3c_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.000760973893303537,
+      "dense_nmse": 0.015740806377972618,
+      "dense_global_nmse": 0.014716411407934737,
+      "sparse_mse": 0.0006030456648916432,
+      "sparse_global_nmse": 0.011647136020180521,
+      "sparse_points": 118242,
+      "sparse_points_per_sample": 597.1818181818181,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_recorded": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "a085e2e126bc49a03e9ef7b92c25dcd841005d8857c4f34b92d461f75effb94e",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 41.42060451507568,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "mask_points_mean_min": 597.2135728542914,
+        "mask_points_mean_max": 597.45
+      }
+    },
+    {
+      "kind": "complete-map upper reference",
+      "model": "C",
+      "missing_buildings": 0,
+      "metrics_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/stage3c_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0010485410598586454,
+      "dense_nmse": 0.021637180495555654,
+      "dense_global_nmse": 0.020277649343694183,
+      "sparse_mse": 0.001008037033975386,
+      "sparse_global_nmse": 0.019213438704604617,
+      "sparse_points": 59268,
+      "sparse_points_per_sample": 299.3333333333333,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": false,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_recorded": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "7de3625d6491ea14321b8c24d423f0b05e5257e14d06e91b85e1ead6d6b1d49c",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 0.0008717975826584734,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.3612774451098,
+        "mask_points_mean_max": 299.58
+      }
+    },
+    {
+      "kind": "sparse-adapted missing-building robustness",
+      "model": "S",
+      "missing_buildings": 1,
+      "metrics_path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0016115039144289876,
+      "dense_nmse": 0.03307020554149693,
+      "dense_global_nmse": 0.03116474151058685,
+      "sparse_mse": 0.00151227435611524,
+      "sparse_global_nmse": 0.028864927820710488,
+      "sparse_points": 118267,
+      "sparse_points_per_sample": 597.3080808080808,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "5a5e41c82ae0718e2f740cfba98bbdebf88033e40c456fabf3cdda3cf0bb50ce",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 81.79327135086059,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "mask_points_mean_min": 597.0449101796407,
+        "mask_points_mean_max": 597.41
+      }
+    },
+    {
+      "kind": "C baseline",
+      "model": "C",
+      "missing_buildings": 1,
+      "metrics_path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0017711030844965894,
+      "dense_nmse": 0.03551819833051978,
+      "dense_global_nmse": 0.034251217034401066,
+      "sparse_mse": 0.0017050532267641378,
+      "sparse_global_nmse": 0.03279867261438868,
+      "sparse_points": 59252,
+      "sparse_points_per_sample": 299.25252525252523,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "251bc6f3332d312c2e8d7aaa0bb9f8b833c182723eaba45f39d0ab74bcd0a290",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 0.0018421463202685118,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 295,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.2,
+        "mask_points_mean_max": 299.3552894211577
+      }
+    },
+    {
+      "kind": "sparse-adapted missing-building robustness",
+      "model": "S",
+      "missing_buildings": 2,
+      "metrics_path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0023793743475283863,
+      "dense_nmse": 0.04837134505876086,
+      "dense_global_nmse": 0.04601452456869784,
+      "sparse_mse": 0.002136490508211557,
+      "sparse_global_nmse": 0.041203111683167926,
+      "sparse_points": 118223,
+      "sparse_points_per_sample": 597.0858585858585,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "4646747410ed47e68508520b9b28a794fc419518dc88077639aa59038426bf4e",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 127.80552883148194,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 591,
+        "mask_points_max": 600,
+        "mask_points_mean_min": 597.025,
+        "mask_points_mean_max": 597.3842315369261
+      }
+    },
+    {
+      "kind": "C baseline",
+      "model": "C",
+      "missing_buildings": 2,
+      "metrics_path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.0032057920082782707,
+      "dense_nmse": 0.06498404541476206,
+      "dense_global_nmse": 0.061996547361308024,
+      "sparse_mse": 0.003221382249940981,
+      "sparse_global_nmse": 0.06214580885196829,
+      "sparse_points": 59274,
+      "sparse_points_per_sample": 299.3636363636364,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "12aed675dc9e57a9e46fc60a93f1b703a9fd6f8226cffc702b305a71a5862013",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 0.0026784872490679843,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 295,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.2584830339321,
+        "mask_points_mean_max": 299.3572854291417
+      }
+    },
+    {
+      "kind": "sparse-adapted missing-building robustness",
+      "model": "S",
+      "missing_buildings": 4,
+      "metrics_path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.002952732181063656,
+      "dense_nmse": 0.060124644614530334,
+      "dense_global_nmse": 0.05710264425690654,
+      "sparse_mse": 0.0027546661251658974,
+      "sparse_global_nmse": 0.0534054208431035,
+      "sparse_points": 118252,
+      "sparse_points_per_sample": 597.2323232323232,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "c622751ac96fbeb4150edd9ba29b27e36da69bf3c75512d6443a8efa8480fe78",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 173.0095401763916,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "mask_points_mean_min": 597.135,
+        "mask_points_mean_max": 597.3842315369261
+      }
+    },
+    {
+      "kind": "C baseline",
+      "model": "C",
+      "missing_buildings": 4,
+      "metrics_path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics.json",
+      "rerun_path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+      "manifest_path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_run_manifest.json",
+      "samples": 198,
+      "dense_mse": 0.004558026317902135,
+      "dense_nmse": 0.09296747844553355,
+      "dense_global_nmse": 0.08814729499185169,
+      "sparse_mse": 0.0044714420695510715,
+      "sparse_global_nmse": 0.0860146128563575,
+      "sparse_points": 59279,
+      "sparse_points_per_sample": 299.3888888888889,
+      "rerun_max_abs_diff": 0.0,
+      "metrics_git_dirty": true,
+      "manifest_gate": {
+        "checkpoint_sha256_matches": true,
+        "rerun_diff_zero": true,
+        "figures_requested": true,
+        "figures_nonempty": true,
+        "sparse_history_recorded": true,
+        "mask_distribution_recorded": true,
+        "test_samples_198": true,
+        "sparse_metrics_recorded": true,
+        "pass": true
+      },
+      "checkpoint_sha256": "d033fddbceb2c0f400db0d1058c87f36bc49dc019fce36fe382aa3dbde47465b",
+      "checkpoint_tracked_by_git": false,
+      "history": {
+        "entries": 100,
+        "train_entries": 50,
+        "val_entries": 50,
+        "best_val_loss": 0.004334543505683542,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 294,
+        "mask_points_max": 300,
+        "mask_points_mean_min": 299.22654690618765,
+        "mask_points_mean_max": 299.415
+      }
+    }
+  ],
+  "loader_audits": [
+    "reports/missing_buildings/loader_audits/s_irt4_missing0_pool600_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/s_irt4_missing1_pool600_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/s_irt4_missing2_pool600_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/s_irt4_missing4_pool600_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/c_irt4_missing0_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/c_irt4_missing1_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/c_irt4_missing2_sparse_loss_missing_loader_audit.json",
+    "reports/missing_buildings/loader_audits/c_irt4_missing4_sparse_loss_missing_loader_audit.json"
+  ],
+  "figures": {
+    "missing_count_curve": "reports/missing_buildings/stage4_missing_count_curves.png"
+  },
+  "answers": {
+    "zero_shot_degrades_with_missing_count": true,
+    "sparse_adaptation_improves_s_over_zero_shot": true,
+    "s_adapted_beats_c_adapted": true,
+    "complete_map_reference_present": true,
+    "paper_trend_consistent": true
+  },
+  "gate": {
+    "counts_0_1_2_4_present": true,
+    "all_test_samples_198": true,
+    "all_reruns_exact": true,
+    "all_manifest_gates_pass": true,
+    "all_loader_audits_pass": true,
+    "long_runs_have_50_train_epochs": true,
+    "checkpoints_not_tracked": true,
+    "answers_true": true,
+    "pass": true
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "config_path": "configs/s_irt4_missing1_pool600_sparse_loss.yaml",
+  "run_dir": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep",
+  "missing_buildings": 1,
+  "result_bucket": "sparse-adapted missing-building robustness",
+  "git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": []
+  },
+  "smoke": false,
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "config_snapshot": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/s_irt4_missing1_pool600_sparse_loss.yaml",
+  "run_metadata": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/run_metadata.json",
+  "checkpoint": {
+    "phase": "secondU",
+    "checkpoint": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/checkpoints/secondU.pt",
+    "sha256": "5a5e41c82ae0718e2f740cfba98bbdebf88033e40c456fabf3cdda3cf0bb50ce",
+    "tracked_in_git": false,
+    "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+    "sha256_actual": "5a5e41c82ae0718e2f740cfba98bbdebf88033e40c456fabf3cdda3cf0bb50ce"
+  },
+  "history": {
+    "entries": 100,
+    "train_entries": 50,
+    "val_entries": 50,
+    "best_val_loss": 81.79327135086059,
+    "loss_modes": [
+      "sparse_mse"
+    ],
+    "num_samples_for_loss": [
+      600
+    ],
+    "mask_points_min": 590,
+    "mask_points_max": 600,
+    "mask_points_mean_min": 597.0449101796407,
+    "mask_points_mean_max": 597.41
+  },
+  "metrics": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+  "metrics_rerun": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+  "rerun_max_abs_diff": 0.0,
+  "figures": {
+    "count": 8,
+    "files": [
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0000.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0001.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0002.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0003.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0004.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0005.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0006.png",
+      "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/figures/s_irt4_missing1_pool600_sparse_loss_test_0007.png"
+    ],
+    "all_nonempty": true,
+    "sizes": {
+      "s_irt4_missing1_pool600_sparse_loss_test_0000.png": 651153,
+      "s_irt4_missing1_pool600_sparse_loss_test_0001.png": 559574,
+      "s_irt4_missing1_pool600_sparse_loss_test_0002.png": 634513,
+      "s_irt4_missing1_pool600_sparse_loss_test_0003.png": 650936,
+      "s_irt4_missing1_pool600_sparse_loss_test_0004.png": 812412,
+      "s_irt4_missing1_pool600_sparse_loss_test_0005.png": 787101,
+      "s_irt4_missing1_pool600_sparse_loss_test_0006.png": 641341,
+      "s_irt4_missing1_pool600_sparse_loss_test_0007.png": 586783
+    }
+  },
+  "sparse_audit_dir": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_sparse_audit",
+  "missing_loader_audit_dir": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_missing_loader_audit",
+  "gate": {
+    "checkpoint_sha256_matches": true,
+    "rerun_diff_zero": true,
+    "figures_requested": true,
+    "figures_nonempty": true,
+    "sparse_history_recorded": true,
+    "mask_distribution_recorded": true,
+    "test_samples_198": true,
+    "sparse_metrics_recorded": true,
+    "pass": true
+  }
+}

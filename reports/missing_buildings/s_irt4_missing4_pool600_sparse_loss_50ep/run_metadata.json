@@ -1,0 +1,80 @@
+{
+  "config": {
+    "experiment": {
+      "name": "s_irt4_missing4_pool600_sparse_loss",
+      "description": "Stage 4 RadioUNet_S IRT4 missing-buildings adaptation: 4 missing buildings, pool600, input 1..300, sparse loss.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_s_sprseIRT4",
+      "simulation": "IRT4",
+      "city_map": "missing",
+      "missing": 4,
+      "missing_buildings": 4,
+      "cars_simulation": false,
+      "cars_input": false,
+      "num_tx": 2,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2,
+      "data_samples": 600,
+      "fix_samples": 0,
+      "num_samples_low": 1,
+      "num_samples_high": 301,
+      "target_scale": 256
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 3,
+      "phases": [
+        "secondU"
+      ]
+    },
+    "training": {
+      "adaptation_mode": "secondU-only",
+      "init_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600
+    },
+    "evaluation": {
+      "stage": "stage4_missing_buildings",
+      "result_bucket": "sparse-adapted missing-building robustness",
+      "transfer_mode": "paper-faithful sparse adaptation",
+      "source_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "DPM",
+      "target": "IRT4",
+      "building_input_dir": "RadioMapSeer/png/buildings_missing4/",
+      "target_radio_dir": "RadioMapSeer/gain/IRT4/",
+      "sparse_input_source": "target IRT4",
+      "test_split": "99 maps x 2 Tx = 198",
+      "sparse_note": "RadioUNet_S uses a deterministic 600 receiver pool per map; input uses a random subset of 1..300 pool points; training loss is computed over the full returned sparse measurement mask."
+    }
+  },
+  "git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": []
+  },
+  "device": "cuda",
+  "smoke": false,
+  "loss_mode": "sparse_mse",
+  "num_samples_for_loss": 600
+}

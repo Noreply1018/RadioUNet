@@ -1,0 +1,129 @@
+{
+  "scope": "Stage 4 missing-buildings loader audit",
+  "config_path": "configs/s_irt4_missing0_pool600_sparse_loss.yaml",
+  "git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "loader": "RadioUNet_s_sprseIRT4",
+  "simulation": "IRT4",
+  "city_map": "complete",
+  "missing_buildings": 0,
+  "dirs": {
+    "building_dir": "RadioMapSeer/png/buildings_complete",
+    "building_dir_exists": true,
+    "building_versions": [],
+    "target_radio_dir": "RadioMapSeer/gain/IRT4",
+    "target_radio_dir_exists": true,
+    "antenna_dir": "RadioMapSeer/png/antennas",
+    "antenna_dir_exists": true
+  },
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "samples": [
+    {
+      "split": "test",
+      "idx": 0,
+      "map_id": 419,
+      "tx": 0,
+      "paths": {
+        "building_dir": "RadioMapSeer/png/buildings_complete",
+        "building_paths": [
+          "RadioMapSeer/png/buildings_complete/419.png"
+        ],
+        "tx_path": "RadioMapSeer/png/antennas/419_0.png",
+        "target_path": "RadioMapSeer/gain/IRT4/419_0.png",
+        "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+      },
+      "candidate_building_hashes": [
+        "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1"
+      ],
+      "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+      "input_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+      "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+      "building_input_semantics_ok": true,
+      "tx_tensor_hash": "c2a9f7553adcd29bba39ae8671261054bc7b6960792fc52c488779531f5f445a",
+      "target_tensor_hash": "1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51",
+      "sparse_input_target_alignment_abs_max": 0.0,
+      "input_points": 236,
+      "loss_mask_points": 598,
+      "input_subset_of_loss_mask": true
+    },
+    {
+      "split": "test",
+      "idx": 1,
+      "map_id": 419,
+      "tx": 1,
+      "paths": {
+        "building_dir": "RadioMapSeer/png/buildings_complete",
+        "building_paths": [
+          "RadioMapSeer/png/buildings_complete/419.png"
+        ],
+        "tx_path": "RadioMapSeer/png/antennas/419_1.png",
+        "target_path": "RadioMapSeer/gain/IRT4/419_1.png",
+        "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+      },
+      "candidate_building_hashes": [
+        "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1"
+      ],
+      "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+      "input_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+      "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+      "building_input_semantics_ok": true,
+      "tx_tensor_hash": "efc2675c6546ac2f7fede9ceb0f8d221510bcba3e35bdb600670f7bbf36c0cea",
+      "target_tensor_hash": "a0eb45c235b4a45bcd563bdd589d09651babbe1895ce545398ba54df393f9771",
+      "sparse_input_target_alignment_abs_max": 0.0,
+      "input_points": 236,
+      "loss_mask_points": 598,
+      "input_subset_of_loss_mask": true
+    },
+    {
+      "split": "test",
+      "idx": 2,
+      "map_id": 392,
+      "tx": 0,
+      "paths": {
+        "building_dir": "RadioMapSeer/png/buildings_complete",
+        "building_paths": [
+          "RadioMapSeer/png/buildings_complete/392.png"
+        ],
+        "tx_path": "RadioMapSeer/png/antennas/392_0.png",
+        "target_path": "RadioMapSeer/gain/IRT4/392_0.png",
+        "complete_building_path": "RadioMapSeer/png/buildings_complete/392.png"
+      },
+      "candidate_building_hashes": [
+        "34be4716dc8bb27dea757f14d00ca031993124b1ead6426e0701a85071ef30a7"
+      ],
+      "complete_building_file_hash": "34be4716dc8bb27dea757f14d00ca031993124b1ead6426e0701a85071ef30a7",
+      "input_building_tensor_hash": "ee0b6009e1440474cece008c361f37165c5a8553aebb99e35f028f8c73868b1b",
+      "complete_building_tensor_hash": "ee0b6009e1440474cece008c361f37165c5a8553aebb99e35f028f8c73868b1b",
+      "building_input_semantics_ok": true,
+      "tx_tensor_hash": "caeaded474ae3717e7256d01bea1eb637d760883edd8dbeb6fb34d6d56ef3bd8",
+      "target_tensor_hash": "cae2f0218bbfd7326439071acf2e77a61535d93a38dbe33b80ea755041062ccc",
+      "sparse_input_target_alignment_abs_max": 0.0,
+      "input_points": 233,
+      "loss_mask_points": 597,
+      "input_subset_of_loss_mask": true
+    }
+  ],
+  "gate": {
+    "building_dir_exists": true,
+    "target_radio_dir_exists": true,
+    "antenna_dir_exists": true,
+    "versions_present_if_missing": true,
+    "test_split_is_198": true,
+    "building_input_semantics_ok": true,
+    "target_hash_stable_across_tx_duplicates": true,
+    "s_sparse_input_from_target": true,
+    "s_input_subset_of_loss_mask": true,
+    "s_pool600_if_mainline": true,
+    "pass": true
+  }
+}

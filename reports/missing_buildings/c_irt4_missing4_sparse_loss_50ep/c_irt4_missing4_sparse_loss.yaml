@@ -1,0 +1,53 @@
+experiment:
+  name: c_irt4_missing4_sparse_loss
+  description: "Stage 4 RadioUNet_C IRT4 missing-buildings baseline: 4 missing buildings, sparse loss."
+  seed: 42
+
+data:
+  dataset_dir: RadioMapSeer/
+  loader: RadioUNet_c_sprseIRT4
+  simulation: IRT4
+  city_map: missing
+  missing: 4
+  missing_buildings: 4
+  cars_simulation: no
+  cars_input: no
+  num_tx: 2
+  threshold: 0.2
+  batch_size: 15
+  num_workers: 1
+  smoke_num_tx: 2
+  num_samples: 300
+  target_scale: 1
+
+model:
+  class_name: RadioWNet
+  inputs: 2
+  phases:
+    - secondU
+
+training:
+  adaptation_mode: secondU-only
+  init_checkpoint: reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt
+  epochs: 50
+  optimizer: Adam
+  learning_rate: 0.0001
+  scheduler: StepLR
+  step_size: 30
+  gamma: 0.1
+  loss: MSELoss
+  loss_mode: sparse_mse
+  num_samples_for_loss: 300
+
+evaluation:
+  stage: stage4_missing_buildings
+  result_bucket: C baseline
+  transfer_mode: C sparse adaptation baseline
+  source_checkpoint: reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt
+  source_training_target: DPM
+  target: IRT4
+  building_input_dir: RadioMapSeer/png/buildings_missing4/
+  target_radio_dir: RadioMapSeer/gain/IRT4/
+  sparse_input_source: target IRT4 mask only
+  test_split: "99 maps x 2 Tx = 198"
+  sparse_note: RadioUNet_C has no measurement input channel; sparse loss is computed on the returned IRT4 sparse mask.

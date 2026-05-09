@@ -1,0 +1,7 @@
+{
+  "phase": "secondU",
+  "checkpoint": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/checkpoints/secondU.pt",
+  "sha256": "251bc6f3332d312c2e8d7aaa0bb9f8b833c182723eaba45f39d0ab74bcd0a290",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}

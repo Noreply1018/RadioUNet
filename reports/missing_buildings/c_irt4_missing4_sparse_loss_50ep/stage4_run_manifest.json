@@ -1,0 +1,92 @@
+{
+  "config_path": "configs/c_irt4_missing4_sparse_loss.yaml",
+  "run_dir": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep",
+  "missing_buildings": 4,
+  "result_bucket": "C baseline",
+  "git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+    "exclude_paths": []
+  },
+  "smoke": false,
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "config_snapshot": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/c_irt4_missing4_sparse_loss.yaml",
+  "run_metadata": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/run_metadata.json",
+  "checkpoint": {
+    "phase": "secondU",
+    "checkpoint": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/checkpoints/secondU.pt",
+    "sha256": "d033fddbceb2c0f400db0d1058c87f36bc49dc019fce36fe382aa3dbde47465b",
+    "tracked_in_git": false,
+    "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+    "sha256_actual": "d033fddbceb2c0f400db0d1058c87f36bc49dc019fce36fe382aa3dbde47465b"
+  },
+  "history": {
+    "entries": 100,
+    "train_entries": 50,
+    "val_entries": 50,
+    "best_val_loss": 0.004334543505683542,
+    "loss_modes": [
+      "sparse_mse"
+    ],
+    "num_samples_for_loss": [
+      300
+    ],
+    "mask_points_min": 294,
+    "mask_points_max": 300,
+    "mask_points_mean_min": 299.22654690618765,
+    "mask_points_mean_max": 299.415
+  },
+  "metrics": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics.json",
+  "metrics_rerun": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics_rerun.json",
+  "rerun_max_abs_diff": 0.0,
+  "figures": {
+    "count": 8,
+    "files": [
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0000.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0001.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0002.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0003.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0004.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0005.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0006.png",
+      "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/figures/c_irt4_missing4_sparse_loss_test_0007.png"
+    ],
+    "all_nonempty": true,
+    "sizes": {
+      "c_irt4_missing4_sparse_loss_test_0000.png": 587078,
+      "c_irt4_missing4_sparse_loss_test_0001.png": 535328,
+      "c_irt4_missing4_sparse_loss_test_0002.png": 592188,
+      "c_irt4_missing4_sparse_loss_test_0003.png": 546243,
+      "c_irt4_missing4_sparse_loss_test_0004.png": 799551,
+      "c_irt4_missing4_sparse_loss_test_0005.png": 747909,
+      "c_irt4_missing4_sparse_loss_test_0006.png": 646332,
+      "c_irt4_missing4_sparse_loss_test_0007.png": 558158
+    }
+  },
+  "sparse_audit_dir": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_sparse_audit",
+  "missing_loader_audit_dir": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_missing_loader_audit",
+  "gate": {
+    "checkpoint_sha256_matches": true,
+    "rerun_diff_zero": true,
+    "figures_requested": true,
+    "figures_nonempty": true,
+    "sparse_history_recorded": true,
+    "mask_distribution_recorded": true,
+    "test_samples_198": true,
+    "sparse_metrics_recorded": true,
+    "pass": true
+  }
+}

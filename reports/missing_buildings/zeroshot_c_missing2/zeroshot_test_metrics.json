@@ -1,0 +1,58 @@
+{
+  "samples": 198,
+  "seconds": 1.505042314529419,
+  "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
+    "dirty": true,
+    "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.004013791514532359,
+    "raw_mse": 0.004013791514532359,
+    "target_scale": 1.0,
+    "nmse": 0.08121407534362692,
+    "global_nmse": 0.07762238367965565,
+    "rmse": 0.06335449087896104,
+    "rmse_db_80": 5.068359270316884,
+    "sparse_points": {
+      "points": 59274,
+      "mean_points_per_sample": 299.3636363636364,
+      "mse": 0.004082812372238468,
+      "raw_mse": 0.004082812372238468,
+      "target_scale": 1.0,
+      "global_nmse": 0.0787642252850408,
+      "rmse": 0.06389688859591262,
+      "rmse_db_80": 5.11175108767301
+    }
+  },
+  "secondU": {
+    "mse": 0.004001190540183223,
+    "raw_mse": 0.004001190540183223,
+    "target_scale": 1.0,
+    "nmse": 0.08095252790460081,
+    "global_nmse": 0.07737869430322107,
+    "rmse": 0.06325496454969541,
+    "rmse_db_80": 5.060397163975633,
+    "sparse_points": {
+      "points": 59274,
+      "mean_points_per_sample": 299.3636363636364,
+      "mse": 0.004070350586991925,
+      "raw_mse": 0.004070350586991925,
+      "target_scale": 1.0,
+      "global_nmse": 0.07852381676975202,
+      "rmse": 0.06379929926724842,
+      "rmse_db_80": 5.103943941379874
+    }
+  }
+}
