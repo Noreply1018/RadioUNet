@@ -14,6 +14,9 @@
     "status_short": "?? reports/s_dpm_thr2/rand1_300_50ep/\n?? reports/s_dpm_thr2/stage2_final_audit.json\n?? reports/s_dpm_thr2/stage2_final_audit.md\n?? reports/s_dpm_thr2/stage2_final_metric_curves.png",
     "exclude_paths": []
   },
+  "final_artifact_commit": "2987ae495e2689176d8c5c33a1f5b5ddf31346f7",
+  "final_artifact_commit_subject": "Add Stage 2 final synthesis audit",
+  "provenance_note": "Final synthesis was generated from clean source commit 601d7e6 with reports excluded. Commit 2987ae4 added the tracked final synthesis JSON, Markdown, and metric curve PNG; checkpoints and logs remain ignored local artifacts.",
   "stage1_metrics": {
     "firstU": {
       "mse": 0.00047267809781480923,

@@ -449,6 +449,13 @@ def final_summary(stage1: dict[str, Any], fixed_runs: list[dict[str, Any]], rand
         "scope": "stage2_final_synthesis",
         "source_git": git_metadata(exclude_paths=["reports"]),
         "artifact_git": git_metadata(),
+        "final_artifact_commit": "2987ae495e2689176d8c5c33a1f5b5ddf31346f7",
+        "final_artifact_commit_subject": "Add Stage 2 final synthesis audit",
+        "provenance_note": (
+            "Final synthesis was generated from clean source commit 601d7e6 with reports excluded. "
+            "Commit 2987ae4 added the tracked final synthesis JSON, Markdown, and metric curve PNG; "
+            "checkpoints and logs remain ignored local artifacts."
+        ),
         "stage1_metrics": stage1,
         "runs": runs,
         "fixed_sweep": fixed_runs,
@@ -505,6 +512,8 @@ def write_final_report(summary: dict[str, Any], figure: Path) -> None:
         "- 本报告统一 Stage 1 C baseline、fixed 50/100/200/300、implementation-default random 10..299、paper-faithful random 1..300。",
         "- fixed sweep 是 controlled ablation；random 10..299 是历史 implementation-default 对照；random 1..300 是本阶段的 paper-faithful random sample count run。",
         "- checkpoint 和 log 只作为本地复现实物，不进入 git；报告、metrics、manifest、PNG 和配置副本进入归档。",
+        "- final synthesis 生成源码提交：`601d7e6e239b9c6bdd8d9f7421f22d012c7c5859`，生成时排除 `reports/` 后源码干净。",
+        "- final synthesis 轻量产物入库提交：`2987ae495e2689176d8c5c33a1f5b5ddf31346f7`；该提交加入 `stage2_final_audit.json`、`stage2_final_audit.md` 和 `stage2_final_metric_curves.png`。",
         "",
         "## firstU 全指标表",
         "",
