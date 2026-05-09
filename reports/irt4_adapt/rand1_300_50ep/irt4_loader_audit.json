@@ -1,0 +1,39 @@
+{
+  "scope": "Stage 3B pre-training IRT4 loader audit",
+  "git": {
+    "commit": "c2c761db49e3cd052438520e95c97c3150469335",
+    "dirty": true,
+    "status_short": "?? reports/irt4_zeroshot/",
+    "exclude_paths": []
+  },
+  "config_path": "configs/s_irt4_adapt_rand1_300.yaml",
+  "loader_audit": {
+    "config_path": "configs/s_irt4_adapt_rand1_300.yaml",
+    "loader": "RadioUNet_s_sprseIRT4",
+    "simulation": "IRT4",
+    "num_tx": 2,
+    "split_samples": {
+      "train": 1002,
+      "val": 200,
+      "test": 198
+    },
+    "input_channels": 3,
+    "target_scale": 256.0,
+    "data_samples": 300,
+    "fix_samples": 0,
+    "num_samples_low": 1,
+    "num_samples_high": 301,
+    "checked_test_batches": 4,
+    "input_sparse_nonzero_min": 18,
+    "input_sparse_nonzero_max": 189,
+    "input_sparse_nonzero_mean": 90.55,
+    "sample_mask_nonzero_min": 297,
+    "sample_mask_nonzero_max": 300,
+    "sparse_target_alignment_abs_max": 0.0,
+    "official_loader_audit": {
+      "local_reference": "reference/RadioUNet/lib/loaders.py",
+      "repo_loader": "src/radiounet/data.py",
+      "finding": "The IRT4 sparse path is implemented by RadioUNet_c_sprseIRT4 and RadioUNet_s_sprseIRT4. Both default to numTx=2, read gain/IRT4, and the S loader builds inputs from deterministic sparse IRT4 sample coordinates."
+    }
+  }
+}

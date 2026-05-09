@@ -1,0 +1,310 @@
+{
+  "scope": "Stage 3A IRT4 zero-shot transfer audit",
+  "git": {
+    "commit": "c2c761db49e3cd052438520e95c97c3150469335",
+    "dirty": true,
+    "status_short": "?? reports/irt4_zeroshot/",
+    "exclude_paths": []
+  },
+  "runs": {
+    "c_baseline": {
+      "source": "Stage 1 C secondU DPM checkpoint",
+      "transfer_mode": "zero-shot",
+      "config": {
+        "path": "configs/c_irt4_zeroshot.yaml",
+        "loader": "RadioUNet_c_sprseIRT4",
+        "simulation": "IRT4",
+        "num_tx": 2,
+        "inputs": 2
+      },
+      "loader_audit": {
+        "config_path": "configs/c_irt4_zeroshot.yaml",
+        "loader": "RadioUNet_c_sprseIRT4",
+        "simulation": "IRT4",
+        "num_tx": 2,
+        "split_samples": {
+          "train": 1002,
+          "val": 200,
+          "test": 198
+        },
+        "input_channels": 2,
+        "target_scale": 1.0,
+        "data_samples": null,
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null,
+        "checked_test_batches": 4,
+        "input_sparse_nonzero_min": null,
+        "input_sparse_nonzero_max": null,
+        "input_sparse_nonzero_mean": null,
+        "sample_mask_nonzero_min": 297,
+        "sample_mask_nonzero_max": 300,
+        "sparse_target_alignment_abs_max": 0.0,
+        "official_loader_audit": {
+          "local_reference": "reference/RadioUNet/lib/loaders.py",
+          "repo_loader": "src/radiounet/data.py",
+          "finding": "The IRT4 sparse path is implemented by RadioUNet_c_sprseIRT4 and RadioUNet_s_sprseIRT4. Both default to numTx=2, read gain/IRT4, and the S loader builds inputs from deterministic sparse IRT4 sample coordinates."
+        }
+      },
+      "checkpoint": {
+        "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+        "exists": true,
+        "tracked_by_git": false,
+        "sha256_actual": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06"
+      },
+      "metrics": {
+        "samples": 198,
+        "seconds": 1.6366429328918457,
+        "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+        "checkpoint_phase": "secondU",
+        "git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": false,
+          "status_short": "",
+          "exclude_paths": [
+            "reports"
+          ]
+        },
+        "artifact_git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": false,
+          "status_short": "",
+          "exclude_paths": []
+        },
+        "firstU": {
+          "mse": 0.001508298190663371,
+          "raw_mse": 0.001508298190663371,
+          "target_scale": 1.0,
+          "nmse": 0.030822829089381477,
+          "global_nmse": 0.029168854356847677,
+          "rmse": 0.03883681488823937,
+          "rmse_db_80": 3.1069451910591495
+        },
+        "secondU": {
+          "mse": 0.0014888852972283282,
+          "raw_mse": 0.0014888852972283282,
+          "target_scale": 1.0,
+          "nmse": 0.030432741750370373,
+          "global_nmse": 0.028793430241020535,
+          "rmse": 0.03858607646844038,
+          "rmse_db_80": 3.0868861174752302
+        }
+      },
+      "rerun_metrics": {
+        "samples": 198,
+        "seconds": 1.398371934890747,
+        "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+        "checkpoint_phase": "secondU",
+        "git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": false,
+          "status_short": "",
+          "exclude_paths": [
+            "reports"
+          ]
+        },
+        "artifact_git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": true,
+          "status_short": "?? reports/irt4_zeroshot/",
+          "exclude_paths": []
+        },
+        "firstU": {
+          "mse": 0.001508298190663371,
+          "raw_mse": 0.001508298190663371,
+          "target_scale": 1.0,
+          "nmse": 0.030822829089381477,
+          "global_nmse": 0.029168854356847677,
+          "rmse": 0.03883681488823937,
+          "rmse_db_80": 3.1069451910591495
+        },
+        "secondU": {
+          "mse": 0.0014888852972283282,
+          "raw_mse": 0.0014888852972283282,
+          "target_scale": 1.0,
+          "nmse": 0.030432741750370373,
+          "global_nmse": 0.028793430241020535,
+          "rmse": 0.03858607646844038,
+          "rmse_db_80": 3.0868861174752302
+        }
+      },
+      "rerun_max_abs_diff": 0.0,
+      "figures": [
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0000.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0001.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0002.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0003.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0004.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0005.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0006.png",
+        "reports/irt4_zeroshot/c_baseline/figures/c_irt4_zeroshot_test_0007.png"
+      ],
+      "figure_count": 8,
+      "metrics_git_dirty": false
+    },
+    "s_rand1_300": {
+      "source": "Stage 2 S random 1..300 secondU DPM checkpoint",
+      "transfer_mode": "zero-shot",
+      "config": {
+        "path": "configs/s_irt4_zeroshot_rand1_300.yaml",
+        "loader": "RadioUNet_s_sprseIRT4",
+        "simulation": "IRT4",
+        "num_tx": 2,
+        "inputs": 3
+      },
+      "loader_audit": {
+        "config_path": "configs/s_irt4_zeroshot_rand1_300.yaml",
+        "loader": "RadioUNet_s_sprseIRT4",
+        "simulation": "IRT4",
+        "num_tx": 2,
+        "split_samples": {
+          "train": 1002,
+          "val": 200,
+          "test": 198
+        },
+        "input_channels": 3,
+        "target_scale": 256.0,
+        "data_samples": 300,
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301,
+        "checked_test_batches": 4,
+        "input_sparse_nonzero_min": 18,
+        "input_sparse_nonzero_max": 189,
+        "input_sparse_nonzero_mean": 90.55,
+        "sample_mask_nonzero_min": 297,
+        "sample_mask_nonzero_max": 300,
+        "sparse_target_alignment_abs_max": 0.0,
+        "official_loader_audit": {
+          "local_reference": "reference/RadioUNet/lib/loaders.py",
+          "repo_loader": "src/radiounet/data.py",
+          "finding": "The IRT4 sparse path is implemented by RadioUNet_c_sprseIRT4 and RadioUNet_s_sprseIRT4. Both default to numTx=2, read gain/IRT4, and the S loader builds inputs from deterministic sparse IRT4 sample coordinates."
+        }
+      },
+      "checkpoint": {
+        "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+        "exists": true,
+        "tracked_by_git": false,
+        "sha256_actual": "c0b00df604ab5c8b9c773ca8dafead8f76a74e0fcb330a7fd79f9adf678ef4bc"
+      },
+      "metrics": {
+        "samples": 198,
+        "seconds": 1.736975908279419,
+        "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+        "checkpoint_phase": "secondU",
+        "git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": false,
+          "status_short": "",
+          "exclude_paths": [
+            "reports"
+          ]
+        },
+        "artifact_git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": true,
+          "status_short": "?? reports/irt4_zeroshot/",
+          "exclude_paths": []
+        },
+        "firstU": {
+          "mse": 0.0009700314977001681,
+          "raw_mse": 63.571984233278215,
+          "target_scale": 256.0,
+          "nmse": 0.019764564451620434,
+          "global_nmse": 0.018759359172315967,
+          "rmse": 0.031145328665791408,
+          "rmse_db_80": 2.4916262932633124
+        },
+        "secondU": {
+          "mse": 0.0009654228263322941,
+          "raw_mse": 63.26995034651323,
+          "target_scale": 256.0,
+          "nmse": 0.019676945828409356,
+          "global_nmse": 0.018670232619581523,
+          "rmse": 0.031071254019306882,
+          "rmse_db_80": 2.4857003215445506
+        }
+      },
+      "rerun_metrics": {
+        "samples": 198,
+        "seconds": 1.833343505859375,
+        "checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt",
+        "checkpoint_phase": "secondU",
+        "git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": false,
+          "status_short": "",
+          "exclude_paths": [
+            "reports"
+          ]
+        },
+        "artifact_git": {
+          "commit": "56649aaa30d9b5024774c0fb6fa9c34c68716d58",
+          "dirty": true,
+          "status_short": "?? reports/irt4_zeroshot/",
+          "exclude_paths": []
+        },
+        "firstU": {
+          "mse": 0.0009700314977001681,
+          "raw_mse": 63.571984233278215,
+          "target_scale": 256.0,
+          "nmse": 0.019764564451620434,
+          "global_nmse": 0.018759359172315967,
+          "rmse": 0.031145328665791408,
+          "rmse_db_80": 2.4916262932633124
+        },
+        "secondU": {
+          "mse": 0.0009654228263322941,
+          "raw_mse": 63.26995034651323,
+          "target_scale": 256.0,
+          "nmse": 0.019676945828409356,
+          "global_nmse": 0.018670232619581523,
+          "rmse": 0.031071254019306882,
+          "rmse_db_80": 2.4857003215445506
+        }
+      },
+      "rerun_max_abs_diff": 0.0,
+      "figures": [
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0000.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0001.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0002.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0003.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0004.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0005.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0006.png",
+        "reports/irt4_zeroshot/s_rand1_300/figures/s_irt4_zeroshot_rand1_300_test_0007.png"
+      ],
+      "figure_count": 8,
+      "metrics_git_dirty": false
+    }
+  },
+  "comparison": {
+    "c_baseline_secondU": {
+      "mse": 0.0014888852972283282,
+      "raw_mse": 0.0014888852972283282,
+      "target_scale": 1.0,
+      "nmse": 0.030432741750370373,
+      "global_nmse": 0.028793430241020535,
+      "rmse": 0.03858607646844038,
+      "rmse_db_80": 3.0868861174752302
+    },
+    "s_rand1_300_secondU": {
+      "mse": 0.0009654228263322941,
+      "raw_mse": 63.26995034651323,
+      "target_scale": 256.0,
+      "nmse": 0.019676945828409356,
+      "global_nmse": 0.018670232619581523,
+      "rmse": 0.031071254019306882,
+      "rmse_db_80": 2.4857003215445506
+    },
+    "note": "这里仅比较 IRT4 test 指标，不与 DPM test 指标混合下结论。"
+  },
+  "gate": {
+    "test_samples_198": true,
+    "metrics_git_dirty_false": true,
+    "rerun_diff_zero": true,
+    "checkpoint_not_tracked": true,
+    "figures_8_each": true,
+    "pass": true
+  }
+}
