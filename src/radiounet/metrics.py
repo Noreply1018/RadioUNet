@@ -29,8 +29,21 @@ def nmse(pred: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
     return _MSE(pred, target) / denominator
 
 
-def sparse_mse(pred: torch.Tensor, target: torch.Tensor, samples: torch.Tensor, num_samples: int) -> torch.Tensor:
-    return _MSE(samples * pred, samples * target) * (256**2) / num_samples
+def sparse_mse(
+    pred: torch.Tensor,
+    target: torch.Tensor,
+    samples: torch.Tensor,
+    num_samples_for_loss: int | None = None,
+) -> torch.Tensor:
+    mask = samples.to(dtype=pred.dtype)
+    if mask.shape != pred.shape:
+        raise ValueError(f"Sparse mask shape {tuple(mask.shape)} does not match prediction shape {tuple(pred.shape)}.")
+    denominator = float(num_samples_for_loss) if num_samples_for_loss is not None else float(mask.sum().detach().cpu())
+    if denominator <= 0:
+        raise ValueError("Sparse MSE requires at least one masked measurement point.")
+    squared_error = ((pred - target) ** 2) * mask
+    batch_size = max(int(pred.shape[0]), 1)
+    return squared_error.sum() / (batch_size * denominator)
 
 
 def summarize(pred: torch.Tensor, target: torch.Tensor) -> OutputMetrics:
@@ -58,4 +71,3 @@ def accumulate_dense(pred1: torch.Tensor, pred2: torch.Tensor, target: torch.Ten
         "secondU_rmse": second.rmse * batch_size,
         "secondU_rmse_db_80": second.rmse_db_80 * batch_size,
     }
-

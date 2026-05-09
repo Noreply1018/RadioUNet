@@ -82,8 +82,10 @@ def main() -> int:
         sample_mask = None
     elif len(batch) == 3:
         inputs, targets, sample_mask = batch
+    elif len(batch) == 4:
+        inputs, targets, sample_mask, _input_sample_mask = batch
     else:
-        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+        raise ValueError(f"Expected batch of length 2, 3, or 4, got {len(batch)}.")
 
     if inputs.ndim != 4 or inputs.shape[1:] != (3, 256, 256):
         raise AssertionError(f"RadioUNet_s inputs should be [B, 3, 256, 256], got {tuple(inputs.shape)}")

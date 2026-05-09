@@ -20,7 +20,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from radiounet.factory import build_dataloader, build_model
-from radiounet.metrics import mse
+from radiounet.metrics import mse, sparse_mse
 from radiounet.utils import (
     copy_config,
     ensure_dir,
@@ -41,9 +41,42 @@ def unpack_batch(batch):
         samples = None
     elif len(batch) == 3:
         inputs, targets, samples = batch
+    elif len(batch) == 4:
+        inputs, targets, samples, _input_samples_mask = batch
     else:
-        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+        raise ValueError(f"Expected batch of length 2, 3, or 4, got {len(batch)}.")
     return inputs, targets, samples
+
+
+def is_irt4_sparse_adaptation(config: dict) -> bool:
+    data_cfg = config.get("data", {})
+    training_cfg = config.get("training", {})
+    return (
+        data_cfg.get("simulation") == "IRT4"
+        and "sprseIRT4" in str(data_cfg.get("loader", ""))
+        and training_cfg.get("adaptation_mode") is not None
+    )
+
+
+def validate_training_config(config: dict) -> None:
+    training_cfg = config.get("training", {})
+    loss_mode = training_cfg.get("loss_mode", "dense_mse")
+    if loss_mode not in {"dense_mse", "sparse_mse"}:
+        raise ValueError(f"Unsupported training.loss_mode: {loss_mode}")
+    if is_irt4_sparse_adaptation(config) and loss_mode != "sparse_mse":
+        raise ValueError("IRT4 sparse adaptation must set training.loss_mode: sparse_mse.")
+    if loss_mode == "sparse_mse" and "num_samples_for_loss" not in training_cfg:
+        raise ValueError("sparse_mse requires training.num_samples_for_loss to make the denominator explicit.")
+
+
+def compute_loss(pred: torch.Tensor, targets: torch.Tensor, samples: torch.Tensor | None, config: dict) -> torch.Tensor:
+    training_cfg = config.get("training", {})
+    loss_mode = training_cfg.get("loss_mode", "dense_mse")
+    if loss_mode == "dense_mse":
+        return mse(pred, targets)
+    if samples is None:
+        raise ValueError("sparse_mse loss requires the dataset loader to return a sparse samples mask.")
+    return sparse_mse(pred, targets, samples, num_samples_for_loss=int(training_cfg["num_samples_for_loss"]))
 
 
 def train_one_phase(
@@ -74,6 +107,8 @@ def train_one_phase(
         "train": build_dataloader(config, "train", smoke=smoke, shuffle=True),
         "val": build_dataloader(config, "val", smoke=smoke, shuffle=False),
     }
+    loss_mode = config.get("training", {}).get("loss_mode", "dense_mse")
+    num_samples_for_loss = config.get("training", {}).get("num_samples_for_loss")
 
     best_model_wts = copy.deepcopy(model.state_dict())
     best_loss = float("inf")
@@ -106,19 +141,40 @@ def train_one_phase(
                 with torch.set_grad_enabled(split == "train"):
                     outputs1, outputs2 = model(inputs)
                     pred = outputs1 if phase_name == "firstU" else outputs2
-                    loss = mse(pred, targets)
+                    loss = compute_loss(pred, targets, samples, config)
                     if split == "train":
                         loss.backward()
                         optimizer.step()
 
                 batch_size = inputs.size(0)
                 metrics["loss"] += float(loss.detach().cpu()) * batch_size
+                if samples is not None:
+                    mask_counts = (samples[:, 0] != 0).flatten(1).sum(dim=1)
+                    metrics["mask_points"] += float(mask_counts.sum().detach().cpu())
+                    metrics["mask_min"] = min(metrics.get("mask_min", float("inf")), float(mask_counts.min().detach().cpu()))
+                    metrics["mask_max"] = max(metrics.get("mask_max", 0.0), float(mask_counts.max().detach().cpu()))
                 epoch_samples += batch_size
                 if smoke and batch_idx >= 1:
                     break
 
             epoch_loss = metrics["loss"] / max(epoch_samples, 1)
-            history.append({"epoch": epoch, "split": split, "loss": epoch_loss, "samples": epoch_samples})
+            row = {
+                "epoch": epoch,
+                "split": split,
+                "loss": epoch_loss,
+                "loss_mode": loss_mode,
+                "num_samples_for_loss": num_samples_for_loss,
+                "samples": epoch_samples,
+            }
+            if metrics.get("mask_points", 0.0):
+                row.update(
+                    {
+                        "mask_points_mean": metrics["mask_points"] / max(epoch_samples, 1),
+                        "mask_points_min": int(metrics["mask_min"]),
+                        "mask_points_max": int(metrics["mask_max"]),
+                    }
+                )
+            history.append(row)
             print(f"{split}: loss={epoch_loss:.6f}, samples={epoch_samples}")
             if split == "val" and epoch_loss < best_loss:
                 best_loss = epoch_loss
@@ -140,6 +196,8 @@ def train_one_phase(
             "git": source_git,
             "artifact_git": git_metadata(),
             "smoke": smoke,
+            "loss_mode": loss_mode,
+            "num_samples_for_loss": num_samples_for_loss,
         },
         checkpoint_path,
     )
@@ -169,6 +227,7 @@ def main() -> int:
 
     config_path = Path(args.config)
     config = load_yaml(config_path)
+    validate_training_config(config)
     try:
         require_dataset_dir(config)
     except FileNotFoundError as exc:
@@ -192,6 +251,8 @@ def main() -> int:
             "artifact_git": git_metadata(),
             "device": str(device),
             "smoke": args.smoke,
+            "loss_mode": config.get("training", {}).get("loss_mode", "dense_mse"),
+            "num_samples_for_loss": config.get("training", {}).get("num_samples_for_loss"),
         },
         run_dir / "run_metadata.json",
     )

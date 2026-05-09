@@ -28,9 +28,22 @@ def unpack_batch(batch):
         samples = None
     elif len(batch) == 3:
         inputs, targets, samples = batch
+    elif len(batch) == 4:
+        inputs, targets, samples, _input_samples_mask = batch
     else:
-        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+        raise ValueError(f"Expected batch of length 2, 3, or 4, got {len(batch)}.")
     return inputs, targets, samples
+
+
+def accumulate_sparse_metrics(sums: dict, name: str, pred: torch.Tensor, targets: torch.Tensor, samples_mask: torch.Tensor) -> None:
+    mask = samples_mask.to(dtype=pred.dtype)
+    if mask.shape != pred.shape:
+        raise ValueError(f"Sparse mask shape {tuple(mask.shape)} does not match prediction shape {tuple(pred.shape)}.")
+    se = ((pred - targets) ** 2) * mask
+    target_energy = (targets**2) * mask
+    sums[f"{name}_sparse_sse"] += float(se.sum().cpu())
+    sums[f"{name}_sparse_target_energy"] += float(target_energy.sum().cpu())
+    sums[f"{name}_sparse_points"] += float(mask.sum().cpu())
 
 
 def main() -> int:
@@ -67,9 +80,11 @@ def main() -> int:
 
     with torch.no_grad():
         for batch_idx, batch in enumerate(loader):
-            inputs, targets, _samples = unpack_batch(batch)
+            inputs, targets, samples_mask = unpack_batch(batch)
             inputs = inputs.to(device)
             targets = targets.to(device)
+            if samples_mask is not None:
+                samples_mask = samples_mask.to(device)
             outputs1, outputs2 = model(inputs)
             batch_size = inputs.size(0)
             samples += batch_size
@@ -77,6 +92,8 @@ def main() -> int:
                 sums[f"{name}_mse"] += float(mse(pred, targets).cpu()) * batch_size
                 sums[f"{name}_nmse"] += float(nmse(pred, targets).cpu()) * batch_size
                 sums[f"{name}_sse"] += float(torch.sum((pred - targets) ** 2).cpu())
+                if samples_mask is not None:
+                    accumulate_sparse_metrics(sums, name, pred, targets, samples_mask)
             sums["target_energy_sse"] += float(torch.sum(targets**2).cpu())
             if args.limit_batches is not None and batch_idx + 1 >= args.limit_batches:
                 break
@@ -103,6 +120,21 @@ def main() -> int:
             "rmse": rmse_value,
             "rmse_db_80": rmse_value * 80,
         }
+        sparse_points = sums.get(f"{name}_sparse_points", 0.0)
+        if sparse_points:
+            sparse_raw_mse = sums[f"{name}_sparse_sse"] / sparse_points
+            sparse_mse_value = sparse_raw_mse / (target_scale**2)
+            sparse_rmse = math.sqrt(sparse_mse_value)
+            metrics[name]["sparse_points"] = {
+                "points": int(sparse_points),
+                "mean_points_per_sample": sparse_points / max(samples, 1),
+                "mse": sparse_mse_value,
+                "raw_mse": sparse_raw_mse,
+                "target_scale": target_scale,
+                "global_nmse": sums[f"{name}_sparse_sse"] / sums[f"{name}_sparse_target_energy"],
+                "rmse": sparse_rmse,
+                "rmse_db_80": sparse_rmse * 80,
+            }
 
     output = Path(args.output) if args.output else Path("reports") / config["experiment"]["name"] / "metrics.json"
     ensure_dir(output.parent)

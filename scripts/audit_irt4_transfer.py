@@ -76,7 +76,9 @@ def unpack_batch(batch):
         return batch[0], batch[1], None
     if len(batch) == 3:
         return batch
-    raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+    if len(batch) == 4:
+        return batch[0], batch[1], batch[2]
+    raise ValueError(f"Expected batch of length 2, 3, or 4, got {len(batch)}.")
 
 
 def split_counts(config: dict[str, Any]) -> dict[str, int]:

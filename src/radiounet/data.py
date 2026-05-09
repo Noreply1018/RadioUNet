@@ -809,6 +809,7 @@ class RadioUNet_s_sprseIRT4(Dataset):
         
         #input samples from the sparse gain samples
         input_samples = np.zeros((256,256))
+        input_samples_mask = np.zeros((256,256))
         if self.fix_samples==0:
             num_in_samples=np.random.randint(self.num_samples_low, self.num_samples_high, size=1)
         else:
@@ -819,6 +820,7 @@ class RadioUNet_s_sprseIRT4(Dataset):
         x_samples_in=x_samples[input_inds]
         y_samples_in=y_samples[input_inds]
         input_samples[x_samples_in,y_samples_in]= image_gain[x_samples_in,y_samples_in,0]
+        input_samples_mask[x_samples_in,y_samples_in]= 1
         
         #normalize image_buildings, after random seed computed from it as an int
         image_buildings=image_buildings/256
@@ -842,10 +844,11 @@ class RadioUNet_s_sprseIRT4(Dataset):
             inputs = _apply_image_transform(inputs, self.transform)
             image_gain = _apply_image_transform(image_gain, self.transform)
             sparse_samples = _apply_image_transform(sparse_samples, self.transform)
+            input_samples_mask = _apply_image_transform(input_samples_mask, self.transform)
             
 
 
-        return [inputs, image_gain, sparse_samples]
+        return [inputs, image_gain, sparse_samples, input_samples_mask]
     
     
 

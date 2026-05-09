@@ -88,8 +88,10 @@ def unpack_batch(batch):
         samples = None
     elif len(batch) == 3:
         inputs, targets, samples = batch
+    elif len(batch) == 4:
+        inputs, targets, samples, _input_sample_mask = batch
     else:
-        raise ValueError(f"Expected batch of length 2 or 3, got {len(batch)}.")
+        raise ValueError(f"Expected batch of length 2, 3, or 4, got {len(batch)}.")
     return inputs, targets, samples
 
 
