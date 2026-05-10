@@ -1,0 +1,73 @@
+{
+  "config": "configs/s_irt2_thr2_rand1_300.yaml",
+  "run_dir": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep",
+  "smoke": false,
+  "simulation": "IRT2",
+  "model": "S",
+  "cars_simulation": "no",
+  "cars_input": "no",
+  "sample_policy": {
+    "fix_samples": 0,
+    "num_samples_low": 1,
+    "num_samples_high": 301
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 50.38969031110406,
+      "train_entries": 50,
+      "val_entries": 50
+    },
+    "secondU": {
+      "best_val_loss": 43.89308112561703,
+      "train_entries": 50,
+      "val_entries": 50
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "sha256": "5696baa2b7026411632f4a3cb43b8815ad3d283b483acd6859ce59b19eaa713f"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/secondU.pt",
+      "sha256": "b7176f847edfd1fbe2361bd681f753158a6b4fa4d9d47c80893188471ebd65b0"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0000.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0001.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0002.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0003.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0004.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0005.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0006.png",
+    "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/figures/s_irt2_thr2_rand1_300_test_0007.png"
+  ],
+  "git": {
+    "commit": "3dea4a8888a6eade25062d4c17509fa60514a9fc",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "3dea4a8888a6eade25062d4c17509fa60514a9fc",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/s_irt2_thr2_rand1_300_50ep/",
+    "exclude_paths": []
+  },
+  "gate": {
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count_8": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}
