@@ -1,0 +1,67 @@
+{
+  "config": "configs/c_irt2_thr2.yaml",
+  "run_dir": "reports/full_matrix/c_irt2_thr2_smoke",
+  "smoke": true,
+  "simulation": "IRT2",
+  "model": "C",
+  "cars_simulation": "no",
+  "cars_input": "no",
+  "sample_policy": {
+    "fix_samples": null,
+    "num_samples_low": null,
+    "num_samples_high": null
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 0.08910451829433441,
+      "train_entries": 1,
+      "val_entries": 1
+    },
+    "secondU": {
+      "best_val_loss": 0.08950239419937134,
+      "train_entries": 1,
+      "val_entries": 1
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/c_irt2_thr2_smoke/checkpoints/firstU.pt",
+      "sha256": "7146992247984eb400655d09bf58316d8d6d1433e3d15e1d5f64fca843bd5a97"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/c_irt2_thr2_smoke/checkpoints/secondU.pt",
+      "sha256": "f0d7cdb5e7162b52e3c84b3261d2a4108edf5f8b9e59090b3676080065474ad9"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/c_irt2_thr2_smoke/figures/c_irt2_thr2_test_0000.png",
+    "reports/full_matrix/c_irt2_thr2_smoke/figures/c_irt2_thr2_test_0001.png"
+  ],
+  "git": {
+    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "dirty": true,
+    "status_short": "?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_irt2_thr2_smoke/\n?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "exclude_paths": []
+  },
+  "gate": {
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count_8": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}

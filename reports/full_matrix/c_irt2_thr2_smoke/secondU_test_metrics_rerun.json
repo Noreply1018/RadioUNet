@@ -1,0 +1,38 @@
+{
+  "samples": 2,
+  "seconds": 0.48223400115966797,
+  "checkpoint": "reports/full_matrix/c_irt2_thr2_smoke/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "dirty": true,
+    "status_short": "?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_irt2_thr2_smoke/\n?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.08910451829433441,
+    "raw_mse": 0.08910451829433441,
+    "target_scale": 1.0,
+    "nmse": 0.9989503026008606,
+    "global_nmse": 0.9989502983342846,
+    "rmse": 0.29850379946381655,
+    "rmse_db_80": 23.880303957105326
+  },
+  "secondU": {
+    "mse": 0.08950239419937134,
+    "raw_mse": 0.08950239419937134,
+    "target_scale": 1.0,
+    "nmse": 1.0034109354019165,
+    "global_nmse": 1.003410883068313,
+    "rmse": 0.2991695074692127,
+    "rmse_db_80": 23.933560597537017
+  }
+}

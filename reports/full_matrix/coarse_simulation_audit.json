@@ -1,0 +1,135 @@
+{
+  "git": {
+    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "dirty": true,
+    "status_short": "?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "runs": [
+    {
+      "name": "c_dpm_thr2",
+      "run_dir": "reports/c_dpm_thr2/20260506_182311",
+      "config": "configs/c_dpm_thr2.yaml",
+      "exists": true,
+      "simulation": "DPM",
+      "model": "C",
+      "sample_policy": {
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "cars_simulation": false,
+      "cars_input": false,
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": false,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.000419767048463131,
+      "manifest_exists": false,
+      "manifest_gate": {},
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "secondU_not_worse_than_firstU": false,
+      "gate": false
+    },
+    {
+      "name": "s_dpm_thr2_rand1_300",
+      "run_dir": "reports/s_dpm_thr2/rand1_300_50ep",
+      "config": "configs/s_dpm_thr2_rand1_300.yaml",
+      "exists": true,
+      "simulation": "DPM",
+      "model": "S",
+      "sample_policy": {
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "cars_simulation": false,
+      "cars_input": false,
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.00036321246246491984,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.0002833112683867622,
+      "manifest_exists": false,
+      "manifest_gate": {},
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
+    },
+    {
+      "name": "c_irt2_thr2",
+      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/c_irt2_thr2_50ep",
+      "config": "configs/c_irt2_thr2.yaml",
+      "exists": false,
+      "simulation": "IRT2",
+      "model": "C",
+      "sample_policy": {
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "gate": false
+    },
+    {
+      "name": "s_irt2_thr2_rand1_300",
+      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/s_irt2_thr2_rand1_300_50ep",
+      "config": "configs/s_irt2_thr2_rand1_300.yaml",
+      "exists": false,
+      "simulation": "IRT2",
+      "model": "S",
+      "sample_policy": {
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "gate": false
+    },
+    {
+      "name": "c_rand_thr2",
+      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/c_rand_thr2_50ep",
+      "config": "configs/c_rand_thr2.yaml",
+      "exists": false,
+      "simulation": "rand",
+      "model": "C",
+      "sample_policy": {
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "gate": false
+    },
+    {
+      "name": "s_rand_thr2_rand1_300",
+      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/s_rand_thr2_rand1_300_50ep",
+      "config": "configs/s_rand_thr2_rand1_300.yaml",
+      "exists": false,
+      "simulation": "rand",
+      "model": "S",
+      "sample_policy": {
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "gate": false
+    }
+  ],
+  "gate": {
+    "pass": false
+  }
+}
