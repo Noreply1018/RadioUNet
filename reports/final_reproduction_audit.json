@@ -1,0 +1,494 @@
+{
+  "scope": "RadioUNet final reproduction audit",
+  "git": {
+    "commit": "6c2f85b5a6e7e6916e6521e432b8ce8a2c1d1721",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "stages": [
+    {
+      "name": "Stage 1 C DPM baseline",
+      "label": "paper-faithful baseline",
+      "paper_claim": "RadioUNet_C clean city-map DPM baseline with WNet firstU/secondU.",
+      "evidence": {
+        "config": "configs/c_dpm_thr2.yaml",
+        "audit": "docs/stage1_c_dpm_thr2_audit.md",
+        "run_dir": "reports/c_dpm_thr2/20260506_182311",
+        "metrics": "reports/c_dpm_thr2/20260506_182311/secondU_test_metrics.json",
+        "first_checkpoint_sha256": "cfec8caf23f20231e95a6c63f221e3e5f5515a05cf92a1522ad73081aad6ae25",
+        "second_checkpoint_sha256": "cd36e18b88c07309825a5d1f8a4dac32818681d434c3cf02de28d836e03d1e06",
+        "figures_glob": "reports/c_dpm_thr2/20260506_182311/figures/*.png"
+      },
+      "metrics": {
+        "mse": 0.000419767048463131,
+        "nmse": 0.009647368385478992,
+        "rmse": 0.02048821730808054,
+        "rmse_db_80": 1.6390573846464431
+      },
+      "gate": {
+        "config_exists": true,
+        "audit_exists": true,
+        "metrics_exist": true,
+        "samples_7920": true,
+        "firstU_metrics_present": true,
+        "secondU_metrics_present": true,
+        "metrics_git_clean": true,
+        "checkpoints_not_tracked": true,
+        "eight_figures": true,
+        "pass": true
+      },
+      "conclusion": "MSE/RMSE 接近官方 notebook；NMSE 偏高但已解释为分母/数据口径敏感项。"
+    },
+    {
+      "name": "Stage 2 S DPM random 1..300",
+      "label": "paper-faithful mainline plus ablations",
+      "paper_claim": "Sparse measurements improve RadioUNet_S under DPM complete-map setting.",
+      "evidence": {
+        "config": "configs/s_dpm_thr2_rand1_300.yaml",
+        "audit": "reports/s_dpm_thr2/stage2_final_audit.json",
+        "markdown": "reports/s_dpm_thr2/stage2_final_audit.md",
+        "figure": "reports/s_dpm_thr2/stage2_final_metric_curves.png"
+      },
+      "metrics": {
+        "mse": 0.0002833112683867622,
+        "raw_mse": 18.567087284994848,
+        "target_scale": 256.0,
+        "nmse": 0.006728377919926336,
+        "global_nmse": 0.005286262543704091,
+        "rmse": 0.01683185279126342,
+        "rmse_db_80": 1.3465482233010737
+      },
+      "gate": {
+        "config_exists": true,
+        "audit_exists": true,
+        "markdown_exists": true,
+        "curve_exists": true,
+        "mainline_is_paper_faithful": true,
+        "mainline_gate_passed": true,
+        "rerun_exact": true,
+        "checkpoints_not_tracked": true,
+        "pass": true
+      },
+      "conclusion": "random 1..300 主线优于 Stage 1 C baseline；fixed 50/100/200/300 仅作为 ablation。"
+    },
+    {
+      "name": "Stage 3C IRT4 sparse adaptation",
+      "label": "paper-faithful mainline, dense-loss pilot, ablation",
+      "paper_claim": "RadioUNet_S can adapt to high-fidelity IRT4 with sparse measurements.",
+      "evidence": {
+        "config": "configs/s_irt4_adapt_rand1_300_pool600_sparse_loss.yaml",
+        "audit": "reports/irt4_transfer/stage3c_final_audit.json",
+        "markdown": "reports/irt4_transfer/stage3c_final_audit.md"
+      },
+      "metrics": {
+        "dense_mse": 0.000760973893303537,
+        "dense_global_nmse": 0.014716411407934737,
+        "sparse_mse": 0.0006030456648916432,
+        "sparse_global_nmse": 0.011647136020180521
+      },
+      "gate": {
+        "config_exists": true,
+        "audit_exists": true,
+        "markdown_exists": true,
+        "final_gate_passed": true,
+        "mainline_manifest_gate_passed": true,
+        "mainline_semantic_gate_passed": true,
+        "rerun_exact": true,
+        "checkpoint_not_tracked": true,
+        "pass": true
+      },
+      "conclusion": "pool600、输入 1..300、sparse loss 主线成立；dense-loss pilot 已降级为非主线。"
+    },
+    {
+      "name": "Stage 4 missing buildings robustness",
+      "label": "official-loader-faithful missing-building sparse sampling",
+      "paper_claim": "Sparse measurements improve robustness when input city maps have missing buildings.",
+      "evidence": {
+        "audit": "reports/missing_buildings/stage4_final_audit.json",
+        "markdown": "reports/missing_buildings/stage4_final_audit.md",
+        "figure": "reports/missing_buildings/stage4_missing_count_curves.png"
+      },
+      "metrics": {
+        "s_missing4_dense_mse": 0.002952732181063656,
+        "s_missing4_sparse_mse": 0.0027546661251658974
+      },
+      "gate": {
+        "configs_exist": true,
+        "audit_exists": true,
+        "markdown_exists": true,
+        "curve_exists": true,
+        "final_gate_passed": true,
+        "cross_missing_target_consistency_checked": true,
+        "dirty_provenance_recorded": true,
+        "reruns_exact": true,
+        "checkpoints_not_tracked": true,
+        "pass": true
+      },
+      "conclusion": "0/1/2/4 missing sweep 完成；S sparse-adapted 优于 S zero-shot 和 C adapted，但 receiver mask 语义按官方 loader 标注。",
+      "residual_risk": {
+        "metrics_and_manifest_git_dirty_checked": true,
+        "all_metrics_git_clean": false,
+        "all_manifest_git_clean": false,
+        "all_artifact_git_clean": false,
+        "dirty_metrics": [
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_s_missing0/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_c_missing0/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_s_missing1/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_c_missing1/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_s_missing2/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_c_missing2/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_s_missing4/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_c_missing4/zeroshot_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          }
+        ],
+        "dirty_manifests": [
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_s_missing0/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_c_missing0/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_s_missing1/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_c_missing1/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_s_missing2/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_c_missing2/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_s_missing4/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_c_missing4/stage4_zeroshot_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          }
+        ],
+        "dirty_artifacts": [
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_s_missing0/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 0,
+            "path": "reports/missing_buildings/zeroshot_c_missing0/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_s_missing1/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/zeroshot_c_missing1/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_s_missing2/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/zeroshot_c_missing2/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_s_missing4/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "zero-shot missing-building degradation",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/zeroshot_c_missing4/stage4_zeroshot_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+          },
+          {
+            "kind": "complete-map upper reference",
+            "model": "S",
+            "missing_buildings": 0,
+            "path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/stage3c_run_manifest.json",
+            "status_short": "?? reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/"
+          },
+          {
+            "kind": "complete-map upper reference",
+            "model": "C",
+            "missing_buildings": 0,
+            "path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/stage3c_run_manifest.json",
+            "status_short": "?? reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 1,
+            "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 2,
+            "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "sparse-adapted missing-building robustness",
+            "model": "S",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          },
+          {
+            "kind": "C baseline",
+            "model": "C",
+            "missing_buildings": 4,
+            "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_run_manifest.json",
+            "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+          }
+        ],
+        "stage4_run_artifacts_generated_with_dirty_scripts": true,
+        "final_grade_provenance_clean": false,
+        "rerun_recommended_for_final_grade_provenance": true
+      }
+    }
+  ],
+  "checklist": [
+    {
+      "requirement": "完成 plan.md 的 Stage 4 审计漏洞修复",
+      "evidence": "scripts/audit_missing_buildings_loader.py + reports/missing_buildings/loader_audits/*.json",
+      "passed": true
+    },
+    {
+      "requirement": "收紧 final gate 并暴露 dirty provenance",
+      "evidence": "reports/missing_buildings/stage4_final_audit.json: provenance/gate",
+      "passed": true
+    },
+    {
+      "requirement": "标注 sparse receiver mask 语义",
+      "evidence": "reports/missing_buildings/stage4_final_audit.md: 语义与 provenance",
+      "passed": true
+    },
+    {
+      "requirement": "全阶段一致性审计",
+      "evidence": "reports/final_reproduction_audit.json",
+      "passed": true
+    },
+    {
+      "requirement": "最终复现报告和总结",
+      "evidence": "reports/final_reproduction_audit.md + docs/reproduction_summary.md",
+      "passed": true
+    },
+    {
+      "requirement": "checkpoint/log/dataset 不进 git",
+      "evidence": "git ls-files 检查 + 各阶段 manifest",
+      "passed": true
+    }
+  ],
+  "gate": {
+    "all_stage_gates_pass": true,
+    "all_checklist_items_pass": true,
+    "final_reports_written": true,
+    "pass": true
+  }
+}

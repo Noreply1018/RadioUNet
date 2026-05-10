@@ -2,9 +2,9 @@
   "scope": "Stage 4 missing-buildings loader audit",
   "config_path": "configs/s_irt4_missing4_pool600_sparse_loss.yaml",
   "git": {
-    "commit": "d76d6a4052137efbf84f394e451533826135ce06",
-    "dirty": true,
-    "status_short": "?? scripts/audit_missing_buildings_loader.py",
+    "commit": "a597a6bf36e4b38fa9a18bc138e3c69d06924532",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": [
       "reports"
     ]
@@ -71,7 +71,9 @@
       "sparse_input_target_alignment_abs_max": 0.0,
       "input_points": 132,
       "loss_mask_points": 598,
-      "input_subset_of_loss_mask": true
+      "input_subset_of_loss_mask": true,
+      "loss_mask_tensor_hash": "0858fc7b6d7c2f148dc7f1dcf843172ab1e55ca9f210dbfde15d2cd0dd3d2b33",
+      "input_mask_tensor_hash": "dfd054180579d742bf79dba1892c97f2fe99ced4f77707b2677d328e4137dc97"
     },
     {
       "split": "test",
@@ -109,7 +111,9 @@
       "sparse_input_target_alignment_abs_max": 0.0,
       "input_points": 132,
       "loss_mask_points": 598,
-      "input_subset_of_loss_mask": true
+      "input_subset_of_loss_mask": true,
+      "loss_mask_tensor_hash": "0858fc7b6d7c2f148dc7f1dcf843172ab1e55ca9f210dbfde15d2cd0dd3d2b33",
+      "input_mask_tensor_hash": "dfd054180579d742bf79dba1892c97f2fe99ced4f77707b2677d328e4137dc97"
     },
     {
       "split": "test",
@@ -147,9 +151,187 @@
       "sparse_input_target_alignment_abs_max": 0.0,
       "input_points": 191,
       "loss_mask_points": 599,
-      "input_subset_of_loss_mask": true
+      "input_subset_of_loss_mask": true,
+      "loss_mask_tensor_hash": "49638fc25bc57d7cfff0ea3a0adcca1fccb6eb25d1d670710394ddce22c6172c",
+      "input_mask_tensor_hash": "020fc2133205dc707aa9abe9b150eb1679cce9730b60c00637c3b7007ccaff6a"
     }
   ],
+  "target_consistency": {
+    "split": "test",
+    "idx": 0,
+    "semantics": "official-loader-faithful missing-building sparse sampling",
+    "sparse_receiver_mask_note": "RadioUNet_s_sprseIRT4 seeds the sparse receiver pool from the selected building image. Therefore missing-building settings can have different sparse receiver masks for the same map/tx.",
+    "samples_by_missing": {
+      "0": {
+        "split": "test",
+        "idx": 0,
+        "map_id": 419,
+        "tx": 0,
+        "paths": {
+          "building_dir": "RadioMapSeer/png/buildings_complete",
+          "building_paths": [
+            "RadioMapSeer/png/buildings_complete/419.png"
+          ],
+          "tx_path": "RadioMapSeer/png/antennas/419_0.png",
+          "target_path": "RadioMapSeer/gain/IRT4/419_0.png",
+          "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+        },
+        "candidate_building_hashes": [
+          "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1"
+        ],
+        "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+        "input_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+        "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+        "building_input_semantics_ok": true,
+        "tx_tensor_hash": "c2a9f7553adcd29bba39ae8671261054bc7b6960792fc52c488779531f5f445a",
+        "target_tensor_hash": "1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51",
+        "sparse_input_target_alignment_abs_max": 0.0,
+        "input_points": 236,
+        "loss_mask_points": 598,
+        "input_subset_of_loss_mask": true,
+        "loss_mask_tensor_hash": "9415a1a8f6d4af38a11691c5b6520017cbfed6aabe4f6d7951ccefdec531e395",
+        "input_mask_tensor_hash": "a5eade62a39a5fac8878dd2caaf9bf526d91835e6e887c195d748324842efd70"
+      },
+      "1": {
+        "split": "test",
+        "idx": 0,
+        "map_id": 419,
+        "tx": 0,
+        "paths": {
+          "building_dir": "RadioMapSeer/png/buildings_missing1",
+          "building_paths": [
+            "RadioMapSeer/png/buildings_missing1/1/419.png",
+            "RadioMapSeer/png/buildings_missing1/2/419.png",
+            "RadioMapSeer/png/buildings_missing1/3/419.png",
+            "RadioMapSeer/png/buildings_missing1/4/419.png",
+            "RadioMapSeer/png/buildings_missing1/5/419.png",
+            "RadioMapSeer/png/buildings_missing1/6/419.png"
+          ],
+          "tx_path": "RadioMapSeer/png/antennas/419_0.png",
+          "target_path": "RadioMapSeer/gain/IRT4/419_0.png",
+          "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+        },
+        "candidate_building_hashes": [
+          "0589a9b4e48309fbf60c1b124cf381be25c551ea89ac94f1722f1d5da378319c",
+          "3abdff0d139b503a4e7272836d9ef2421919d6516dbfdd4cc04951fbe9eb13a6",
+          "d336ad6987428d34ba09dded5e5642826da9d71e1b6e0c990844b6d84b8f2151",
+          "d24cb6344bc8b6b72589cde029197a7f7d896edbaa66dbbeef92168fc7f64efd",
+          "91b523140d29a8488db499f344c24c3014ed3e408d2c1c001aa741d8e3a03bce",
+          "777873d0c8996bf6a6aafded99bdcf788f7085b8693c8449d7cee4a2fe3810e6"
+        ],
+        "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+        "input_building_tensor_hash": "bb0fe83ea4338ffbdaca755d0709de8bd2e83075b937156511044eb8b6b38856",
+        "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+        "building_input_semantics_ok": true,
+        "tx_tensor_hash": "c2a9f7553adcd29bba39ae8671261054bc7b6960792fc52c488779531f5f445a",
+        "target_tensor_hash": "1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51",
+        "sparse_input_target_alignment_abs_max": 0.0,
+        "input_points": 51,
+        "loss_mask_points": 598,
+        "input_subset_of_loss_mask": true,
+        "loss_mask_tensor_hash": "9fbedf95e150f6b42257bd11b2a7a3414f09123ca5222e8f5c377158adb1fc7d",
+        "input_mask_tensor_hash": "2b0cf5c47ee0463a89957ee437f256d587e56289d69c59591dfe6c22fc934652"
+      },
+      "2": {
+        "split": "test",
+        "idx": 0,
+        "map_id": 419,
+        "tx": 0,
+        "paths": {
+          "building_dir": "RadioMapSeer/png/buildings_missing2",
+          "building_paths": [
+            "RadioMapSeer/png/buildings_missing2/1/419.png",
+            "RadioMapSeer/png/buildings_missing2/2/419.png",
+            "RadioMapSeer/png/buildings_missing2/3/419.png",
+            "RadioMapSeer/png/buildings_missing2/4/419.png",
+            "RadioMapSeer/png/buildings_missing2/5/419.png",
+            "RadioMapSeer/png/buildings_missing2/6/419.png"
+          ],
+          "tx_path": "RadioMapSeer/png/antennas/419_0.png",
+          "target_path": "RadioMapSeer/gain/IRT4/419_0.png",
+          "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+        },
+        "candidate_building_hashes": [
+          "0799b82cf9ec0f3beae6fbdbc014485272f86c468726ffbb2f5c96106c4c091a",
+          "8773aee6123736181eeeb48449ba808b7e1ae75205391b994c41f82c165ed8a1",
+          "45b36cc928fab553dfdc617c3971602a9c51f8bf3ef6927f10e3918bf07f8f21",
+          "4e285b9fdf1b0a70ea5b62a47faec1486e9786c654b626c6d9e81d748a5b5c6d",
+          "85cdd160cf6f693461751eeac01b90cb700630b62d39606acd4f8c2b8b9cac0b",
+          "da266b51911adaef6fac3aff6a1b4e3f78e57cec98ebbde19ab1fde1bb6966ba"
+        ],
+        "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+        "input_building_tensor_hash": "29ffc448e9821e2f503d5da8f3f4cc795dbdad4262c389d5866bf98e63c7fb32",
+        "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+        "building_input_semantics_ok": true,
+        "tx_tensor_hash": "c2a9f7553adcd29bba39ae8671261054bc7b6960792fc52c488779531f5f445a",
+        "target_tensor_hash": "1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51",
+        "sparse_input_target_alignment_abs_max": 0.0,
+        "input_points": 275,
+        "loss_mask_points": 597,
+        "input_subset_of_loss_mask": true,
+        "loss_mask_tensor_hash": "c61b49cdd43891df65a0cf9575f73e50403559fe72856e87a649052a960919ef",
+        "input_mask_tensor_hash": "619cb5b2ffc25269a1715c28f300e87408224e5bd07171eb4ae896a4b5bfe559"
+      },
+      "4": {
+        "split": "test",
+        "idx": 0,
+        "map_id": 419,
+        "tx": 0,
+        "paths": {
+          "building_dir": "RadioMapSeer/png/buildings_missing4",
+          "building_paths": [
+            "RadioMapSeer/png/buildings_missing4/1/419.png",
+            "RadioMapSeer/png/buildings_missing4/2/419.png",
+            "RadioMapSeer/png/buildings_missing4/3/419.png",
+            "RadioMapSeer/png/buildings_missing4/4/419.png",
+            "RadioMapSeer/png/buildings_missing4/5/419.png",
+            "RadioMapSeer/png/buildings_missing4/6/419.png"
+          ],
+          "tx_path": "RadioMapSeer/png/antennas/419_0.png",
+          "target_path": "RadioMapSeer/gain/IRT4/419_0.png",
+          "complete_building_path": "RadioMapSeer/png/buildings_complete/419.png"
+        },
+        "candidate_building_hashes": [
+          "54b7855572f79f76ff5df19611a9dc1cd275f2a813a508d89621b7c98d7499a6",
+          "116026385c68e608c2d3017788a4feacc9fc4e91c3d74b17a80710dedc8e36b0",
+          "090b6ddc8db64d04bb06a63d63bd8a0452117d68700d952f149e8679ad61b7a8",
+          "7a259599e4f5821681aa5898ad8f3e644ce43ad60199404b689911a2a30f995b",
+          "ad386b7513b78956bc26de6ab72eb1d066341e24dd37db539c089729d053b786",
+          "9853b8854ccad18a719b344dc8d08ac9ea259c2ec7e5db1cae5e88f87505af09"
+        ],
+        "complete_building_file_hash": "4459fb38bb27686ccbce5f9c53f6ad6ff5f60891970cde9d078c211ffef2fec1",
+        "input_building_tensor_hash": "e6803a2284b32d7635d84b732d8902c060834fff2a451af5468adfeb0749346c",
+        "complete_building_tensor_hash": "a1fd432d6d11dd85c32d28c8838a61d5bd6a934bc129c7b754e1d4e36d3debb8",
+        "building_input_semantics_ok": true,
+        "tx_tensor_hash": "c2a9f7553adcd29bba39ae8671261054bc7b6960792fc52c488779531f5f445a",
+        "target_tensor_hash": "1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51",
+        "sparse_input_target_alignment_abs_max": 0.0,
+        "input_points": 132,
+        "loss_mask_points": 598,
+        "input_subset_of_loss_mask": true,
+        "loss_mask_tensor_hash": "0858fc7b6d7c2f148dc7f1dcf843172ab1e55ca9f210dbfde15d2cd0dd3d2b33",
+        "input_mask_tensor_hash": "dfd054180579d742bf79dba1892c97f2fe99ced4f77707b2677d328e4137dc97"
+      }
+    },
+    "same_map_tx_across_missing": true,
+    "target_irt4_hash_stable_across_missing": true,
+    "tx_hash_stable_across_missing": true,
+    "building_input_hash_changes_across_missing": true,
+    "s_sparse_input_from_target_all_missing": true,
+    "s_loss_mask_hashes_by_missing": {
+      "0": "9415a1a8f6d4af38a11691c5b6520017cbfed6aabe4f6d7951ccefdec531e395",
+      "1": "9fbedf95e150f6b42257bd11b2a7a3414f09123ca5222e8f5c377158adb1fc7d",
+      "2": "c61b49cdd43891df65a0cf9575f73e50403559fe72856e87a649052a960919ef",
+      "4": "0858fc7b6d7c2f148dc7f1dcf843172ab1e55ca9f210dbfde15d2cd0dd3d2b33"
+    },
+    "s_input_mask_hashes_by_missing": {
+      "0": "a5eade62a39a5fac8878dd2caaf9bf526d91835e6e887c195d748324842efd70",
+      "1": "2b0cf5c47ee0463a89957ee437f256d587e56289d69c59591dfe6c22fc934652",
+      "2": "619cb5b2ffc25269a1715c28f300e87408224e5bd07171eb4ae896a4b5bfe559",
+      "4": "dfd054180579d742bf79dba1892c97f2fe99ced4f77707b2677d328e4137dc97"
+    },
+    "sparse_receiver_masks_change_with_missing_building_seed": true
+  },
   "gate": {
     "building_dir_exists": true,
     "target_radio_dir_exists": true,
@@ -157,8 +339,12 @@
     "versions_present_if_missing": true,
     "test_split_is_198": true,
     "building_input_semantics_ok": true,
-    "target_hash_stable_across_tx_duplicates": true,
+    "same_map_tx_across_missing": true,
+    "target_irt4_hash_stable_across_missing": true,
+    "tx_hash_stable_across_missing": true,
+    "building_input_hash_changes_across_missing": true,
     "s_sparse_input_from_target": true,
+    "s_sparse_input_from_target_all_missing": true,
     "s_input_subset_of_loss_mask": true,
     "s_pool600_if_mainline": true,
     "pass": true

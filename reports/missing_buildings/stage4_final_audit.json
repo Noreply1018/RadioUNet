@@ -1,9 +1,9 @@
 {
   "scope": "Stage 4 missing-buildings final audit",
   "git": {
-    "commit": "fa44f20c56c70dfaa133313a777c54bb584b42e4",
-    "dirty": false,
-    "status_short": "",
+    "commit": "fd74d01325be93fc7622f68390062cd1da0dc97d",
+    "dirty": true,
+    "status_short": "?? docs/reproduction_summary.md",
     "exclude_paths": [
       "reports"
     ]
@@ -26,6 +26,11 @@
       "sparse_points_per_sample": 597.1818181818181,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -54,6 +59,11 @@
       "sparse_points_per_sample": 299.3333333333333,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -82,6 +92,11 @@
       "sparse_points_per_sample": 597.3080808080808,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -110,6 +125,11 @@
       "sparse_points_per_sample": 299.25252525252523,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -138,6 +158,11 @@
       "sparse_points_per_sample": 597.0858585858585,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -166,6 +191,11 @@
       "sparse_points_per_sample": 299.3636363636364,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -194,6 +224,11 @@
       "sparse_points_per_sample": 597.2323232323232,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -222,6 +257,11 @@
       "sparse_points_per_sample": 299.3888888888889,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py",
       "manifest_gate": {
         "source_checkpoint_exists": true,
         "rerun_diff_zero": true,
@@ -250,6 +290,11 @@
       "sparse_points_per_sample": 597.1818181818181,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": false,
+      "metrics_git_status_short": "",
+      "manifest_git_dirty": false,
+      "manifest_git_status_short": "",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -297,6 +342,11 @@
       "sparse_points_per_sample": 299.3333333333333,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": false,
+      "metrics_git_status_short": "",
+      "manifest_git_dirty": false,
+      "manifest_git_status_short": "",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -344,6 +394,11 @@
       "sparse_points_per_sample": 597.3080808080808,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -391,6 +446,11 @@
       "sparse_points_per_sample": 299.25252525252523,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -438,6 +498,11 @@
       "sparse_points_per_sample": 597.0858585858585,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -485,6 +550,11 @@
       "sparse_points_per_sample": 299.3636363636364,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -532,6 +602,11 @@
       "sparse_points_per_sample": 597.2323232323232,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -579,6 +654,11 @@
       "sparse_points_per_sample": 299.3888888888889,
       "rerun_max_abs_diff": 0.0,
       "metrics_git_dirty": true,
+      "metrics_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "manifest_git_dirty": true,
+      "manifest_git_status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
+      "artifact_git_dirty": true,
+      "artifact_git_status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py",
       "manifest_gate": {
         "checkpoint_sha256_matches": true,
         "rerun_diff_zero": true,
@@ -630,15 +710,341 @@
     "complete_map_reference_present": true,
     "paper_trend_consistent": true
   },
+  "provenance": {
+    "metrics_and_manifest_git_dirty_checked": true,
+    "all_metrics_git_clean": false,
+    "all_manifest_git_clean": false,
+    "all_artifact_git_clean": false,
+    "dirty_metrics": [
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_s_missing0/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_c_missing0/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_s_missing1/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_c_missing1/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_s_missing2/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_c_missing2/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_s_missing4/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_c_missing4/zeroshot_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/secondU_test_metrics.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      }
+    ],
+    "dirty_manifests": [
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_s_missing0/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_c_missing0/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_s_missing1/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_c_missing1/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_s_missing2/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_c_missing2/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_s_missing4/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_c_missing4/stage4_zeroshot_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      }
+    ],
+    "dirty_artifacts": [
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_s_missing0/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 0,
+        "path": "reports/missing_buildings/zeroshot_c_missing0/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_s_missing1/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/zeroshot_c_missing1/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_s_missing2/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/zeroshot_c_missing2/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_s_missing4/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "zero-shot missing-building degradation",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/zeroshot_c_missing4/stage4_zeroshot_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py\n?? scripts/run_stage4_zeroshot.py"
+      },
+      {
+        "kind": "complete-map upper reference",
+        "model": "S",
+        "missing_buildings": 0,
+        "path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/stage3c_run_manifest.json",
+        "status_short": "?? reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/"
+      },
+      {
+        "kind": "complete-map upper reference",
+        "model": "C",
+        "missing_buildings": 0,
+        "path": "reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/stage3c_run_manifest.json",
+        "status_short": "?? reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/s_irt4_missing1_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 1,
+        "path": "reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/s_irt4_missing2_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 2,
+        "path": "reports/missing_buildings/c_irt4_missing2_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "sparse-adapted missing-building robustness",
+        "model": "S",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/s_irt4_missing4_pool600_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      },
+      {
+        "kind": "C baseline",
+        "model": "C",
+        "missing_buildings": 4,
+        "path": "reports/missing_buildings/c_irt4_missing4_sparse_loss_50ep/stage4_run_manifest.json",
+        "status_short": "?? reports/missing_buildings/\n?? scripts/audit_missing_buildings_loader.py\n?? scripts/run_stage4_experiment.py"
+      }
+    ],
+    "stage4_run_artifacts_generated_with_dirty_scripts": true,
+    "final_grade_provenance_clean": false,
+    "rerun_recommended_for_final_grade_provenance": true
+  },
   "gate": {
     "counts_0_1_2_4_present": true,
     "all_test_samples_198": true,
     "all_reruns_exact": true,
     "all_manifest_gates_pass": true,
     "all_loader_audits_pass": true,
+    "loader_audits_include_cross_missing_target_consistency": true,
     "long_runs_have_50_train_epochs": true,
     "checkpoints_not_tracked": true,
     "answers_true": true,
+    "metrics_and_manifest_git_dirty_checked": true,
+    "dirty_provenance_recorded_as_residual_risk": true,
     "pass": true
   }
 }

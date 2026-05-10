@@ -6,6 +6,14 @@
 - complete-map upper reference：Stage 3C S/C complete-map IRT4 sparse adaptation。
 - C baseline：C missing1/2/4 sparse adaptation，missing0 使用 Stage 3C C reference。
 
+## 语义与 provenance
+- Stage 4 missing-building 主线标注为 `official-loader-faithful missing-building sparse sampling` / `implementation-faithful Stage 4`，不再称为无条件 paper-faithful fixed receivers。
+- 当前 missing-building loader 的 sparse receiver mask 由所选 building image 的像素和作为随机种子决定；missing setting 改变时，同一 map/tx 的 sparse receiver mask 可以改变。
+- Stage 4 run artifacts were generated while Stage 4 scripts were uncommitted：`True`。
+- current repository is now clean（排除本次报告输出目录）：`False`。
+- rerun is recommended only if final-grade provenance is required：`True`。
+- final-grade provenance clean：`False`。
+
 ## 指标
 | 类别 | 模型 | missing | 样本数 | dense MSE | sparse MSE | rerun diff |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -29,10 +37,16 @@
 ## 回答
 - 缺楼越多是否退化：`True`。
 - sparse measurements 是否缓解退化：`True`。
-- paper-faithful S 是否优于 C：`True`。
+- official-loader-faithful / implementation-faithful S 是否优于 C：`True`。
 - complete-map Stage 3C 作为上界：`True`。
 - 与论文趋势一致：`True`。
 
 曲线图：`reports/missing_buildings/stage4_missing_count_curves.png`
+
+## Provenance gate
+- metrics/manifest provenance 已检查：`True`。
+- 历史 dirty provenance 已显式标注为 residual risk：`True`。
+- 历史 metrics 全 clean：`False`。
+- 历史 manifest 全 clean：`False`。
 
 最终 gate：`True`。

@@ -7,6 +7,15 @@
 - target radio dir：`RadioMapSeer/gain/IRT4`
 - split 样本数：`{'train': 1002, 'val': 200, 'test': 198}`
 
+## 跨 missing target consistency
+- 语义标签：`official-loader-faithful missing-building sparse sampling`
+- 同一 map/tx：`True`
+- target IRT4 hash 不变：`True`
+- Tx hash 不变：`True`
+- building input hash 随 missing 改变：`True`
+- S sparse input 值与 target 对齐：`True`
+- sparse receiver mask 由 missing building image seed 决定：`True`
+
 ## 样本检查
 - `test[0]` map `419` tx `0`：building 语义通过 `True`，target hash `1ae8979f91b821b9390331ce4c034be70f3835638517ce71012d142386b33c51`，input sparse/target 最大误差 `0.0`
 - `test[1]` map `419` tx `1`：building 语义通过 `True`，target hash `a0eb45c235b4a45bcd563bdd589d09651babbe1895ce545398ba54df393f9771`，input sparse/target 最大误差 `0.0`
@@ -19,8 +28,12 @@
 - `versions_present_if_missing=True`
 - `test_split_is_198=True`
 - `building_input_semantics_ok=True`
-- `target_hash_stable_across_tx_duplicates=True`
+- `same_map_tx_across_missing=True`
+- `target_irt4_hash_stable_across_missing=True`
+- `tx_hash_stable_across_missing=True`
+- `building_input_hash_changes_across_missing=True`
 - `s_sparse_input_from_target=True`
+- `s_sparse_input_from_target_all_missing=True`
 - `s_input_subset_of_loss_mask=True`
 - `s_pool600_if_mainline=True`
 - `pass=True`
