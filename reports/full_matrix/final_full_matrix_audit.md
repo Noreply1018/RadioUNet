@@ -3,12 +3,12 @@
 ## 结论
 - final gate：`False`。
 - 这次审计没有把缺失矩阵伪装为完成；所有未覆盖项均标为 blocking gap。
-- 当前 git 状态（排除 reports）：dirty=`True`，commit=`4cad28b3224a4ec84e16b4ab49e1e5b6a3089d57`。
+- 当前 git 状态（排除 reports）：dirty=`True`，commit=`e06c916ebcf76c4fa3fc82f245c4da023cdbc336`。
 
 ## Prompt-to-artifact checklist
 | 要求 | 证据 | 通过 | 缺口 |
 | --- | --- | --- | --- |
-| 1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。 | DPM C/S 已有；IRT2/rand 配置已补齐；IRT2/rand full runs 尚缺。 | `True` | 缺 IRT2/rand 的 50 epoch run、rerun、manifest、qualitative figures 和 coarse_simulation_audit。 |
+| 1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。 | DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。 | `False` | 缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。 |
 | 2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。 | DPM-source C/S zero-shot/adapt 已有主要产物；IRT2/rand-source transfer 只有配置骨架。 | `False` | 缺 IRT2/rand source checkpoint，不能完成对应 zero-shot/adapt；缺 reports/full_matrix/irt4_transfer_matrix。 |
 | 3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。 | cars 数据目录存在；cars configs 已补；尚无 cars 训练/评估/审计产物。 | `False` | 缺 cars full runs、cars_audit、cars qualitative figures。 |
 | 4. Missing buildings 全矩阵与 fixed receiver 对照。 | official-loader-faithful missing0/1/2/4 已有；fixed receiver loader 参数、DPM-source configs 和 hash-level policy audit 已补。 | `False` | 缺 fixed receiver policy 的 full runs/metrics/rerun/manifest；缺 IRT2/rand source missing matrix。 |
@@ -52,6 +52,7 @@
 | run | metrics | samples | rerun diff | gate |
 | --- | --- | ---: | ---: | ---: |
 | `c_dpm_clean` | `reports/c_dpm_thr2/20260506_182311/secondU_test_metrics.json` | 7920 | 0.0 | `True` |
+| `c_irt2_full_matrix` | `reports/full_matrix/c_irt2_thr2_50ep/secondU_test_metrics.json` | 7920 | 0.0 | `True` |
 | `c_irt4_dpm_adapt` | `reports/irt4_transfer/c_irt4_adapt_sparse_loss_50ep/secondU_test_metrics.json` | 198 | 0.0 | `True` |
 | `c_irt4_missing0_zeroshot` | `reports/missing_buildings/zeroshot_c_missing0/zeroshot_test_metrics.json` | 198 | 0.0 | `True` |
 | `c_irt4_missing1_adapt` | `reports/missing_buildings/c_irt4_missing1_sparse_loss_50ep/secondU_test_metrics.json` | 198 | 0.0 | `True` |

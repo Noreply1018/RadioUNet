@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "4cad28b3224a4ec84e16b4ab49e1e5b6a3089d57",
+    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
     "dirty": true,
-    "status_short": "M src/radiounet/data.py\n M src/radiounet/factory.py\n?? configs/c_dpm_irt4_adapt.yaml\n?? configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_zeroshot.yaml\n?? configs/c_dpmcars_thr2.yaml\n?? configs/c_irt2_irt4_adapt.yaml\n?? configs/c_irt2_irt4_zeroshot.yaml\n?? configs/c_irt2_thr2.yaml\n?? configs/c_irt2cars_thr2.yaml\n?? configs/c_rand_irt4_adapt.yaml\n?? configs/c_rand_irt4_zeroshot.yaml\n?? configs/c_rand_thr2.yaml\n?? configs/s_dpm_irt4_adapt.yaml\n?? configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_zeroshot.yaml\n?? configs/s_dpmcars_carinput_thr2_rand1_300.yaml\n?? configs/s_irt2_irt4_adapt.yaml\n?? configs/s_irt2_irt4_zeroshot.yaml\n?? configs/s_irt2_thr2_rand1_300.yaml\n?? configs/s_irt2cars_carinput_thr2_rand1_300.yaml\n?? configs/s_rand_irt4_adapt.yaml\n?? configs/s_rand_irt4_zeroshot.yaml\n?? configs/s_rand_thr2_rand1_300.yaml\n?? docs/full_matrix_reproduction_summary.md\n?? reports/c_dpm_thr2/20260506_182311/secondU_test_metrics_rerun.json\n?? reports/full_matrix/\n?? scripts/audit_fixed_receiver_policy.py\n?? scripts/audit_full_matrix_readiness.py\n?? scripts/generate_full_matrix_configs.py",
+    "status_short": "M reports/full_matrix/coarse_simulation_audit.json\n M reports/full_matrix/coarse_simulation_audit.md\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_full_matrix_readiness.py\n?? reports/c_dpm_thr2/20260506_182311/firstU_test_metrics_rerun.json\n?? reports/full_matrix/c_irt2_thr2_50ep/",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "4cad28b3224a4ec84e16b4ab49e1e5b6a3089d57",
+    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
     "dirty": true,
-    "status_short": "M src/radiounet/data.py\n M src/radiounet/factory.py\n?? configs/c_dpm_irt4_adapt.yaml\n?? configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_zeroshot.yaml\n?? configs/c_dpmcars_thr2.yaml\n?? configs/c_irt2_irt4_adapt.yaml\n?? configs/c_irt2_irt4_zeroshot.yaml\n?? configs/c_irt2_thr2.yaml\n?? configs/c_irt2cars_thr2.yaml\n?? configs/c_rand_irt4_adapt.yaml\n?? configs/c_rand_irt4_zeroshot.yaml\n?? configs/c_rand_thr2.yaml\n?? configs/s_dpm_irt4_adapt.yaml\n?? configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_zeroshot.yaml\n?? configs/s_dpmcars_carinput_thr2_rand1_300.yaml\n?? configs/s_irt2_irt4_adapt.yaml\n?? configs/s_irt2_irt4_zeroshot.yaml\n?? configs/s_irt2_thr2_rand1_300.yaml\n?? configs/s_irt2cars_carinput_thr2_rand1_300.yaml\n?? configs/s_rand_irt4_adapt.yaml\n?? configs/s_rand_irt4_zeroshot.yaml\n?? configs/s_rand_thr2_rand1_300.yaml\n?? docs/full_matrix_reproduction_summary.md\n?? scripts/audit_fixed_receiver_policy.py\n?? scripts/audit_full_matrix_readiness.py\n?? scripts/generate_full_matrix_configs.py",
+    "status_short": "M scripts/audit_full_matrix_readiness.py",
     "exclude_paths": [
       "reports"
     ]
@@ -590,6 +590,18 @@
       "rerun_max_abs_diff": 0.0,
       "gate": true
     },
+    "c_irt2_full_matrix": {
+      "metrics_path": "reports/full_matrix/c_irt2_thr2_50ep/secondU_test_metrics.json",
+      "exists": true,
+      "samples": 7920,
+      "git_dirty": false,
+      "secondU_mse": 0.0010423808932473273,
+      "secondU_nmse": 0.026601516007345213,
+      "rerun_path": "reports/full_matrix/c_irt2_thr2_50ep/secondU_test_metrics_rerun.json",
+      "rerun_exists": true,
+      "rerun_max_abs_diff": 0.0,
+      "gate": true
+    },
     "s_irt4_dpm_adapt_pool600": {
       "metrics_path": "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics.json",
       "exists": true,
@@ -791,15 +803,15 @@
   "requirements": [
     {
       "requirement": "1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。",
-      "evidence": "DPM C/S 已有；IRT2/rand 配置已补齐；IRT2/rand full runs 尚缺。",
+      "evidence": "DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。",
       "paths": [
         "configs/c_irt2_thr2.yaml",
         "configs/s_irt2_thr2_rand1_300.yaml",
         "configs/c_rand_thr2.yaml",
         "configs/s_rand_thr2_rand1_300.yaml"
       ],
-      "pass": true,
-      "blocking_gap": "缺 IRT2/rand 的 50 epoch run、rerun、manifest、qualitative figures 和 coarse_simulation_audit。"
+      "pass": false,
+      "blocking_gap": "缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。"
     },
     {
       "requirement": "2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。",

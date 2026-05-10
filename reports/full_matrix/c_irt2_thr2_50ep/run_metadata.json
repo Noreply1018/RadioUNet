@@ -1,0 +1,66 @@
+{
+  "config": {
+    "experiment": {
+      "name": "c_irt2_thr2",
+      "description": "RadioUNet_C clean-map IRT2 coarse simulation.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_c",
+      "simulation": "IRT2",
+      "city_map": "complete",
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "num_tx": 80,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 2,
+      "phases": [
+        "firstU",
+        "secondU"
+      ]
+    },
+    "training": {
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss"
+    },
+    "evaluation": {
+      "metrics": [
+        "mse",
+        "nmse",
+        "rmse"
+      ],
+      "save_prediction_panels": true,
+      "measure_runtime": true
+    }
+  },
+  "git": {
+    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_irt2_thr2_50ep/",
+    "exclude_paths": []
+  },
+  "device": "cuda",
+  "smoke": false,
+  "loss_mode": "dense_mse",
+  "num_samples_for_loss": null
+}

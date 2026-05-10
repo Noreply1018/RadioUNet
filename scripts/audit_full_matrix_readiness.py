@@ -150,6 +150,10 @@ def collect_existing_runs() -> dict[str, Any]:
             "reports/s_dpm_thr2/rand10_300_50ep/secondU_test_metrics.json",
             "reports/s_dpm_thr2/rand10_300_50ep/secondU_test_metrics_rerun.json",
         ),
+        "c_irt2_full_matrix": metric_status(
+            "reports/full_matrix/c_irt2_thr2_50ep/secondU_test_metrics.json",
+            "reports/full_matrix/c_irt2_thr2_50ep/secondU_test_metrics_rerun.json",
+        ),
         "s_irt4_dpm_adapt_pool600": metric_status(
             "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics.json",
             "reports/irt4_transfer/s_irt4_adapt_rand1_300_pool600_sparse_loss_50ep/secondU_test_metrics_rerun.json",
@@ -217,16 +221,13 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
     def all_configs(names: list[str]) -> bool:
         return all(configs.get(name, {}).get("gate") for name in names)
 
-    def all_runs(names: list[str]) -> bool:
-        return all(runs.get(name, {}).get("gate") for name in names)
-
     rows = [
         {
             "requirement": "1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。",
-            "evidence": "DPM C/S 已有；IRT2/rand 配置已补齐；IRT2/rand full runs 尚缺。",
+            "evidence": "DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。",
             "paths": ["configs/c_irt2_thr2.yaml", "configs/s_irt2_thr2_rand1_300.yaml", "configs/c_rand_thr2.yaml", "configs/s_rand_thr2_rand1_300.yaml"],
-            "pass": all_runs(["c_dpm_clean", "s_dpm_rand1_300"]) and all_configs(["c_irt2_thr2", "s_irt2_thr2_rand1_300", "c_rand_thr2", "s_rand_thr2_rand1_300"]),
-            "blocking_gap": "缺 IRT2/rand 的 50 epoch run、rerun、manifest、qualitative figures 和 coarse_simulation_audit。",
+            "pass": False,
+            "blocking_gap": "缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。",
         },
         {
             "requirement": "2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。",

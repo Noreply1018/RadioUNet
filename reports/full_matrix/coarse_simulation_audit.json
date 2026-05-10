@@ -1,8 +1,8 @@
 {
   "git": {
-    "commit": "616ec0df9e826c1633cda899864efaca8c939716",
+    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
     "dirty": true,
-    "status_short": "?? scripts/audit_full_matrix_coarse.py\n?? scripts/run_full_matrix_coarse.py",
+    "status_short": "M scripts/audit_full_matrix_readiness.py",
     "exclude_paths": [
       "reports"
     ]
@@ -23,7 +23,9 @@
       "cars_simulation": false,
       "cars_input": false,
       "firstU_metrics_exists": true,
-      "firstU_rerun_exists": false,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.00047267809781480923,
       "secondU_metrics_exists": true,
       "secondU_rerun_exists": true,
       "secondU_rerun_max_abs_diff": 0.0,
@@ -32,8 +34,8 @@
       "manifest_gate": {},
       "figure_count": 8,
       "figures_nonempty": true,
-      "secondU_not_worse_than_firstU": false,
-      "gate": false
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
     },
     {
       "name": "s_dpm_thr2_rand1_300",
@@ -66,9 +68,9 @@
     },
     {
       "name": "c_irt2_thr2",
-      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/c_irt2_thr2_50ep",
+      "run_dir": "reports/full_matrix/c_irt2_thr2_50ep",
       "config": "configs/c_irt2_thr2.yaml",
-      "exists": false,
+      "exists": true,
       "simulation": "IRT2",
       "model": "C",
       "sample_policy": {
@@ -78,7 +80,32 @@
       },
       "cars_simulation": "no",
       "cars_input": "no",
-      "gate": false
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.0010725662854879788,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.0010423808932473273,
+      "manifest_exists": true,
+      "manifest_gate": {
+        "config_present": true,
+        "firstU_metrics": true,
+        "secondU_metrics": true,
+        "firstU_rerun": true,
+        "secondU_rerun": true,
+        "history_present": true,
+        "checkpoint_manifests_present": true,
+        "figures_count_8": true,
+        "figures_nonempty": true,
+        "epochs_50_or_smoke": true,
+        "pass": true
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
     },
     {
       "name": "s_irt2_thr2_rand1_300",
