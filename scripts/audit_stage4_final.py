@@ -76,8 +76,13 @@ def metric_row(kind: str, model: str, count: int, metrics_path: Path, rerun_path
         "sparse_points_per_sample": sparse.get("mean_points_per_sample"),
         "rerun_max_abs_diff": max_abs_diff(metrics, rerun),
         "metrics_git_dirty": metrics.get("git", {}).get("dirty"),
+        "metrics_git_status_short": metrics.get("git", {}).get("status_short", ""),
     }
     manifest = load_json(manifest_path)
+    row["manifest_git_dirty"] = manifest.get("git", {}).get("dirty")
+    row["manifest_git_status_short"] = manifest.get("git", {}).get("status_short", "")
+    row["artifact_git_dirty"] = manifest.get("artifact_git", {}).get("dirty")
+    row["artifact_git_status_short"] = manifest.get("artifact_git", {}).get("status_short", "")
     row["manifest_gate"] = manifest.get("gate", {})
     if "checkpoint" in manifest:
         checkpoint = ROOT / manifest["checkpoint"]["checkpoint"]
@@ -208,6 +213,14 @@ def write_markdown(audit: dict[str, Any]) -> None:
         "- complete-map upper reference：Stage 3C S/C complete-map IRT4 sparse adaptation。",
         "- C baseline：C missing1/2/4 sparse adaptation，missing0 使用 Stage 3C C reference。",
         "",
+        "## 语义与 provenance",
+        "- Stage 4 missing-building 主线标注为 `official-loader-faithful missing-building sparse sampling` / `implementation-faithful Stage 4`，不再称为无条件 paper-faithful fixed receivers。",
+        "- 当前 missing-building loader 的 sparse receiver mask 由所选 building image 的像素和作为随机种子决定；missing setting 改变时，同一 map/tx 的 sparse receiver mask 可以改变。",
+        f"- Stage 4 run artifacts were generated while Stage 4 scripts were uncommitted：`{audit['provenance']['stage4_run_artifacts_generated_with_dirty_scripts']}`。",
+        f"- current repository is now clean（排除本次报告输出目录）：`{not audit['git']['dirty']}`。",
+        f"- rerun is recommended only if final-grade provenance is required：`{audit['provenance']['rerun_recommended_for_final_grade_provenance']}`。",
+        f"- final-grade provenance clean：`{audit['provenance']['final_grade_provenance_clean']}`。",
+        "",
         "## 指标",
         "| 类别 | 模型 | missing | 样本数 | dense MSE | sparse MSE | rerun diff |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
@@ -235,6 +248,12 @@ def write_markdown(audit: dict[str, Any]) -> None:
             "",
             f"曲线图：`{audit['figures']['missing_count_curve']}`",
             "",
+            "## Provenance gate",
+            f"- metrics/manifest provenance 已检查：`{audit['gate']['metrics_and_manifest_git_dirty_checked']}`。",
+            f"- 历史 dirty provenance 已显式标注为 residual risk：`{audit['gate']['dirty_provenance_recorded_as_residual_risk']}`。",
+            f"- 历史 metrics 全 clean：`{audit['provenance']['all_metrics_git_clean']}`。",
+            f"- 历史 manifest 全 clean：`{audit['provenance']['all_manifest_git_clean']}`。",
+            "",
             f"最终 gate：`{audit['gate']['pass']}`。",
         ]
     )
@@ -250,6 +269,37 @@ def main() -> int:
     c_adapt = rows_by(rows, "C baseline", "C")
     c_adapt[0] = rows_by(rows, "complete-map upper reference", "C")[0]
     loader_audits = [load_json(path) for path in loader_audit_paths()]
+    dirty_metric_rows = [row for row in rows if row["metrics_git_dirty"]]
+    dirty_manifest_rows = [row for row in rows if row["manifest_git_dirty"]]
+    dirty_artifact_rows = [row for row in rows if row["artifact_git_dirty"]]
+    provenance = {
+        "metrics_and_manifest_git_dirty_checked": True,
+        "all_metrics_git_clean": not dirty_metric_rows,
+        "all_manifest_git_clean": not dirty_manifest_rows,
+        "all_artifact_git_clean": not dirty_artifact_rows,
+        "dirty_metrics": [
+            {"kind": row["kind"], "model": row["model"], "missing_buildings": row["missing_buildings"], "path": row["metrics_path"], "status_short": row["metrics_git_status_short"]}
+            for row in dirty_metric_rows
+        ],
+        "dirty_manifests": [
+            {"kind": row["kind"], "model": row["model"], "missing_buildings": row["missing_buildings"], "path": row["manifest_path"], "status_short": row["manifest_git_status_short"]}
+            for row in dirty_manifest_rows
+        ],
+        "dirty_artifacts": [
+            {"kind": row["kind"], "model": row["model"], "missing_buildings": row["missing_buildings"], "path": row["manifest_path"], "status_short": row["artifact_git_status_short"]}
+            for row in dirty_artifact_rows
+        ],
+    }
+    provenance["stage4_run_artifacts_generated_with_dirty_scripts"] = any(
+        "scripts/audit_missing_buildings_loader.py" in item["status_short"]
+        or "scripts/run_stage4_experiment.py" in item["status_short"]
+        or "scripts/run_stage4_zeroshot.py" in item["status_short"]
+        for item in provenance["dirty_manifests"] + provenance["dirty_artifacts"] + provenance["dirty_metrics"]
+    )
+    provenance["final_grade_provenance_clean"] = (
+        provenance["all_metrics_git_clean"] and provenance["all_manifest_git_clean"] and provenance["all_artifact_git_clean"]
+    )
+    provenance["rerun_recommended_for_final_grade_provenance"] = not provenance["final_grade_provenance_clean"]
     answers = {
         "zero_shot_degrades_with_missing_count": s_zero[4]["dense_mse"] > s_zero[0]["dense_mse"],
         "sparse_adaptation_improves_s_over_zero_shot": all(
@@ -273,6 +323,12 @@ def main() -> int:
         "all_reruns_exact": all(row["rerun_max_abs_diff"] == 0.0 for row in rows),
         "all_manifest_gates_pass": all(row["manifest_gate"].get("pass") for row in rows),
         "all_loader_audits_pass": all(item["gate"]["pass"] for item in loader_audits),
+        "loader_audits_include_cross_missing_target_consistency": all(
+            item["gate"].get("target_irt4_hash_stable_across_missing")
+            and item["gate"].get("tx_hash_stable_across_missing")
+            and item["gate"].get("building_input_hash_changes_across_missing")
+            for item in loader_audits
+        ),
         "long_runs_have_50_train_epochs": all(
             row.get("history", {}).get("train_entries") == 50
             for row in rows
@@ -280,6 +336,9 @@ def main() -> int:
         ),
         "checkpoints_not_tracked": all(not row.get("checkpoint_tracked_by_git", False) for row in rows if "checkpoint_tracked_by_git" in row),
         "answers_true": all(answers.values()),
+        "metrics_and_manifest_git_dirty_checked": provenance["metrics_and_manifest_git_dirty_checked"],
+        "dirty_provenance_recorded_as_residual_risk": provenance["final_grade_provenance_clean"]
+        or provenance["rerun_recommended_for_final_grade_provenance"],
     }
     gate["pass"] = all(gate.values())
     audit = {
@@ -289,6 +348,7 @@ def main() -> int:
         "loader_audits": [str(path.relative_to(ROOT)) for path in loader_audit_paths()],
         "figures": {"missing_count_curve": "reports/missing_buildings/stage4_missing_count_curves.png"},
         "answers": answers,
+        "provenance": provenance,
         "gate": gate,
     }
     save_json(audit, OUT_DIR / "stage4_final_audit.json")

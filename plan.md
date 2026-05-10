@@ -1,112 +1,106 @@
-Stage 4 Missing-Buildings Robustness 主线
+Final Stage：Reproduction Closeout
 
-  目标：复现论文中 RadioUNet_S 在缺失建筑地图上的鲁棒性结果，尤其是 Fig. 6 /
-  missing buildings 场景。现在 Stage 3C 已把 IRT4 transfer 主线收住，下一步应
-  该检验论文声称的另一条关键结论：加入 sparse measurements 后，RadioUNet_S 对
-  不完整 city map 更稳健。
+  目标：修复 Stage 4 审计漏洞，补齐 provenance，统一所有阶段结论，产出一份能独
+  立说明“复现了什么、没复现什么、和论文差距在哪里”的最终报告。
 
-  硬约束
+  必须先修的 3 点
 
-  1. 不允许把完整建筑地图结果混入 missing-buildings 结论。
-  2. 不允许只跑一个缺楼强度。至少覆盖 0, 1, 2, 4 missing buildings；如果代码和
-     数据支持，再加 6 或 8。
-  3. 每个 missing setting 必须明确：
-      - 输入 building map 来自哪个目录；
-      - target radio map 是否仍来自完整 IRT4/DPM；
-      - sparse input 是否来自目标 IRT4；
-      - test split 是否仍为 99 maps x 2 Tx = 198。
-  4. RadioUNet_S 主线必须沿用 Stage 3C 的 paper-faithful 口径：pool600、输入
-     1..300、sparse loss on full pool600。
-  5. 旧 dense-loss pilot、300-pool ablation 不得作为主线，只能作为解释性对照。
-  6. 所有结果必须分开标注：
-      - zero-shot missing-building degradation；
-      - sparse-adapted missing-building robustness；
-      - complete-map upper reference；
-      - C baseline。
-  7. 每个 run 必须有 config snapshot、manifest、checkpoint sha256、rerun
-     diff、figures、semantic audit。
-  8. checkpoint/log/dataset/cache 不进 git。
-  9. 如果发现 loader 实际没有使用缺楼建筑图，必须停止长跑并先修 loader，不允许
-     靠文件名假设。
+  1. 修 Stage 4 target hash 审计
+      - 修掉 samples[0]["target_tensor_hash"] == samples[0]
+        ["target_tensor_hash"] 这种无效自比较。
+      - 新增跨 missing0/1/2/4 的 target consistency audit。
+      - 验证同一 map_id/tx 下：
+          - building input hash 随 missing setting 改变；
+          - target IRT4 hash 不变；
+          - Tx hash 不变；
+          - S sparse input 值与 target 对齐。
+  2. 收紧 final gate
+      - stage4_final_audit 必须检查所有 metrics/manifest 的 git.dirty。
+      - 已存在历史 run 的 git.dirty=True 不能伪装成 clean。
+      - 报告里明确写：
+          - Stage 4 run artifacts were generated while Stage 4 scripts were
+            uncommitted；
+          - current repository is now clean；
+          - rerun is recommended only if final-grade provenance is required。
+      - 如果要达到最终严谨版，重跑 Stage 4 或至少重跑 metrics/audits，让
+        provenance clean。
+  3. 标注 sparse receiver mask 语义
+      - 明确当前 missing-building loader 的 sparse receiver mask 由 missing
+        building image seed 决定。
+      - 结论命名从无条件 paper-faithful fixed receivers 改为：
+          - official-loader-faithful missing-building sparse sampling
+          - 或 implementation-faithful Stage 4
+      - 如果时间允许，补一个 fixed_receiver_mask 对照，不作为主线必需，但能增
+        强说服力。
 
-  执行计划，预计 30h+
+  最后一步执行计划
 
-  1. 论文与官方代码定位，预计 2-4h
-      - 精读论文 missing buildings 段落和图表说明。
-      - 定位官方 loader 如何选择 buildings_missing* 或相关目录。
-      - 明确论文 Fig. 6 的横轴、模型类别、transfer/adaptation 口径。
-      - 产出 docs/stage4_missing_buildings_plan.md，列出要复现的 exact
-        settings。
-  2. 数据与 loader 审计，预计 4-6h
-      - 检查 RadioMapSeer 中缺楼建筑图目录数量、命名、map id 对齐。
-      - 对每个 missing setting 抽样验证：
-          - building input 确实变化；
-          - Tx channel 不变；
-          - IRT4 target 不变；
-          - sparse IRT4 samples 与 target 对齐；
-          - split 样本数正确。
-      - 新增 scripts/audit_missing_buildings_loader.py。
-      - 先跑 audit，不通过不训练。
-  3. 实现 missing-building 配置矩阵，预计 3-5h
-      - 新增 configs，例如：
-          - s_irt4_missing0_pool600_sparse_loss.yaml
-          - s_irt4_missing1_pool600_sparse_loss.yaml
-          - s_irt4_missing2_pool600_sparse_loss.yaml
-          - s_irt4_missing4_pool600_sparse_loss.yaml
-      - 如果数据支持，加入 missing6/8。
-      - 对照组：
-          - S zero-shot missing buildings；
-          - S sparse adaptation missing buildings；
-          - C sparse adaptation baseline；
-          - complete-map Stage 3C reference。
-      - 所有配置必须显式写 city_map / missing_buildings 字段，避免隐式默认。
-  4. 短跑验证，预计 2-3h
-      - 每个 setting 先跑 smoke 或 2 epoch。
-      - 检查 loss mode、mask 点数、input point subset、rerun diff、图像非空。
-      - 检查不同 missing setting 的 building input hash 必须不同。
-      - 检查 target hash 在同一 map/tx 下应一致。
-  5. 主实验 A：S zero-shot missing-building sweep，预计 5-8h
-      - 使用 Stage 2 / Stage 3C checkpoint，不训练或只 eval。
-      - 对 0/1/2/4 missing settings 全部评估。
-      - 输出 dense 和 sparse-point metrics。
-      - 目的：量化缺楼输入导致的退化。
-  6. 主实验 B：S pool600 sparse adaptation missing-building sweep，预计 12-18h
-      - 对每个 missing setting 训练 secondU-only 50 epoch。
-      - 初始化沿用 Stage 2 S firstU checkpoint。
-      - loss 必须为 sparse MSE on pool600。
-      - 每个 setting 单独 run dir、单独 manifest、单独 semantic audit。
-      - 这是 Stage 4 主线。
-  7. 主实验 C：C baseline missing-building sweep，预计 6-10h
-      - 对 0/1/2/4 missing settings 跑 C sparse baseline 或至少 eval/adapt 关
-        键点。
-      - 目的：验证 sparse input 的 S 模型是否确实比 C 更鲁棒。
-      - 如果时间不足，优先完整跑 0/4，但最终报告必须标记为 partial baseline，
-        不能冒充完整 sweep。
-  8. 最终审计与图表，预计 4-6h
-      - 生成：
-          - reports/missing_buildings/stage4_final_audit.md
-          - reports/missing_buildings/stage4_final_audit.json
-          - missing count vs MSE/NMSE 曲线图
-          - 每个 setting 预测图
+  1. Stage 4 小修复，预计 3-5h
+      - 修改 scripts/audit_missing_buildings_loader.py。
+      - 修改 scripts/audit_stage4_final.py。
+      - 重新生成：
+          - reports/missing_buildings/loader_audits/*
+          - reports/missing_buildings/stage4_final_audit.md/json
+      - 提交修复 commit。
+  2. 可选 clean-provenance rerun，预计 8-14h
+      - 如果追求最终高质量，建议重跑 Stage 4 的 eval/audit/manifest，必要时重
+        跑 6 个 adaptation：
+          - S missing1/2/4
+          - C missing1/2/4
+      - 因为每个 epoch 只有 6-8s，实际不会特别久。
+      - 目标是让 metrics/manifest 的 git.dirty=False。
+      - 如果不重跑，最终报告必须把 dirty provenance 标为 residual risk。
+  3. 全阶段一致性审计，预计 4-6h
+      - 新增 scripts/audit_reproduction_final.py。
+      - 汇总检查：
+          - Stage 1 C DPM baseline
+          - Stage 2 S DPM random 1..300
+          - Stage 3C IRT4 sparse adaptation
+          - Stage 4 missing buildings robustness
+      - 检查项：
+          - configs 是否存在；
+          - metrics 是否存在；
+          - rerun diff 是否为 0；
+          - checkpoint 是否未进 git；
+          - 每阶段是否有明确 paper-faithful / ablation / pilot 标签；
+          - target_scale 是否一致解释；
+          - DPM、IRT4、missing-building 结论没有混口径。
+  4. 最终复现报告，预计 6-10h
+      - 产出：
+          - reports/final_reproduction_audit.md
+          - reports/final_reproduction_audit.json
+          - docs/reproduction_summary.md
       - 报告必须回答：
-          - 缺楼越多是否退化；
-          - sparse measurements 是否缓解退化；
-          - paper-faithful S 是否优于 C；
-          - complete-map Stage 3C 是否作为上界合理；
-          - 和论文趋势是否一致。
+          - 论文哪些主结论已复现；
+          - 哪些只做了 implementation-faithful 或 reduced reproduction；
+          - 哪些没有覆盖；
+          - 与论文数值的差异；
+          - 当前最可信的表格和图；
+          - 后续如果投稿/开源，还需补什么。
+  5. 最终 Git 收口，预计 1h
+      - 清理 pycache 和临时文件。
+      - 确认 .gitignore 没漏。
+      - git status --short --untracked-files=all 为空。
+      - git ls-files 确认 checkpoint/log/dataset 未追踪。
+      - 最终提交，例如：
+          - Fix Stage 4 audit strictness
+          - Add final reproduction audit
 
-  验收标准
+  最终验收标准
 
-  完成后，Stage 4 才能算过关：
+  - Stage 4 审计漏洞已修。
+  - 所有 final reports 明确区分：
+      - paper-faithful
+      - official-loader-faithful
+      - ablation
+      - pilot
+      - residual risk
+  - 至少一个最终总报告能从空白状态解释完整复现路线。
+  - 所有主线指标可追踪到 config、commit、run dir 和 checkpoint hash。
+  - git 工作区干净。
+  - 不再有“看起来完成但语义不清”的结论。
 
-  - 至少 0/1/2/4 四个 missing settings 有完整结果。
-  - S 主线每个 setting 都是 pool600 + input 1..300 + sparse loss。
-  - loader audit 证明输入建筑图真的发生缺楼变化。
-  - 所有 long runs 有 50 epoch history、manifest、rerun diff、checkpoint
-    hash。
-  - 最终图表能复现论文趋势，而不是只报单点数字。
-  - 报告明确哪些是 paper-faithful，哪些是 ablation。
+  完成这一步后，复现主线可以收尾。后面再做的应是扩展项，例如 cars、IRT2/rand
+  simulation 更完整对照、固定 receiver mask ablation、论文表格级排版，而不是主
+  线阻塞项。
 
-  预估总耗时：38-60h。实际 GPU 时间可能低于这个数，因为 IRT4 split 小；如果跑
-  得太快，不代表失败，但必须用审计证明没有少跑 setting、少训练 epoch 或错误复
-  用完整建筑图。

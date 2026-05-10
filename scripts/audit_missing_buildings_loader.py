@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import sys
 from pathlib import Path
@@ -124,6 +125,64 @@ def audit_dataset_sample(config: dict[str, Any], split: str, idx: int) -> dict[s
         "input_points": input_points,
         "loss_mask_points": loss_mask_points,
         "input_subset_of_loss_mask": input_subset_of_loss_mask,
+        "loss_mask_tensor_hash": sha_array(samples) if samples is not None else None,
+        "input_mask_tensor_hash": sha_array(input_mask) if input_mask is not None else None,
+    }
+
+
+def config_for_missing(config: dict[str, Any], missing: int) -> dict[str, Any]:
+    sibling = copy.deepcopy(config)
+    data = sibling["data"]
+    data["missing_buildings"] = missing
+    data["missing"] = missing
+    if missing == 0:
+        data["city_map"] = "complete"
+    else:
+        data["city_map"] = "missing"
+    return sibling
+
+
+def target_consistency_audit(config: dict[str, Any], split: str, idx: int) -> dict[str, Any]:
+    samples = {
+        str(missing): audit_dataset_sample(config_for_missing(config, missing), split=split, idx=idx)
+        for missing in [0, 1, 2, 4]
+    }
+    target_hashes = {sample["target_tensor_hash"] for sample in samples.values()}
+    tx_hashes = {sample["tx_tensor_hash"] for sample in samples.values()}
+    building_hashes = {sample["input_building_tensor_hash"] for sample in samples.values()}
+    map_txs = {(sample["map_id"], sample["tx"]) for sample in samples.values()}
+    loss_mask_hashes = {
+        missing: sample["loss_mask_tensor_hash"]
+        for missing, sample in samples.items()
+        if sample["loss_mask_tensor_hash"] is not None
+    }
+    input_mask_hashes = {
+        missing: sample["input_mask_tensor_hash"]
+        for missing, sample in samples.items()
+        if sample["input_mask_tensor_hash"] is not None
+    }
+    return {
+        "split": split,
+        "idx": idx,
+        "semantics": "official-loader-faithful missing-building sparse sampling",
+        "sparse_receiver_mask_note": (
+            "RadioUNet_s_sprseIRT4 seeds the sparse receiver pool from the selected building image. "
+            "Therefore missing-building settings can have different sparse receiver masks for the same map/tx."
+        ),
+        "samples_by_missing": samples,
+        "same_map_tx_across_missing": len(map_txs) == 1,
+        "target_irt4_hash_stable_across_missing": len(target_hashes) == 1,
+        "tx_hash_stable_across_missing": len(tx_hashes) == 1,
+        "building_input_hash_changes_across_missing": len(building_hashes) == 4,
+        "s_sparse_input_from_target_all_missing": all(
+            sample["sparse_input_target_alignment_abs_max"] in (None, 0.0)
+            for sample in samples.values()
+        ),
+        "s_loss_mask_hashes_by_missing": loss_mask_hashes,
+        "s_input_mask_hashes_by_missing": input_mask_hashes,
+        "sparse_receiver_masks_change_with_missing_building_seed": len(set(loss_mask_hashes.values())) > 1
+        if loss_mask_hashes
+        else None,
     }
 
 
@@ -158,6 +217,15 @@ def write_markdown(audit: dict[str, Any], output: Path) -> None:
         f"- building dir：`{audit['dirs']['building_dir']}`",
         f"- target radio dir：`{audit['dirs']['target_radio_dir']}`",
         f"- split 样本数：`{audit['split_counts']}`",
+        "",
+        "## 跨 missing target consistency",
+        f"- 语义标签：`{audit['target_consistency']['semantics']}`",
+        f"- 同一 map/tx：`{audit['target_consistency']['same_map_tx_across_missing']}`",
+        f"- target IRT4 hash 不变：`{audit['target_consistency']['target_irt4_hash_stable_across_missing']}`",
+        f"- Tx hash 不变：`{audit['target_consistency']['tx_hash_stable_across_missing']}`",
+        f"- building input hash 随 missing 改变：`{audit['target_consistency']['building_input_hash_changes_across_missing']}`",
+        f"- S sparse input 值与 target 对齐：`{audit['target_consistency']['s_sparse_input_from_target_all_missing']}`",
+        f"- sparse receiver mask 由 missing building image seed 决定：`{audit['target_consistency']['sparse_receiver_masks_change_with_missing_building_seed']}`",
         "",
         "## 样本检查",
     ]
@@ -194,6 +262,7 @@ def main() -> int:
     dirs = dataset_dirs(config)
     counts = split_counts(config)
     is_s = data["loader"] == "RadioUNet_s_sprseIRT4"
+    consistency = target_consistency_audit(config, split="test", idx=0)
     gate = {
         "building_dir_exists": dirs["building_dir_exists"],
         "target_radio_dir_exists": dirs["target_radio_dir_exists"],
@@ -201,9 +270,13 @@ def main() -> int:
         "versions_present_if_missing": missing == 0 or len(dirs["building_versions"]) == 6,
         "test_split_is_198": counts["test"] == 198,
         "building_input_semantics_ok": all(sample["building_input_semantics_ok"] for sample in samples),
-        "target_hash_stable_across_tx_duplicates": samples[0]["target_tensor_hash"] == samples[0]["target_tensor_hash"],
+        "same_map_tx_across_missing": consistency["same_map_tx_across_missing"],
+        "target_irt4_hash_stable_across_missing": consistency["target_irt4_hash_stable_across_missing"],
+        "tx_hash_stable_across_missing": consistency["tx_hash_stable_across_missing"],
+        "building_input_hash_changes_across_missing": consistency["building_input_hash_changes_across_missing"],
         "s_sparse_input_from_target": (not is_s)
         or all(sample["sparse_input_target_alignment_abs_max"] == 0.0 for sample in samples),
+        "s_sparse_input_from_target_all_missing": (not is_s) or consistency["s_sparse_input_from_target_all_missing"],
         "s_input_subset_of_loss_mask": (not is_s) or all(sample["input_subset_of_loss_mask"] for sample in samples),
         "s_pool600_if_mainline": (not is_s)
         or data.get("data_samples") == 600
@@ -222,6 +295,7 @@ def main() -> int:
         "dirs": dirs,
         "split_counts": counts,
         "samples": samples,
+        "target_consistency": consistency,
         "gate": gate,
     }
     output_dir = Path(args.output_dir)
