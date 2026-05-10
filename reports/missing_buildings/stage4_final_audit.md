@@ -10,7 +10,7 @@
 - Stage 4 missing-building 主线标注为 `official-loader-faithful missing-building sparse sampling` / `implementation-faithful Stage 4`，不再称为无条件 paper-faithful fixed receivers。
 - 当前 missing-building loader 的 sparse receiver mask 由所选 building image 的像素和作为随机种子决定；missing setting 改变时，同一 map/tx 的 sparse receiver mask 可以改变。
 - Stage 4 run artifacts were generated while Stage 4 scripts were uncommitted：`True`。
-- current repository is now clean（排除本次报告输出目录）：`False`。
+- current repository is now clean（排除本次报告输出目录）：`True`。
 - rerun is recommended only if final-grade provenance is required：`True`。
 - final-grade provenance clean：`False`。
 

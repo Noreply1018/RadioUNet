@@ -1,9 +1,9 @@
 {
   "scope": "Stage 4 missing-buildings final audit",
   "git": {
-    "commit": "fd74d01325be93fc7622f68390062cd1da0dc97d",
-    "dirty": true,
-    "status_short": "?? docs/reproduction_summary.md",
+    "commit": "b60f8b883733d801601d321363d32a2a8d4b10a9",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": [
       "reports"
     ]

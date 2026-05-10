@@ -25,7 +25,7 @@
     "python scripts/make_figures.py --config configs/s_dpm_thr2_rand1_300.yaml --checkpoint reports/s_dpm_thr2/rand1_300_50ep/checkpoints/secondU.pt --split test --device cuda:0 --limit 8 --output-dir reports/s_dpm_thr2/rand1_300_50ep/figures"
   ],
   "source_git": {
-    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "commit": "b60f8b883733d801601d321363d32a2a8d4b10a9",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -33,9 +33,9 @@
     ]
   },
   "artifact_git": {
-    "commit": "601d7e6e239b9c6bdd8d9f7421f22d012c7c5859",
+    "commit": "b60f8b883733d801601d321363d32a2a8d4b10a9",
     "dirty": true,
-    "status_short": "?? reports/s_dpm_thr2/rand1_300_50ep/\n?? reports/s_dpm_thr2/stage2_final_audit.json\n?? reports/s_dpm_thr2/stage2_final_audit.md\n?? reports/s_dpm_thr2/stage2_final_metric_curves.png",
+    "status_short": "M reports/final_reproduction_audit.json\n M reports/final_reproduction_audit.md\n M reports/irt4_transfer/stage3c_final_audit.json\n M reports/missing_buildings/loader_audits/s_irt4_missing0_pool600_sparse_loss_missing_loader_audit.json\n M reports/missing_buildings/stage4_final_audit.json\n M reports/missing_buildings/stage4_final_audit.md",
     "exclude_paths": []
   },
   "run_metadata_git": {

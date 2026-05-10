@@ -2,7 +2,7 @@
 
 ## 总结
 - 最终 gate：`True`。
-- 当前源码状态（排除 reports）：dirty=`False`，commit=`6c2f85b5a6e7e6916e6521e432b8ce8a2c1d1721`。
+- 当前源码状态（排除 reports）：dirty=`False`，commit=`b60f8b883733d801601d321363d32a2a8d4b10a9`。
 - 本报告覆盖 Stage 1 C/DPM、Stage 2 S/DPM、Stage 3C IRT4 sparse adaptation、Stage 4 missing buildings robustness。
 - checkpoint、dataset、cache 均不作为 git 交付物；报告、metrics、manifest、图和配置快照作为可审计交付物。
 
