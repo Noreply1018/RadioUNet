@@ -42,9 +42,12 @@ def build_dataset(config: dict[str, Any], phase: str, smoke: bool = False):
         ("num_samples_high", "num_samples_high", int),
         ("num_samples", "num_samples", int),
         ("data_samples", "data_samples", int),
+        ("IRT2maxW", "IRT2maxW", float),
     ]:
         if config_key in data_cfg:
             kwargs[loader_key] = caster(data_cfg[config_key])
+    if "receiver_seed_policy" in data_cfg:
+        kwargs["receiver_seed_policy"] = str(data_cfg["receiver_seed_policy"])
 
     if smoke:
         kwargs.update({"phase": "custom", "ind1": 0, "ind2": 0, "numTx": int(data_cfg.get("smoke_num_tx", 2))})

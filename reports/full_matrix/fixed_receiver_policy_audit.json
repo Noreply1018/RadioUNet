@@ -1,0 +1,215 @@
+{
+  "policies": {
+    "fixed": {
+      "c": {
+        "0": {
+          "config": "configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "723d5c55fe0197608d52a8d152c6a033b15e1e7bafb2e468cf5dd9c6fedf6ed3",
+          "receiver_points": 298
+        },
+        "1": {
+          "config": "configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "723d5c55fe0197608d52a8d152c6a033b15e1e7bafb2e468cf5dd9c6fedf6ed3",
+          "receiver_points": 298
+        },
+        "2": {
+          "config": "configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "723d5c55fe0197608d52a8d152c6a033b15e1e7bafb2e468cf5dd9c6fedf6ed3",
+          "receiver_points": 298
+        },
+        "4": {
+          "config": "configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "723d5c55fe0197608d52a8d152c6a033b15e1e7bafb2e468cf5dd9c6fedf6ed3",
+          "receiver_points": 298
+        }
+      },
+      "s": {
+        "0": {
+          "config": "configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "a50c2379b848011ffe16b4662e7d29128f6cbbcd6621e587de0ce15e07ad5ba4",
+          "receiver_points": 594
+        },
+        "1": {
+          "config": "configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "a50c2379b848011ffe16b4662e7d29128f6cbbcd6621e587de0ce15e07ad5ba4",
+          "receiver_points": 594
+        },
+        "2": {
+          "config": "configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "a50c2379b848011ffe16b4662e7d29128f6cbbcd6621e587de0ce15e07ad5ba4",
+          "receiver_points": 594
+        },
+        "4": {
+          "config": "configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "a50c2379b848011ffe16b4662e7d29128f6cbbcd6621e587de0ce15e07ad5ba4",
+          "receiver_points": 594
+        }
+      }
+    },
+    "official": {
+      "c": {
+        "0": {
+          "config": "configs/c_irt4_missing0_sparse_loss.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "d782a1cf64e6a40ea1b4c8f2970df7cd4139f72fa9bd8a5793c5baed739a4b25",
+          "receiver_points": 299
+        },
+        "1": {
+          "config": "configs/c_irt4_missing1_sparse_loss.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "8c56adeed810bd3bb8ab47a15e20db713f2a2685634e556e857625b62d4e959e",
+          "receiver_points": 300
+        },
+        "2": {
+          "config": "configs/c_irt4_missing2_sparse_loss.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "4b0c98f66d68a38e292e8aea2be582e297228e4b9efe5a95bfd7f9fe6794fc52",
+          "receiver_points": 299
+        },
+        "4": {
+          "config": "configs/c_irt4_missing4_sparse_loss.yaml",
+          "input_shape": [
+            2,
+            256,
+            256
+          ],
+          "target_hash": "c34d242a797abf091a57c7e1cef6c0fa71e4d605b3a8b9d02808ee1384ab2f50",
+          "tx_hash": "13aa860402aea09a8eec90917115ae2a14d278de4b9ab9e6682038fe64a569cf",
+          "receiver_mask_hash": "2edb57229b5ab4c1f5655e4a878d19c81cf295c2382dcf515fe33b6533f6a5c2",
+          "receiver_points": 300
+        }
+      },
+      "s": {
+        "0": {
+          "config": "configs/s_irt4_missing0_pool600_sparse_loss.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "7eb2ce512b4869e5820ebbfdb7380a17004b70c2137944f1b88ef54171b720f4",
+          "receiver_points": 595
+        },
+        "1": {
+          "config": "configs/s_irt4_missing1_pool600_sparse_loss.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "320f68d7872342567044ee59999d9117f80108b7694107823ff0a7aa94b93127",
+          "receiver_points": 595
+        },
+        "2": {
+          "config": "configs/s_irt4_missing2_pool600_sparse_loss.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "82abf28544d5648e4cfb477319a2acc6c8ffda6701c41327bfae59a8e2ce4eac",
+          "receiver_points": 598
+        },
+        "4": {
+          "config": "configs/s_irt4_missing4_pool600_sparse_loss.yaml",
+          "input_shape": [
+            3,
+            256,
+            256
+          ],
+          "target_hash": "b09f37c46cec3b25a25bca667279ae63d4b0d8e25bd1e1d64b7a4b6e1426d1d8",
+          "tx_hash": "fd05569f9b629d4fa649add63eddceaa9c3afa40acd0fbadb4736eb6ff837820",
+          "receiver_mask_hash": "11638b6abf729e814c2875896580d8068715ee49931256fab4a4816ca9a5aa11",
+          "receiver_points": 598
+        }
+      }
+    }
+  },
+  "gate": {
+    "fixed_receiver_mask_stable": true,
+    "target_hash_stable": true,
+    "tx_hash_stable": true,
+    "official_receiver_mask_changes": true,
+    "pass": true
+  }
+}

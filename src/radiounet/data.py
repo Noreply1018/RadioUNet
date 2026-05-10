@@ -240,6 +240,7 @@ class RadioUNet_c_sprseIRT4(Dataset):
                  cityMap="complete",
                  missing=1,
                  num_samples=300,
+                 receiver_seed_policy="official_building_sum",
                  transform= transforms.ToTensor()):
         """
         Args:
@@ -321,6 +322,7 @@ class RadioUNet_c_sprseIRT4(Dataset):
         self.transform= transform
         
         self.num_samples=num_samples
+        self.receiver_seed_policy=receiver_seed_policy
         
         self.dir_Tx = self.dir_dataset+ "png/antennas/" 
         #later check if reading the JSON file and creating antenna images on the fly is faster
@@ -384,7 +386,12 @@ class RadioUNet_c_sprseIRT4(Dataset):
         
         #Saprse IRT4 samples, determenistic and fixed samples per map
         image_samples = np.zeros((self.width,self.height))
-        seed_map=np.sum(image_buildings) # Each map has its fixed samples, independent of the transmitter location.
+        if self.receiver_seed_policy == "fixed_map":
+            seed_map = dataset_map_ind
+        elif self.receiver_seed_policy == "official_building_sum":
+            seed_map=np.sum(image_buildings) # Each map has its fixed samples, independent of the transmitter location.
+        else:
+            raise ValueError(f"Unsupported receiver_seed_policy: {self.receiver_seed_policy}")
         np.random.seed(seed_map)       
         x_samples=np.random.randint(0, 255, size=self.num_samples)
         y_samples=np.random.randint(0, 255, size=self.num_samples)
@@ -646,6 +653,7 @@ class RadioUNet_s_sprseIRT4(Dataset):
                  fix_samples=0,
                  num_samples_low= 10, 
                  num_samples_high= 299,
+                 receiver_seed_policy="official_building_sum",
                  transform= transforms.ToTensor()):
         """
         Args:
@@ -731,6 +739,7 @@ class RadioUNet_s_sprseIRT4(Dataset):
         self.fix_samples= fix_samples
         self.num_samples_low= num_samples_low 
         self.num_samples_high= num_samples_high
+        self.receiver_seed_policy=receiver_seed_policy
         
         self.transform= transform
         
@@ -801,7 +810,12 @@ class RadioUNet_s_sprseIRT4(Dataset):
                     
         #Saprse IRT4 samples, determenistic and fixed samples per map
         sparse_samples = np.zeros((self.width,self.height))
-        seed_map=np.sum(image_buildings) # Each map has its fixed samples, independent of the transmitter location.
+        if self.receiver_seed_policy == "fixed_map":
+            seed_map = dataset_map_ind
+        elif self.receiver_seed_policy == "official_building_sum":
+            seed_map=np.sum(image_buildings) # Each map has its fixed samples, independent of the transmitter location.
+        else:
+            raise ValueError(f"Unsupported receiver_seed_policy: {self.receiver_seed_policy}")
         np.random.seed(seed_map)       
         x_samples=np.random.randint(0, 255, size=self.data_samples)
         y_samples=np.random.randint(0, 255, size=self.data_samples)

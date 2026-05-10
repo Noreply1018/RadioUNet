@@ -1,0 +1,45 @@
+experiment:
+  name: c_dpm_irt4_adapt
+  description: RadioUNet_C dpm source adapt evaluation/adaptation on IRT4.
+  seed: 42
+data:
+  dataset_dir: RadioMapSeer/
+  loader: RadioUNet_c_sprseIRT4
+  simulation: IRT4
+  city_map: complete
+  cars_simulation: 'no'
+  cars_input: 'no'
+  num_tx: 2
+  threshold: 0.2
+  batch_size: 15
+  num_workers: 1
+  smoke_num_tx: 2
+  num_samples: 300
+model:
+  class_name: RadioWNet
+  inputs: 2
+  phases:
+  - secondU
+training:
+  epochs: 50
+  optimizer: Adam
+  learning_rate: 0.0001
+  scheduler: StepLR
+  step_size: 30
+  gamma: 0.1
+  loss: MSELoss
+  adaptation_mode: secondU-only
+  init_checkpoint: reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt
+  loss_mode: sparse_mse
+  num_samples_for_loss: 300
+evaluation:
+  metrics:
+  - mse
+  - nmse
+  - rmse
+  save_prediction_panels: true
+  measure_runtime: true
+  source_checkpoint: reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt
+  source_training_target: DPM
+  target: IRT4
+  tx_note: IRT4 files are fixed to Tx indices 0 and 1 via num_tx=2.

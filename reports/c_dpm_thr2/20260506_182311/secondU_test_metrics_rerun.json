@@ -1,0 +1,38 @@
+{
+  "samples": 7920,
+  "seconds": 29.129289388656616,
+  "checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "4cad28b3224a4ec84e16b4ab49e1e5b6a3089d57",
+    "dirty": true,
+    "status_short": "M src/radiounet/data.py\n M src/radiounet/factory.py\n?? configs/c_dpm_irt4_adapt.yaml\n?? configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_zeroshot.yaml\n?? configs/c_dpmcars_thr2.yaml\n?? configs/c_irt2_irt4_adapt.yaml\n?? configs/c_irt2_irt4_zeroshot.yaml\n?? configs/c_irt2_thr2.yaml\n?? configs/c_irt2cars_thr2.yaml\n?? configs/c_rand_irt4_adapt.yaml\n?? configs/c_rand_irt4_zeroshot.yaml\n?? configs/c_rand_thr2.yaml\n?? configs/s_dpm_irt4_adapt.yaml\n?? configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_zeroshot.yaml\n?? configs/s_dpmcars_carinput_thr2_rand1_300.yaml\n?? configs/s_irt2_irt4_adapt.yaml\n?? configs/s_irt2_irt4_zeroshot.yaml\n?? configs/s_irt2_thr2_rand1_300.yaml\n?? configs/s_irt2cars_carinput_thr2_rand1_300.yaml\n?? configs/s_rand_irt4_adapt.yaml\n?? configs/s_rand_irt4_zeroshot.yaml\n?? configs/s_rand_thr2_rand1_300.yaml\n?? docs/full_matrix_reproduction_summary.md\n?? scripts/audit_full_matrix_readiness.py\n?? scripts/generate_full_matrix_configs.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "4cad28b3224a4ec84e16b4ab49e1e5b6a3089d57",
+    "dirty": true,
+    "status_short": "M src/radiounet/data.py\n M src/radiounet/factory.py\n?? configs/c_dpm_irt4_adapt.yaml\n?? configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_dpm_irt4_zeroshot.yaml\n?? configs/c_dpmcars_thr2.yaml\n?? configs/c_irt2_irt4_adapt.yaml\n?? configs/c_irt2_irt4_zeroshot.yaml\n?? configs/c_irt2_thr2.yaml\n?? configs/c_irt2cars_thr2.yaml\n?? configs/c_rand_irt4_adapt.yaml\n?? configs/c_rand_irt4_zeroshot.yaml\n?? configs/c_rand_thr2.yaml\n?? configs/s_dpm_irt4_adapt.yaml\n?? configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_dpm_irt4_zeroshot.yaml\n?? configs/s_dpmcars_carinput_thr2_rand1_300.yaml\n?? configs/s_irt2_irt4_adapt.yaml\n?? configs/s_irt2_irt4_zeroshot.yaml\n?? configs/s_irt2_thr2_rand1_300.yaml\n?? configs/s_irt2cars_carinput_thr2_rand1_300.yaml\n?? configs/s_rand_irt4_adapt.yaml\n?? configs/s_rand_irt4_zeroshot.yaml\n?? configs/s_rand_thr2_rand1_300.yaml\n?? docs/full_matrix_reproduction_summary.md\n?? reports/full_matrix/\n?? scripts/audit_full_matrix_readiness.py\n?? scripts/generate_full_matrix_configs.py",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.00047267809781480923,
+    "raw_mse": 0.00047267809781480923,
+    "target_scale": 1.0,
+    "nmse": 0.010797844952486974,
+    "global_nmse": 0.008701918164689952,
+    "rmse": 0.021741161372263656,
+    "rmse_db_80": 1.7392929097810925
+  },
+  "secondU": {
+    "mse": 0.000419767048463131,
+    "raw_mse": 0.000419767048463131,
+    "target_scale": 1.0,
+    "nmse": 0.009647368385478992,
+    "global_nmse": 0.007727835332152655,
+    "rmse": 0.02048821730808054,
+    "rmse_db_80": 1.6390573846464431
+  }
+}
