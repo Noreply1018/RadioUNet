@@ -242,7 +242,7 @@ def write_markdown(audit: dict[str, Any]) -> None:
             "## 回答",
             f"- 缺楼越多是否退化：`{audit['answers']['zero_shot_degrades_with_missing_count']}`。",
             f"- sparse measurements 是否缓解退化：`{audit['answers']['sparse_adaptation_improves_s_over_zero_shot']}`。",
-            f"- paper-faithful S 是否优于 C：`{audit['answers']['s_adapted_beats_c_adapted']}`。",
+            f"- official-loader-faithful / implementation-faithful S 是否优于 C：`{audit['answers']['s_adapted_beats_c_adapted']}`。",
             f"- complete-map Stage 3C 作为上界：`{audit['answers']['complete_map_reference_present']}`。",
             f"- 与论文趋势一致：`{audit['answers']['paper_trend_consistent']}`。",
             "",
