@@ -1,6 +1,6 @@
 {
   "git": {
-    "commit": "838edfa71fe778fc5f901e20457d44fc1be9a2ba",
+    "commit": "116e810ee039b559304896d56622f73a845a2ae0",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -58,7 +58,7 @@
       "source": "DPM",
       "config": "configs/c_dpm_irt4_adapt.yaml",
       "run_dir": "reports/full_matrix/c_dpm_irt4_adapt_50ep",
-      "exists": false,
+      "exists": true,
       "num_tx": 2,
       "loader": "RadioUNet_c_sprseIRT4",
       "source_checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
@@ -81,7 +81,43 @@
         "val": 200,
         "test": 198
       },
-      "gate": false
+      "metrics_exists": true,
+      "rerun_exists": true,
+      "metrics_git_dirty": false,
+      "rerun_max_abs_diff": 0.0,
+      "dense_mse": 0.0010237258216930609,
+      "dense_nmse": 0.021064246553137447,
+      "rmse_db_80": 2.559657254172048,
+      "sparse_points": {
+        "points": 59268,
+        "mean_points_per_sample": 299.3333333333333,
+        "mse": 0.0009881778922956016,
+        "raw_mse": 0.0009881778922956016,
+        "target_scale": 1.0,
+        "global_nmse": 0.018834918483094668,
+        "rmse": 0.031435296917567065,
+        "rmse_db_80": 2.5148237534053655
+      },
+      "test_samples": 198,
+      "history": {
+        "exists": true,
+        "train_entries": 50,
+        "val_entries": 50,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "best_val_loss": 0.0008437956450507045
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "sparse_audit_exists": true,
+      "gate": true
     },
     {
       "name": "s_dpm_irt4_zeroshot",
