@@ -1,6 +1,6 @@
 {
   "git": {
-    "commit": "171a9ac54012b4f01208f741a02ae39e754e50be",
+    "commit": "68fe737d9db96db7468e77cb3e73bcbe7e2a2c9b",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -280,7 +280,7 @@
       "source": "IRT2",
       "config": "configs/c_irt2_irt4_adapt.yaml",
       "run_dir": "reports/full_matrix/c_irt2_irt4_adapt_50ep",
-      "exists": false,
+      "exists": true,
       "num_tx": 2,
       "loader": "RadioUNet_c_sprseIRT4",
       "source_checkpoint": "reports/full_matrix/c_irt2_thr2_50ep/checkpoints/firstU.pt",
@@ -303,7 +303,43 @@
         "val": 200,
         "test": 198
       },
-      "gate": false
+      "metrics_exists": true,
+      "rerun_exists": true,
+      "metrics_git_dirty": false,
+      "rerun_max_abs_diff": 0.0,
+      "dense_mse": 0.0008885959907660656,
+      "dense_nmse": 0.01840617588128556,
+      "rmse_db_80": 2.384746179555137,
+      "sparse_points": {
+        "points": 59268,
+        "mean_points_per_sample": 299.3333333333333,
+        "mse": 0.0008523534937386668,
+        "raw_mse": 0.0008523534937386668,
+        "target_scale": 1.0,
+        "global_nmse": 0.01624607137896419,
+        "rmse": 0.029195093658672632,
+        "rmse_db_80": 2.3356074926938106
+      },
+      "test_samples": 198,
+      "history": {
+        "exists": true,
+        "train_entries": 50,
+        "val_entries": 50,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "best_val_loss": 0.0007491522570489906
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "sparse_audit_exists": true,
+      "gate": true
     },
     {
       "name": "s_irt2_irt4_zeroshot",
@@ -355,7 +391,7 @@
       "source": "IRT2",
       "config": "configs/s_irt2_irt4_adapt.yaml",
       "run_dir": "reports/full_matrix/s_irt2_irt4_adapt_50ep",
-      "exists": false,
+      "exists": true,
       "num_tx": 2,
       "loader": "RadioUNet_s_sprseIRT4",
       "source_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
@@ -378,7 +414,43 @@
         "val": 200,
         "test": 198
       },
-      "gate": false
+      "metrics_exists": true,
+      "rerun_exists": true,
+      "metrics_git_dirty": false,
+      "rerun_max_abs_diff": 0.0,
+      "dense_mse": 0.000640704640483653,
+      "dense_nmse": 0.013255871133878827,
+      "rmse_db_80": 2.024971530440707,
+      "sparse_points": {
+        "points": 118242,
+        "mean_points_per_sample": 597.1818181818181,
+        "mse": 0.0005100919441147588,
+        "raw_mse": 33.42938564950483,
+        "target_scale": 256.0,
+        "global_nmse": 0.009851841413983847,
+        "rmse": 0.022585215166448132,
+        "rmse_db_80": 1.8068172133158504
+      },
+      "test_samples": 198,
+      "history": {
+        "exists": true,
+        "train_entries": 50,
+        "val_entries": 50,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "best_val_loss": 34.4569118976593
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "sparse_audit_exists": true,
+      "gate": true
     },
     {
       "name": "c_rand_irt4_zeroshot",
@@ -430,7 +502,7 @@
       "source": "random coarse simulation",
       "config": "configs/c_rand_irt4_adapt.yaml",
       "run_dir": "reports/full_matrix/c_rand_irt4_adapt_50ep",
-      "exists": false,
+      "exists": true,
       "num_tx": 2,
       "loader": "RadioUNet_c_sprseIRT4",
       "source_checkpoint": "reports/full_matrix/c_rand_thr2_50ep/checkpoints/firstU.pt",
@@ -453,7 +525,43 @@
         "val": 200,
         "test": 198
       },
-      "gate": false
+      "metrics_exists": true,
+      "rerun_exists": true,
+      "metrics_git_dirty": false,
+      "rerun_max_abs_diff": 0.0,
+      "dense_mse": 0.0008520786906239774,
+      "dense_nmse": 0.01761780423817761,
+      "rmse_db_80": 2.335230956456653,
+      "sparse_points": {
+        "points": 59268,
+        "mean_points_per_sample": 299.3333333333333,
+        "mse": 0.0008058680079763232,
+        "raw_mse": 0.0008058680079763232,
+        "target_scale": 1.0,
+        "global_nmse": 0.01536004636078974,
+        "rmse": 0.02838781442760825,
+        "rmse_db_80": 2.27102515420866
+      },
+      "test_samples": 198,
+      "history": {
+        "exists": true,
+        "train_entries": 50,
+        "val_entries": 50,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          300
+        ],
+        "mask_points_min": 297,
+        "mask_points_max": 300,
+        "best_val_loss": 0.000696457683807239
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "sparse_audit_exists": true,
+      "gate": true
     },
     {
       "name": "s_rand_irt4_zeroshot",
@@ -505,7 +613,7 @@
       "source": "random coarse simulation",
       "config": "configs/s_rand_irt4_adapt.yaml",
       "run_dir": "reports/full_matrix/s_rand_irt4_adapt_50ep",
-      "exists": false,
+      "exists": true,
       "num_tx": 2,
       "loader": "RadioUNet_s_sprseIRT4",
       "source_checkpoint": "reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt",
@@ -528,10 +636,46 @@
         "val": 200,
         "test": 198
       },
-      "gate": false
+      "metrics_exists": true,
+      "rerun_exists": true,
+      "metrics_git_dirty": false,
+      "rerun_max_abs_diff": 0.0,
+      "dense_mse": 0.0006103792905130169,
+      "dense_nmse": 0.01260353504172103,
+      "rmse_db_80": 1.976468431137545,
+      "sparse_points": {
+        "points": 118242,
+        "mean_points_per_sample": 597.1818181818181,
+        "mse": 0.0004930783819497772,
+        "raw_mse": 32.3143848394606,
+        "target_scale": 256.0,
+        "global_nmse": 0.009523243955682008,
+        "rmse": 0.022205368313760916,
+        "rmse_db_80": 1.7764294651008732
+      },
+      "test_samples": 198,
+      "history": {
+        "exists": true,
+        "train_entries": 50,
+        "val_entries": 50,
+        "loss_modes": [
+          "sparse_mse"
+        ],
+        "num_samples_for_loss": [
+          600
+        ],
+        "mask_points_min": 590,
+        "mask_points_max": 600,
+        "best_val_loss": 33.963218212127686
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "sparse_audit_exists": true,
+      "gate": true
     }
   ],
   "gate": {
-    "pass": false
+    "pass": true
   }
 }
