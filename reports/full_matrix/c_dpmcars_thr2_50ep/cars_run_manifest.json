@@ -1,0 +1,74 @@
+{
+  "config": "configs/c_dpmcars_thr2.yaml",
+  "run_dir": "reports/full_matrix/c_dpmcars_thr2_50ep",
+  "smoke": false,
+  "simulation": "DPM",
+  "model": "C",
+  "cars_simulation": "yes",
+  "cars_input": "no",
+  "sample_policy": {
+    "fix_samples": null,
+    "num_samples_low": null,
+    "num_samples_high": null
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 0.0007592607749575109,
+      "train_entries": 50,
+      "val_entries": 50
+    },
+    "secondU": {
+      "best_val_loss": 0.0007030455101266853,
+      "train_entries": 50,
+      "val_entries": 50
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/c_dpmcars_thr2_50ep/checkpoints/firstU.pt",
+      "sha256": "e4a7c271fcfa78e3c372f005babe3a8685d69bb34ab4fec2e05c35fbe6ef5d76"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/c_dpmcars_thr2_50ep/checkpoints/secondU.pt",
+      "sha256": "8156c51f25f3e11ed280a3174424ad64ac3e0e8591181e4c957ce218efee3ab5"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0000.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0001.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0002.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0003.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0004.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0005.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0006.png",
+    "reports/full_matrix/c_dpmcars_thr2_50ep/figures/c_dpmcars_thr2_test_0007.png"
+  ],
+  "git": {
+    "commit": "30555f1a3b09d767abbd11c4f2409443857a3cc8",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "30555f1a3b09d767abbd11c4f2409443857a3cc8",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpmcars_thr2_50ep/",
+    "exclude_paths": []
+  },
+  "gate": {
+    "cars_simulation_yes": true,
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}

@@ -1,8 +1,8 @@
 {
   "git": {
-    "commit": "f76af267177a893234d7d79d08eaa5b822d985cf",
-    "dirty": true,
-    "status_short": "?? scripts/audit_full_matrix_cars.py\n?? scripts/run_full_matrix_cars.py",
+    "commit": "30555f1a3b09d767abbd11c4f2409443857a3cc8",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": [
       "reports"
     ]
@@ -35,7 +35,7 @@
       "name": "c_dpmcars_thr2",
       "config": "configs/c_dpmcars_thr2.yaml",
       "run_dir": "reports/full_matrix/c_dpmcars_thr2_50ep",
-      "exists": false,
+      "exists": true,
       "model": "C",
       "simulation": "DPM",
       "cars_simulation": "yes",
@@ -69,7 +69,31 @@
           "cars_input_dir_from_loader": null
         }
       },
-      "gate": false
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.0007187336961413331,
+      "firstU_metrics_git_dirty": false,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.0006577803095834414,
+      "secondU_metrics_git_dirty": false,
+      "history": {
+        "firstU": {
+          "train_entries": 50,
+          "val_entries": 50
+        },
+        "secondU": {
+          "train_entries": 50,
+          "val_entries": 50
+        }
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
     },
     {
       "name": "c_irt2cars_thr2",

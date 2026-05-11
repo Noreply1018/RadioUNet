@@ -1,0 +1,806 @@
+{
+  "phase": "secondU",
+  "best_val_loss": 0.0007030455101266853,
+  "history": [
+    {
+      "epoch": 0,
+      "split": "train",
+      "loss": 0.0008585037029100234,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 0,
+      "split": "val",
+      "loss": 0.0007762239433577634,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 1,
+      "split": "train",
+      "loss": 0.00028888974527748753,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 1,
+      "split": "val",
+      "loss": 0.000755732605648518,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 2,
+      "split": "train",
+      "loss": 0.0002801644482432804,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 2,
+      "split": "val",
+      "loss": 0.0007524753810321271,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 3,
+      "split": "train",
+      "loss": 0.0002755538095104662,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 3,
+      "split": "val",
+      "loss": 0.0007487947086519853,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 4,
+      "split": "train",
+      "loss": 0.00027270331464862606,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 4,
+      "split": "val",
+      "loss": 0.0007718605920672417,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 5,
+      "split": "train",
+      "loss": 0.00026980716768933827,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 5,
+      "split": "val",
+      "loss": 0.0007489723667640646,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 6,
+      "split": "train",
+      "loss": 0.00026629381542722137,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 6,
+      "split": "val",
+      "loss": 0.0007465094877807132,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 7,
+      "split": "train",
+      "loss": 0.00026329315697220444,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 7,
+      "split": "val",
+      "loss": 0.0007436530553422926,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 8,
+      "split": "train",
+      "loss": 0.00025965794867114094,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 8,
+      "split": "val",
+      "loss": 0.0007394314943667268,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 9,
+      "split": "train",
+      "loss": 0.0002562727309295243,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 9,
+      "split": "val",
+      "loss": 0.0007281395155405335,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 10,
+      "split": "train",
+      "loss": 0.0002529892030552927,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 10,
+      "split": "val",
+      "loss": 0.0007314613464586728,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 11,
+      "split": "train",
+      "loss": 0.00025004836250794353,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 11,
+      "split": "val",
+      "loss": 0.0007360874464029621,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 12,
+      "split": "train",
+      "loss": 0.0002473120487370116,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 12,
+      "split": "val",
+      "loss": 0.0007238002118356235,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 13,
+      "split": "train",
+      "loss": 0.0002446509691956139,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 13,
+      "split": "val",
+      "loss": 0.0007224160581426986,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 14,
+      "split": "train",
+      "loss": 0.00024212432763197502,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 14,
+      "split": "val",
+      "loss": 0.0007200250756613969,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 15,
+      "split": "train",
+      "loss": 0.00023976016154575154,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 15,
+      "split": "val",
+      "loss": 0.0007173337505082599,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 16,
+      "split": "train",
+      "loss": 0.00023747690771894618,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 16,
+      "split": "val",
+      "loss": 0.0007241775012698781,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 17,
+      "split": "train",
+      "loss": 0.00023524156364408032,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 17,
+      "split": "val",
+      "loss": 0.0007142041387669451,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 18,
+      "split": "train",
+      "loss": 0.000232954533938376,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 18,
+      "split": "val",
+      "loss": 0.0007179034437103837,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 19,
+      "split": "train",
+      "loss": 0.0002318274707690789,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 19,
+      "split": "val",
+      "loss": 0.0007203547316385083,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 20,
+      "split": "train",
+      "loss": 0.00022836426992916005,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 20,
+      "split": "val",
+      "loss": 0.0007186145236482844,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 21,
+      "split": "train",
+      "loss": 0.00022619707988541813,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 21,
+      "split": "val",
+      "loss": 0.0007084430120266916,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 22,
+      "split": "train",
+      "loss": 0.0002241983887609035,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 22,
+      "split": "val",
+      "loss": 0.0007067346400071984,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 23,
+      "split": "train",
+      "loss": 0.0002219668843275951,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 23,
+      "split": "val",
+      "loss": 0.0007078455348710122,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 24,
+      "split": "train",
+      "loss": 0.00021985688381173969,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 24,
+      "split": "val",
+      "loss": 0.0007030455101266853,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 25,
+      "split": "train",
+      "loss": 0.0002178757184050548,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 25,
+      "split": "val",
+      "loss": 0.0007047928510473866,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 26,
+      "split": "train",
+      "loss": 0.00021581262303616477,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 26,
+      "split": "val",
+      "loss": 0.0007114672808711475,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 27,
+      "split": "train",
+      "loss": 0.00021397980146535637,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 27,
+      "split": "val",
+      "loss": 0.0007072242586764333,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 28,
+      "split": "train",
+      "loss": 0.00021196918696877692,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 28,
+      "split": "val",
+      "loss": 0.0007060895863469341,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 29,
+      "split": "train",
+      "loss": 0.0002033058284462254,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 29,
+      "split": "val",
+      "loss": 0.0007084412572839938,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 30,
+      "split": "train",
+      "loss": 0.00020213304326820226,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 30,
+      "split": "val",
+      "loss": 0.0007059622901033436,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 31,
+      "split": "train",
+      "loss": 0.00020152172070236397,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 31,
+      "split": "val",
+      "loss": 0.0007071645155519946,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 32,
+      "split": "train",
+      "loss": 0.00020104053768983375,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 32,
+      "split": "val",
+      "loss": 0.0007089307894784725,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 33,
+      "split": "train",
+      "loss": 0.00020059418890711156,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 33,
+      "split": "val",
+      "loss": 0.0007072960470031831,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 34,
+      "split": "train",
+      "loss": 0.00020018547456312442,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 34,
+      "split": "val",
+      "loss": 0.000708967745431437,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 35,
+      "split": "train",
+      "loss": 0.00019979616826423514,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 35,
+      "split": "val",
+      "loss": 0.0007074665410618763,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 36,
+      "split": "train",
+      "loss": 0.00019940722819762255,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 36,
+      "split": "val",
+      "loss": 0.0007094961583425175,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 37,
+      "split": "train",
+      "loss": 0.00019903748696509604,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 37,
+      "split": "val",
+      "loss": 0.000709313562620082,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 38,
+      "split": "train",
+      "loss": 0.0001986877406359313,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 38,
+      "split": "val",
+      "loss": 0.000709793555233773,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 39,
+      "split": "train",
+      "loss": 0.0001983418032161168,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 39,
+      "split": "val",
+      "loss": 0.0007107694513797469,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 40,
+      "split": "train",
+      "loss": 0.00019799443028145226,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 40,
+      "split": "val",
+      "loss": 0.000709544051260309,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 41,
+      "split": "train",
+      "loss": 0.00019766347055653847,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 41,
+      "split": "val",
+      "loss": 0.0007102047122680233,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 42,
+      "split": "train",
+      "loss": 0.00019734840231818115,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 42,
+      "split": "val",
+      "loss": 0.0007086142692060094,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 43,
+      "split": "train",
+      "loss": 0.00019701745505933544,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 43,
+      "split": "val",
+      "loss": 0.0007103727882167732,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 44,
+      "split": "train",
+      "loss": 0.0001967098960775985,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 44,
+      "split": "val",
+      "loss": 0.0007097183694713749,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 45,
+      "split": "train",
+      "loss": 0.00019637379732639437,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 45,
+      "split": "val",
+      "loss": 0.0007084610154197435,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 46,
+      "split": "train",
+      "loss": 0.0001960716116175712,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 46,
+      "split": "val",
+      "loss": 0.0007092756640122388,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 47,
+      "split": "train",
+      "loss": 0.0001957719947030112,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 47,
+      "split": "val",
+      "loss": 0.0007091557792227831,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 48,
+      "split": "train",
+      "loss": 0.0001954696310218685,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 48,
+      "split": "val",
+      "loss": 0.0007105246957507915,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    },
+    {
+      "epoch": 49,
+      "split": "train",
+      "loss": 0.00019515705964600174,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 40080
+    },
+    {
+      "epoch": 49,
+      "split": "val",
+      "loss": 0.0007084560769726522,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 8000
+    }
+  ]
+}
