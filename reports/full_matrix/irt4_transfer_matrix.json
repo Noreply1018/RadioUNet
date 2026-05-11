@@ -1,0 +1,333 @@
+{
+  "git": {
+    "commit": "a0fd80cf812723918a807eb122644e18aeaca72e",
+    "dirty": true,
+    "status_short": "?? scripts/audit_full_matrix_irt4.py\n?? scripts/run_full_matrix_irt4.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "runs": [
+    {
+      "name": "c_dpm_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "C",
+      "source": "DPM",
+      "config": "configs/c_dpm_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/c_dpm_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
+      "source_training_target": "DPM",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "cfec8caf23f20231e95a6c63f221e3e5f5515a05cf92a1522ad73081aad6ae25",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "c_dpm_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "C",
+      "source": "DPM",
+      "config": "configs/c_dpm_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/c_dpm_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
+      "source_training_target": "DPM",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 300,
+      "sample_policy": {
+        "num_samples": 300,
+        "data_samples": null,
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "cfec8caf23f20231e95a6c63f221e3e5f5515a05cf92a1522ad73081aad6ae25",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_dpm_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "S",
+      "source": "DPM",
+      "config": "configs/s_dpm_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "DPM",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_dpm_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "S",
+      "source": "DPM",
+      "config": "configs/s_dpm_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/s_dpm_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "DPM",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600,
+      "sample_policy": {
+        "num_samples": null,
+        "data_samples": 600,
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "c_irt2_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "C",
+      "source": "IRT2",
+      "config": "configs/c_irt2_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/c_irt2_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/c_irt2_thr2_50ep/checkpoints/firstU.pt",
+      "source_training_target": "IRT2",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "8654736016b5c61e159a864b4d728f8d49fbc154bf5ae4da07ebfe1dc3d969f1",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "c_irt2_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "C",
+      "source": "IRT2",
+      "config": "configs/c_irt2_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/c_irt2_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/c_irt2_thr2_50ep/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/full_matrix/c_irt2_thr2_50ep/checkpoints/firstU.pt",
+      "source_training_target": "IRT2",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 300,
+      "sample_policy": {
+        "num_samples": 300,
+        "data_samples": null,
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "8654736016b5c61e159a864b4d728f8d49fbc154bf5ae4da07ebfe1dc3d969f1",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_irt2_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "S",
+      "source": "IRT2",
+      "config": "configs/s_irt2_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/s_irt2_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "IRT2",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "5696baa2b7026411632f4a3cb43b8815ad3d283b483acd6859ce59b19eaa713f",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_irt2_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "S",
+      "source": "IRT2",
+      "config": "configs/s_irt2_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/s_irt2_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "IRT2",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600,
+      "sample_policy": {
+        "num_samples": null,
+        "data_samples": 600,
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "5696baa2b7026411632f4a3cb43b8815ad3d283b483acd6859ce59b19eaa713f",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "c_rand_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "C",
+      "source": "random coarse simulation",
+      "config": "configs/c_rand_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/c_rand_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/c_rand_thr2_50ep/checkpoints/firstU.pt",
+      "source_training_target": "random coarse simulation",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "7f14984067a461cbc9e8826dadce85b9744b3b98387e4e0b41c693f1b6a0fd3b",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "c_rand_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "C",
+      "source": "random coarse simulation",
+      "config": "configs/c_rand_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/c_rand_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_c_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/c_rand_thr2_50ep/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/full_matrix/c_rand_thr2_50ep/checkpoints/firstU.pt",
+      "source_training_target": "random coarse simulation",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 300,
+      "sample_policy": {
+        "num_samples": 300,
+        "data_samples": null,
+        "fix_samples": null,
+        "num_samples_low": null,
+        "num_samples_high": null
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "7f14984067a461cbc9e8826dadce85b9744b3b98387e4e0b41c693f1b6a0fd3b",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_rand_irt4_zeroshot",
+      "setting": "zero-shot",
+      "model": "S",
+      "source": "random coarse simulation",
+      "config": "configs/s_rand_irt4_zeroshot.yaml",
+      "run_dir": "reports/full_matrix/s_rand_irt4_zeroshot_zeroshot",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "random coarse simulation",
+      "source_checkpoint_exists": true,
+      "source_checkpoint_sha256": "369198679e81017980f3521a5516932f6d66de9063afd44850bd76601a747935",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    },
+    {
+      "name": "s_rand_irt4_adapt",
+      "setting": "sparse adaptation",
+      "model": "S",
+      "source": "random coarse simulation",
+      "config": "configs/s_rand_irt4_adapt.yaml",
+      "run_dir": "reports/full_matrix/s_rand_irt4_adapt_50ep",
+      "exists": false,
+      "num_tx": 2,
+      "loader": "RadioUNet_s_sprseIRT4",
+      "source_checkpoint": "reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "init_checkpoint": "reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "random coarse simulation",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600,
+      "sample_policy": {
+        "num_samples": null,
+        "data_samples": 600,
+        "fix_samples": 0,
+        "num_samples_low": 1,
+        "num_samples_high": 301
+      },
+      "init_checkpoint_exists": true,
+      "init_matches_source_checkpoint": true,
+      "init_checkpoint_sha256": "369198679e81017980f3521a5516932f6d66de9063afd44850bd76601a747935",
+      "split_counts": {
+        "train": 1002,
+        "val": 200,
+        "test": 198
+      },
+      "gate": false
+    }
+  ],
+  "gate": {
+    "pass": false
+  }
+}
