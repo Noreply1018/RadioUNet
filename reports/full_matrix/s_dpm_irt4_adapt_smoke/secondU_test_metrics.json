@@ -1,0 +1,58 @@
+{
+  "samples": 2,
+  "seconds": 0.527219295501709,
+  "checkpoint": "reports/full_matrix/s_dpm_irt4_adapt_smoke/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/c_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/s_dpm_irt4_zeroshot_smoke/",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.0006561989430338144,
+    "raw_mse": 43.00465393066406,
+    "target_scale": 256.0,
+    "nmse": 0.007314307615160942,
+    "global_nmse": 0.007314307643041218,
+    "rmse": 0.025616380365574964,
+    "rmse_db_80": 2.049310429245997,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.0006736048630305699,
+      "raw_mse": 44.14536830357143,
+      "target_scale": 256.0,
+      "global_nmse": 0.007539670833976793,
+      "rmse": 0.025953898802117764,
+      "rmse_db_80": 2.076311904169421
+    }
+  },
+  "secondU": {
+    "mse": 0.052535854279994965,
+    "raw_mse": 3442.98974609375,
+    "target_scale": 256.0,
+    "nmse": 0.5855897665023804,
+    "global_nmse": 0.585589788848632,
+    "rmse": 0.22920701184735812,
+    "rmse_db_80": 18.336560947788648,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.05153200165564273,
+      "raw_mse": 3377.201260504202,
+      "target_scale": 256.0,
+      "global_nmse": 0.5767985821115733,
+      "rmse": 0.22700661148002435,
+      "rmse_db_80": 18.160528918401948
+    }
+  }
+}

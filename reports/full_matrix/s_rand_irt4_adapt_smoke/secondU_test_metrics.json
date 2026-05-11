@@ -1,0 +1,58 @@
+{
+  "samples": 2,
+  "seconds": 0.5119946002960205,
+  "checkpoint": "reports/full_matrix/s_rand_irt4_adapt_smoke/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/c_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/c_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/c_irt2_irt4_zeroshot_smoke/\n?? reports/full_matrix/c_rand_irt4_adapt_smoke/\n?? reports/full_matrix/c_rand_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/s_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/s_irt2_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_rand_irt4_adapt_smoke/\n?? reports/full_matrix/s_rand_irt4_zeroshot_smoke/",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.0003084787167608738,
+    "raw_mse": 20.216461181640625,
+    "target_scale": 256.0,
+    "nmse": 0.003438451560214162,
+    "global_nmse": 0.0034384514935180827,
+    "rmse": 0.017563562188829287,
+    "rmse_db_80": 1.405084975106343,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.00018571770491720247,
+      "raw_mse": 12.171195509453781,
+      "target_scale": 256.0,
+      "global_nmse": 0.0020787414699139323,
+      "rmse": 0.01362782832725752,
+      "rmse_db_80": 1.0902262661806015
+    }
+  },
+  "secondU": {
+    "mse": 0.05327451229095459,
+    "raw_mse": 3491.3984375,
+    "target_scale": 256.0,
+    "nmse": 0.593823254108429,
+    "global_nmse": 0.5938232247486913,
+    "rmse": 0.23081272125026947,
+    "rmse_db_80": 18.46501770002156,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.052126559089211856,
+      "raw_mse": 3416.166176470588,
+      "target_scale": 256.0,
+      "global_nmse": 0.5834534737060864,
+      "rmse": 0.22831241553890988,
+      "rmse_db_80": 18.26499324311279
+    }
+  }
+}

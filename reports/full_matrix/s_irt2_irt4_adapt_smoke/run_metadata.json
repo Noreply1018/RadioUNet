@@ -1,0 +1,78 @@
+{
+  "config": {
+    "experiment": {
+      "name": "s_irt2_irt4_adapt",
+      "description": "RadioUNet_S irt2 source adapt evaluation/adaptation on IRT4.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_s_sprseIRT4",
+      "simulation": "IRT4",
+      "city_map": "complete",
+      "cars_simulation": "no",
+      "cars_input": "no",
+      "num_tx": 2,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2,
+      "target_scale": 256,
+      "data_samples": 600,
+      "fix_samples": 0,
+      "num_samples_low": 1,
+      "num_samples_high": 301
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 3,
+      "phases": [
+        "secondU"
+      ]
+    },
+    "training": {
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss",
+      "adaptation_mode": "secondU-only",
+      "init_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600
+    },
+    "evaluation": {
+      "metrics": [
+        "mse",
+        "nmse",
+        "rmse"
+      ],
+      "save_prediction_panels": true,
+      "measure_runtime": true,
+      "source_checkpoint": "reports/full_matrix/s_irt2_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+      "source_training_target": "IRT2",
+      "target": "IRT4",
+      "tx_note": "IRT4 files are fixed to Tx indices 0 and 1 via num_tx=2."
+    }
+  },
+  "git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/c_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/c_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/c_irt2_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/s_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/s_irt2_irt4_zeroshot_smoke/",
+    "exclude_paths": []
+  },
+  "device": "cuda",
+  "smoke": true,
+  "loss_mode": "sparse_mse",
+  "num_samples_for_loss": 600
+}

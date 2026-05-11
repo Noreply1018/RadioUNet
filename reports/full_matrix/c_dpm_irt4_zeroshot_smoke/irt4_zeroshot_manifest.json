@@ -1,0 +1,45 @@
+{
+  "config_path": "configs/c_dpm_irt4_zeroshot.yaml",
+  "run_dir": "reports/full_matrix/c_dpm_irt4_zeroshot_smoke",
+  "setting": "zero-shot IRT4",
+  "smoke": true,
+  "git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_zeroshot_smoke/",
+    "exclude_paths": []
+  },
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "source_checkpoint": "reports/c_dpm_thr2/20260506_182311/checkpoints/firstU.pt",
+  "source_checkpoint_sha256": "cfec8caf23f20231e95a6c63f221e3e5f5515a05cf92a1522ad73081aad6ae25",
+  "source_training_target": "DPM",
+  "metrics": "reports/full_matrix/c_dpm_irt4_zeroshot_smoke/zeroshot_test_metrics.json",
+  "metrics_rerun": "reports/full_matrix/c_dpm_irt4_zeroshot_smoke/zeroshot_test_metrics_rerun.json",
+  "rerun_max_abs_diff": 0.0,
+  "figures": [
+    "reports/full_matrix/c_dpm_irt4_zeroshot_smoke/figures/c_dpm_irt4_zeroshot_test_0000.png",
+    "reports/full_matrix/c_dpm_irt4_zeroshot_smoke/figures/c_dpm_irt4_zeroshot_test_0001.png"
+  ],
+  "figure_count": 2,
+  "gate": {
+    "config_num_tx_2": true,
+    "checkpoint_exists": true,
+    "test_samples_198_or_smoke": true,
+    "rerun_diff_zero": true,
+    "figures_requested": true,
+    "figures_nonempty": true,
+    "pass": true
+  }
+}

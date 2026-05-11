@@ -1,0 +1,7 @@
+{
+  "phase": "secondU",
+  "checkpoint": "reports/full_matrix/s_irt2_irt4_adapt_smoke/checkpoints/secondU.pt",
+  "sha256": "3d344dac0ed511d0db5eecf05c2703e7472c16ce8a32cc5130b70ff4a0cbecd9",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}

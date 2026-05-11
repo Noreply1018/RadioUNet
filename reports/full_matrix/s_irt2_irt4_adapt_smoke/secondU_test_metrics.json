@@ -1,0 +1,58 @@
+{
+  "samples": 2,
+  "seconds": 0.5144884586334229,
+  "checkpoint": "reports/full_matrix/s_irt2_irt4_adapt_smoke/checkpoints/secondU.pt",
+  "checkpoint_phase": "secondU",
+  "git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "d273b26826ebc63f7bdac50bdd6b6903bfa4cd3f",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/c_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/c_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/c_irt2_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_dpm_irt4_adapt_smoke/\n?? reports/full_matrix/s_dpm_irt4_zeroshot_smoke/\n?? reports/full_matrix/s_irt2_irt4_adapt_smoke/\n?? reports/full_matrix/s_irt2_irt4_zeroshot_smoke/",
+    "exclude_paths": []
+  },
+  "firstU": {
+    "mse": 0.0002744558732956648,
+    "raw_mse": 17.986740112304688,
+    "target_scale": 256.0,
+    "nmse": 0.0030592165421694517,
+    "global_nmse": 0.0030592165882543754,
+    "rmse": 0.016566709790892843,
+    "rmse_db_80": 1.3253367832714273,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.00015832135657302472,
+      "raw_mse": 10.375748424369748,
+      "target_scale": 256.0,
+      "global_nmse": 0.0017720936710266917,
+      "rmse": 0.012582581474920983,
+      "rmse_db_80": 1.0066065179936787
+    }
+  },
+  "secondU": {
+    "mse": 0.05353175103664398,
+    "raw_mse": 3508.2568359375,
+    "target_scale": 256.0,
+    "nmse": 0.5966905355453491,
+    "global_nmse": 0.5966905309881427,
+    "rmse": 0.23136929579493468,
+    "rmse_db_80": 18.509543663594773,
+    "sparse_points": {
+      "points": 1190,
+      "mean_points_per_sample": 595.0,
+      "mse": 0.05242920563000591,
+      "raw_mse": 3436.000420168067,
+      "target_scale": 256.0,
+      "global_nmse": 0.5868410016499358,
+      "rmse": 0.2289742466523384,
+      "rmse_db_80": 18.31793973218707
+    }
+  }
+}
