@@ -1,0 +1,51 @@
+{
+  "config_path": "configs/s_dpm_irt4_zeroshot.yaml",
+  "run_dir": "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot",
+  "setting": "zero-shot IRT4",
+  "smoke": false,
+  "git": {
+    "commit": "838edfa71fe778fc5f901e20457d44fc1be9a2ba",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "838edfa71fe778fc5f901e20457d44fc1be9a2ba",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_irt4_zeroshot_zeroshot/\n?? reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/",
+    "exclude_paths": []
+  },
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "source_checkpoint": "reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt",
+  "source_checkpoint_sha256": "4ccfac457aedd1a0bf116225959df1ceb5e531cf4b9ca250c34709c649449aae",
+  "source_training_target": "DPM",
+  "metrics": "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/zeroshot_test_metrics.json",
+  "metrics_rerun": "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/zeroshot_test_metrics_rerun.json",
+  "rerun_max_abs_diff": 0.0,
+  "figures": [
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0000.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0001.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0002.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0003.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0004.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0005.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0006.png",
+    "reports/full_matrix/s_dpm_irt4_zeroshot_zeroshot/figures/s_dpm_irt4_zeroshot_test_0007.png"
+  ],
+  "figure_count": 8,
+  "gate": {
+    "config_num_tx_2": true,
+    "checkpoint_exists": true,
+    "test_samples_198_or_smoke": true,
+    "rerun_diff_zero": true,
+    "figures_requested": true,
+    "figures_nonempty": true,
+    "pass": true
+  }
+}
