@@ -1,0 +1,68 @@
+{
+  "config": "configs/c_dpmcars_thr2.yaml",
+  "run_dir": "reports/full_matrix/c_dpmcars_thr2_smoke",
+  "smoke": true,
+  "simulation": "DPM",
+  "model": "C",
+  "cars_simulation": "yes",
+  "cars_input": "no",
+  "sample_policy": {
+    "fix_samples": null,
+    "num_samples_low": null,
+    "num_samples_high": null
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 0.09218244254589081,
+      "train_entries": 1,
+      "val_entries": 1
+    },
+    "secondU": {
+      "best_val_loss": 0.09248243272304535,
+      "train_entries": 1,
+      "val_entries": 1
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/c_dpmcars_thr2_smoke/checkpoints/firstU.pt",
+      "sha256": "1a1a94da33decec32877827b014c2798f45b6bef4af143eeef38c10eaee998cd"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/c_dpmcars_thr2_smoke/checkpoints/secondU.pt",
+      "sha256": "36c7b1cfa3bd8a59fab874c459d7dcb89cfd09c01c77ed3cc8e1551a1496fdca"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/c_dpmcars_thr2_smoke/figures/c_dpmcars_thr2_test_0000.png",
+    "reports/full_matrix/c_dpmcars_thr2_smoke/figures/c_dpmcars_thr2_test_0001.png"
+  ],
+  "git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpmcars_thr2_smoke/",
+    "exclude_paths": []
+  },
+  "gate": {
+    "cars_simulation_yes": true,
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}

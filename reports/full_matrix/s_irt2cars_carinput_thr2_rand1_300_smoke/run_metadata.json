@@ -1,0 +1,70 @@
+{
+  "config": {
+    "experiment": {
+      "name": "s_irt2cars_carinput_thr2_rand1_300",
+      "description": "RadioUNet_S IRT2 cars target with cars input channel.",
+      "seed": 42
+    },
+    "data": {
+      "dataset_dir": "RadioMapSeer/",
+      "loader": "RadioUNet_s",
+      "simulation": "IRT2",
+      "city_map": "complete",
+      "cars_simulation": "yes",
+      "cars_input": "yes",
+      "num_tx": 80,
+      "threshold": 0.2,
+      "batch_size": 15,
+      "num_workers": 1,
+      "smoke_num_tx": 2,
+      "target_scale": 256,
+      "fix_samples": 0,
+      "num_samples_low": 1,
+      "num_samples_high": 301
+    },
+    "model": {
+      "class_name": "RadioWNet",
+      "inputs": 4,
+      "phases": [
+        "firstU",
+        "secondU"
+      ]
+    },
+    "training": {
+      "epochs": 50,
+      "optimizer": "Adam",
+      "learning_rate": 0.0001,
+      "scheduler": "StepLR",
+      "step_size": 30,
+      "gamma": 0.1,
+      "loss": "MSELoss"
+    },
+    "evaluation": {
+      "metrics": [
+        "mse",
+        "nmse",
+        "rmse"
+      ],
+      "save_prediction_panels": true,
+      "measure_runtime": true
+    }
+  },
+  "git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpmcars_thr2_smoke/\n?? reports/full_matrix/c_irt2cars_thr2_smoke/\n?? reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_smoke/\n?? reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/",
+    "exclude_paths": []
+  },
+  "device": "cuda",
+  "smoke": true,
+  "loss_mode": "dense_mse",
+  "num_samples_for_loss": null
+}

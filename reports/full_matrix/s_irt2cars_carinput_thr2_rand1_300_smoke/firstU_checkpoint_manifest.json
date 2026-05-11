@@ -1,0 +1,7 @@
+{
+  "phase": "firstU",
+  "checkpoint": "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/checkpoints/firstU.pt",
+  "sha256": "8be5fd9e1ab69cd87391d9c7dc16e124d510747cc3e72a741660e6927a7293ba",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}

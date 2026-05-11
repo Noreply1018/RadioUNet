@@ -1,0 +1,68 @@
+{
+  "config": "configs/s_irt2cars_carinput_thr2_rand1_300.yaml",
+  "run_dir": "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke",
+  "smoke": true,
+  "simulation": "IRT2",
+  "model": "S",
+  "cars_simulation": "yes",
+  "cars_input": "yes",
+  "sample_policy": {
+    "fix_samples": 0,
+    "num_samples_low": 1,
+    "num_samples_high": 301
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 5336.9208984375,
+      "train_entries": 1,
+      "val_entries": 1
+    },
+    "secondU": {
+      "best_val_loss": 5339.59716796875,
+      "train_entries": 1,
+      "val_entries": 1
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/checkpoints/firstU.pt",
+      "sha256": "8be5fd9e1ab69cd87391d9c7dc16e124d510747cc3e72a741660e6927a7293ba"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/checkpoints/secondU.pt",
+      "sha256": "428b2b95b4b43cd50d024d05e83d9b71d1d27e628427db4bf701fb44e9c570fb"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/figures/s_irt2cars_carinput_thr2_rand1_300_test_0000.png",
+    "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/figures/s_irt2cars_carinput_thr2_rand1_300_test_0001.png"
+  ],
+  "git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "fb18b945c5449b174e2d605853c07a6e66947649",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpmcars_thr2_smoke/\n?? reports/full_matrix/c_irt2cars_thr2_smoke/\n?? reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_smoke/\n?? reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_smoke/",
+    "exclude_paths": []
+  },
+  "gate": {
+    "cars_simulation_yes": true,
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}
