@@ -1,0 +1,198 @@
+{
+  "git": {
+    "commit": "f76af267177a893234d7d79d08eaa5b822d985cf",
+    "dirty": true,
+    "status_short": "?? scripts/audit_full_matrix_cars.py\n?? scripts/run_full_matrix_cars.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "dataset_availability": {
+    "carsDPM": {
+      "path": "RadioMapSeer/gain/carsDPM",
+      "exists": true,
+      "file_count": 56080
+    },
+    "carsIRT2": {
+      "path": "RadioMapSeer/gain/carsIRT2",
+      "exists": true,
+      "file_count": 56080
+    },
+    "carsIRT4": {
+      "path": "RadioMapSeer/gain/carsIRT4",
+      "exists": true,
+      "file_count": 1402
+    },
+    "cars_png": {
+      "path": "RadioMapSeer/png/cars",
+      "exists": true,
+      "file_count": 701
+    }
+  },
+  "irt4_cars_status": "available",
+  "runs": [
+    {
+      "name": "c_dpmcars_thr2",
+      "config": "configs/c_dpmcars_thr2.yaml",
+      "run_dir": "reports/full_matrix/c_dpmcars_thr2_50ep",
+      "exists": false,
+      "model": "C",
+      "simulation": "DPM",
+      "cars_simulation": "yes",
+      "cars_input": "no",
+      "loader_audit": {
+        "config": "configs/c_dpmcars_thr2.yaml",
+        "loader": "RadioUNet_c",
+        "simulation": "DPM",
+        "cars_simulation": "yes",
+        "cars_input": "no",
+        "input_shape": [
+          2,
+          256,
+          256
+        ],
+        "target_shape": [
+          1,
+          256,
+          256
+        ],
+        "target_diff_vs_no_cars_max": 0.10784314572811127,
+        "target_diff_vs_no_cars_mean": 0.01189422607421875,
+        "cars_input_nonzero": null,
+        "cars_input_max": null,
+        "evidence": {
+          "cars_dpm_dir": "RadioMapSeer/gain/carsDPM",
+          "cars_irt2_dir": "RadioMapSeer/gain/carsIRT2",
+          "cars_irt4_dir": "RadioMapSeer/gain/carsIRT4",
+          "cars_png_dir": "RadioMapSeer/png/cars",
+          "target_dir_from_loader": "RadioMapSeer/gain/carsDPM/",
+          "cars_input_dir_from_loader": null
+        }
+      },
+      "gate": false
+    },
+    {
+      "name": "c_irt2cars_thr2",
+      "config": "configs/c_irt2cars_thr2.yaml",
+      "run_dir": "reports/full_matrix/c_irt2cars_thr2_50ep",
+      "exists": false,
+      "model": "C",
+      "simulation": "IRT2",
+      "cars_simulation": "yes",
+      "cars_input": "no",
+      "loader_audit": {
+        "config": "configs/c_irt2cars_thr2.yaml",
+        "loader": "RadioUNet_c",
+        "simulation": "IRT2",
+        "cars_simulation": "yes",
+        "cars_input": "no",
+        "input_shape": [
+          2,
+          256,
+          256
+        ],
+        "target_shape": [
+          1,
+          256,
+          256
+        ],
+        "target_diff_vs_no_cars_max": 0.10784314572811127,
+        "target_diff_vs_no_cars_mean": 0.011945312842726707,
+        "cars_input_nonzero": null,
+        "cars_input_max": null,
+        "evidence": {
+          "cars_dpm_dir": "RadioMapSeer/gain/carsDPM",
+          "cars_irt2_dir": "RadioMapSeer/gain/carsIRT2",
+          "cars_irt4_dir": "RadioMapSeer/gain/carsIRT4",
+          "cars_png_dir": "RadioMapSeer/png/cars",
+          "target_dir_from_loader": "RadioMapSeer/gain/carsIRT2/",
+          "cars_input_dir_from_loader": null
+        }
+      },
+      "gate": false
+    },
+    {
+      "name": "s_dpmcars_carinput_thr2_rand1_300",
+      "config": "configs/s_dpmcars_carinput_thr2_rand1_300.yaml",
+      "run_dir": "reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_50ep",
+      "exists": false,
+      "model": "S",
+      "simulation": "DPM",
+      "cars_simulation": "yes",
+      "cars_input": "yes",
+      "loader_audit": {
+        "config": "configs/s_dpmcars_carinput_thr2_rand1_300.yaml",
+        "loader": "RadioUNet_s",
+        "simulation": "DPM",
+        "cars_simulation": "yes",
+        "cars_input": "yes",
+        "input_shape": [
+          4,
+          256,
+          256
+        ],
+        "target_shape": [
+          1,
+          256,
+          256
+        ],
+        "target_diff_vs_no_cars_max": 27.5,
+        "target_diff_vs_no_cars_mean": 3.032672882080078,
+        "cars_input_nonzero": 772,
+        "cars_input_max": 0.99609375,
+        "evidence": {
+          "cars_dpm_dir": "RadioMapSeer/gain/carsDPM",
+          "cars_irt2_dir": "RadioMapSeer/gain/carsIRT2",
+          "cars_irt4_dir": "RadioMapSeer/gain/carsIRT4",
+          "cars_png_dir": "RadioMapSeer/png/cars",
+          "target_dir_from_loader": "RadioMapSeer/gain/carsDPM/",
+          "cars_input_dir_from_loader": "RadioMapSeer/png/cars/"
+        }
+      },
+      "gate": false
+    },
+    {
+      "name": "s_irt2cars_carinput_thr2_rand1_300",
+      "config": "configs/s_irt2cars_carinput_thr2_rand1_300.yaml",
+      "run_dir": "reports/full_matrix/s_irt2cars_carinput_thr2_rand1_300_50ep",
+      "exists": false,
+      "model": "S",
+      "simulation": "IRT2",
+      "cars_simulation": "yes",
+      "cars_input": "yes",
+      "loader_audit": {
+        "config": "configs/s_irt2cars_carinput_thr2_rand1_300.yaml",
+        "loader": "RadioUNet_s",
+        "simulation": "IRT2",
+        "cars_simulation": "yes",
+        "cars_input": "yes",
+        "input_shape": [
+          4,
+          256,
+          256
+        ],
+        "target_shape": [
+          1,
+          256,
+          256
+        ],
+        "target_diff_vs_no_cars_max": 27.5,
+        "target_diff_vs_no_cars_mean": 3.0454940795898438,
+        "cars_input_nonzero": 772,
+        "cars_input_max": 0.99609375,
+        "evidence": {
+          "cars_dpm_dir": "RadioMapSeer/gain/carsDPM",
+          "cars_irt2_dir": "RadioMapSeer/gain/carsIRT2",
+          "cars_irt4_dir": "RadioMapSeer/gain/carsIRT4",
+          "cars_png_dir": "RadioMapSeer/png/cars",
+          "target_dir_from_loader": "RadioMapSeer/gain/carsIRT2/",
+          "cars_input_dir_from_loader": "RadioMapSeer/png/cars/"
+        }
+      },
+      "gate": false
+    }
+  ],
+  "gate": {
+    "pass": false
+  }
+}
