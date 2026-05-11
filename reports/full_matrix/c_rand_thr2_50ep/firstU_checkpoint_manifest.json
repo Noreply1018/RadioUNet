@@ -1,0 +1,7 @@
+{
+  "phase": "firstU",
+  "checkpoint": "reports/full_matrix/c_rand_thr2_50ep/checkpoints/firstU.pt",
+  "sha256": "7f14984067a461cbc9e8826dadce85b9744b3b98387e4e0b41c693f1b6a0fd3b",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}
