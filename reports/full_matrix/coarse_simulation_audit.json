@@ -1,6 +1,6 @@
 {
   "git": {
-    "commit": "3932a2d7a7ba554f31febe64e712329862338a79",
+    "commit": "2438952b1a89a662c4c52bcd8889d7f2e3c09073",
     "dirty": false,
     "status_short": "",
     "exclude_paths": [
@@ -191,9 +191,9 @@
     },
     {
       "name": "s_rand_thr2_rand1_300",
-      "run_dir": "/root/lanyun-tmp/projects/RadioUNet_hkf/reports/full_matrix/s_rand_thr2_rand1_300_50ep",
+      "run_dir": "reports/full_matrix/s_rand_thr2_rand1_300_50ep",
       "config": "configs/s_rand_thr2_rand1_300.yaml",
-      "exists": false,
+      "exists": true,
       "simulation": "rand",
       "model": "S",
       "sample_policy": {
@@ -203,10 +203,35 @@
       },
       "cars_simulation": "no",
       "cars_input": "no",
-      "gate": false
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.0006066049691484791,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.0005101970281374992,
+      "manifest_exists": true,
+      "manifest_gate": {
+        "config_present": true,
+        "firstU_metrics": true,
+        "secondU_metrics": true,
+        "firstU_rerun": true,
+        "secondU_rerun": true,
+        "history_present": true,
+        "checkpoint_manifests_present": true,
+        "figures_count_8": true,
+        "figures_nonempty": true,
+        "epochs_50_or_smoke": true,
+        "pass": true
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
     }
   ],
   "gate": {
-    "pass": false
+    "pass": true
   }
 }
