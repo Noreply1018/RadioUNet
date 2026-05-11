@@ -1,0 +1,74 @@
+{
+  "config": "configs/c_irt2cars_thr2.yaml",
+  "run_dir": "reports/full_matrix/c_irt2cars_thr2_50ep",
+  "smoke": false,
+  "simulation": "IRT2",
+  "model": "C",
+  "cars_simulation": "yes",
+  "cars_input": "no",
+  "sample_policy": {
+    "fix_samples": null,
+    "num_samples_low": null,
+    "num_samples_high": null
+  },
+  "history": {
+    "firstU": {
+      "best_val_loss": 0.0013211928722193988,
+      "train_entries": 50,
+      "val_entries": 50
+    },
+    "secondU": {
+      "best_val_loss": 0.0012621709780978564,
+      "train_entries": 50,
+      "val_entries": 50
+    }
+  },
+  "checkpoints": {
+    "firstU": {
+      "checkpoint": "reports/full_matrix/c_irt2cars_thr2_50ep/checkpoints/firstU.pt",
+      "sha256": "c0991a3a1c4fc814fc6f153dfe3b47ada4ae69f796342d05f7a22a02bd51f3c9"
+    },
+    "secondU": {
+      "checkpoint": "reports/full_matrix/c_irt2cars_thr2_50ep/checkpoints/secondU.pt",
+      "sha256": "c256cebf544bb04f689de2c979a2f993bcd59fb33237f5c7e69804ba5de547eb"
+    }
+  },
+  "figures": [
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0000.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0001.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0002.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0003.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0004.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0005.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0006.png",
+    "reports/full_matrix/c_irt2cars_thr2_50ep/figures/c_irt2cars_thr2_test_0007.png"
+  ],
+  "git": {
+    "commit": "545907f1ad08c186084f9b0681287610ec272c23",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "545907f1ad08c186084f9b0681287610ec272c23",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_irt2cars_thr2_50ep/",
+    "exclude_paths": []
+  },
+  "gate": {
+    "cars_simulation_yes": true,
+    "config_present": true,
+    "firstU_metrics": true,
+    "secondU_metrics": true,
+    "firstU_rerun": true,
+    "secondU_rerun": true,
+    "history_present": true,
+    "checkpoint_manifests_present": true,
+    "figures_count": true,
+    "figures_nonempty": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}
