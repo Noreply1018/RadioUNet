@@ -51,6 +51,25 @@ def build_dataset(config: dict[str, Any], phase: str, smoke: bool = False):
 
     if smoke:
         kwargs.update({"phase": "custom", "ind1": 0, "ind2": 0, "numTx": int(data_cfg.get("smoke_num_tx", 2))})
+    elif data_cfg.get("split_policy") == "400_100_200":
+        split_ranges = {
+            "train": (0, int(data_cfg.get("train_maps", 400)) - 1),
+            "val": (
+                int(data_cfg.get("train_maps", 400)),
+                int(data_cfg.get("train_maps", 400)) + int(data_cfg.get("val_maps", 100)) - 1,
+            ),
+            "test": (
+                int(data_cfg.get("train_maps", 400)) + int(data_cfg.get("val_maps", 100)),
+                int(data_cfg.get("train_maps", 400))
+                + int(data_cfg.get("val_maps", 100))
+                + int(data_cfg.get("test_maps", 200))
+                - 1,
+            ),
+        }
+        if phase not in split_ranges:
+            raise ValueError(f"Unsupported phase for split_policy=400_100_200: {phase}")
+        ind1, ind2 = split_ranges[phase]
+        kwargs.update({"phase": "custom", "ind1": ind1, "ind2": ind2})
 
     return loader_cls(**kwargs)
 

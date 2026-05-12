@@ -31,4 +31,6 @@
 - config：`configs/c_dpm_thr2_split400_100_200.yaml`
 - legacy counts：`{'train': 501, 'val': 100, 'test': 99}`
 - paper 400/100/200 counts：`{'train': 400, 'val': 100, 'test': 200}`
+- loader sample counts：`{'train': 32000, 'val': 8000, 'test': 16000}`
+- loader map counts：`{'train': 400, 'val': 100, 'test': 200}`
 - legacy test 与 paper test overlap map 数：`99`

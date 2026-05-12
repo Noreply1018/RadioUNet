@@ -1,16 +1,16 @@
 {
   "git": {
-    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
+    "commit": "d87decb1759a7ed32fe9d101d883305a8867d711",
     "dirty": true,
-    "status_short": "M scripts/audit_wnet_size_threshold.py\n?? scripts/run_wnet_matrix_experiment.py",
+    "status_short": "M scripts/audit_wnet_size_threshold.py\n M src/radiounet/factory.py",
     "exclude_paths": [
       "reports"
     ]
   },
   "artifact_git": {
-    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
+    "commit": "d87decb1759a7ed32fe9d101d883305a8867d711",
     "dirty": true,
-    "status_short": "M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_wnet_size_threshold.py\n?? reports/full_matrix/c_dpm_thr2_size_small_smoke/\n?? scripts/run_wnet_matrix_experiment.py",
+    "status_short": "M scripts/audit_wnet_size_threshold.py\n M src/radiounet/factory.py",
     "exclude_paths": []
   },
   "model_size": [
@@ -322,6 +322,16 @@
       698,
       699
     ],
+    "loader_sample_counts": {
+      "train": 32000,
+      "val": 8000,
+      "test": 16000
+    },
+    "loader_map_counts": {
+      "train": 400,
+      "val": 100,
+      "test": 200
+    },
     "gate": true
   },
   "gate": {

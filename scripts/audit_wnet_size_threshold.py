@@ -140,7 +140,16 @@ def split_audit() -> dict[str, Any]:
         "overlap_counts": overlap,
         "test_overlap_legacy_vs_paper": sorted(legacy["test"] & paper["test"]),
     }
-    row["gate"] = exists and row["paper_map_counts"] == {"train": 400, "val": 100, "test": 200}
+    if exists:
+        cfg = load_yaml(ROOT / SPLIT_CONFIG)
+        row["loader_sample_counts"] = {split: len(build_dataset(cfg, split)) for split in ["train", "val", "test"]}
+        num_tx = int(cfg["data"].get("num_tx", 80))
+        row["loader_map_counts"] = {split: count // num_tx for split, count in row["loader_sample_counts"].items()}
+    row["gate"] = (
+        exists
+        and row["paper_map_counts"] == {"train": 400, "val": 100, "test": 200}
+        and row.get("loader_map_counts") == {"train": 400, "val": 100, "test": 200}
+    )
     return row
 
 
@@ -178,6 +187,8 @@ def write_markdown(audit: dict[str, Any]) -> None:
             f"- config：`{split['config']}`",
             f"- legacy counts：`{split['legacy_map_counts']}`",
             f"- paper 400/100/200 counts：`{split['paper_map_counts']}`",
+            f"- loader sample counts：`{split.get('loader_sample_counts')}`",
+            f"- loader map counts：`{split.get('loader_map_counts')}`",
             f"- legacy test 与 paper test overlap map 数：`{len(split['test_overlap_legacy_vs_paper'])}`",
         ]
     )

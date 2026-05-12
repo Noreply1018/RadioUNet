@@ -3,7 +3,7 @@
 ## 结论
 - final gate：`False`。
 - 这次审计没有把缺失矩阵伪装为完成；所有未覆盖项均标为 blocking gap。
-- 当前 git 状态（排除 reports）：dirty=`True`，commit=`98c674dbf97842c0a0902ecec7f0609a3475bcdd`。
+- 当前 git 状态（排除 reports）：dirty=`True`，commit=`d87decb1759a7ed32fe9d101d883305a8867d711`。
 
 ## Prompt-to-artifact checklist
 | 要求 | 证据 | 通过 | 缺口 |
