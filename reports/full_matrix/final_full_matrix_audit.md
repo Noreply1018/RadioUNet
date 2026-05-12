@@ -3,7 +3,7 @@
 ## 结论
 - final gate：`False`。
 - 这次审计没有把缺失矩阵伪装为完成；所有未覆盖项均标为 blocking gap。
-- 当前 git 状态（排除 reports）：dirty=`True`，commit=`abc4c0efe37044b3f2ef20334a113b510203eeba`。
+- 当前 git 状态（排除 reports）：dirty=`True`，commit=`3a2d66caba5e665f442d33aa15888310906fa7e8`。
 
 ## Prompt-to-artifact checklist
 | 要求 | 证据 | 通过 | 缺口 |
@@ -13,7 +13,7 @@
 | 3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。 | 由 reports/full_matrix/cars_audit.json 检查 cars target、cars input channel、metrics/rerun、manifest 和 qualitative figures。 | `False` | 未通过 run：s_irt2cars_carinput_thr2_rand1_300。 |
 | 4. Missing buildings 全矩阵与 fixed receiver 对照。 | official-loader-faithful missing0/1/2/4 已有；fixed receiver loader 参数、DPM-source configs 和 hash-level policy audit 已补。 | `False` | 缺 fixed receiver policy 的 full runs/metrics/rerun/manifest；缺 IRT2/rand source missing matrix。 |
 | 5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。 | 由 reports/full_matrix/state_of_art_comparison.json 检查 RBF、tensor-completion proxy、tomography proxy、one-step MLP proxy、RadioUNet_S reference 和 C baseline。 | `True` | 无。 |
-| 6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。 | 当前模型未参数化 size；threshold/split 矩阵缺失。 | `False` | 缺模型 size 参数化、参数量/architecture hash、threshold preprocessing audit、split overlap audit。 |
+| 6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。 | reports/full_matrix/wnet_size_threshold_audit.json 已检查 size 参数化、参数量、architecture hash、shape、threshold preprocessing 和 split overlap；full runs 尚未完成。 | `False` | 缺各 size/threshold/split 配置的 50 epoch full runs、metrics/rerun 和 qualitative figures。 |
 | 7. 论文图表级汇总：paper_table_reproduction、Fig8/9/10、summary docs。 | 本脚本生成图表级汇总草案和现有子集图；由于上游矩阵缺口，final gate 仍失败。 | `True` | 图表只覆盖现有子集，不能代表论文全矩阵。 |
 
 ## 新增配置 gate

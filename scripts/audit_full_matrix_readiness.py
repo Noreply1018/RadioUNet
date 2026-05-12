@@ -243,6 +243,8 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
     irt4_pass = audit_gate("reports/full_matrix/irt4_transfer_matrix.json")
     cars_pass = audit_gate("reports/full_matrix/cars_audit.json")
     state_of_art_pass = audit_gate("reports/full_matrix/state_of_art_comparison.json")
+    wnet_audit_exists = (ROOT / "reports/full_matrix/wnet_size_threshold_audit.json").exists()
+    wnet_audit = load_json("reports/full_matrix/wnet_size_threshold_audit.json") if wnet_audit_exists else {}
 
     rows = [
         {
@@ -282,10 +284,10 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
         },
         {
             "requirement": "6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。",
-            "evidence": "当前模型未参数化 size；threshold/split 矩阵缺失。",
-            "paths": ["src/radiounet/models.py"],
+            "evidence": "reports/full_matrix/wnet_size_threshold_audit.json 已检查 size 参数化、参数量、architecture hash、shape、threshold preprocessing 和 split overlap；full runs 尚未完成。",
+            "paths": ["src/radiounet/models.py", "scripts/generate_wnet_size_threshold_configs.py", "scripts/audit_wnet_size_threshold.py", "reports/full_matrix/wnet_size_threshold_audit.json"],
             "pass": False,
-            "blocking_gap": "缺模型 size 参数化、参数量/architecture hash、threshold preprocessing audit、split overlap audit。",
+            "blocking_gap": wnet_audit.get("blocking_gap", "缺各 size/threshold/split 配置的 50 epoch full runs、metrics/rerun 和 qualitative figures。"),
         },
         {
             "requirement": "7. 论文图表级汇总：paper_table_reproduction、Fig8/9/10、summary docs。",

@@ -24,63 +24,68 @@ def convreluT(in_channels, out_channels, kernel, padding):
     
 class RadioWNet(nn.Module):
 
-    def __init__(self,inputs=2,phase="firstU"):
+    def __init__(self,inputs=2,phase="firstU", width_scale=1.0):
         super().__init__()
         
         self.inputs=inputs
         self.phase=phase
+        self.width_scale=float(width_scale)
+
+        def ch(value):
+            return max(1, int(round(value * self.width_scale)))
+
+        first_stem = ch(6) if inputs <= 3 else ch(10)
+        u0, u1, u10, u2, u3, u4, u5 = ch(40), ch(50), ch(60), ch(100), ch(150), ch(300), ch(500)
+        w0, w1, w10, w2, w20, w3, w4, w5 = ch(30), ch(40), ch(50), ch(60), ch(70), ch(90), ch(110), ch(150)
+        wstem = ch(20)
         
         if inputs<=3:
-            self.layer00 = convrelu(inputs, 6, 3, 1,1) 
-            self.layer0 = convrelu(6, 40, 5, 2,2) 
+            self.layer00 = convrelu(inputs, first_stem, 3, 1,1) 
+            self.layer0 = convrelu(first_stem, u0, 5, 2,2) 
         else:
-            self.layer00 = convrelu(inputs, 10, 3, 1,1) 
-            self.layer0 = convrelu(10, 40, 5, 2,2) 
+            self.layer00 = convrelu(inputs, first_stem, 3, 1,1) 
+            self.layer0 = convrelu(first_stem, u0, 5, 2,2) 
          
-        self.layer1 = convrelu(40, 50, 5, 2,2)  
-        self.layer10 = convrelu(50, 60, 5, 2,1)  
-        self.layer2 = convrelu(60, 100, 5, 2,2) 
-        self.layer20 = convrelu(100, 100, 3, 1,1) 
-        self.layer3 = convrelu(100, 150, 5, 2,2) 
-        self.layer4 =convrelu(150, 300, 5, 2,2) 
-        self.layer5 =convrelu(300, 500, 5, 2,2) 
+        self.layer1 = convrelu(u0, u1, 5, 2,2)  
+        self.layer10 = convrelu(u1, u10, 5, 2,1)  
+        self.layer2 = convrelu(u10, u2, 5, 2,2) 
+        self.layer20 = convrelu(u2, u2, 3, 1,1) 
+        self.layer3 = convrelu(u2, u3, 5, 2,2) 
+        self.layer4 =convrelu(u3, u4, 5, 2,2) 
+        self.layer5 =convrelu(u4, u5, 5, 2,2) 
         
-        self.conv_up5 =convreluT(500, 300, 4, 1)  
-        self.conv_up4 = convreluT(300+300, 150, 4, 1) 
-        self.conv_up3 = convreluT(150 + 150, 100, 4, 1) 
-        self.conv_up20 = convrelu(100 + 100, 100, 3, 1, 1) 
-        self.conv_up2 = convreluT(100 + 100, 60, 6, 2) 
-        self.conv_up10 = convrelu(60 + 60, 50, 5, 2, 1) 
-        self.conv_up1 = convreluT(50 + 50, 40, 6, 2)
-        self.conv_up0 = convreluT(40 + 40, 20, 6, 2) 
-        if inputs<=3:
-            self.conv_up00 = convrelu(20+6+inputs, 20, 5, 2,1)
-           
-        else:
-            self.conv_up00 = convrelu(20+10+inputs, 20, 5, 2,1)
+        self.conv_up5 =convreluT(u5, u4, 4, 1)  
+        self.conv_up4 = convreluT(u4+u4, u3, 4, 1) 
+        self.conv_up3 = convreluT(u3 + u3, u2, 4, 1) 
+        self.conv_up20 = convrelu(u2 + u2, u2, 3, 1, 1) 
+        self.conv_up2 = convreluT(u2 + u2, u10, 6, 2) 
+        self.conv_up10 = convrelu(u10 + u10, u1, 5, 2, 1) 
+        self.conv_up1 = convreluT(u1 + u1, u0, 6, 2)
+        self.conv_up0 = convreluT(u0 + u0, wstem, 6, 2) 
+        self.conv_up00 = convrelu(wstem+first_stem+inputs, wstem, 5, 2,1)
         
-        self.conv_up000 = convrelu(20+inputs, 1, 5, 2,1)
+        self.conv_up000 = convrelu(wstem+inputs, 1, 5, 2,1)
         
-        self.Wlayer00 = convrelu(inputs+1, 20, 3, 1,1) 
-        self.Wlayer0 = convrelu(20, 30, 5, 2,2)  
-        self.Wlayer1 = convrelu(30, 40, 5, 2,2)  
-        self.Wlayer10 = convrelu(40, 50, 5, 2,1)  
-        self.Wlayer2 = convrelu(50, 60, 5, 2,2) 
-        self.Wlayer20 = convrelu(60, 70, 3, 1,1) 
-        self.Wlayer3 = convrelu(70, 90, 5, 2,2) 
-        self.Wlayer4 =convrelu(90, 110, 5, 2,2) 
-        self.Wlayer5 =convrelu(110, 150, 5, 2,2) 
+        self.Wlayer00 = convrelu(inputs+1, wstem, 3, 1,1) 
+        self.Wlayer0 = convrelu(wstem, w0, 5, 2,2)  
+        self.Wlayer1 = convrelu(w0, w1, 5, 2,2)  
+        self.Wlayer10 = convrelu(w1, w10, 5, 2,1)  
+        self.Wlayer2 = convrelu(w10, w2, 5, 2,2) 
+        self.Wlayer20 = convrelu(w2, w20, 3, 1,1) 
+        self.Wlayer3 = convrelu(w20, w3, 5, 2,2) 
+        self.Wlayer4 =convrelu(w3, w4, 5, 2,2) 
+        self.Wlayer5 =convrelu(w4, w5, 5, 2,2) 
         
-        self.Wconv_up5 =convreluT(150, 110, 4, 1)  
-        self.Wconv_up4 = convreluT(110+110, 90, 4, 1) 
-        self.Wconv_up3 = convreluT(90 + 90, 70, 4, 1) 
-        self.Wconv_up20 = convrelu(70 + 70, 60, 3, 1, 1) 
-        self.Wconv_up2 = convreluT(60 + 60, 50, 6, 2) 
-        self.Wconv_up10 = convrelu(50 + 50, 40, 5, 2, 1) 
-        self.Wconv_up1 = convreluT(40 + 40, 30, 6, 2)
-        self.Wconv_up0 = convreluT(30 + 30, 20, 6, 2) 
-        self.Wconv_up00 = convrelu(20+20+inputs+1, 20, 5, 2,1)
-        self.Wconv_up000 = convrelu(20+inputs+1, 1, 5, 2,1)
+        self.Wconv_up5 =convreluT(w5, w4, 4, 1)  
+        self.Wconv_up4 = convreluT(w4+w4, w3, 4, 1) 
+        self.Wconv_up3 = convreluT(w3 + w3, w20, 4, 1) 
+        self.Wconv_up20 = convrelu(w20 + w20, w2, 3, 1, 1) 
+        self.Wconv_up2 = convreluT(w2 + w2, w10, 6, 2) 
+        self.Wconv_up10 = convrelu(w10 + w10, w1, 5, 2, 1) 
+        self.Wconv_up1 = convreluT(w1 + w1, w0, 6, 2)
+        self.Wconv_up0 = convreluT(w0 + w0, wstem, 6, 2) 
+        self.Wconv_up00 = convrelu(wstem+wstem+inputs+1, wstem, 5, 2,1)
+        self.Wconv_up000 = convrelu(wstem+inputs+1, 1, 5, 2,1)
 
     def forward(self, input):
         

@@ -1,0 +1,326 @@
+{
+  "git": {
+    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "dirty": true,
+    "status_short": "M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "dirty": true,
+    "status_short": "M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "exclude_paths": []
+  },
+  "model_size": [
+    {
+      "label": "small",
+      "config": "configs/c_dpm_thr2_size_small.yaml",
+      "config_exists": true,
+      "width_scale": 0.5,
+      "parameters": 3320454,
+      "trainable_parameters": 3320454,
+      "architecture_hash": "b94e5f9b1134f74cd08e3c0f32f1ef51774c5b2d14242d658961a34680c2699d",
+      "input_shape": [
+        1,
+        2,
+        256,
+        256
+      ],
+      "output_shapes": [
+        [
+          1,
+          1,
+          256,
+          256
+        ],
+        [
+          1,
+          1,
+          256,
+          256
+        ]
+      ],
+      "shape_gate": true,
+      "gate": true
+    },
+    {
+      "label": "base",
+      "config": "configs/c_dpm_thr2_size_base.yaml",
+      "config_exists": true,
+      "width_scale": 1.0,
+      "parameters": 13274031,
+      "trainable_parameters": 13274031,
+      "architecture_hash": "b93a681aa8d558252ac91352f8419a0194525ba9fef4d35cd290172daddf76f3",
+      "input_shape": [
+        1,
+        2,
+        256,
+        256
+      ],
+      "output_shapes": [
+        [
+          1,
+          1,
+          256,
+          256
+        ],
+        [
+          1,
+          1,
+          256,
+          256
+        ]
+      ],
+      "shape_gate": true,
+      "gate": true
+    },
+    {
+      "label": "large",
+      "config": "configs/c_dpm_thr2_size_large.yaml",
+      "config_exists": true,
+      "width_scale": 1.5,
+      "parameters": 29860858,
+      "trainable_parameters": 29860858,
+      "architecture_hash": "48284e7921d2b45215b1225cb60e7cede08a0f3fc0174735aa84daeb148dc83b",
+      "input_shape": [
+        1,
+        2,
+        256,
+        256
+      ],
+      "output_shapes": [
+        [
+          1,
+          1,
+          256,
+          256
+        ],
+        [
+          1,
+          1,
+          256,
+          256
+        ]
+      ],
+      "shape_gate": true,
+      "gate": true
+    }
+  ],
+  "thresholds": [
+    {
+      "threshold": 0.0,
+      "config": "configs/c_dpm_thr0p0.yaml",
+      "config_exists": true,
+      "target_min": 0.0,
+      "target_max": 1.0,
+      "target_mean": 0.4080784320831299,
+      "target_shape": [
+        1,
+        256,
+        256
+      ],
+      "gate": true,
+      "diff_vs_thr0p2_max": 0.20000000298023224,
+      "threshold_transform_differs": true
+    },
+    {
+      "threshold": 0.1,
+      "config": "configs/c_dpm_thr0p1.yaml",
+      "config_exists": true,
+      "target_min": 0.0,
+      "target_max": 1.0,
+      "target_mean": 0.35343629121780396,
+      "target_shape": [
+        1,
+        256,
+        256
+      ],
+      "gate": true,
+      "diff_vs_thr0p2_max": 0.1111111119389534,
+      "threshold_transform_differs": true
+    },
+    {
+      "threshold": 0.2,
+      "config": "configs/c_dpm_thr0p2.yaml",
+      "config_exists": true,
+      "target_min": 0.0,
+      "target_max": 1.0,
+      "target_mean": 0.2854069769382477,
+      "target_shape": [
+        1,
+        256,
+        256
+      ],
+      "gate": true
+    },
+    {
+      "threshold": 0.3,
+      "config": "configs/c_dpm_thr0p3.yaml",
+      "config_exists": true,
+      "target_min": 0.0,
+      "target_max": 1.0,
+      "target_mean": 0.20218908786773682,
+      "target_shape": [
+        1,
+        256,
+        256
+      ],
+      "gate": true,
+      "diff_vs_thr0p2_max": 0.12464986741542816,
+      "threshold_transform_differs": true
+    },
+    {
+      "threshold": 0.4,
+      "config": "configs/c_dpm_thr0p4.yaml",
+      "config_exists": true,
+      "target_min": 0.0,
+      "target_max": 1.0,
+      "target_mean": 0.11577263474464417,
+      "target_shape": [
+        1,
+        256,
+        256
+      ],
+      "gate": true,
+      "diff_vs_thr0p2_max": 0.25,
+      "threshold_transform_differs": true
+    }
+  ],
+  "split": {
+    "config": "configs/c_dpm_thr2_split400_100_200.yaml",
+    "config_exists": true,
+    "legacy_map_counts": {
+      "train": 501,
+      "val": 100,
+      "test": 99
+    },
+    "paper_map_counts": {
+      "train": 400,
+      "val": 100,
+      "test": 200
+    },
+    "overlap_counts": {
+      "train_vs_train": 400,
+      "train_vs_val": 100,
+      "train_vs_test": 1,
+      "val_vs_train": 0,
+      "val_vs_val": 0,
+      "val_vs_test": 100,
+      "test_vs_train": 0,
+      "test_vs_val": 0,
+      "test_vs_test": 99
+    },
+    "test_overlap_legacy_vs_paper": [
+      601,
+      602,
+      603,
+      604,
+      605,
+      606,
+      607,
+      608,
+      609,
+      610,
+      611,
+      612,
+      613,
+      614,
+      615,
+      616,
+      617,
+      618,
+      619,
+      620,
+      621,
+      622,
+      623,
+      624,
+      625,
+      626,
+      627,
+      628,
+      629,
+      630,
+      631,
+      632,
+      633,
+      634,
+      635,
+      636,
+      637,
+      638,
+      639,
+      640,
+      641,
+      642,
+      643,
+      644,
+      645,
+      646,
+      647,
+      648,
+      649,
+      650,
+      651,
+      652,
+      653,
+      654,
+      655,
+      656,
+      657,
+      658,
+      659,
+      660,
+      661,
+      662,
+      663,
+      664,
+      665,
+      666,
+      667,
+      668,
+      669,
+      670,
+      671,
+      672,
+      673,
+      674,
+      675,
+      676,
+      677,
+      678,
+      679,
+      680,
+      681,
+      682,
+      683,
+      684,
+      685,
+      686,
+      687,
+      688,
+      689,
+      690,
+      691,
+      692,
+      693,
+      694,
+      695,
+      696,
+      697,
+      698,
+      699
+    ],
+    "gate": true
+  },
+  "gate": {
+    "model_size_ready": true,
+    "threshold_ready": true,
+    "split_ready": true,
+    "full_runs_complete": false,
+    "pass": false
+  },
+  "blocking_gap": "缺各 size/threshold/split 配置的 50 epoch full runs、metrics/rerun 和 qualitative figures。"
+}

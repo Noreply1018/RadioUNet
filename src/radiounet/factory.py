@@ -87,4 +87,8 @@ def build_model(config: dict[str, Any], phase: str | None = None):
     class_name = model_cfg.get("class_name", "RadioWNet")
     model_cls = getattr(models, class_name)
     model_phase = phase or model_cfg.get("phase", "firstU")
-    return model_cls(inputs=int(model_cfg.get("inputs", 2)), phase=model_phase)
+    return model_cls(
+        inputs=int(model_cfg.get("inputs", 2)),
+        phase=model_phase,
+        width_scale=float(model_cfg.get("width_scale", 1.0)),
+    )

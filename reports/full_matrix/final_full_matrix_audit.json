@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "abc4c0efe37044b3f2ef20334a113b510203eeba",
+    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
     "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M reports/full_matrix/fig10_state_of_art_comparison.png\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_full_matrix_readiness.py\n?? reports/full_matrix/state_of_art_comparison.json\n?? reports/full_matrix/state_of_art_comparison.md\n?? reports/full_matrix/state_of_art_comparison/\n?? scripts/audit_state_of_art_baselines.py\n?? scripts/run_state_of_art_baselines.py\n?? src/radiounet/baselines.py",
+    "status_short": "M scripts/audit_full_matrix_readiness.py\n M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? reports/full_matrix/wnet_size_threshold_audit.json\n?? reports/full_matrix/wnet_size_threshold_audit.md\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "abc4c0efe37044b3f2ef20334a113b510203eeba",
+    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
     "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M scripts/audit_full_matrix_readiness.py\n?? scripts/audit_state_of_art_baselines.py\n?? scripts/run_state_of_art_baselines.py\n?? src/radiounet/baselines.py",
+    "status_short": "M scripts/audit_full_matrix_readiness.py\n M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
     "exclude_paths": [
       "reports"
     ]
@@ -861,12 +861,15 @@
     },
     {
       "requirement": "6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。",
-      "evidence": "当前模型未参数化 size；threshold/split 矩阵缺失。",
+      "evidence": "reports/full_matrix/wnet_size_threshold_audit.json 已检查 size 参数化、参数量、architecture hash、shape、threshold preprocessing 和 split overlap；full runs 尚未完成。",
       "paths": [
-        "src/radiounet/models.py"
+        "src/radiounet/models.py",
+        "scripts/generate_wnet_size_threshold_configs.py",
+        "scripts/audit_wnet_size_threshold.py",
+        "reports/full_matrix/wnet_size_threshold_audit.json"
       ],
       "pass": false,
-      "blocking_gap": "缺模型 size 参数化、参数量/architecture hash、threshold preprocessing audit、split overlap audit。"
+      "blocking_gap": "缺各 size/threshold/split 配置的 50 epoch full runs、metrics/rerun 和 qualitative figures。"
     },
     {
       "requirement": "7. 论文图表级汇总：paper_table_reproduction、Fig8/9/10、summary docs。",
