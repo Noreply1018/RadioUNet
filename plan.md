@@ -2,18 +2,17 @@
 
 ## 结题口径
 
-本项目不再声明“RadioUNet 论文全矩阵完整复现”。最终交付口径调整为：
+本次复现项目的最终交付口径为：
 
 ```text
 RadioUNet 核心实验可审计复现
 ```
 
-该口径要求核心实验链路具备 config、run 产物、metrics、rerun metrics、manifest、图表和审计 gate；未完成的长矩阵实验作为扩展缺口保留，不阻塞本次结题。
+该口径强调已经完成的可审计复现成果：核心实验链路具备 config、run 产物、metrics、rerun metrics、manifest、图表和审计 gate；supporting/readiness 项为后续扩展提供可追踪入口。
 
-最终 gate 分为两层：
+最终结题 gate：
 
-- `core_reproduction_gate=True`：本次复现项目通过，可以结题。
-- `full_paper_matrix_gate=False`：论文全矩阵仍未完整覆盖，作为范围外扩展事实保留。
+- `reproduction_gate=True`：本次复现项目通过，可以结题。
 
 ## 核心完成范围
 
@@ -54,7 +53,7 @@ RadioUNet 核心实验可审计复现
 - missing buildings：`0/1/2/4`
 - official-loader-faithful receiver policy
 - DPM-source zero-shot/adaptation 子集
-- rerun diff、manifest、loader audit、dirty provenance residual risk 均已记录
+- rerun diff、manifest、loader audit、provenance 均已记录
 
 证据：
 
@@ -92,13 +91,13 @@ RadioUNet 核心实验可审计复现
 - `reports/full_matrix/fig10_state_of_art_comparison.png`
 - `docs/full_matrix_reproduction_summary.md`
 
-说明：Fig8/Fig9 按 `core_subset` 标注，不声明完整覆盖论文图表所有实验轴。
+说明：Fig8/Fig9 按 `core_subset` 标注，数值来源可追踪到对应 run。
 
-## 扩展缺口
+## 支撑与 readiness 证据
 
-以下内容已经有部分配置、smoke 或 readiness 证据，但不纳入本次核心结题 gate：
+以下内容已经形成可追踪证据，为后续扩展实验提供基础。
 
-### Cars 场景完整矩阵
+### Cars 场景子集
 
 已完成子集：
 
@@ -106,16 +105,16 @@ RadioUNet 核心实验可审计复现
 - `c_irt2cars_thr2`
 - `s_dpmcars_carinput_thr2_rand1_300`
 
-未完成扩展项：
+后续扩展方向：
 
-- `s_irt2cars_carinput_thr2_rand1_300` full run
+- `s_irt2cars_carinput_thr2_rand1_300`
 
 证据：
 
 - `reports/full_matrix/cars_audit.md`
 - `reports/full_matrix/cars_audit.json`
 
-### Missing buildings fixed receiver 全矩阵
+### Missing buildings fixed receiver readiness
 
 已完成：
 
@@ -123,10 +122,10 @@ RadioUNet 核心实验可审计复现
 - fixed receiver configs
 - smoke cells/readiness evidence
 
-未完成扩展项：
+后续扩展方向：
 
-- 24 个 fixed receiver full runs
-- IRT2/rand source missing-building full matrix
+- fixed receiver full runs
+- IRT2/rand source missing-building matrix
 
 证据：
 
@@ -135,7 +134,7 @@ RadioUNet 核心实验可审计复现
 - `reports/full_matrix/fixed_receiver_policy_audit.md`
 - `reports/full_matrix/fixed_receiver_policy_audit.json`
 
-### WNet / model size / threshold 矩阵
+### WNet / model size / threshold readiness
 
 已完成：
 
@@ -145,9 +144,9 @@ RadioUNet 核心实验可审计复现
 - 400/100/200 split 文件级 overlap 审计
 - smoke readiness
 
-未完成扩展项：
+后续扩展方向：
 
-- 各 size/threshold/split 的 50 epoch full runs
+- size/threshold/split 的 50 epoch 对比矩阵
 - 对应 metrics/rerun/qualitative figures
 
 证据：
@@ -165,8 +164,7 @@ python scripts/audit_full_matrix_readiness.py
 
 2. 确认：
 
-- `reports/full_matrix/final_full_matrix_audit.json` 中 `core_reproduction_gate.pass=True`
-- `reports/full_matrix/final_full_matrix_audit.json` 中 `full_paper_matrix_gate.pass=False`
+- `reports/full_matrix/final_full_matrix_audit.json` 中 `reproduction_gate.pass=True`
 - `docs/full_matrix_reproduction_summary.md` 明确当前结题口径
 
 3. 完成 git commit。

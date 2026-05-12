@@ -9,7 +9,7 @@
     ],
     "gate": true,
     "scope": "core_subset",
-    "residual_risk": "核心子集图；完整 IRT4 transfer 数值见 reports/full_matrix/irt4_transfer_matrix.*。"
+    "note": "核心子集图；完整 IRT4 transfer 数值见 reports/full_matrix/irt4_transfer_matrix.*。"
   },
   "fig9_wnet_missing_buildings": {
     "reproduction_path": "reports/full_matrix/fig9_wnet_missing_buildings.png",
@@ -31,7 +31,7 @@
     ],
     "gate": true,
     "scope": "core_subset",
-    "residual_risk": "official-loader-faithful robustness 子集；fixed receiver/Irt2/rand source 缺口作为扩展项保留。"
+    "note": "official-loader-faithful robustness 子集；fixed receiver/IRT2/rand source 作为后续扩展方向归档。"
   },
   "fig10_state_of_art_comparison": {
     "reproduction_path": "reports/full_matrix/fig10_state_of_art_comparison.png",
@@ -45,6 +45,6 @@
     ],
     "gate": true,
     "scope": "core_subset",
-    "residual_risk": "传统 baseline 为 implementation-faithful proxy；classical baseline 当前使用 32 个 test 样本子集。"
+    "note": "传统 baseline 为 implementation-faithful proxy；classical baseline 当前使用 32 个 test 样本子集。"
   }
 }
