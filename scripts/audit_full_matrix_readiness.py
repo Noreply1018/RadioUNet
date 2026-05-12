@@ -245,6 +245,8 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
     state_of_art_pass = audit_gate("reports/full_matrix/state_of_art_comparison.json")
     wnet_audit_exists = (ROOT / "reports/full_matrix/wnet_size_threshold_audit.json").exists()
     wnet_audit = load_json("reports/full_matrix/wnet_size_threshold_audit.json") if wnet_audit_exists else {}
+    missing_matrix_exists = (ROOT / "reports/full_matrix/missing_buildings_matrix.json").exists()
+    missing_matrix = load_json("reports/full_matrix/missing_buildings_matrix.json") if missing_matrix_exists else {}
 
     rows = [
         {
@@ -270,10 +272,10 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
         },
         {
             "requirement": "4. Missing buildings 全矩阵与 fixed receiver 对照。",
-            "evidence": "official-loader-faithful missing0/1/2/4 已有；fixed receiver loader 参数、DPM-source configs 和 hash-level policy audit 已补。",
-            "paths": ["src/radiounet/data.py", "configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml", "reports/full_matrix/fixed_receiver_policy_audit.json"],
+            "evidence": "reports/full_matrix/missing_buildings_matrix.json 已区分 official-loader archived evidence、fixed receiver policy hash gate、DPM/IRT2/rand fixedrx configs 与 full-run 缺口。",
+            "paths": ["scripts/audit_missing_buildings_matrix.py", "scripts/generate_missing_fixedrx_configs.py", "reports/full_matrix/missing_buildings_matrix.json", "reports/full_matrix/fixed_receiver_policy_audit.json"],
             "pass": False,
-            "blocking_gap": "缺 fixed receiver policy 的 full runs/metrics/rerun/manifest；缺 IRT2/rand source missing matrix。",
+            "blocking_gap": missing_matrix.get("blocking_gap", "缺 missing_buildings_matrix 审计结果。"),
         },
         {
             "requirement": "5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。",

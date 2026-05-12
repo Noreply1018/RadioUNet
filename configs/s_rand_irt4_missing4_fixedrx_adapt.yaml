@@ -1,13 +1,13 @@
 experiment:
-  name: s_dpm_irt4_missing0_fixedrx_adapt
-  description: RadioUNet_S DPM-source IRT4 missing0 sparse adaptation with fixed receiver
-    mask.
+  name: s_rand_irt4_missing4_fixedrx_adapt
+  description: RadioUNet_S random coarse simulation-source IRT4 missing4 sparse adaptation
+    with fixed receiver mask.
   seed: 42
 data:
   dataset_dir: RadioMapSeer/
   loader: RadioUNet_s_sprseIRT4
   simulation: IRT4
-  city_map: complete
+  city_map: missing
   cars_simulation: 'no'
   cars_input: 'no'
   num_tx: 2
@@ -16,6 +16,7 @@ data:
   num_workers: 1
   smoke_num_tx: 2
   receiver_seed_policy: fixed_map
+  missing: 4
   target_scale: 256
   data_samples: 600
   fix_samples: 0
@@ -35,7 +36,7 @@ training:
   gamma: 0.1
   loss: MSELoss
   adaptation_mode: secondU-only
-  init_checkpoint: reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt
+  init_checkpoint: reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt
   loss_mode: sparse_mse
   num_samples_for_loss: 600
 evaluation:
@@ -45,7 +46,7 @@ evaluation:
   - rmse
   save_prediction_panels: true
   measure_runtime: true
-  source_checkpoint: reports/s_dpm_thr2/rand1_300_50ep/checkpoints/firstU.pt
-  source_training_target: DPM
+  source_checkpoint: reports/full_matrix/s_rand_thr2_rand1_300_50ep/checkpoints/firstU.pt
+  source_training_target: random coarse simulation
   target: IRT4
   receiver_policy: paper-faithful fixed receiver mask

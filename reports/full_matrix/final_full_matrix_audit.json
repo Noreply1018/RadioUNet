@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
     "dirty": true,
-    "status_short": "M scripts/audit_full_matrix_readiness.py\n M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? reports/full_matrix/wnet_size_threshold_audit.json\n?? reports/full_matrix/wnet_size_threshold_audit.md\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? reports/full_matrix/missing_buildings_matrix.json\n?? reports/full_matrix/missing_buildings_matrix.md\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
     "dirty": true,
-    "status_short": "M scripts/audit_full_matrix_readiness.py\n M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
     "exclude_paths": [
       "reports"
     ]
@@ -838,14 +838,15 @@
     },
     {
       "requirement": "4. Missing buildings 全矩阵与 fixed receiver 对照。",
-      "evidence": "official-loader-faithful missing0/1/2/4 已有；fixed receiver loader 参数、DPM-source configs 和 hash-level policy audit 已补。",
+      "evidence": "reports/full_matrix/missing_buildings_matrix.json 已区分 official-loader archived evidence、fixed receiver policy hash gate、DPM/IRT2/rand fixedrx configs 与 full-run 缺口。",
       "paths": [
-        "src/radiounet/data.py",
-        "configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml",
+        "scripts/audit_missing_buildings_matrix.py",
+        "scripts/generate_missing_fixedrx_configs.py",
+        "reports/full_matrix/missing_buildings_matrix.json",
         "reports/full_matrix/fixed_receiver_policy_audit.json"
       ],
       "pass": false,
-      "blocking_gap": "缺 fixed receiver policy 的 full runs/metrics/rerun/manifest；缺 IRT2/rand source missing matrix。"
+      "blocking_gap": "official-loader DPM rows are archived evidence but do not all satisfy clean full-matrix gate；缺全部 fixed receiver full runs/metrics/rerun/manifest"
     },
     {
       "requirement": "5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。",
