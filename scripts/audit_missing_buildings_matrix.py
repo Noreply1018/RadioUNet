@@ -128,6 +128,11 @@ def fixed_receiver_rows() -> list[dict[str, Any]]:
             for count in COUNTS:
                 config = ROOT / f"configs/{model}_{source}_irt4_missing{count}_fixedrx_adapt.yaml"
                 run_dir = ROOT / "reports/full_matrix" / f"{model}_{source}_irt4_missing{count}_fixedrx_adapt_50ep"
+                smoke_dir = ROOT / "reports/full_matrix" / f"{model}_{source}_irt4_missing{count}_fixedrx_adapt_smoke"
+                smoke_manifest = smoke_dir / "stage4_run_manifest.json"
+                smoke_gate = False
+                if smoke_manifest.exists():
+                    smoke_gate = load_json(smoke_manifest).get("gate", {}).get("pass") is True
                 rows.append(
                     {
                         "policy": "fixed_receiver",
@@ -139,6 +144,9 @@ def fixed_receiver_rows() -> list[dict[str, Any]]:
                         "config_exists": config.exists(),
                         "run_dir": str(run_dir.relative_to(ROOT)),
                         "run_exists": run_dir.exists(),
+                        "smoke_dir": str(smoke_dir.relative_to(ROOT)),
+                        "smoke_manifest_exists": smoke_manifest.exists(),
+                        "smoke_gate": smoke_gate,
                         "gate": False,
                         "blocking_gap": "missing config" if not config.exists() else "missing fixed receiver full run",
                     }
@@ -155,6 +163,7 @@ def write_markdown(audit: dict[str, Any]) -> None:
         f"- fixed receiver policy hash gate：`{audit['gate']['fixed_receiver_policy_pass']}`。",
         f"- fixed receiver configs complete：`{audit['gate']['fixed_receiver_configs_complete']}`。",
         f"- fixed receiver full runs complete：`{audit['gate']['fixed_receiver_full_runs_complete']}`。",
+        f"- fixed receiver smoke cells passed：`{audit['gate']['fixed_receiver_smoke_cells_passed']}`。",
         "",
         "## Official-loader 已有 run",
         "| policy | source | model | transfer | missing | samples | mse | rerun diff | gate |",
@@ -170,15 +179,15 @@ def write_markdown(audit: dict[str, Any]) -> None:
         [
             "",
             "## Fixed receiver matrix 缺口",
-            "| source | model | missing | config | run exists | gap |",
-            "| --- | --- | ---: | --- | ---: | --- |",
+            "| source | model | missing | config | smoke gate | run exists | gap |",
+            "| --- | --- | ---: | --- | ---: | ---: | --- |",
         ]
     )
     for row in audit["fixed_receiver_rows"]:
         if not row["gate"]:
             lines.append(
                 f"| {row['source']} | {row['model']} | {row['missing']} | `{row['config_exists']}` | "
-                f"`{row['run_exists']}` | {row['blocking_gap']} |"
+                f"`{row['smoke_gate']}` | `{row['run_exists']}` | {row['blocking_gap']} |"
             )
     (OUT_DIR / "missing_buildings_matrix.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -192,6 +201,7 @@ def main() -> int:
         "official_loader_dpm_complete": all(row["gate"] for row in official),
         "fixed_receiver_policy_pass": fixed_policy.get("gate", {}).get("pass") is True,
         "fixed_receiver_configs_complete": all(row["config_exists"] for row in fixed),
+        "fixed_receiver_smoke_cells_passed": any(row["smoke_gate"] for row in fixed),
         "fixed_receiver_full_runs_complete": all(row["run_exists"] for row in fixed),
     }
     gate["pass"] = all(gate.values())

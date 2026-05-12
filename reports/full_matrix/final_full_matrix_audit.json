@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
     "dirty": true,
-    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? reports/full_matrix/missing_buildings_matrix.json\n?? reports/full_matrix/missing_buildings_matrix.md\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
+    "status_short": "M reports/full_matrix/missing_buildings_matrix.json\n M reports/full_matrix/missing_buildings_matrix.md\n M scripts/audit_missing_buildings_matrix.py\n?? reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
     "dirty": true,
-    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
+    "status_short": "M scripts/audit_missing_buildings_matrix.py",
     "exclude_paths": [
       "reports"
     ]

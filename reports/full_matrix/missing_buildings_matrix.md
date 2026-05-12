@@ -5,6 +5,7 @@
 - fixed receiver policy hash gate：`True`。
 - fixed receiver configs complete：`True`。
 - fixed receiver full runs complete：`False`。
+- fixed receiver smoke cells passed：`True`。
 
 ## Official-loader 已有 run
 | policy | source | model | transfer | missing | samples | mse | rerun diff | gate |
@@ -25,29 +26,29 @@
 | official_loader | dpm | s | adapt | 4 | 198 | 0.0029527322 | 0.0 | `False` |
 
 ## Fixed receiver matrix 缺口
-| source | model | missing | config | run exists | gap |
-| --- | --- | ---: | --- | ---: | --- |
-| dpm | c | 0 | `True` | `False` | missing fixed receiver full run |
-| dpm | c | 1 | `True` | `False` | missing fixed receiver full run |
-| dpm | c | 2 | `True` | `False` | missing fixed receiver full run |
-| dpm | c | 4 | `True` | `False` | missing fixed receiver full run |
-| dpm | s | 0 | `True` | `False` | missing fixed receiver full run |
-| dpm | s | 1 | `True` | `False` | missing fixed receiver full run |
-| dpm | s | 2 | `True` | `False` | missing fixed receiver full run |
-| dpm | s | 4 | `True` | `False` | missing fixed receiver full run |
-| irt2 | c | 0 | `True` | `False` | missing fixed receiver full run |
-| irt2 | c | 1 | `True` | `False` | missing fixed receiver full run |
-| irt2 | c | 2 | `True` | `False` | missing fixed receiver full run |
-| irt2 | c | 4 | `True` | `False` | missing fixed receiver full run |
-| irt2 | s | 0 | `True` | `False` | missing fixed receiver full run |
-| irt2 | s | 1 | `True` | `False` | missing fixed receiver full run |
-| irt2 | s | 2 | `True` | `False` | missing fixed receiver full run |
-| irt2 | s | 4 | `True` | `False` | missing fixed receiver full run |
-| rand | c | 0 | `True` | `False` | missing fixed receiver full run |
-| rand | c | 1 | `True` | `False` | missing fixed receiver full run |
-| rand | c | 2 | `True` | `False` | missing fixed receiver full run |
-| rand | c | 4 | `True` | `False` | missing fixed receiver full run |
-| rand | s | 0 | `True` | `False` | missing fixed receiver full run |
-| rand | s | 1 | `True` | `False` | missing fixed receiver full run |
-| rand | s | 2 | `True` | `False` | missing fixed receiver full run |
-| rand | s | 4 | `True` | `False` | missing fixed receiver full run |
+| source | model | missing | config | smoke gate | run exists | gap |
+| --- | --- | ---: | --- | ---: | ---: | --- |
+| dpm | c | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | c | 1 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | c | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | c | 4 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | s | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | s | 1 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | s | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| dpm | s | 4 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | c | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | c | 1 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | c | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | c | 4 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | s | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | s | 1 | `True` | `True` | `False` | missing fixed receiver full run |
+| irt2 | s | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| irt2 | s | 4 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | c | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | c | 1 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | c | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | c | 4 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | s | 0 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | s | 1 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | s | 2 | `True` | `False` | `False` | missing fixed receiver full run |
+| rand | s | 4 | `True` | `False` | `False` | missing fixed receiver full run |

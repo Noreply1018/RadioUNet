@@ -1,0 +1,80 @@
+{
+  "config_path": "configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml",
+  "run_dir": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke",
+  "missing_buildings": 1,
+  "result_bucket": null,
+  "git": {
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
+    "dirty": false,
+    "status_short": "",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/",
+    "exclude_paths": []
+  },
+  "smoke": true,
+  "split_counts": {
+    "train": 1002,
+    "val": 200,
+    "test": 198
+  },
+  "config_snapshot": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/s_irt2_irt4_missing1_fixedrx_adapt.yaml",
+  "run_metadata": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/run_metadata.json",
+  "checkpoint": {
+    "phase": "secondU",
+    "checkpoint": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/checkpoints/secondU.pt",
+    "sha256": "3d480cd0c00337f557e9227e541650d87e56d66feabab644adf5d3aae19ac801",
+    "tracked_in_git": false,
+    "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log.",
+    "sha256_actual": "3d480cd0c00337f557e9227e541650d87e56d66feabab644adf5d3aae19ac801"
+  },
+  "history": {
+    "entries": 2,
+    "train_entries": 1,
+    "val_entries": 1,
+    "best_val_loss": 3325.37890625,
+    "loss_modes": [
+      "sparse_mse"
+    ],
+    "num_samples_for_loss": [
+      600
+    ],
+    "mask_points_min": 594,
+    "mask_points_max": 594,
+    "mask_points_mean_min": 594.0,
+    "mask_points_mean_max": 594.0
+  },
+  "metrics": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/secondU_test_metrics.json",
+  "metrics_rerun": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/secondU_test_metrics_rerun.json",
+  "rerun_max_abs_diff": 0.0,
+  "figures": {
+    "count": 2,
+    "files": [
+      "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/figures/s_irt2_irt4_missing1_fixedrx_adapt_test_0000.png",
+      "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/figures/s_irt2_irt4_missing1_fixedrx_adapt_test_0001.png"
+    ],
+    "all_nonempty": true,
+    "sizes": {
+      "s_irt2_irt4_missing1_fixedrx_adapt_test_0000.png": 560125,
+      "s_irt2_irt4_missing1_fixedrx_adapt_test_0001.png": 591783
+    }
+  },
+  "sparse_audit_dir": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/stage4_sparse_audit",
+  "missing_loader_audit_dir": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/stage4_missing_loader_audit",
+  "gate": {
+    "checkpoint_sha256_matches": true,
+    "rerun_diff_zero": true,
+    "figures_requested": true,
+    "figures_nonempty": true,
+    "sparse_history_recorded": true,
+    "mask_distribution_recorded": true,
+    "test_samples_198": true,
+    "sparse_metrics_recorded": true,
+    "pass": true
+  }
+}

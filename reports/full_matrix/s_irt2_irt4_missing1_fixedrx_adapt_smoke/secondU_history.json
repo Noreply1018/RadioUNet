@@ -1,0 +1,28 @@
+{
+  "phase": "secondU",
+  "best_val_loss": 3325.37890625,
+  "history": [
+    {
+      "epoch": 0,
+      "split": "train",
+      "loss": 3438.307373046875,
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600,
+      "samples": 2,
+      "mask_points_mean": 594.0,
+      "mask_points_min": 594,
+      "mask_points_max": 594
+    },
+    {
+      "epoch": 0,
+      "split": "val",
+      "loss": 3325.37890625,
+      "loss_mode": "sparse_mse",
+      "num_samples_for_loss": 600,
+      "samples": 2,
+      "mask_points_mean": 594.0,
+      "mask_points_min": 594,
+      "mask_points_max": 594
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 {
   "git": {
-    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
     "dirty": true,
-    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
+    "status_short": "M scripts/audit_missing_buildings_matrix.py",
     "exclude_paths": [
       "reports"
     ]
   },
   "artifact_git": {
-    "commit": "bcdfec4bd8447564f1c3171348cdd5efa515e4ff",
+    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
     "dirty": true,
-    "status_short": "M configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml\n M configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml\n M scripts/audit_full_matrix_readiness.py\n?? configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/c_rand_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing0_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing1_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing2_fixedrx_adapt.yaml\n?? configs/s_rand_irt4_missing4_fixedrx_adapt.yaml\n?? reports/full_matrix/missing_buildings_matrix.json\n?? reports/full_matrix/missing_buildings_matrix.md\n?? scripts/audit_missing_buildings_matrix.py\n?? scripts/generate_missing_fixedrx_configs.py",
+    "status_short": "M scripts/audit_missing_buildings_matrix.py\n?? reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/",
     "exclude_paths": []
   },
   "fixed_receiver_policy_audit": "reports/full_matrix/fixed_receiver_policy_audit.json",
@@ -293,6 +293,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -306,6 +309,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_dpm_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_dpm_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -319,6 +325,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_dpm_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_dpm_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -332,6 +341,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_dpm_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_dpm_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -345,6 +357,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_dpm_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_dpm_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -358,6 +373,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_dpm_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_dpm_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -371,6 +389,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_dpm_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_dpm_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -384,6 +405,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_dpm_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_dpm_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -397,6 +421,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_irt2_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_irt2_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -410,6 +437,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_irt2_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_irt2_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -423,6 +453,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_irt2_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_irt2_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -436,6 +469,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_irt2_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_irt2_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -449,6 +485,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_irt2_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_irt2_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -462,6 +501,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": true,
+      "smoke_gate": true,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -475,6 +517,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_irt2_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_irt2_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -488,6 +533,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_irt2_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_irt2_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -501,6 +549,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_rand_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_rand_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -514,6 +565,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_rand_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_rand_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -527,6 +581,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_rand_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_rand_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -540,6 +597,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/c_rand_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/c_rand_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -553,6 +613,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_rand_irt4_missing0_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_rand_irt4_missing0_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -566,6 +629,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_rand_irt4_missing1_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_rand_irt4_missing1_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -579,6 +645,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_rand_irt4_missing2_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_rand_irt4_missing2_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     },
@@ -592,6 +661,9 @@
       "config_exists": true,
       "run_dir": "reports/full_matrix/s_rand_irt4_missing4_fixedrx_adapt_50ep",
       "run_exists": false,
+      "smoke_dir": "reports/full_matrix/s_rand_irt4_missing4_fixedrx_adapt_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": false,
       "blocking_gap": "missing fixed receiver full run"
     }
@@ -600,6 +672,7 @@
     "official_loader_dpm_complete": false,
     "fixed_receiver_policy_pass": true,
     "fixed_receiver_configs_complete": true,
+    "fixed_receiver_smoke_cells_passed": true,
     "fixed_receiver_full_runs_complete": false,
     "pass": false
   },
