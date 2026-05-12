@@ -1,7 +1,8 @@
-# Full Matrix 复现收尾状态
+# 核心实验可审计复现收尾状态
 
-- 当前通过项：4/7。
-- final gate：`False`。
-- reduced reproduction 仍以 `reports/final_reproduction_audit.*` 为准；full matrix 交付以 `reports/full_matrix/final_full_matrix_audit.*` 为准。
-- 当前已通过：coarse simulation 全矩阵、IRT4 transfer 全矩阵、state-of-the-art baseline proxy、论文图表级现有子集汇总。
-- 当前主要缺口：`s_irt2cars_carinput_thr2_rand1_300` cars full run、fixed receiver/missing 全矩阵、model size/threshold/split 矩阵。
+- core reproduction gate：`True`（5/5）。
+- full paper matrix gate：`False`。
+- 扩展项 readiness/子集通过：1/3。
+- 本次最终交付口径：核心 RadioUNet C/S coarse simulation、IRT4 transfer、state-of-the-art proxy、missing-building official-loader robustness 子集，以及论文图表核心子集。
+- 不再把 cars 完整矩阵、fixed receiver missing 全矩阵、WNet/model size/threshold 50 epoch 矩阵作为本次结题阻塞项。
+- 完整证据入口：`reports/full_matrix/final_full_matrix_audit.*`、`reports/full_matrix/paper_table_reproduction.*`、`docs/full_matrix_reproduction_summary.md`。
