@@ -209,7 +209,9 @@ def make_figures(runs: dict[str, Any]) -> dict[str, str]:
         shutil.copy2(src_fig9, fig9)
         figures["fig9_wnet_missing_buildings"] = rel(fig9)
 
-    src_fig10 = ROOT / "reports/s_dpm_thr2/sample_count_metric_curves.png"
+    src_fig10 = ROOT / "reports/full_matrix/state_of_art_comparison/state_of_art_comparison.png"
+    if not src_fig10.exists():
+        src_fig10 = ROOT / "reports/s_dpm_thr2/sample_count_metric_curves.png"
     fig10 = OUT_DIR / "fig10_state_of_art_comparison.png"
     if src_fig10.exists():
         shutil.copy2(src_fig10, fig10)
@@ -240,6 +242,7 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
     coarse_pass = audit_gate("reports/full_matrix/coarse_simulation_audit.json")
     irt4_pass = audit_gate("reports/full_matrix/irt4_transfer_matrix.json")
     cars_pass = audit_gate("reports/full_matrix/cars_audit.json")
+    state_of_art_pass = audit_gate("reports/full_matrix/state_of_art_comparison.json")
 
     rows = [
         {
@@ -272,10 +275,10 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
         },
         {
             "requirement": "5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。",
-            "evidence": "已有 RadioUNet_S sample-count ablation；传统/MLP baseline 脚本和结果缺失。",
-            "paths": ["reports/s_dpm_thr2/sample_count_sweep_audit.json"],
-            "pass": False,
-            "blocking_gap": "缺 src/radiounet/baselines.py、run_state_of_art_baselines.py、baseline metrics/runtime、公平性审计。",
+            "evidence": "由 reports/full_matrix/state_of_art_comparison.json 检查 RBF、tensor-completion proxy、tomography proxy、one-step MLP proxy、RadioUNet_S reference 和 C baseline。",
+            "paths": ["src/radiounet/baselines.py", "scripts/run_state_of_art_baselines.py", "scripts/audit_state_of_art_baselines.py", "reports/full_matrix/state_of_art_comparison.json"],
+            "pass": state_of_art_pass,
+            "blocking_gap": "无。" if state_of_art_pass else "缺 state-of-art baseline 审计通过结果。",
         },
         {
             "requirement": "6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。",
@@ -311,9 +314,9 @@ def write_paper_table(audit: dict[str, Any]) -> None:
         },
         "fig10_state_of_art_comparison": {
             "reproduction_path": audit["figures"].get("fig10_state_of_art_comparison"),
-            "runs": ["s_dpm_fixed50", "s_dpm_fixed100", "s_dpm_fixed300", "s_dpm_rand1_300"],
-            "gate": False,
-            "residual_risk": "缺 RBF、tensor completion、tomography、MLP baseline。",
+            "runs": ["rbf", "tensor_completion", "tomography", "one_step_mlp", "radiounet_s_secondU", "radiounet_c_secondU"],
+            "gate": audit["requirements"][4]["pass"],
+            "residual_risk": "传统 baseline 为 implementation-faithful proxy；classical baseline 当前使用 32 个 test 样本子集。",
         },
     }
     save_json(table, OUT_DIR / "paper_table_reproduction.json")
@@ -359,9 +362,8 @@ def write_markdown(audit: dict[str, Any]) -> None:
             "## 下一批必须执行的命令",
             "1. 补 `python scripts/run_full_matrix_cars.py --run s_irt2cars_carinput_thr2_rand1_300 --device auto`。",
             "2. 跑 missing buildings fixed receiver full runs，并补 IRT2/rand source missing matrix。",
-            "3. 实现并运行 state-of-the-art baselines：RBF、tensor completion、tomography、MLP。",
-            "4. 补 model size、with/without secondU、threshold、400/100/200 split 矩阵。",
-            "5. 每批跑对应 audit 后重跑 `python scripts/audit_full_matrix_readiness.py`，直到 final gate 为 `True`。",
+            "3. 补 model size、with/without secondU、threshold、400/100/200 split 矩阵。",
+            "4. 每批跑对应 audit 后重跑 `python scripts/audit_full_matrix_readiness.py`，直到 final gate 为 `True`。",
         ]
     )
     (OUT_DIR / "final_full_matrix_audit.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -376,8 +378,8 @@ def write_summary(audit: dict[str, Any]) -> None:
         f"- 当前通过项：{passed}/{total}。",
         f"- final gate：`{audit['gate']['pass']}`。",
         "- reduced reproduction 仍以 `reports/final_reproduction_audit.*` 为准；full matrix 交付以 `reports/full_matrix/final_full_matrix_audit.*` 为准。",
-        "- 当前已通过：coarse simulation 全矩阵、IRT4 transfer 全矩阵、论文图表级现有子集汇总。",
-        "- 当前主要缺口：`s_irt2cars_carinput_thr2_rand1_300` cars full run、fixed receiver/missing 全矩阵、state-of-the-art baselines、model size/threshold/split 矩阵。",
+        "- 当前已通过：coarse simulation 全矩阵、IRT4 transfer 全矩阵、state-of-the-art baseline proxy、论文图表级现有子集汇总。",
+        "- 当前主要缺口：`s_irt2cars_carinput_thr2_rand1_300` cars full run、fixed receiver/missing 全矩阵、model size/threshold/split 矩阵。",
     ]
     DOC_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

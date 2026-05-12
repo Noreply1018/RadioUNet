@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
+    "commit": "abc4c0efe37044b3f2ef20334a113b510203eeba",
     "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M reports/full_matrix/cars_audit.json\n M reports/full_matrix/cars_audit.md\n M reports/full_matrix/coarse_simulation_audit.json\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M reports/full_matrix/irt4_transfer_matrix.json\n M scripts/audit_full_matrix_readiness.py\n?? reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_50ep/",
+    "status_short": "M docs/full_matrix_reproduction_summary.md\n M reports/full_matrix/fig10_state_of_art_comparison.png\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_full_matrix_readiness.py\n?? reports/full_matrix/state_of_art_comparison.json\n?? reports/full_matrix/state_of_art_comparison.md\n?? reports/full_matrix/state_of_art_comparison/\n?? scripts/audit_state_of_art_baselines.py\n?? scripts/run_state_of_art_baselines.py\n?? src/radiounet/baselines.py",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
+    "commit": "abc4c0efe37044b3f2ef20334a113b510203eeba",
     "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M scripts/audit_full_matrix_readiness.py",
+    "status_short": "M docs/full_matrix_reproduction_summary.md\n M scripts/audit_full_matrix_readiness.py\n?? scripts/audit_state_of_art_baselines.py\n?? scripts/run_state_of_art_baselines.py\n?? src/radiounet/baselines.py",
     "exclude_paths": [
       "reports"
     ]
@@ -849,12 +849,15 @@
     },
     {
       "requirement": "5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。",
-      "evidence": "已有 RadioUNet_S sample-count ablation；传统/MLP baseline 脚本和结果缺失。",
+      "evidence": "由 reports/full_matrix/state_of_art_comparison.json 检查 RBF、tensor-completion proxy、tomography proxy、one-step MLP proxy、RadioUNet_S reference 和 C baseline。",
       "paths": [
-        "reports/s_dpm_thr2/sample_count_sweep_audit.json"
+        "src/radiounet/baselines.py",
+        "scripts/run_state_of_art_baselines.py",
+        "scripts/audit_state_of_art_baselines.py",
+        "reports/full_matrix/state_of_art_comparison.json"
       ],
-      "pass": false,
-      "blocking_gap": "缺 src/radiounet/baselines.py、run_state_of_art_baselines.py、baseline metrics/runtime、公平性审计。"
+      "pass": true,
+      "blocking_gap": "无。"
     },
     {
       "requirement": "6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。",

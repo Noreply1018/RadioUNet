@@ -34,12 +34,14 @@
   "fig10_state_of_art_comparison": {
     "reproduction_path": "reports/full_matrix/fig10_state_of_art_comparison.png",
     "runs": [
-      "s_dpm_fixed50",
-      "s_dpm_fixed100",
-      "s_dpm_fixed300",
-      "s_dpm_rand1_300"
+      "rbf",
+      "tensor_completion",
+      "tomography",
+      "one_step_mlp",
+      "radiounet_s_secondU",
+      "radiounet_c_secondU"
     ],
-    "gate": false,
-    "residual_risk": "缺 RBF、tensor completion、tomography、MLP baseline。"
+    "gate": true,
+    "residual_risk": "传统 baseline 为 implementation-faithful proxy；classical baseline 当前使用 32 个 test 样本子集。"
   }
 }
