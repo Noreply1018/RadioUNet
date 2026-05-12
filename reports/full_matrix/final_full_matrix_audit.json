@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
+    "commit": "6d88942582755d4bd29a5daad31b8cfe84559871",
     "dirty": true,
-    "status_short": "M reports/full_matrix/missing_buildings_matrix.json\n M reports/full_matrix/missing_buildings_matrix.md\n M scripts/audit_missing_buildings_matrix.py\n?? reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_smoke/",
+    "status_short": "M scripts/audit_full_matrix_readiness.py\n M scripts/run_full_matrix_cars.py\n M scripts/run_stage4_experiment.py\n?? reports/full_matrix/remaining_full_run_commands.json\n?? reports/full_matrix/remaining_full_run_commands.md\n?? scripts/plan_remaining_full_runs.py",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "485d145734a13dac25b3a88d3b30cda785263c5c",
+    "commit": "6d88942582755d4bd29a5daad31b8cfe84559871",
     "dirty": true,
-    "status_short": "M scripts/audit_missing_buildings_matrix.py",
+    "status_short": "M scripts/audit_full_matrix_readiness.py\n M scripts/run_full_matrix_cars.py\n M scripts/run_stage4_experiment.py\n?? scripts/plan_remaining_full_runs.py",
     "exclude_paths": [
       "reports"
     ]
@@ -800,6 +800,7 @@
     "fig9_wnet_missing_buildings": "reports/full_matrix/fig9_wnet_missing_buildings.png",
     "fig10_state_of_art_comparison": "reports/full_matrix/fig10_state_of_art_comparison.png"
   },
+  "remaining_full_run_commands": "reports/full_matrix/remaining_full_run_commands.json",
   "requirements": [
     {
       "requirement": "1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。",

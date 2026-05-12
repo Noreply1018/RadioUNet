@@ -29,6 +29,14 @@ def run(command: list[str]) -> None:
     subprocess.run(command, cwd=ROOT, check=True)
 
 
+def completed_manifest(run_dir: Path) -> bool:
+    manifest_path = run_dir / "cars_run_manifest.json"
+    if not manifest_path.exists():
+        return False
+    data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    return data.get("gate", {}).get("pass") is True
+
+
 def manifest(run_dir: Path, config_path: Path, smoke: bool) -> None:
     cfg = load_yaml(config_path)
     figures = sorted((run_dir / "figures").glob("*.png"))
@@ -106,6 +114,7 @@ def main() -> int:
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--device", default="auto")
     parser.add_argument("--smoke", action="store_true")
+    parser.add_argument("--force", action="store_true", help="Overwrite/re-run an existing run directory.")
     args = parser.parse_args()
     names = sorted(RUNS) if args.all else [args.run]
     if not names or names == [None]:
@@ -115,6 +124,14 @@ def main() -> int:
         config_path = ROOT / RUNS[name]
         suffix = "smoke" if args.smoke else "50ep"
         run_dir = ROOT / "reports/full_matrix" / f"{name}_{suffix}"
+        if completed_manifest(run_dir) and not args.force:
+            print(f"skip completed run: {run_dir.relative_to(ROOT)}", flush=True)
+            continue
+        if run_dir.exists() and any(run_dir.iterdir()) and not args.force:
+            raise SystemExit(
+                f"Refusing to overwrite non-empty incomplete run dir: {run_dir.relative_to(ROOT)}. "
+                "Use --force to rerun intentionally."
+            )
         run_dir.mkdir(parents=True, exist_ok=True)
         train_cmd = [
             sys.executable,

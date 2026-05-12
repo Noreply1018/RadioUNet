@@ -1,0 +1,247 @@
+{
+  "command_count": 34,
+  "commands": [
+    {
+      "group": "cars",
+      "name": "s_irt2cars_carinput_thr2_rand1_300",
+      "reason": "missing cars full-run gate",
+      "command": "python scripts/run_full_matrix_cars.py --run s_irt2cars_carinput_thr2_rand1_300 --device auto",
+      "skip_guard": "run_full_matrix_cars.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_dpm_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_dpm_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_dpm_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_dpm_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_dpm_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_dpm_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_dpm_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_dpm_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_dpm_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_dpm_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_dpm_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_dpm_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_dpm_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_dpm_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_dpm_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_dpm_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_dpm_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_dpm_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_dpm_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_dpm_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_dpm_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_dpm_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_dpm_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_irt2_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_irt2_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_irt2_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_irt2_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_irt2_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_irt2_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_irt2_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_irt2_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_irt2_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_irt2_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_irt2_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_irt2_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_irt2_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_irt2_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_irt2_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_irt2_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_irt2_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_irt2_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_irt2_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_irt2_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_irt2_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_irt2_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_irt2_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_irt2_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_rand_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_rand_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_rand_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_rand_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_rand_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_rand_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_rand_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_rand_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_rand_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "c_rand_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/c_rand_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/c_rand_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_rand_missing0",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_rand_irt4_missing0_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_rand_irt4_missing0_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_rand_missing1",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_rand_irt4_missing1_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_rand_irt4_missing1_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_rand_missing2",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_rand_irt4_missing2_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_rand_irt4_missing2_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "missing_fixed_receiver",
+      "name": "s_rand_missing4",
+      "reason": "missing fixed receiver full run",
+      "command": "python scripts/run_stage4_experiment.py --config configs/s_rand_irt4_missing4_fixedrx_adapt.yaml --run-dir reports/full_matrix/s_rand_irt4_missing4_fixedrx_adapt_50ep --device auto",
+      "skip_guard": "run_stage4_experiment.py skips completed manifest unless --force is supplied"
+    },
+    {
+      "group": "wnet_size",
+      "name": "small",
+      "reason": "missing model-size full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_small.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_small_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "wnet_size",
+      "name": "base",
+      "reason": "missing model-size full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_base.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_base_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "wnet_size",
+      "name": "large",
+      "reason": "missing model-size full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_large.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_large_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "threshold",
+      "name": "0.0",
+      "reason": "missing threshold full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr0p0.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p0_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "threshold",
+      "name": "0.1",
+      "reason": "missing threshold full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr0p1.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p1_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "threshold",
+      "name": "0.2",
+      "reason": "missing threshold full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr0p2.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p2_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "threshold",
+      "name": "0.3",
+      "reason": "missing threshold full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr0p3.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p3_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "threshold",
+      "name": "0.4",
+      "reason": "missing threshold full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr0p4.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p4_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    },
+    {
+      "group": "split",
+      "name": "400_100_200",
+      "reason": "missing split full run metrics/rerun/figures",
+      "command": "python scripts/train.py --config configs/c_dpm_thr2_split400_100_200.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_split400_100_200_50ep",
+      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+    }
+  ],
+  "gate": {
+    "pass": false,
+    "reason": "Full-run gaps remain; commands are generated with no-repeat guards where available."
+  }
+}

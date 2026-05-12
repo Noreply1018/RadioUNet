@@ -400,6 +400,7 @@ def main() -> int:
         "configs": configs,
         "runs": runs,
         "figures": figures,
+        "remaining_full_run_commands": "reports/full_matrix/remaining_full_run_commands.json",
         "requirements": [],
         "gate": {},
     }

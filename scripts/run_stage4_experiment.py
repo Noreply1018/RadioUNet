@@ -56,6 +56,14 @@ def run_command(command: list[str], log_path: Path) -> None:
         raise RuntimeError(f"Command failed with exit code {result.returncode}: {' '.join(command)}. See {log_path}")
 
 
+def completed_manifest(run_dir: Path) -> bool:
+    manifest_path = run_dir / "stage4_run_manifest.json"
+    if not manifest_path.exists():
+        return False
+    data = load_json(manifest_path)
+    return data.get("gate", {}).get("pass") is True
+
+
 def split_counts(config: dict[str, Any]) -> dict[str, int]:
     return {split: len(build_dataset(config, split)) for split in ["train", "val", "test"]}
 
@@ -125,11 +133,17 @@ def main() -> int:
     parser.add_argument("--epochs", type=int)
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--figures", type=int, default=8)
+    parser.add_argument("--force", action="store_true", help="Overwrite/re-run an existing run directory.")
     args = parser.parse_args()
 
     config_path = Path(args.config)
     config = load_yaml(config_path)
     run_dir = Path(args.run_dir)
+    if completed_manifest(run_dir) and not args.force:
+        print(f"skip completed run: {run_dir}")
+        return 0
+    if run_dir.exists() and any(run_dir.iterdir()) and not args.force:
+        raise SystemExit(f"Refusing to overwrite non-empty incomplete run dir: {run_dir}. Use --force to rerun intentionally.")
     run_dir.mkdir(parents=True, exist_ok=True)
     logs_dir = run_dir / "logs"
     checkpoint = run_dir / "checkpoints" / "secondU.pt"
