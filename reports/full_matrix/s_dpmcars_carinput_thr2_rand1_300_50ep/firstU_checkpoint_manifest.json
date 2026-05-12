@@ -1,0 +1,7 @@
+{
+  "phase": "firstU",
+  "checkpoint": "reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_50ep/checkpoints/firstU.pt",
+  "sha256": "82eec61c80a998684745d8abea14683216a71c64da24bed7c3118a38717dd6fa",
+  "tracked_in_git": false,
+  "note": "Checkpoint files are intentionally ignored by git; reproduce them with the saved config and command log."
+}

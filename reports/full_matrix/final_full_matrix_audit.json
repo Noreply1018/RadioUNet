@@ -1,15 +1,15 @@
 {
   "objective": "严格完成 plan.md 的论文 full-matrix reproduction 收尾。",
   "git": {
-    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
+    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
     "dirty": true,
-    "status_short": "M reports/full_matrix/coarse_simulation_audit.json\n M reports/full_matrix/coarse_simulation_audit.md\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_full_matrix_readiness.py\n?? reports/c_dpm_thr2/20260506_182311/firstU_test_metrics_rerun.json\n?? reports/full_matrix/c_irt2_thr2_50ep/",
+    "status_short": "M docs/full_matrix_reproduction_summary.md\n M reports/full_matrix/cars_audit.json\n M reports/full_matrix/cars_audit.md\n M reports/full_matrix/coarse_simulation_audit.json\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M reports/full_matrix/irt4_transfer_matrix.json\n M scripts/audit_full_matrix_readiness.py\n?? reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_50ep/",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "e06c916ebcf76c4fa3fc82f245c4da023cdbc336",
+    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
     "dirty": true,
-    "status_short": "M scripts/audit_full_matrix_readiness.py",
+    "status_short": "M docs/full_matrix_reproduction_summary.md\n M scripts/audit_full_matrix_readiness.py",
     "exclude_paths": [
       "reports"
     ]
@@ -803,30 +803,30 @@
   "requirements": [
     {
       "requirement": "1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。",
-      "evidence": "DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。",
+      "evidence": "由 reports/full_matrix/coarse_simulation_audit.json 检查 DPM/IRT2/rand x C/S 的 metrics、rerun、history、manifest 和 8 张图。",
       "paths": [
         "configs/c_irt2_thr2.yaml",
         "configs/s_irt2_thr2_rand1_300.yaml",
         "configs/c_rand_thr2.yaml",
         "configs/s_rand_thr2_rand1_300.yaml"
       ],
-      "pass": false,
-      "blocking_gap": "缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。"
+      "pass": true,
+      "blocking_gap": "无。"
     },
     {
       "requirement": "2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。",
-      "evidence": "DPM-source C/S zero-shot/adapt 已有主要产物；IRT2/rand-source transfer 只有配置骨架。",
+      "evidence": "由 reports/full_matrix/irt4_transfer_matrix.json 检查 12 个 zero-shot/adapt 单元、Tx 0/1、init checkpoint、sparse policy、rerun 和图。",
       "paths": [
         "scripts/audit_stage3c_final.py",
         "configs/c_irt2_irt4_adapt.yaml",
         "configs/s_rand_irt4_adapt.yaml"
       ],
-      "pass": false,
-      "blocking_gap": "缺 IRT2/rand source checkpoint，不能完成对应 zero-shot/adapt；缺 reports/full_matrix/irt4_transfer_matrix。"
+      "pass": true,
+      "blocking_gap": "无。"
     },
     {
       "requirement": "3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。",
-      "evidence": "cars 数据目录存在；cars configs 已补；尚无 cars 训练/评估/审计产物。",
+      "evidence": "由 reports/full_matrix/cars_audit.json 检查 cars target、cars input channel、metrics/rerun、manifest 和 qualitative figures。",
       "paths": [
         "RadioMapSeer/gain/carsDPM",
         "RadioMapSeer/gain/carsIRT2",
@@ -834,7 +834,7 @@
         "configs/s_dpmcars_carinput_thr2_rand1_300.yaml"
       ],
       "pass": false,
-      "blocking_gap": "缺 cars full runs、cars_audit、cars qualitative figures。"
+      "blocking_gap": "未通过 run：s_irt2cars_carinput_thr2_rand1_300。"
     },
     {
       "requirement": "4. Missing buildings 全矩阵与 fixed receiver 对照。",

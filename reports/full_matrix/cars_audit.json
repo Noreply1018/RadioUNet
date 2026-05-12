@@ -1,8 +1,8 @@
 {
   "git": {
-    "commit": "545907f1ad08c186084f9b0681287610ec272c23",
-    "dirty": false,
-    "status_short": "",
+    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
+    "dirty": true,
+    "status_short": "M scripts/audit_full_matrix_readiness.py",
     "exclude_paths": [
       "reports"
     ]
@@ -163,7 +163,7 @@
       "name": "s_dpmcars_carinput_thr2_rand1_300",
       "config": "configs/s_dpmcars_carinput_thr2_rand1_300.yaml",
       "run_dir": "reports/full_matrix/s_dpmcars_carinput_thr2_rand1_300_50ep",
-      "exists": false,
+      "exists": true,
       "model": "S",
       "simulation": "DPM",
       "cars_simulation": "yes",
@@ -197,7 +197,31 @@
           "cars_input_dir_from_loader": "RadioMapSeer/png/cars/"
         }
       },
-      "gate": false
+      "firstU_metrics_exists": true,
+      "firstU_rerun_exists": true,
+      "firstU_rerun_max_abs_diff": 0.0,
+      "firstU_mse": 0.0003723033921205294,
+      "firstU_metrics_git_dirty": false,
+      "secondU_metrics_exists": true,
+      "secondU_rerun_exists": true,
+      "secondU_rerun_max_abs_diff": 0.0,
+      "secondU_mse": 0.0002886246175104602,
+      "secondU_metrics_git_dirty": false,
+      "history": {
+        "firstU": {
+          "train_entries": 50,
+          "val_entries": 50
+        },
+        "secondU": {
+          "train_entries": 50,
+          "val_entries": 50
+        }
+      },
+      "figure_count": 8,
+      "figures_nonempty": true,
+      "manifest_exists": true,
+      "secondU_not_worse_than_firstU": true,
+      "gate": true
     },
     {
       "name": "s_irt2cars_carinput_thr2_rand1_300",

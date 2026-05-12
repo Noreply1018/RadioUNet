@@ -8,9 +8,8 @@
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `c_dpmcars_thr2` | C | DPM | no | 0.0007187337 | 0.0006577803 | 0.107843 | 0 | 8 | `True` |
 | `c_irt2cars_thr2` | C | IRT2 | no | 0.0012851286 | 0.0012216588 | 0.107843 | 0 | 8 | `True` |
-| `s_dpmcars_carinput_thr2_rand1_300` | S | DPM | yes | nan | nan | 27.500000 | 772 | 0 | `False` |
+| `s_dpmcars_carinput_thr2_rand1_300` | S | DPM | yes | 0.0003723034 | 0.0002886246 | 27.500000 | 772 | 8 | `True` |
 | `s_irt2cars_carinput_thr2_rand1_300` | S | IRT2 | yes | nan | nan | 27.500000 | 772 | 0 | `False` |
 
 ## 缺口
-- `s_dpmcars_carinput_thr2_rand1_300` 未满足 gate；运行 `python scripts/run_full_matrix_cars.py --run s_dpmcars_carinput_thr2_rand1_300 --device auto`。
 - `s_irt2cars_carinput_thr2_rand1_300` 未满足 gate；运行 `python scripts/run_full_matrix_cars.py --run s_irt2cars_carinput_thr2_rand1_300 --device auto`。

@@ -3,14 +3,14 @@
 ## 结论
 - final gate：`False`。
 - 这次审计没有把缺失矩阵伪装为完成；所有未覆盖项均标为 blocking gap。
-- 当前 git 状态（排除 reports）：dirty=`True`，commit=`e06c916ebcf76c4fa3fc82f245c4da023cdbc336`。
+- 当前 git 状态（排除 reports）：dirty=`True`，commit=`c4fab8a4457607b90da7b4f518907854aea4b778`。
 
 ## Prompt-to-artifact checklist
 | 要求 | 证据 | 通过 | 缺口 |
 | --- | --- | --- | --- |
-| 1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。 | DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。 | `False` | 缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。 |
-| 2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。 | DPM-source C/S zero-shot/adapt 已有主要产物；IRT2/rand-source transfer 只有配置骨架。 | `False` | 缺 IRT2/rand source checkpoint，不能完成对应 zero-shot/adapt；缺 reports/full_matrix/irt4_transfer_matrix。 |
-| 3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。 | cars 数据目录存在；cars configs 已补；尚无 cars 训练/评估/审计产物。 | `False` | 缺 cars full runs、cars_audit、cars qualitative figures。 |
+| 1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。 | 由 reports/full_matrix/coarse_simulation_audit.json 检查 DPM/IRT2/rand x C/S 的 metrics、rerun、history、manifest 和 8 张图。 | `True` | 无。 |
+| 2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。 | 由 reports/full_matrix/irt4_transfer_matrix.json 检查 12 个 zero-shot/adapt 单元、Tx 0/1、init checkpoint、sparse policy、rerun 和图。 | `True` | 无。 |
+| 3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。 | 由 reports/full_matrix/cars_audit.json 检查 cars target、cars input channel、metrics/rerun、manifest 和 qualitative figures。 | `False` | 未通过 run：s_irt2cars_carinput_thr2_rand1_300。 |
 | 4. Missing buildings 全矩阵与 fixed receiver 对照。 | official-loader-faithful missing0/1/2/4 已有；fixed receiver loader 参数、DPM-source configs 和 hash-level policy audit 已补。 | `False` | 缺 fixed receiver policy 的 full runs/metrics/rerun/manifest；缺 IRT2/rand source missing matrix。 |
 | 5. Sample count 曲线与 state-of-the-art 对比：RadioUNet_S、RBF、TC、tomography、MLP、C baseline。 | 已有 RadioUNet_S sample-count ablation；传统/MLP baseline 脚本和结果缺失。 | `False` | 缺 src/radiounet/baselines.py、run_state_of_art_baselines.py、baseline metrics/runtime、公平性审计。 |
 | 6. WNet/model size/threshold 矩阵：size、with/without secondU、threshold、400/100/200 split。 | 当前模型未参数化 size；threshold/split 矩阵缺失。 | `False` | 缺模型 size 参数化、参数量/architecture hash、threshold preprocessing audit、split overlap audit。 |
@@ -76,8 +76,8 @@
 | `s_irt4_missing4_zeroshot` | `reports/missing_buildings/zeroshot_s_missing4/zeroshot_test_metrics.json` | 198 | 0.0 | `True` |
 
 ## 下一批必须执行的命令
-1. 先跑 `python scripts/generate_full_matrix_configs.py` 固化配置。
-2. 对 IRT2/rand coarse configs 跑 smoke audit 和 50 epoch firstU+secondU。
-3. 用 IRT2/rand firstU checkpoint 跑 IRT4 zero-shot/adapt 矩阵。
-4. 跑 cars、fixed receiver missing、baselines、model size/threshold/split 矩阵。
-5. 每批跑对应 audit 后重跑本脚本，直到 final gate 为 `True`。
+1. 补 `python scripts/run_full_matrix_cars.py --run s_irt2cars_carinput_thr2_rand1_300 --device auto`。
+2. 跑 missing buildings fixed receiver full runs，并补 IRT2/rand source missing matrix。
+3. 实现并运行 state-of-the-art baselines：RBF、tensor completion、tomography、MLP。
+4. 补 model size、with/without secondU、threshold、400/100/200 split 矩阵。
+5. 每批跑对应 audit 后重跑 `python scripts/audit_full_matrix_readiness.py`，直到 final gate 为 `True`。

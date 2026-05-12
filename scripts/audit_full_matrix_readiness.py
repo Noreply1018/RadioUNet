@@ -221,27 +221,47 @@ def build_requirements(configs: dict[str, Any], runs: dict[str, Any], figures: d
     def all_configs(names: list[str]) -> bool:
         return all(configs.get(name, {}).get("gate") for name in names)
 
+    def audit_gate(path: str) -> bool:
+        audit_path = ROOT / path
+        if not audit_path.exists():
+            return False
+        return load_json(path).get("gate", {}).get("pass") is True
+
+    def audit_missing(path: str, key: str = "runs") -> list[str]:
+        audit_path = ROOT / path
+        if not audit_path.exists():
+            return ["audit file missing"]
+        audit = load_json(path)
+        return [row.get("name", "<unknown>") for row in audit.get(key, []) if row.get("gate") is not True]
+
+    coarse_missing = audit_missing("reports/full_matrix/coarse_simulation_audit.json")
+    irt4_missing = audit_missing("reports/full_matrix/irt4_transfer_matrix.json")
+    cars_missing = audit_missing("reports/full_matrix/cars_audit.json")
+    coarse_pass = audit_gate("reports/full_matrix/coarse_simulation_audit.json")
+    irt4_pass = audit_gate("reports/full_matrix/irt4_transfer_matrix.json")
+    cars_pass = audit_gate("reports/full_matrix/cars_audit.json")
+
     rows = [
         {
             "requirement": "1. Coarse simulation 全矩阵：DPM/IRT2/rand x C/S，50 epoch firstU+secondU，metrics/rerun/history/manifest/8图。",
-            "evidence": "DPM C/S 已有；C/IRT2 full run 已补齐；IRT2-S 和 rand C/S full runs 尚缺。",
+            "evidence": "由 reports/full_matrix/coarse_simulation_audit.json 检查 DPM/IRT2/rand x C/S 的 metrics、rerun、history、manifest 和 8 张图。",
             "paths": ["configs/c_irt2_thr2.yaml", "configs/s_irt2_thr2_rand1_300.yaml", "configs/c_rand_thr2.yaml", "configs/s_rand_thr2_rand1_300.yaml"],
-            "pass": False,
-            "blocking_gap": "缺 S/IRT2、C/rand、S/rand 的 50 epoch run、rerun、manifest、qualitative figures。",
+            "pass": coarse_pass,
+            "blocking_gap": "无。" if coarse_pass else f"未通过 run：{', '.join(coarse_missing)}。",
         },
         {
             "requirement": "2. IRT4 transfer 全矩阵：source DPM/IRT2/rand x C/S x zero-shot/adapt。",
-            "evidence": "DPM-source C/S zero-shot/adapt 已有主要产物；IRT2/rand-source transfer 只有配置骨架。",
+            "evidence": "由 reports/full_matrix/irt4_transfer_matrix.json 检查 12 个 zero-shot/adapt 单元、Tx 0/1、init checkpoint、sparse policy、rerun 和图。",
             "paths": ["scripts/audit_stage3c_final.py", "configs/c_irt2_irt4_adapt.yaml", "configs/s_rand_irt4_adapt.yaml"],
-            "pass": False,
-            "blocking_gap": "缺 IRT2/rand source checkpoint，不能完成对应 zero-shot/adapt；缺 reports/full_matrix/irt4_transfer_matrix。",
+            "pass": irt4_pass,
+            "blocking_gap": "无。" if irt4_pass else f"未通过 run：{', '.join(irt4_missing)}。",
         },
         {
             "requirement": "3. Cars 场景完整复现：DPM/IRT2/IRT4 cars、cars input、no-cars 对照。",
-            "evidence": "cars 数据目录存在；cars configs 已补；尚无 cars 训练/评估/审计产物。",
+            "evidence": "由 reports/full_matrix/cars_audit.json 检查 cars target、cars input channel、metrics/rerun、manifest 和 qualitative figures。",
             "paths": ["RadioMapSeer/gain/carsDPM", "RadioMapSeer/gain/carsIRT2", "RadioMapSeer/gain/carsIRT4", "configs/s_dpmcars_carinput_thr2_rand1_300.yaml"],
-            "pass": False,
-            "blocking_gap": "缺 cars full runs、cars_audit、cars qualitative figures。",
+            "pass": cars_pass,
+            "blocking_gap": "无。" if cars_pass else f"未通过 run：{', '.join(cars_missing)}。",
         },
         {
             "requirement": "4. Missing buildings 全矩阵与 fixed receiver 对照。",
@@ -337,11 +357,11 @@ def write_markdown(audit: dict[str, Any]) -> None:
         [
             "",
             "## 下一批必须执行的命令",
-            "1. 先跑 `python scripts/generate_full_matrix_configs.py` 固化配置。",
-            "2. 对 IRT2/rand coarse configs 跑 smoke audit 和 50 epoch firstU+secondU。",
-            "3. 用 IRT2/rand firstU checkpoint 跑 IRT4 zero-shot/adapt 矩阵。",
-            "4. 跑 cars、fixed receiver missing、baselines、model size/threshold/split 矩阵。",
-            "5. 每批跑对应 audit 后重跑本脚本，直到 final gate 为 `True`。",
+            "1. 补 `python scripts/run_full_matrix_cars.py --run s_irt2cars_carinput_thr2_rand1_300 --device auto`。",
+            "2. 跑 missing buildings fixed receiver full runs，并补 IRT2/rand source missing matrix。",
+            "3. 实现并运行 state-of-the-art baselines：RBF、tensor completion、tomography、MLP。",
+            "4. 补 model size、with/without secondU、threshold、400/100/200 split 矩阵。",
+            "5. 每批跑对应 audit 后重跑 `python scripts/audit_full_matrix_readiness.py`，直到 final gate 为 `True`。",
         ]
     )
     (OUT_DIR / "final_full_matrix_audit.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -356,7 +376,8 @@ def write_summary(audit: dict[str, Any]) -> None:
         f"- 当前通过项：{passed}/{total}。",
         f"- final gate：`{audit['gate']['pass']}`。",
         "- reduced reproduction 仍以 `reports/final_reproduction_audit.*` 为准；full matrix 交付以 `reports/full_matrix/final_full_matrix_audit.*` 为准。",
-        "- 当前主要缺口：IRT2/rand full runs、cars runs、fixed receiver missing runs、state-of-the-art baselines、model size/threshold/split 矩阵。",
+        "- 当前已通过：coarse simulation 全矩阵、IRT4 transfer 全矩阵、论文图表级现有子集汇总。",
+        "- 当前主要缺口：`s_irt2cars_carinput_thr2_rand1_300` cars full run、fixed receiver/missing 全矩阵、state-of-the-art baselines、model size/threshold/split 矩阵。",
     ]
     DOC_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

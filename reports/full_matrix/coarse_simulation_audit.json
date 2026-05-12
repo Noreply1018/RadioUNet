@@ -1,8 +1,8 @@
 {
   "git": {
-    "commit": "2438952b1a89a662c4c52bcd8889d7f2e3c09073",
-    "dirty": false,
-    "status_short": "",
+    "commit": "c4fab8a4457607b90da7b4f518907854aea4b778",
+    "dirty": true,
+    "status_short": "M scripts/audit_full_matrix_readiness.py",
     "exclude_paths": [
       "reports"
     ]
