@@ -53,6 +53,10 @@ def config_exists(path: str) -> bool:
     return (ROOT / path).exists()
 
 
+def load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def size_rows() -> list[dict[str, Any]]:
     rows = []
     for label, path in SIZE_CONFIGS.items():
@@ -75,6 +79,11 @@ def size_rows() -> list[dict[str, Any]]:
                     "shape_gate": all(list(output.shape) == [1, 1, 256, 256] for output in outputs),
                 }
             )
+            smoke_dir = ROOT / "reports/full_matrix" / f"{Path(path).stem}_smoke"
+            smoke_manifest = smoke_dir / "wnet_matrix_manifest.json"
+            row["smoke_dir"] = str(smoke_dir.relative_to(ROOT))
+            row["smoke_manifest_exists"] = smoke_manifest.exists()
+            row["smoke_gate"] = load_json(smoke_manifest).get("gate", {}).get("pass") is True if smoke_manifest.exists() else False
         row["gate"] = bool(row.get("config_exists") and row.get("shape_gate") and row.get("parameters", 0) > 0)
         rows.append(row)
     return rows
@@ -152,6 +161,9 @@ def write_markdown(audit: dict[str, Any]) -> None:
             f"| `{row['label']}` | {row.get('width_scale', '')} | {row.get('parameters', '')} | "
             f"`{row.get('architecture_hash', '')}` | `{row.get('shape_gate')}` |"
         )
+    lines.extend(["", "## Smoke Evidence", "| label | smoke manifest | smoke gate |", "| --- | --- | ---: |"])
+    for row in audit["model_size"]:
+        lines.append(f"| `{row['label']}` | `{row.get('smoke_dir', '')}` | `{row.get('smoke_gate', False)}` |")
     lines.extend(["", "## Threshold", "| threshold | target mean | diff vs 0.2 max | gate |", "| ---: | ---: | ---: | ---: |"])
     for row in audit["thresholds"]:
         lines.append(
@@ -180,6 +192,7 @@ def main() -> int:
         "model_size_ready": all(row["gate"] for row in sizes),
         "threshold_ready": all(row["gate"] for row in thresholds),
         "split_ready": split["gate"],
+        "smoke_cells_passed": any(row.get("smoke_gate") for row in sizes),
         "full_runs_complete": False,
     }
     gate["pass"] = all(gate.values())

@@ -11,6 +11,13 @@
 | `base` | 1.0 | 13274031 | `b93a681aa8d558252ac91352f8419a0194525ba9fef4d35cd290172daddf76f3` | `True` |
 | `large` | 1.5 | 29860858 | `48284e7921d2b45215b1225cb60e7cede08a0f3fc0174735aa84daeb148dc83b` | `True` |
 
+## Smoke Evidence
+| label | smoke manifest | smoke gate |
+| --- | --- | ---: |
+| `small` | `reports/full_matrix/c_dpm_thr2_size_small_smoke` | `True` |
+| `base` | `reports/full_matrix/c_dpm_thr2_size_base_smoke` | `False` |
+| `large` | `reports/full_matrix/c_dpm_thr2_size_large_smoke` | `False` |
+
 ## Threshold
 | threshold | target mean | diff vs 0.2 max | gate |
 | ---: | ---: | ---: | ---: |

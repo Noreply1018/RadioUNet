@@ -1,16 +1,16 @@
 {
   "git": {
-    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
     "dirty": true,
-    "status_short": "M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "status_short": "M scripts/audit_wnet_size_threshold.py\n?? scripts/run_wnet_matrix_experiment.py",
     "exclude_paths": [
       "reports"
     ]
   },
   "artifact_git": {
-    "commit": "3a2d66caba5e665f442d33aa15888310906fa7e8",
+    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
     "dirty": true,
-    "status_short": "M src/radiounet/factory.py\n M src/radiounet/models.py\n?? configs/c_dpm_thr0p0.yaml\n?? configs/c_dpm_thr0p1.yaml\n?? configs/c_dpm_thr0p2.yaml\n?? configs/c_dpm_thr0p3.yaml\n?? configs/c_dpm_thr0p4.yaml\n?? configs/c_dpm_thr2_size_base.yaml\n?? configs/c_dpm_thr2_size_large.yaml\n?? configs/c_dpm_thr2_size_small.yaml\n?? configs/c_dpm_thr2_split400_100_200.yaml\n?? scripts/audit_wnet_size_threshold.py\n?? scripts/generate_wnet_size_threshold_configs.py",
+    "status_short": "M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M scripts/audit_wnet_size_threshold.py\n?? reports/full_matrix/c_dpm_thr2_size_small_smoke/\n?? scripts/run_wnet_matrix_experiment.py",
     "exclude_paths": []
   },
   "model_size": [
@@ -43,6 +43,9 @@
         ]
       ],
       "shape_gate": true,
+      "smoke_dir": "reports/full_matrix/c_dpm_thr2_size_small_smoke",
+      "smoke_manifest_exists": true,
+      "smoke_gate": true,
       "gate": true
     },
     {
@@ -74,6 +77,9 @@
         ]
       ],
       "shape_gate": true,
+      "smoke_dir": "reports/full_matrix/c_dpm_thr2_size_base_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": true
     },
     {
@@ -105,6 +111,9 @@
         ]
       ],
       "shape_gate": true,
+      "smoke_dir": "reports/full_matrix/c_dpm_thr2_size_large_smoke",
+      "smoke_manifest_exists": false,
+      "smoke_gate": false,
       "gate": true
     }
   ],
@@ -319,6 +328,7 @@
     "model_size_ready": true,
     "threshold_ready": true,
     "split_ready": true,
+    "smoke_cells_passed": true,
     "full_runs_complete": false,
     "pass": false
   },

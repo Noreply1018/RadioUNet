@@ -1,0 +1,54 @@
+{
+  "config": "configs/c_dpm_thr2_size_small.yaml",
+  "run_dir": "reports/full_matrix/c_dpm_thr2_size_small_smoke",
+  "smoke": true,
+  "width_scale": 0.5,
+  "threshold": 0.2,
+  "split_policy": "legacy",
+  "parameters": 3320454,
+  "checkpoint_sha256": {
+    "firstU": "f5f472706cd1c5335e37f32b1224a4862f99cd94abccdd6c0818ac99460219aa",
+    "secondU": "8b5087e9c5628f29e7fa2ae497a538282ae19276ccf400a165dc8c7d4740ce8b"
+  },
+  "history": {
+    "firstU": {
+      "train_entries": 1,
+      "val_entries": 1
+    },
+    "secondU": {
+      "train_entries": 1,
+      "val_entries": 1
+    }
+  },
+  "metrics": {
+    "firstU": "reports/full_matrix/c_dpm_thr2_size_small_smoke/firstU_test_metrics.json",
+    "secondU": "reports/full_matrix/c_dpm_thr2_size_small_smoke/secondU_test_metrics.json"
+  },
+  "figures": [
+    "reports/full_matrix/c_dpm_thr2_size_small_smoke/figures/c_dpm_thr2_size_small_test_0000.png",
+    "reports/full_matrix/c_dpm_thr2_size_small_smoke/figures/c_dpm_thr2_size_small_test_0001.png"
+  ],
+  "git": {
+    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
+    "dirty": true,
+    "status_short": "?? scripts/run_wnet_matrix_experiment.py",
+    "exclude_paths": [
+      "reports"
+    ]
+  },
+  "artifact_git": {
+    "commit": "98c674dbf97842c0a0902ecec7f0609a3475bcdd",
+    "dirty": true,
+    "status_short": "?? reports/full_matrix/c_dpm_thr2_size_small_smoke/\n?? scripts/run_wnet_matrix_experiment.py",
+    "exclude_paths": []
+  },
+  "gate": {
+    "firstU_rerun_exact": true,
+    "secondU_rerun_exact": true,
+    "figures_count": true,
+    "figures_nonempty": true,
+    "history_present": true,
+    "epochs_50_or_smoke": true,
+    "pass": true
+  }
+}

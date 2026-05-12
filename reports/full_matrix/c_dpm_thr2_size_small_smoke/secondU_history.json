@@ -1,0 +1,22 @@
+{
+  "phase": "secondU",
+  "best_val_loss": 0.07556673884391785,
+  "history": [
+    {
+      "epoch": 0,
+      "split": "train",
+      "loss": 0.07644054293632507,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 2
+    },
+    {
+      "epoch": 0,
+      "split": "val",
+      "loss": 0.07556673884391785,
+      "loss_mode": "dense_mse",
+      "num_samples_for_loss": null,
+      "samples": 2
+    }
+  ]
+}

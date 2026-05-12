@@ -180,64 +180,64 @@
       "group": "wnet_size",
       "name": "small",
       "reason": "missing model-size full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_small.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_small_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr2_size_small.yaml --run-dir reports/full_matrix/c_dpm_thr2_size_small_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "wnet_size",
       "name": "base",
       "reason": "missing model-size full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_base.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_base_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr2_size_base.yaml --run-dir reports/full_matrix/c_dpm_thr2_size_base_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "wnet_size",
       "name": "large",
       "reason": "missing model-size full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr2_size_large.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_size_large_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr2_size_large.yaml --run-dir reports/full_matrix/c_dpm_thr2_size_large_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "threshold",
       "name": "0.0",
       "reason": "missing threshold full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr0p0.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p0_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr0p0.yaml --run-dir reports/full_matrix/c_dpm_thr0p0_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "threshold",
       "name": "0.1",
       "reason": "missing threshold full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr0p1.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p1_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr0p1.yaml --run-dir reports/full_matrix/c_dpm_thr0p1_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "threshold",
       "name": "0.2",
       "reason": "missing threshold full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr0p2.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p2_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr0p2.yaml --run-dir reports/full_matrix/c_dpm_thr0p2_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "threshold",
       "name": "0.3",
       "reason": "missing threshold full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr0p3.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p3_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr0p3.yaml --run-dir reports/full_matrix/c_dpm_thr0p3_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "threshold",
       "name": "0.4",
       "reason": "missing threshold full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr0p4.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr0p4_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr0p4.yaml --run-dir reports/full_matrix/c_dpm_thr0p4_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     },
     {
       "group": "split",
       "name": "400_100_200",
       "reason": "missing split full run metrics/rerun/figures",
-      "command": "python scripts/train.py --config configs/c_dpm_thr2_split400_100_200.yaml --phase both --device auto --run-dir reports/full_matrix/c_dpm_thr2_split400_100_200_50ep",
-      "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest"
+      "command": "python scripts/run_wnet_matrix_experiment.py --config configs/c_dpm_thr2_split400_100_200.yaml --run-dir reports/full_matrix/c_dpm_thr2_split400_100_200_50ep --device auto",
+      "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied"
     }
   ],
   "gate": {

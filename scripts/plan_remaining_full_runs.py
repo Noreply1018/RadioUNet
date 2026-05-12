@@ -59,8 +59,8 @@ def main() -> int:
                     "group": "wnet_size",
                     "name": row["label"],
                     "reason": "missing model-size full run metrics/rerun/figures",
-                    "command": f"python scripts/train.py --config {config} --phase both --device auto --run-dir {run_dir}",
-                    "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest",
+                    "command": f"python scripts/run_wnet_matrix_experiment.py --config {config} --run-dir {run_dir} --device auto",
+                    "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied",
                 }
             )
     for row in wnet.get("thresholds", []):
@@ -72,8 +72,8 @@ def main() -> int:
                     "group": "threshold",
                     "name": str(row["threshold"]),
                     "reason": "missing threshold full run metrics/rerun/figures",
-                    "command": f"python scripts/train.py --config {config} --phase both --device auto --run-dir {run_dir}",
-                    "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest",
+                    "command": f"python scripts/run_wnet_matrix_experiment.py --config {config} --run-dir {run_dir} --device auto",
+                    "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied",
                 }
             )
     split = wnet.get("split", {})
@@ -86,8 +86,8 @@ def main() -> int:
                     "group": "split",
                     "name": "400_100_200",
                     "reason": "missing split full run metrics/rerun/figures",
-                    "command": f"python scripts/train.py --config {config} --phase both --device auto --run-dir {run_dir}",
-                    "skip_guard": "manual check required before running train.py; do not run if run_dir already has a passing manifest",
+                    "command": f"python scripts/run_wnet_matrix_experiment.py --config {config} --run-dir {run_dir} --device auto",
+                    "skip_guard": "run_wnet_matrix_experiment.py skips completed manifest unless --force is supplied",
                 }
             )
 
