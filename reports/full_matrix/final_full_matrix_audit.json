@@ -1,15 +1,15 @@
 {
   "objective": "完成 RadioUNet 核心实验可审计复现收尾。",
   "git": {
-    "commit": "122048e702b3578601bac606419117adf9fdd79e",
-    "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M plan.md\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/c_dpm_irt4_missing0_fixedrx_adapt.yaml\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0000.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0001.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0002.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0003.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0004.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0005.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0006.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/figures/c_dpm_irt4_missing0_fixedrx_adapt_test_0007.png\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/run_metadata.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/secondU_checkpoint_manifest.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/secondU_history.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/secondU_test_metrics.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/secondU_test_metrics_rerun.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_missing_loader_audit/c_dpm_irt4_missing0_fixedrx_adapt_missing_loader_audit.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_missing_loader_audit/c_dpm_irt4_missing0_fixedrx_adapt_missing_loader_audit.md\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_run_manifest.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_run_manifest.md\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_sparse_audit/c_dpm_irt4_missing0_fixedrx_adapt_audit.json\nA  reports/full_matrix/c_dpm_irt4_missing0_fixedrx_adapt_50ep/stage4_sparse_audit/c_dpm_irt4_missing0_fixedrx_adapt_audit.md\n M reports/full_matrix/final_full_matrix_audit.json\n M reports/full_matrix/final_full_matrix_audit.md\n M reports/full_matrix/paper_table_reproduction.json\n M reports/full_matrix/paper_table_reproduction.md\nMM scripts/audit_full_matrix_readiness.py",
+    "commit": "dbcb236787790d72105800d11034deedc14cf1fc",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": []
   },
   "git_excluding_reports": {
-    "commit": "122048e702b3578601bac606419117adf9fdd79e",
-    "dirty": true,
-    "status_short": "M docs/full_matrix_reproduction_summary.md\n M plan.md\nMM scripts/audit_full_matrix_readiness.py",
+    "commit": "dbcb236787790d72105800d11034deedc14cf1fc",
+    "dirty": false,
+    "status_short": "",
     "exclude_paths": [
       "reports"
     ]

@@ -76,6 +76,7 @@ reproduction gate: True
 
 优先阅读以下文件：
 
+- `docs/delivery_to_senior.md`
 - `reports/full_matrix/final_full_matrix_audit.md`
 - `reports/full_matrix/final_full_matrix_audit.json`
 - `docs/full_matrix_reproduction_summary.md`
@@ -143,4 +144,3 @@ RadioMapSeer/
 - cars 场景：在现有 cars 子集与 loader 审计基础上扩展更多 cars input 组合。
 - fixed receiver missing：在 fixed receiver policy/config/smoke 证据基础上扩展 full runs。
 - WNet/model size/threshold：在 readiness 与 smoke 证据基础上扩展 50 epoch 对比矩阵。
-
