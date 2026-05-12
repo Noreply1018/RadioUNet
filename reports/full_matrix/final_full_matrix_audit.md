@@ -4,7 +4,7 @@
 - reproduction gate：`True`。
 - 本次复现项目已完成核心实验链路、关键迁移实验、robustness 子集、baseline proxy 对比和图表级汇总。
 - cars、fixed receiver missing、WNet size/threshold 已归档为 supporting/readiness 证据和后续扩展方向。
-- 当前 git 状态（排除 reports）：dirty=`False`，commit=`dbcb236787790d72105800d11034deedc14cf1fc`。
+- 当前 git 状态（排除 reports）：dirty=`False`，commit=`111317ee66b4b5986cdee2c96091368ab798dc4d`。
 
 ## Scope-to-artifact checklist
 | scope | 要求 | 证据 | 通过 | 说明 |
